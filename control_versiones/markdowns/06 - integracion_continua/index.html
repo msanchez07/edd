@@ -1,0 +1,895 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Manuel Sánchez Gomis">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
+    
+    
+      
+        <title>Integración continua en el ciclo de desarrollo de software - Entornos de desarrollo</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_markdown_exec_pyodide.css">
+    
+      <link rel="stylesheet" href="../../../_static/css/notebook.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#integracion-continua-en-el-ciclo-de-desarrollo-de-software" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Entornos de desarrollo" class="md-header__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Entornos de desarrollo
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Integración continua en el ciclo de desarrollo de software
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo brillante"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo brillante" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Bienvenido
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Introducción al desarrollo de software
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Entornos de desarrollo
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Entornos de desarrollo" class="md-nav__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    Entornos de desarrollo
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bienvenido
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introducción al desarrollo de software
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Introducción al desarrollo de software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/02%20-%20lenguajes_programacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lenguajes de programación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/03%20-%20proceso_obtencion_codigo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proceso de obtención de código
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/04%20-%20desarrollo_aplicaciones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Desarrollo de aplicaciones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/05%20-%20metodologias_agiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metodologías Ágiles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Entornos de desarrollo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Entornos de desarrollo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a los entornos de desarrollo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/02%20-%20intellij/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IntelliJ IDEA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/03%20-%20plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalar plugins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/04%20-%20personalizacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Personalización, automatización y mantenimiento del entorno
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/05%20-%20compilacion_y_ejecutables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generación de ejecutables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#el-problema-de-las-integraciones-tardias" class="md-nav__link">
+    <span class="md-ellipsis">
+      El problema de las integraciones tardías
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ventajas-frente-a-los-procesos-manuales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ventajas frente a los procesos manuales
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fundamentos-y-arquitectura-de-github-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fundamentos y arquitectura de GitHub Actions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creacion-y-configuracion-de-un-flujo-de-trabajo-basico-yaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creación y configuración de un flujo de trabajo básico (YAML)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#el-ciclo-de-vida-de-la-ci-verificacion-deteccion-de-fallos-y-correccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      El ciclo de vida de la CI: verificación, detección de fallos y corrección
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="integracion-continua-en-el-ciclo-de-desarrollo-de-software">Integración continua en el ciclo de desarrollo de software</h1>
+<p>La <strong>integración continua</strong> (CI, <em>Continuous Integration</em>) es la práctica de integrar el trabajo de todos los miembros del equipo en un repositorio compartido de forma frecuente, y de validar automáticamente cada integración con una compilación y una batería de pruebas. Aunque la definición cabe en una frase, la idea que hay detrás merece que nos detengamos: la CI es, en esencia, una forma de detectar los problemas lo antes posible, cuando arreglarlos todavía es barato.</p>
+<h2 id="el-problema-de-las-integraciones-tardias">El problema de las integraciones tardías</h2>
+<p>Para entender por qué la CI supone una mejora tan grande, conviene imaginar cómo se trabajaba antes de que existiera. En un equipo sin integración continua, cada programador avanza en su parte del proyecto durante días o incluso semanas, y solo cuando cree que ha terminado su trabajo lo une al de los demás. Ese momento de juntar todo, que a veces se llama "el infierno de la integración", es donde aparecen los disgustos: resulta que dos personas modificaron la misma función de maneras incompatibles, que una parte del código esperaba algo que la otra ya no devuelve, o que el proyecto entero deja de compilar porque uno de los cambios rompió una pieza que nadie había probado junto a las demás.</p>
+<p>El problema de fondo es que, cuanto más tiempo pasa sin integrar, más se aleja el trabajo de cada uno del de los demás, y más grande es la brecha que habrá que salvar de golpe. Un error introducido hace tres días es fácil de localizar; un error introducido hace tres semanas, entre cientos de cambios, puede llevar horas de búsqueda. La integración tardía convierte lo que debería ser una operación rutinaria en un acontecimiento temido, y concentra todo el riesgo al final del proyecto, justo cuando hay menos tiempo para reaccionar.</p>
+<p>La integración continua da la vuelta a esa lógica: en lugar de integrar una sola vez y al final, se integra <strong>muchas veces y desde el principio</strong>. Cada vez que alguien sube código, el sistema lo compila automáticamente y ejecuta las pruebas. Si algo se ha roto, se sabe a los pocos minutos, y el fallo se puede atribuir con claridad al último cambio que se subió. Ese es el gran salto: pasar de descubrir los problemas semanas después a descubrirlos casi en el momento en que se crean.</p>
+<h2 id="ventajas-frente-a-los-procesos-manuales">Ventajas frente a los procesos manuales</h2>
+<p>Frente a los procesos manuales, donde alguien tiene que acordarse de compilar después de cada cambio, la automatización aporta tres ventajas que se notan enseguida:</p>
+<ul>
+<li><strong>Detección temprana de errores</strong>: el propio sistema avisa de un fallo de compilación minutos después de subir el código, cuando todavía se tiene el contexto fresco y se recuerda exactamente qué se acaba de tocar. Depurar un error recién cometido es muchísimo más rápido que perseguirlo días más tarde.</li>
+<li><strong>Reducción de conflictos en las fusiones</strong>: integrar cambios pequeños y frecuentes evita que dos ramas diverjan durante semanas. Si todo el mundo sincroniza a diario, la distancia entre las versiones es pequeña y los conflictos, cuando aparecen, son fáciles de resolver.</li>
+<li><strong>Consistencia del estado del proyecto</strong>: todos los miembros trabajan sobre una base que se sabe que compila. Cuando alguien se descarga la última versión, tiene la garantía de que, al menos, el proyecto es coherente y compila, lo que evita perder tiempo en problemas que no son suyos.</li>
+</ul>
+<p>A esto se añade una ventaja menos tangible pero igual de importante: la <strong>tranquilidad</strong>. Saber que cada cambio pasa por una verificación automática permite experimentar, refactorizar y avanzar con más seguridad, porque hay una red que avisa si algo se rompe.</p>
+<h2 id="fundamentos-y-arquitectura-de-github-actions">Fundamentos y arquitectura de GitHub Actions</h2>
+<p><strong>GitHub Actions</strong> es la plataforma de automatización que GitHub trae integrada de serie. Al vivir dentro del propio repositorio, no hace falta contratar ni conectar ningún servicio externo: basta con describir en un archivo qué se quiere ejecutar y cuándo, y GitHub se encarga del resto. Esa integración nativa la ha convertido en la puerta de entrada más habitual a la CI para quien ya trabaja con Git y GitHub.</p>
+<p>Para montar un flujo de trabajo conviene tener claros los componentes que entran en juego, porque el vocabulario se repite en toda la documentación:</p>
+<ul>
+<li><strong>Workflows (flujos de trabajo)</strong>: los archivos de configuración que orquestan todo el proceso automatizado. Definen qué se ejecuta, cuándo y en qué condiciones. Se puede pensar en ellos como la "receta" que GitHub seguirá cada vez que ocurra algo relevante.</li>
+<li><strong>Eventos disparadores (Events / Triggers)</strong>: los sucesos que ponen en marcha un flujo de trabajo. Los más habituales son <code>push</code>, cuando se suben cambios al repositorio, y <code>pull_request</code>, cuando se abre o actualiza una solicitud de fusión. Son el "cuándo" del flujo.</li>
+<li><strong>Trabajos (Jobs)</strong>: cada flujo se divide en uno o varios trabajos, que son conjuntos de pasos secuenciales ejecutados en un mismo entorno. Por defecto, los distintos trabajos se lanzan en paralelo, lo que permite, por ejemplo, probar el proyecto en varios sistemas operativos a la vez.</li>
+<li><strong>Pasos (Steps)</strong>: las tareas individuales que componen un trabajo, ya sea un comando que se lanza o una acción que se reutiliza. Son las piezas mínimas de la receta.</li>
+<li><strong>Acciones (Actions)</strong>: módulos reutilizables, publicados por la comunidad o por el propio GitHub, que encapsulan tareas habituales (descargar el código, preparar un JDK, subir un artefacto, etc.). Usar una acción ya hecha evita tener que reinventar lo que miles de proyectos ya resuelven.</li>
+<li><strong>Runners (entornos de ejecución)</strong>: las máquinas virtuales que GitHub levanta en la nube para ejecutar los trabajos. Se eligen con una etiqueta como <code>ubuntu-latest</code>, que indica el sistema operativo del entorno.</li>
+</ul>
+<p>El concepto de <strong>runner</strong> merece una explicación aparte, porque es la pieza que más cuesta imaginar. Un <em>runner</em> es una <strong>máquina virtual temporal y limpia</strong> que GitHub crea en la nube solo para esa ejecución concreta. Arranca vacía, como un ordenador recién instalado que no tiene absolutamente nada: ni el código del proyecto, ni Java, ni ninguna configuración previa. Sobre esa máquina se van ejecutando los pasos del trabajo, y cuando el trabajo termina, <strong>el runner se destruye por completo</strong>. Esa limpieza tiene una consecuencia importantísima: si la compilación funciona en el runner, es porque el proyecto realmente se sostiene por sí mismo, sin depender de nada "raro" que hubiera en el ordenador de quien lo programó. Nadie puede decir aquello de "en mi máquina funcionaba".</p>
+<p>Todo esto vive en una carpeta con una ubicación fija dentro del repositorio: <strong><code>.github/workflows/</code></strong>. Ese convenio no es opcional: si los archivos de flujo no están ahí, GitHub nunca llegará a encontrarlos. Es la primera trampa en la que cae todo el mundo al empezar, así que conviene memorizar la ruta.</p>
+<h2 id="creacion-y-configuracion-de-un-flujo-de-trabajo-basico-yaml">Creación y configuración de un flujo de trabajo básico (YAML)</h2>
+<p>Los flujos de trabajo se describen en <strong>YAML</strong>, un formato de texto pensado para ser legible por personas, con una sintaxis basada en <strong>pares clave-valor</strong> y una <strong>indentación estricta</strong>. Esa indentación no es decorativa: marca la jerarquía de las claves y, por tanto, es parte del significado del archivo. Un espacio de más o de menos puede cambiar por completo lo que el flujo hace, o hacer que directamente no funcione. Es una de las peculiaridades que más sorprende al principio: en YAML, el orden y la posición de los espacios importan tanto como las palabras.</p>
+<p>Para el ejemplo guiado vamos a usar un programa Java mínimo, sin gestores de dependencias ni nada que estorbe. Un simple <code>HolaMundo.java</code> basta para ver la maquinaria en acción:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HolaMundo</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Compilado en la nube con exito"</span><span class="p">);</span>
+</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>El flujo vive en <code>.github/workflows/ci.yml</code>. El punto de partida es darle un nombre y decirle a GitHub cuándo debe dispararse:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CI</span>
+</span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">push</span>
+</span></code></pre></div>
+<p>Con <code>on: push</code>, cada vez que se suban cambios al repositorio se lanzará la validación. El <code>name</code> es solo una etiqueta que aparecerá en la interfaz de GitHub, pero ayuda a identificar el flujo cuando hay varios.</p>
+<p>El siguiente ajuste crítico es el entorno. Con <code>runs-on</code> se elige el <em>runner</em> sobre el que correrá el trabajo:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nt">jobs</span><span class="p">:</span>
+</span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">  </span><span class="nt">build</span><span class="p">:</span>
+</span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+</span></code></pre></div>
+<p>Aquí estamos creando un trabajo llamado <code>build</code> que se ejecutará sobre una máquina virtual Ubuntu. Ese <code>ubuntu-latest</code> es lo que hace que GitHub levante un runner temporal nuevo para la ocasión.</p>
+<p>El trabajo se compone de pasos. El primero casi siempre es descargar el código en el <em>runner</em>, porque, como decíamos, la máquina virtual arranca completamente vacía. Para eso está la acción estándar <code>actions/checkout</code>:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+</span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Descargar el repositorio</span>
+</span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+</span></code></pre></div>
+<p>Este paso merece un comentario, porque es de los que más despistan: si el runner está vacío y no se descarga el código, los siguientes pasos no tendrían nada que compilar. <code>actions/checkout</code> es el paso que trae el contenido del repositorio a la máquina virtual, y por eso aparece siempre en primer lugar. Sin él, todo lo demás falla estrepitosamente.</p>
+<p>Con el código ya en el entorno, toca preparar el JDK. La acción <code>actions/setup-java</code> permite indicar la distribución y la versión exacta de Java que necesita el proyecto:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Configurar el JDK 17</span>
+</span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-java@v4</span>
+</span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+</span><span id="__span-4-4"><a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">          </span><span class="nt">distribution</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">temurin</span>
+</span><span id="__span-4-5"><a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">          </span><span class="nt">java-version</span><span class="p">:</span><span class="w"> </span><span class="s">'17'</span>
+</span></code></pre></div>
+<p>El bloque <code>with</code> sirve para pasarle parámetros a la acción. Aquí se le dice que use la distribución <code>temurin</code> (una de las más habituales) y la versión 17 del JDK. Fijar la versión es importante para que la compilación en la nube sea idéntica a la de nuestro equipo y no dé sorpresas.</p>
+<p>Queda el paso que da sentido a todo lo anterior: <strong>compilar</strong>. Al no haber gestor de dependencias de por medio, basta con lanzar <code>javac</code> directamente sobre el archivo:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Compilar HolaMundo</span>
+</span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">javac HolaMundo.java</span>
+</span></code></pre></div>
+<p>Las sentencias <code>run</code> ejecutan comandos de shell tal cual sobre el runner, así que aquí es donde de verdad se comprueba si el código es correcto. Si <code>javac</code> termina bien, el paso se marca en verde; si encuentra un error, el paso falla y con él toda la ejecución.</p>
+<p>Juntando las piezas, el archivo completo, comentado línea a línea, queda así:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="c1"># Nombre del flujo, el que aparecerá en la pestaña Actions de GitHub</span>
+</span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CI</span>
+</span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="c1"># Evento que dispara el flujo: cada vez que se hace push al repositorio</span>
+</span><span id="__span-6-5"><a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">push</span>
+</span><span id="__span-6-6"><a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a>
+</span><span id="__span-6-7"><a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="nt">jobs</span><span class="p">:</span>
+</span><span id="__span-6-8"><a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="w">  </span><span class="nt">build</span><span class="p">:</span>
+</span><span id="__span-6-9"><a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="w">    </span><span class="c1"># Máquina virtual en la nube donde se ejecuta el trabajo</span>
+</span><span id="__span-6-10"><a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+</span><span id="__span-6-11"><a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a>
+</span><span id="__span-6-12"><a href="#__codelineno-6-12" id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+</span><span id="__span-6-13"><a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="w">      </span><span class="c1"># Descarga el código del repositorio en el runner</span>
+</span><span id="__span-6-14"><a href="#__codelineno-6-14" id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Descargar el repositorio</span>
+</span><span id="__span-6-15"><a href="#__codelineno-6-15" id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+</span><span id="__span-6-16"><a href="#__codelineno-6-16" id="__codelineno-6-16" name="__codelineno-6-16"></a>
+</span><span id="__span-6-17"><a href="#__codelineno-6-17" id="__codelineno-6-17" name="__codelineno-6-17"></a><span class="w">      </span><span class="c1"># Prepara el entorno Java: distribución y versión del JDK</span>
+</span><span id="__span-6-18"><a href="#__codelineno-6-18" id="__codelineno-6-18" name="__codelineno-6-18"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Configurar el JDK 17</span>
+</span><span id="__span-6-19"><a href="#__codelineno-6-19" id="__codelineno-6-19" name="__codelineno-6-19"></a><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-java@v4</span>
+</span><span id="__span-6-20"><a href="#__codelineno-6-20" id="__codelineno-6-20" name="__codelineno-6-20"></a><span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+</span><span id="__span-6-21"><a href="#__codelineno-6-21" id="__codelineno-6-21" name="__codelineno-6-21"></a><span class="w">          </span><span class="nt">distribution</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">temurin</span>
+</span><span id="__span-6-22"><a href="#__codelineno-6-22" id="__codelineno-6-22" name="__codelineno-6-22"></a><span class="w">          </span><span class="nt">java-version</span><span class="p">:</span><span class="w"> </span><span class="s">'17'</span>
+</span><span id="__span-6-23"><a href="#__codelineno-6-23" id="__codelineno-6-23" name="__codelineno-6-23"></a>
+</span><span id="__span-6-24"><a href="#__codelineno-6-24" id="__codelineno-6-24" name="__codelineno-6-24"></a><span class="w">      </span><span class="c1"># Compila el programa; si hay un error, el flujo se marca en rojo</span>
+</span><span id="__span-6-25"><a href="#__codelineno-6-25" id="__codelineno-6-25" name="__codelineno-6-25"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Compilar HolaMundo</span>
+</span><span id="__span-6-26"><a href="#__codelineno-6-26" id="__codelineno-6-26" name="__codelineno-6-26"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">javac HolaMundo.java</span>
+</span></code></pre></div>
+<h2 id="el-ciclo-de-vida-de-la-ci-verificacion-deteccion-de-fallos-y-correccion">El ciclo de vida de la CI: verificación, detección de fallos y corrección</h2>
+<p>Con el archivo guardado y subido al repositorio, cada <code>push</code> lanzará el flujo automáticamente. El resultado se consulta desde la pestaña <strong>Actions</strong> del repositorio, que es el centro de control de toda la automatización, y se lee de un vistazo gracias al código de colores: un icono <strong>verde</strong> indica que la ejecución se ha superado sin problemas, mientras que un icono <strong>rojo</strong> avisa de que algún paso ha fallado. Ese simple semáforo es lo que permite saber si el proyecto está sano sin abrir una terminal ni descargarse nada.</p>
+<p>Con el <code>HolaMundo.java</code> correcto, la ejecución aparece en verde, y el paso de compilación muestra la marca de <em>Success</em>:</p>
+<figure>
+<img alt="" src="../../images/49.png" width="80%"/>
+</figure>
+<p>Ahora llega la parte interesante, que es provocar un fallo a propósito para entender cómo reacciona el sistema. Este ejercicio, que parece un poco absurdo, es en realidad la mejor forma de aprender: romper el código a conciencia permite ver con claridad qué pasa cuando algo va mal, sin la presión de que sea un error real. Abrimos <code>HolaMundo.java</code>, borramos el punto y coma de la línea del <code>System.out.println</code> y subimos el cambio con <code>git push</code>. A los pocos segundos, la pestaña <strong>Actions</strong> marca esa ejecución en <strong>rojo</strong>.</p>
+<p>El siguiente movimiento es inspeccionar los <strong>logs</strong>, los registros de lo que ha ocurrido durante la ejecución. Al entrar en la ejecución fallida, GitHub despliega la lista de pasos del runner y el paso de compilación aparece con una X. Si desplegamos su salida, encontramos la salida de la consola tal cual, y ahí está el diagnóstico: el compilador señala la línea exacta del problema con un <code>error: ';' expected</code>, apuntando con una flecha al lugar donde falta el punto y coma. Es el mismo mensaje que se vería al compilar en local, pero llega envuelto en un registro persistente al que cualquiera del equipo puede acceder después.</p>
+<figure>
+<img alt="" src="../../images/50.png" width="80%"/>
+</figure>
+<p>Ese detalle de poder leer el error directamente en la nube, sin descargarse el código ni reproducirlo en local, es una de las grandes comodidades de la CI. Si el fallo lo introduce otra persona, cualquiera puede abrir el log y ver qué pasó, sin tener que preguntarle ni esperar a que lo arregle.</p>
+<p>Con el error localizado, la corrección es cuestión de segundos: reponemos el punto y coma, hacemos <code>git push</code> y la siguiente ejecución vuelve al <strong>verde</strong>. Ese ciclo, compilar bien, romperlo a propósito y arreglarlo, es exactamente la integración continua en acción. El fallo se detectó minutos después de introducirlo, quedó registrado en el historial de ejecuciones y se corrigió de inmediato. Si este mismo ciclo se repite con cada cambio del equipo, el proyecto nunca llega demasiado lejos de un estado que funciona, y los problemas se atajan antes de que crezcan.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Manuel Sánchez Gomis
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["search.suggest", "search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "content.code.copy", "content.tabs.link", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../../assets/_markdown_exec_pyodide.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../_static/js/notebook.js"></script>
+      
+    
+  </body>
+</html>

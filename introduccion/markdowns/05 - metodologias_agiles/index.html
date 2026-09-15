@@ -1,0 +1,1933 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Manuel Sánchez Gomis">
+      
+      
+      
+        <link rel="prev" href="../04%20-%20desarrollo_aplicaciones/">
+      
+      
+        <link rel="next" href="../../../entornos/markdowns/01%20-%20introduccion/">
+      
+      
+      <link rel="icon" href="../../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
+    
+    
+      
+        <title>Metodologías Ágiles - Entornos de desarrollo</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_markdown_exec_pyodide.css">
+    
+      <link rel="stylesheet" href="../../../_static/css/notebook.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#metodologias-agiles" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Entornos de desarrollo" class="md-header__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Entornos de desarrollo
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Metodologías Ágiles
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo brillante"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo brillante" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Bienvenido
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Introducción al desarrollo de software
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Entornos de desarrollo
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Entornos de desarrollo" class="md-nav__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    Entornos de desarrollo
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bienvenido
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Introducción al desarrollo de software
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Introducción al desarrollo de software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02%20-%20lenguajes_programacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lenguajes de programación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03%20-%20proceso_obtencion_codigo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proceso de obtención de código
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04%20-%20desarrollo_aplicaciones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Desarrollo de aplicaciones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Metodologías Ágiles
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Metodologías Ágiles
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#filosofia-predictiva-frente-a-filosofia-adaptativa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filosofía Predictiva frente a Filosofía Adaptativa
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#el-manifiesto-agil-agile-manifesto" class="md-nav__link">
+    <span class="md-ellipsis">
+      El Manifiesto Ágil (Agile Manifesto)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="El Manifiesto Ágil (Agile Manifesto)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#los-doce-principios-del-manifiesto-agil" class="md-nav__link">
+    <span class="md-ellipsis">
+      Los Doce Principios del Manifiesto Ágil
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#el-marco-de-trabajo-scrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      El Marco de Trabajo Scrum
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="El Marco de Trabajo Scrum">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#los-tres-pilares-del-empirismo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Los Tres Pilares del Empirismo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#los-cinco-valores-de-scrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      Los Cinco Valores de Scrum
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#el-scrum-team-y-sus-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      El Scrum Team y sus Roles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="El Scrum Team y sus Roles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#product-owner-po" class="md-nav__link">
+    <span class="md-ellipsis">
+      Product Owner (PO)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scrum-master-sm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scrum Master (SM)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#developers-equipo-de-desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Developers (Equipo de Desarrollo)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#artefactos-de-scrum-y-sus-compromisos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Artefactos de Scrum y sus Compromisos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#definicion-de-hecho-dod-frente-a-criterios-de-aceptacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definición de Hecho (DoD) frente a Criterios de Aceptación
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eventos-de-scrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      Eventos de Scrum
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Eventos de Scrum">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sprint" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#planificacion-del-sprint-sprint-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Planificación del Sprint (Sprint Planning)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reunion-diaria-daily-scrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reunión Diaria (Daily Scrum)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#revision-del-sprint-sprint-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      Revisión del Sprint (Sprint Review)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retrospectiva-del-sprint-sprint-retrospective" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retrospectiva del Sprint (Sprint Retrospective)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#el-metodo-kanban" class="md-nav__link">
+    <span class="md-ellipsis">
+      El Método Kanban
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="El Método Kanban">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#principios-fundacionales-y-mentalidad-de-flujo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Principios Fundacionales y Mentalidad de Flujo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practicas-esenciales-de-kanban" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prácticas Esenciales de Kanban
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prácticas Esenciales de Kanban">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#el-tablero-visual-kanban-board" class="md-nav__link">
+    <span class="md-ellipsis">
+      El Tablero Visual (Kanban Board)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limitacion-del-trabajo-en-curso-work-in-progress-wip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Limitación del Trabajo en Curso (Work In Progress, WIP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-del-flujo-sistema-pull-frente-a-sistema-push" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gestión del Flujo: Sistema Pull frente a Sistema Push
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metricas-de-desempeno-lead-time-frente-a-cycle-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Métricas de Desempeño: Lead Time frente a Cycle Time
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabla-comparativa-scrum-frente-a-kanban" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tabla Comparativa: Scrum frente a Kanban
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extreme-programming-xp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extreme Programming (XP)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Extreme Programming (XP)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#practicas-tecnicas-fundamentales-de-xp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prácticas Técnicas Fundamentales de XP
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prácticas Técnicas Fundamentales de XP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#programacion-por-parejas-pair-programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      Programación por Parejas (Pair Programming)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desarrollo-dirigido-por-pruebas-test-driven-development-tdd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Desarrollo Dirigido por Pruebas (Test-Driven Development, TDD)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integracion-continua-continuous-integration-ci" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integración Continua (Continuous Integration, CI)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refactorizacion-continua-y-diseno-simple" class="md-nav__link">
+    <span class="md-ellipsis">
+      Refactorización Continua y Diseño Simple
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#propiedad-colectiva-del-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Propiedad Colectiva del Código
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criterios-de-seleccion-modelos-predictivos-frente-a-modelos-agiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criterios de Selección: Modelos Predictivos frente a Modelos Ágiles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Criterios de Selección: Modelos Predictivos frente a Modelos Ágiles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resumen-comparativo-estructurado" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resumen Comparativo Estructurado
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Entornos de desarrollo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Entornos de desarrollo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a los entornos de desarrollo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/02%20-%20intellij/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IntelliJ IDEA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/03%20-%20plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalar plugins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/04%20-%20personalizacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Personalización, automatización y mantenimiento del entorno
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/05%20-%20compilacion_y_ejecutables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generación de ejecutables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#filosofia-predictiva-frente-a-filosofia-adaptativa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filosofía Predictiva frente a Filosofía Adaptativa
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#el-manifiesto-agil-agile-manifesto" class="md-nav__link">
+    <span class="md-ellipsis">
+      El Manifiesto Ágil (Agile Manifesto)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="El Manifiesto Ágil (Agile Manifesto)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#los-doce-principios-del-manifiesto-agil" class="md-nav__link">
+    <span class="md-ellipsis">
+      Los Doce Principios del Manifiesto Ágil
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#el-marco-de-trabajo-scrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      El Marco de Trabajo Scrum
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="El Marco de Trabajo Scrum">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#los-tres-pilares-del-empirismo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Los Tres Pilares del Empirismo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#los-cinco-valores-de-scrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      Los Cinco Valores de Scrum
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#el-scrum-team-y-sus-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      El Scrum Team y sus Roles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="El Scrum Team y sus Roles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#product-owner-po" class="md-nav__link">
+    <span class="md-ellipsis">
+      Product Owner (PO)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scrum-master-sm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scrum Master (SM)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#developers-equipo-de-desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Developers (Equipo de Desarrollo)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#artefactos-de-scrum-y-sus-compromisos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Artefactos de Scrum y sus Compromisos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#definicion-de-hecho-dod-frente-a-criterios-de-aceptacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definición de Hecho (DoD) frente a Criterios de Aceptación
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eventos-de-scrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      Eventos de Scrum
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Eventos de Scrum">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sprint" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#planificacion-del-sprint-sprint-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Planificación del Sprint (Sprint Planning)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reunion-diaria-daily-scrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reunión Diaria (Daily Scrum)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#revision-del-sprint-sprint-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      Revisión del Sprint (Sprint Review)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retrospectiva-del-sprint-sprint-retrospective" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retrospectiva del Sprint (Sprint Retrospective)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#el-metodo-kanban" class="md-nav__link">
+    <span class="md-ellipsis">
+      El Método Kanban
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="El Método Kanban">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#principios-fundacionales-y-mentalidad-de-flujo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Principios Fundacionales y Mentalidad de Flujo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practicas-esenciales-de-kanban" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prácticas Esenciales de Kanban
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prácticas Esenciales de Kanban">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#el-tablero-visual-kanban-board" class="md-nav__link">
+    <span class="md-ellipsis">
+      El Tablero Visual (Kanban Board)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limitacion-del-trabajo-en-curso-work-in-progress-wip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Limitación del Trabajo en Curso (Work In Progress, WIP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-del-flujo-sistema-pull-frente-a-sistema-push" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gestión del Flujo: Sistema Pull frente a Sistema Push
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metricas-de-desempeno-lead-time-frente-a-cycle-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Métricas de Desempeño: Lead Time frente a Cycle Time
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabla-comparativa-scrum-frente-a-kanban" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tabla Comparativa: Scrum frente a Kanban
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extreme-programming-xp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extreme Programming (XP)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Extreme Programming (XP)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#practicas-tecnicas-fundamentales-de-xp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prácticas Técnicas Fundamentales de XP
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prácticas Técnicas Fundamentales de XP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#programacion-por-parejas-pair-programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      Programación por Parejas (Pair Programming)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desarrollo-dirigido-por-pruebas-test-driven-development-tdd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Desarrollo Dirigido por Pruebas (Test-Driven Development, TDD)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integracion-continua-continuous-integration-ci" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integración Continua (Continuous Integration, CI)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refactorizacion-continua-y-diseno-simple" class="md-nav__link">
+    <span class="md-ellipsis">
+      Refactorización Continua y Diseño Simple
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#propiedad-colectiva-del-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Propiedad Colectiva del Código
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criterios-de-seleccion-modelos-predictivos-frente-a-modelos-agiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criterios de Selección: Modelos Predictivos frente a Modelos Ágiles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Criterios de Selección: Modelos Predictivos frente a Modelos Ágiles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resumen-comparativo-estructurado" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resumen Comparativo Estructurado
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="metodologias-agiles">Metodologías Ágiles</h1>
+<p>Durante las décadas de 1960 y 1970, la industria del software experimentó lo que formalmente se denominó la <strong>crisis del software</strong>: una época marcada por proyectos que sobrepasaban sistemáticamente sus presupuestos, incumplían los plazos de entrega, producían código inestable o eran directamente cancelados antes de llegar a producción. Como respuesta técnica a este descontrol, se intentó trasladar los métodos de la ingeniería civil e industrial clásica al ámbito del desarrollo lógico. De este enfoque nacieron los <strong>modelos predictivos</strong> (también llamados tradicionales o prescriptivos), cuyos exponentes más conocidos son el <strong>modelo en cascada</strong> (<em>Waterfall</em>) y el <strong>modelo en V</strong>.</p>
+<p>Estos paradigmas tradicionales se fundamentan en una premisa estricta: el desarrollo de una aplicación informática es un proceso <strong>predecible</strong> que puede planificarse en su totalidad antes de escribir la primera línea de código. Se asume que las fases de análisis de requerimientos, diseño arquitectónico, implementación, pruebas y despliegue deben ejecutarse de forma secuencial, requiriendo la finalización y aprobación documental de una fase para poder iniciar la siguiente. Si bien proporcionan un marco aparente de control formal y una trazabilidad exhaustiva mediante especificaciones cerradas, presentan limitaciones estructurales severas cuando se aplican a proyectos tecnológicos reales:</p>
+<ol>
+<li><strong>Hipótesis de requerimientos estables:</strong> Asumen que las necesidades del sistema pueden identificarse y congelarse en la fase inicial. En el mercado real, los requerimientos son intrínsecamente inestables y evolucionan conforme el cliente madura su idea o cambian las condiciones del negocio.</li>
+<li><strong>Ausencia de visibilidad hasta el cierre:</strong> El usuario final no tiene contacto con el producto operativo hasta las últimas fases del cronograma, lo que posterga la validación real al momento en que las desviaciones resultan más costosas de resolver.</li>
+<li><strong>Rigidez operativa ante modificaciones:</strong> Un cambio introducido en fases avanzadas exige rehacer la documentación previa, recalcular presupuestos y renegociar contratos, penalizando la adaptación.</li>
+<li><strong>Acumulación de riesgo tardío:</strong> Los defectos en la interpretación de los requerimientos o en la integración de componentes se detectan en la etapa final de pruebas, cuando ya se ha consumido la práctica totalidad de los recursos temporales y económicos del proyecto.</li>
+</ol>
+<p>Ante esta situación, en los que la incertidumbre y la evolución funcional son la norma, los modelos predictivos generan fricción entre desarrolladores y clientes, provocando entregas desfasadas respecto a las necesidades reales del mercado.</p>
+<h2 id="filosofia-predictiva-frente-a-filosofia-adaptativa">Filosofía Predictiva frente a Filosofía Adaptativa</h2>
+<p>El surgimiento del movimiento ágil constituyó un <strong>cambio de paradigma</strong> metodológico. Frente a la premisa tradicional que subordina el avance del proyecto al cumplimiento rígido de un plan y a la generación de documentación formal, las metodologías ágiles plantean un enfoque <strong>adaptativo</strong>: el proceso debe ajustarse de forma continua en función del conocimiento que adquieren el equipo técnico y el cliente durante el desarrollo.</p>
+<p>Las diferencias operativas entre ambas concepciones se sintetizan en los siguientes criterios de diseño:</p>
+<table>
+<thead>
+<tr>
+<th>Dimensión</th>
+<th>Filosofía predictiva (Tradicional)</th>
+<th>Filosofía adaptativa (Ágil)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Eje de control</strong></td>
+<td>Procesos formalizados y seguimiento del plan inicial</td>
+<td>Personas, interacciones y valor del producto</td>
+</tr>
+<tr>
+<td><strong>Planificación</strong></td>
+<td>Integral, detallada y cerrada al inicio del proyecto</td>
+<td>Continua, adaptativa y descompuesta en ciclos cortos</td>
+</tr>
+<tr>
+<td><strong>Tratamiento del cambio</strong></td>
+<td>El cambio se penaliza como una desviación del plan</td>
+<td>El cambio se integra como una ventaja competitiva</td>
+</tr>
+<tr>
+<td><strong>Estrategia de entrega</strong></td>
+<td>Entrega única del producto completo al cierre del ciclo</td>
+<td>Entregas tempranas e incrementales de software funcional</td>
+</tr>
+<tr>
+<td><strong>Distribución del riesgo</strong></td>
+<td>Alto al final, al concentrar la integración y validación</td>
+<td>Mitigado desde el inicio mediante código operativo</td>
+</tr>
+<tr>
+<td><strong>Comunicación</strong></td>
+<td>Formalizada, asíncrona y basada en documentación</td>
+<td>Conversación directa y continua entre perfiles técnicos y de negocio</td>
+</tr>
+</tbody>
+</table>
+<p>Es fundamental subrayar un matiz conceptual para la evaluación de estos métodos: las metodologías ágiles <strong>no prescinden de la planificación</strong>. La diferencia radica en su frecuencia y naturaleza: sustituyen la planificación estática por una <strong>planificación iterativa y continua</strong>, estructurada en intervalos temporales cortos donde se reajustan los objetivos con base en resultados medibles.</p>
+<h2 id="el-manifiesto-agil-agile-manifesto">El Manifiesto Ágil (<em>Agile Manifesto</em>)</h2>
+<p>En <strong>febrero de 2001</strong>, diecisiete referentes de la industria del desarrollo de software —impulsores de marcos que buscaban simplificar los procesos de ingeniería, como Scrum, Extreme Programming (XP), DSDM y Feature-Driven Development— se reunieron en <strong>Snowbird (Utah, EE. UU.)</strong>. El propósito del encuentro fue identificar los puntos de convergencia entre sus enfoques de trabajo y redactar una declaración conjunta. De dicha reunión emergió el <strong>Manifiesto por el Desarrollo Ágil de Software</strong> (<em>Manifesto for Agile Software Development</em>), texto normativo fundacional de este paradigma.</p>
+<p>El Manifiesto se estructura formalmente sobre <strong>cuatro valores fundamentales</strong>:</p>
+<ul>
+<li><strong>Individuos e interacciones sobre procesos y herramientas:</strong> Los equipos cohesionados y con comunicación efectiva resultan determinantes para el éxito del proyecto. Disponer de herramientas avanzadas o de manuales de procesos exhaustivos carece de utilidad si las personas carecen de la motivación, el contexto o la capacidad para dialogar directamente.</li>
+<li><strong>Software funcionando sobre documentación exhaustiva:</strong> La métrica objetiva del progreso es el software operativo sometido a pruebas. La documentación técnica conserva su valor, pero debe mantenerse en el nivel mínimo estrictamente necesario, evitando que la redacción de informes desplace a la construcción del sistema.</li>
+<li><strong>Colaboración con el cliente sobre negociación contractual:</strong> Las relaciones deben sustentarse en la cooperación continua y la retroalimentación regular, integrando al cliente en el proceso de toma de decisiones en lugar de restringir la interacción al cumplimiento de cláusulas legales prefijadas.</li>
+<li><strong>Respuesta ante el cambio sobre el seguimiento de un plan:</strong> La capacidad para reaccionar a requerimientos emergentes o a condiciones imprevistas se prioriza por encima del apego a un cronograma teórico diseñado con información incompleta.</li>
+</ul>
+<p>La cláusula de cierre del manifiesto define con exactitud su aplicación técnica: aunque se reconoce valor en los elementos de la derecha (procesos, herramientas, documentación, contratos y planes), <strong>se valoran de manera prioritaria los elementos de la izquierda</strong>.</p>
+<h3 id="los-doce-principios-del-manifiesto-agil">Los Doce Principios del Manifiesto Ágil</h3>
+<p>Los cuatro valores se desglosan en <strong>doce principios rectores</strong> que definen los criterios de ejecución del desarrollo ágil:</p>
+<ol>
+<li><strong>Prioridad en la entrega de valor:</strong> Satisfacer al cliente mediante la entrega temprana y continua de software con valor operativo desde las primeras semanas.</li>
+<li><strong>Aceptación del cambio:</strong> Recibir de forma constructiva las modificaciones en los requerimientos, incluso en fases tardías, aprovechándolas para mejorar la posición del cliente en el mercado.</li>
+<li><strong>Frecuencia de entrega:</strong> Liberar software funcional periódicamente, en intervalos que oscilan habitualmente entre dos semanas y dos meses, priorizando la menor escala de tiempo posible.</li>
+<li><strong>Integración cotidiana:</strong> Desarrolladores y responsables del área de negocio deben colaborar a diario durante todo el ciclo de vida del proyecto, eliminando barreras departamentales.</li>
+<li><strong>Entornos motivados y confianza:</strong> Articular los proyectos en torno a personas comprometidas, dotándolas de los recursos técnicos, el soporte y la autonomía necesarios para ejecutar las tareas sin microgestión.</li>
+<li><strong>Conversación directa:</strong> El canal más eficiente y libre de ambigüedad para transmitir información dentro de un equipo técnico es la comunicación cara a cara.</li>
+<li><strong>Métrica principal de avance:</strong> El software terminado y verificado es el único indicador cuantitativo válido para evaluar el estado real del proyecto.</li>
+<li><strong>Ritmo de desarrollo sostenible:</strong> Los procesos ágiles defienden la capacidad de mantener una velocidad de producción constante a largo plazo, rechazando las jornadas extraordinarias sistemáticas que degradan la calidad del código.</li>
+<li><strong>Excelencia técnica continua:</strong> La atención rigurosa a la calidad arquitectónica, a la limpieza del código y al buen diseño modular incrementa la agilidad y reduce la deuda técnica.</li>
+<li><strong>Principio de simplicidad:</strong> Maximizar la cantidad de trabajo no realizado. Diseñar la solución técnica más directa que satisfaga los requerimientos actuales sin anticipar complejidades no justificadas.</li>
+<li><strong>Autoorganización:</strong> Las mejores arquitecturas, especificaciones y soluciones técnicas emergen de equipos que tienen capacidad de decidir autónomamente cómo resolver el problema.</li>
+<li><strong>Inspección y adaptación periódica:</strong> El equipo analiza sistemáticamente a intervalos regulares su propia metodología de trabajo, ajustando procesos y herramientas para optimizar su efectividad.</li>
+</ol>
+<h2 id="el-marco-de-trabajo-scrum">El Marco de Trabajo Scrum</h2>
+<p><strong>Scrum</strong> es un <strong>marco de trabajo</strong> (<em>framework</em>) ligero, iterativo e incremental concebido para gobernar proyectos tecnológicos complejos. Formalizado inicialmente por <strong>Ken Schwaber y Jeff Sutherland</strong> y regulado a través de la <em>Guía de Scrum</em>, este marco se define bajo tres propiedades constitutivas:</p>
+<ul>
+<li><strong>Iterativo:</strong> El trabajo se parcela en bloques de tiempo de duración fija denominados <em>Sprints</em>.</li>
+<li><strong>Incremental:</strong> Cada ciclo concluye con la obtención de una versión operativa, integrada y utilizable del software.</li>
+<li><strong>Empírico:</strong> Se apoya en el <strong>control empírico de procesos</strong>, asumiendo que el conocimiento emana de la experiencia directa y que las decisiones operativas deben fundamentarse en la observación de hechos comprobados.</li>
+</ul>
+<p>Scrum no prescribe una metodología de ingeniería detallada ni define diagramas técnicos obligatorios: fija un conjunto acotado de reglas, roles, eventos y artefactos que estructuran la dinámica de trabajo de los equipos.</p>
+<h3 id="los-tres-pilares-del-empirismo">Los Tres Pilares del Empirismo</h3>
+<p>El control de procesos en Scrum descansa sobre tres pilares conceptuales interdependientes:</p>
+<ol>
+<li><strong>Transparencia:</strong> Todos los aspectos del proceso que impactan en el resultado final deben ser visibles e inteligibles para quienes ejecutan el trabajo y para quienes lo reciben. Las definiciones, estados de las tareas y criterios técnicos deben sustentarse en un vocabulario común.</li>
+<li><strong>Inspección:</strong> Los artefactos del desarrollo y el grado de convergencia hacia los objetivos fijados deben examinarse con regularidad suficiente para identificar anomalías o pérdidas de calidad, sin que este seguimiento interfiera con la labor técnica.</li>
+<li><strong>Adaptación:</strong> Si durante la inspección se evidencia que uno o varios parámetros del proceso se desvían de los límites admisibles o que el producto resultante resulta insatisfactorio, el proceso de trabajo o los elementos bajo desarrollo deben corregirse de forma inmediata para evitar la propagación del error.</li>
+</ol>
+<h3 id="los-cinco-valores-de-scrum">Los Cinco Valores de Scrum</h3>
+<p>El funcionamiento de un equipo dentro de este marco exige la interiorización de cinco valores éticos y profesionales:</p>
+<ul>
+<li><strong>Compromiso (<em>Commitment</em>):</strong> Disposición individual y colectiva para alcanzar los objetivos del equipo y respaldar los compromisos de entrega.</li>
+<li><strong>Foco (<em>Focus</em>):</strong> Concentración estricta en las tareas asumidas para el Sprint en curso y en las metas del producto, evitando la dispersión por demandas secundarias.</li>
+<li><strong>Franqueza y Apertura (<em>Openness</em>):</strong> Disposición para exponer con transparencia el estado real del trabajo, los problemas encontrados y los límites técnicos del sistema.</li>
+<li><strong>Respeto (<em>Respect</em>):</strong> Reconocimiento mutuo de la competencia profesional, capacidad de autonomía e independencia de criterio de cada miembro del equipo.</li>
+<li><strong>Coraje (<em>Courage</em>):</strong> Determinación para abordar problemas complejos, manifestar discrepancias técnicas fundadas, asumir riesgos calculados y mantener los estándares éticos y de calidad acordados.</li>
+</ul>
+<h3 id="el-scrum-team-y-sus-roles">El Scrum Team y sus Roles</h3>
+<p>El <strong>Scrum Team</strong> es una unidad de trabajo pequeña (generalmente compuesta por <strong>10 personas o menos</strong>), carente de jerarquías internas o subequipos especializados, caracterizada por ser <strong>multifuncional</strong> (dispone internamente de todas las capacidades necesarias para producir valor) y <strong>autoorganizada</strong> (gestiona internamente el reparto y ejecución de las tareas). Dentro del equipo coexisten tres responsabilidades específicas:</p>
+<h4 id="product-owner-po">Product Owner (PO)</h4>
+<p>Es el responsable único de <strong>maximizar el valor técnico y funcional del producto</strong> resultante de la labor del equipo. Sus atribuciones comprenden:</p>
+<ul>
+<li>La administración y ordenación sistemática de los elementos del <em>Product Backlog</em>.</li>
+<li>La formulación explícita y comunicación del <strong>Objetivo del Producto</strong> (<em>Product Goal</em>).</li>
+<li>La redacción precisa y comprensible de los ítems de trabajo, garantizando que el equipo entienda su finalidad.</li>
+<li>Actuar como interlocutor principal frente a los <em>stakeholders</em> (usuarios, directiva, clientes), integrando sus demandas dentro de la visión del sistema.</li>
+<li>La potestad de validar si los incrementos desarrollados cumplen las condiciones requeridas para ser liberados a entornos de producción.</li>
+</ul>
+<h4 id="scrum-master-sm">Scrum Master (SM)</h4>
+<p>Actúa como un <strong>líder servicial</strong> (<em>servant leader</em>) encargado de promover, instaurar y sostener el marco Scrum según lo define su guía formal. Sus funciones son:</p>
+<ul>
+<li>Facilitar la correcta realización de los eventos de Scrum y fomentar la colaboración interna.</li>
+<li>Identificar y <strong>remover de forma proactiva los impedimentos</strong> organizativos o técnicos que bloquean el rendimiento de los desarrolladores.</li>
+<li>Instruir y orientar al equipo y a la organización en la aplicación del marco empírico.</li>
+<li>Salvaguardar al equipo de interferencias externas no canalizadas a través del Product Owner, garantizando la estabilidad operativa del Sprint.</li>
+</ul>
+<h4 id="developers-equipo-de-desarrollo">Developers (Equipo de Desarrollo)</h4>
+<p>Comprende a los profesionales técnicos comprometidos con la transformación de los elementos del catálogo de requerimientos en incrementos útiles de software. Sus características esenciales son:</p>
+<ul>
+<li><strong>Multifuncionalidad:</strong> El conjunto reúne habilidades de análisis, codificación, arquitectura, pruebas y despliegue.</li>
+<li><strong>Autonomía organizativa:</strong> Poseen la autoridad técnica exclusiva para decidir <strong>cómo</strong> se implementa cada solución dentro del Sprint.</li>
+<li><strong>Estimación de esfuerzo:</strong> Son los únicos autorizados para estimar la carga de trabajo y dimensionar los ítems del <em>Product Backlog</em>.</li>
+<li><strong>Rigor de calidad:</strong> Tienen la obligación de velar por que todo incremento respete los estándares técnicos fijados en la Definición de Hecho.</li>
+</ul>
+<h3 id="artefactos-de-scrum-y-sus-compromisos">Artefactos de Scrum y sus Compromisos</h3>
+<p>Los artefactos representan trabajo planificado o valor materializado, diseñados para garantizar la transparencia en la inspección. Cada artefacto vincula un <strong>compromiso formal</strong> que fija su estándar de evaluación:</p>
+<table>
+<thead>
+<tr>
+<th>Artefacto</th>
+<th>Compromiso formal</th>
+<th>Definición técnica</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Product Backlog</strong></td>
+<td><strong>Objetivo del Producto</strong> (<em>Product Goal</em>)</td>
+<td>Inventario dinámico, ordenado y evolutivo que centraliza todos los requerimientos, correcciones y funcionalidades deseadas para el sistema. Representa la fuente única de demandas para el equipo.</td>
+</tr>
+<tr>
+<td><strong>Sprint Backlog</strong></td>
+<td><strong>Objetivo del Sprint</strong> (<em>Sprint Goal</em>)</td>
+<td>Subconjunto de ítems del <em>Product Backlog</em> seleccionados para su construcción en el ciclo actual, complementado con el plan técnico de tareas necesario para implementarlos. Es de dominio exclusivo de los Developers.</td>
+</tr>
+<tr>
+<td><strong>Incremento</strong></td>
+<td><strong>Definición de Hecho</strong> (<em>Definition of Done</em>, DoD)</td>
+<td>Suma acumulativa de todos los elementos completados satisfactoriamente durante el Sprint en curso junto con el valor entregado en los Sprints precedentes, integrado en un estado plenamente utilizable.</td>
+</tr>
+</tbody>
+</table>
+<p>El alineamiento entre artefacto y compromiso opera del siguiente modo: el <em>Product Goal</em> traza la dirección estratégica a largo plazo que da sentido al <em>Product Backlog</em>; el <em>Sprint Goal</em> establece el propósito funcional que no debe verse comprometido durante la ejecución de las tareas del <em>Sprint Backlog</em>; y la <em>Definition of Done</em> opera como el control de calidad que dictamina si un incremento reúne las garantías técnicas mínimas para considerarse finalizado.</p>
+<h3 id="definicion-de-hecho-dod-frente-a-criterios-de-aceptacion">Definición de Hecho (DoD) frente a Criterios de Aceptación</h3>
+<p>Uno de los aspectos más determinantes en la gestión de la calidad dentro de Scrum es la separación entre los criterios globales de terminación y las condiciones particulares de una funcionalidad:</p>
+<table>
+<thead>
+<tr>
+<th>Atributo</th>
+<th>Definición de Hecho (DoD)</th>
+<th>Criterios de Aceptación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Alcance</strong></td>
+<td><strong>Transversal y global:</strong> Aplica por igual a todo el incremento y a cada uno de sus ítems.</td>
+<td><strong>Específico y granular:</strong> Aplica de manera exclusiva a un ítem concreto del <em>Product Backlog</em>.</td>
+</tr>
+<tr>
+<td><strong>Objetivo</strong></td>
+<td>Garantizar la <strong>calidad técnica, seguridad y mantenibilidad</strong> del software en su conjunto.</td>
+<td>Validar que el comportamiento <strong>funcional</strong> responde a la necesidad del usuario.</td>
+</tr>
+<tr>
+<td><strong>Responsabilidad</strong></td>
+<td>Acordada y suscrita formalmente por el <strong>Scrum Team</strong>.</td>
+<td>Definidos habitualmente por el <strong>Product Owner</strong> en concertación con el equipo técnico.</td>
+</tr>
+<tr>
+<td><strong>Ejemplo práctico</strong></td>
+<td>"Código versionado, pruebas unitarias con cobertura &gt; 80%, análisis estático superado y desplegado en integración."</td>
+<td>"El sistema debe bloquear el acceso de un usuario si introduce erróneamente su contraseña tres veces consecutivas."</td>
+</tr>
+</tbody>
+</table>
+<p>Un elemento del <em>Product Backlog</em> no adquiere la condición de terminado si no satisface de manera estricta y simultánea los Criterios de Aceptación específicos asociados a su especificación y los requisitos transversales estipulados en la Definición de Hecho.</p>
+<h3 id="eventos-de-scrum">Eventos de Scrum</h3>
+<p>Los eventos son bloques de tiempo regulares y predecibles diseñados para habilitar los momentos de inspección y adaptación, evitando la proliferación de reuniones no estructuradas. Todos se rigen bajo el principio de <strong>tiempo prefijado</strong> (<em>time-box</em>), lo que implica que tienen una duración máxima improrrogable:</p>
+<h4 id="sprint">Sprint</h4>
+<p>Constituye el evento <strong>contenedor</strong> que encapsula a todos los demás. Es un intervalo regular con una duración no superior a <strong>un mes natural</strong> (típicamente de dos a cuatro semanas) en el que se concibe, codifica, verifica y documenta un incremento potencialmente liberable. Su duración se fija de forma uniforme durante la vida del proyecto para estabilizar el ritmo del equipo; no se extiende artificialmente para completar trabajo atrasado. La anulación anticipada de un Sprint es una potestad exclusiva del Product Owner y solo procede si el Objetivo del Sprint pierde validez operativa.</p>
+<h4 id="planificacion-del-sprint-sprint-planning">Planificación del Sprint (<em>Sprint Planning</em>)</h4>
+<p>Inaugura formalmente el Sprint y tiene como fin establecer qué trabajo puede ejecutarse y qué estrategia técnica se empleará para su consecución. Su duración límite se cifra en un máximo de <strong>8 horas</strong> para Sprints de un mes (reduciéndose proporcionalmente en periodos menores). Se estructura sobre tres bloques de discusión:</p>
+<ol>
+<li><strong>Determinación del valor:</strong> El Product Owner expone el objetivo prioritario y propone cómo el ciclo puede elevar el valor del producto, derivando en el acuerdo del <em>Sprint Goal</em>.</li>
+<li><strong>Selección del trabajo:</strong> Con base en la capacidad operativa prevista y el rendimiento histórico (<em>velocidad</em>), los Developers seleccionan los elementos del <em>Product Backlog</em> que abordarán.</li>
+<li><strong>Diseño de la implementación:</strong> El equipo técnico planifica la descomposición de cada ítem en tareas concretas de ingeniería para cubrir los requerimientos funcionales y las exigencias de la DoD.</li>
+</ol>
+<h4 id="reunion-diaria-daily-scrum">Reunión Diaria (<em>Daily Scrum</em>)</h4>
+<p>Es una sesión de alineamiento técnico para los Developers, con una duración estricta de <strong>15 minutos</strong>, celebrada al inicio de cada jornada laboral en un punto y hora constantes. Su fin exclusivo es que el equipo de desarrollo inspeccione el avance registrado hacia la consecución del <em>Sprint Goal</em> y reajuste el plan de trabajo para las siguientes veinticuatro horas. </p>
+<p>No se concibe como una reunión de reporte o justificación de estado ante el Scrum Master, el Product Owner o agentes de dirección, sino como un ejercicio operativo de coordinación interna entre pares y de detección precoz de bloqueos o impedimentos técnicos.</p>
+<h4 id="revision-del-sprint-sprint-review">Revisión del Sprint (<em>Sprint Review</em>)</h4>
+<p>Se sitúa al final del ciclo de trabajo con una duración máxima de <strong>4 horas</strong> (en Sprints de un mes). Su propósito radica en la inspección del incremento resultante junto al Product Owner y los <em>stakeholders</em> convocados. </p>
+<p>El equipo de desarrollo realiza una demostración funcional del software operativo generado, se analizan los cambios operados en el entorno de mercado o de negocio del cliente y se ajusta de forma colaborativa el <em>Product Backlog</em> para encauzar las prioridades de los ciclos sucesivos.</p>
+<h4 id="retrospectiva-del-sprint-sprint-retrospective">Retrospectiva del Sprint (<em>Sprint Retrospective</em>)</h4>
+<p>Clausura el Sprint mediante una sesión interna reservada exclusivamente al Scrum Team, con un límite temporal de <strong>3 horas</strong> para ciclos de un mes. </p>
+<p>A diferencia de la Review, cuyo centro de análisis es el producto, la Retrospectiva se focaliza en el <strong>proceso de trabajo</strong>: se examinan las dinámicas de relación interpersonal, la eficacia de los canales de comunicación, el comportamiento de las herramientas y la vigencia técnica de la Definición de Hecho, acordando mejoras operativas concretas que deberán ser adoptadas de forma inmediata en el siguiente Sprint.</p>
+<h2 id="el-metodo-kanban">El Método Kanban</h2>
+<p>Derivado del vocablo japonés que alude a "tarjeta visual" o "señalización", <strong>Kanban</strong> encuentra sus fundamentos en el <strong>Sistema de Producción Toyota</strong> (<em>Toyota Production System</em>, TPS) diseñado por el ingeniero <strong>Taiichi Ohno</strong> durante la segunda mitad del siglo XX dentro de la filosofía industrial <strong>Lean</strong>. Concebido originalmente como un mecanismo físico para regular el aprovisionamiento de piezas y eliminar la sobreproducción en cadenas de montaje, fue adaptado al desarrollo lógico por David J. Anderson como un método para gestionar la prestación de servicios de software mediante el control riguroso del <strong>flujo continuo de trabajo</strong>.</p>
+<h3 id="principios-fundacionales-y-mentalidad-de-flujo">Principios Fundacionales y Mentalidad de Flujo</h3>
+<p>A diferencia de marcos estructurados como Scrum, Kanban no impone cambios organizativos abruptos ni prescribe roles o ceremonias específicas. Su implantación descansa en cuatro principios evolutivos:</p>
+<ul>
+<li><strong>Comenzar con lo que se hace en la actualidad:</strong> Se aplica directamente sobre los procesos, jerarquías y metodologías ya operativas en la organización, sin forzar reestructuraciones previas.</li>
+<li><strong>Perseguir la mejora continua y evolutiva:</strong> Promueve la incorporación paulatina de optimizaciones mínimas (<em>kaizen</em>) en lugar de transformaciones radicales, minimizando la resistencia al cambio cultural.</li>
+<li><strong>Respetar los procesos, roles y responsabilidades actuales:</strong> Valora las estructuras de trabajo vigentes, reconociendo que pueden albergar prácticas válidas antes de plantear sustituciones.</li>
+<li><strong>Fomentar el liderazgo a cualquier nivel:</strong> Impulsa que las propuestas de ajuste procedan indistintamente de cualquier perfil integrado en la cadena de valor, no exclusivamente de las posiciones de gestión.</li>
+</ul>
+<p>La operativa de Kanban sustituye la secuenciación por ciclos fijos (<em>time-boxing</em>) por una dinámica de <strong>flujo continuo</strong> (<em>continuous flow</em>), en la que los elementos de trabajo ingresan, se procesan y se entregan de forma constante conforme el sistema dispone de capacidad operativa ociosa.</p>
+<h3 id="practicas-esenciales-de-kanban">Prácticas Esenciales de Kanban</h3>
+<p>La gestión de un flujo continuo exige la aplicación sistemática de cuatro prácticas operativas interrelacionadas:</p>
+<h4 id="el-tablero-visual-kanban-board">El Tablero Visual (<em>Kanban Board</em>)</h4>
+<p>Constituye la herramienta central para dotar de transparencia al proceso. Representa el flujo de trabajo mediante una serie de <strong>columnas</strong> consecutivas que reproducen las fases por las que transita un ítem de desarrollo (desde estados iniciales como <em>Por hacer</em>, atravesando fases intermedias de <em>Análisis</em>, <em>Desarrollo</em> o <em>Pruebas</em>, hasta su condición de <em>Terminado</em>). </p>
+<p>Las tareas se consignan individualmente en <strong>tarjetas</strong> que contienen su información básica (responsables, tipología, criticidad) y que avanzan visualmente de izquierda a derecha a medida que se ejecutan los trabajos, evidenciando el estado en que se encuentra la producción.</p>
+<h4 id="limitacion-del-trabajo-en-curso-work-in-progress-wip">Limitación del Trabajo en Curso (<em>Work In Progress</em>, WIP)</h4>
+<p>Consiste en imponer un límite numérico superior y explícito a la cantidad de tareas que pueden residir simultáneamente dentro de una columna o fase del tablero. Es el mecanismo característico del método y persigue objetivos técnicos indispensables:</p>
+<ul>
+<li><strong>Prevención de cuellos de botella:</strong> Impide la saturación de fases lentas, bloqueando la absorción de más tareas hasta que no se drenen las acumuladas.</li>
+<li><strong>Visibilización de restricciones:</strong> Cuando una fase alcanza su cota de WIP, el sistema bloquea el paso de nuevos elementos, forzando al equipo a colaborar en la resolución de los atascos que impiden el avance hacia estados finales.</li>
+<li><strong>Atenuación del cambio de contexto (<em>context switching</em>):</strong> Limita la dispersión cognitiva derivada de mantener múltiples desarrollos abiertos de forma concurrente, lo que optimiza la concentración y reduce la tasa de errores lógicos en el código.</li>
+<li><strong>Optimización de la velocidad del flujo:</strong> De acuerdo con la <strong>Ley de Little</strong> (que demuestra en teoría de colas que el tiempo medio de estancia es proporcional al volumen de elementos en el sistema dividido por su tasa de salida), a menor cantidad de trabajo circulando en paralelo, más rápida es la finalización y entrega individual de cada ítem.</li>
+</ul>
+<h4 id="gestion-del-flujo-sistema-pull-frente-a-sistema-push">Gestión del Flujo: Sistema <em>Pull</em> frente a Sistema <em>Push</em></h4>
+<p>La limitación del WIP viabiliza la implantación de un modelo de producción por <strong>tracción (<em>Pull</em>)</strong>, en contraposición al modelo clásico de <strong>empuje (<em>Push</em>)</strong>:</p>
+<ul>
+<li><strong>Enfoque <em>Push</em> (Empuje):</strong> La asignación de trabajo se planifica y se empuja hacia las fases siguientes en función de estimaciones teóricas, sin considerar si los recursos encargados de procesarlo tienen capacidad disponible, saturando el sistema y generando esperas.</li>
+<li><strong>Enfoque <em>Pull</em> (Tracción):</strong> Ninguna fase asume un nuevo requerimiento a menos que haya concluido una tarea previa y su contador de trabajo en curso se sitúe por debajo del límite de WIP asignado. El trabajo "se extrae" cuando hay capacidad real demostrada para asumirlo.</li>
+</ul>
+<h4 id="metricas-de-desempeno-lead-time-frente-a-cycle-time">Métricas de Desempeño: Lead Time frente a Cycle Time</h4>
+<p>La evaluación cuantitativa del rendimiento de un flujo Kanban se articula mediante dos indicadores temporales que miden tramos diferenciados del proceso:</p>
+<table>
+<thead>
+<tr>
+<th>Métrica</th>
+<th>Perspectiva</th>
+<th>Intervalo de medición</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Lead Time (Tiempo de entrega)</strong></td>
+<td>Perspectiva del <strong>cliente / usuario</strong></td>
+<td>Intervalo total transcurrido desde que la necesidad es formalmente <strong>solicitada o registrada</strong> en el sistema hasta que el desarrollo es <strong>puesto a disposición operativa</strong> del usuario. Incluye todos los tiempos de espera y estancia en colas previas.</td>
+</tr>
+<tr>
+<td><strong>Cycle Time (Tiempo de ciclo)</strong></td>
+<td>Perspectiva técnica del <strong>equipo</strong></td>
+<td>Intervalo temporal transcurrido desde el instante en que el equipo <strong>inicia activamente el trabajo técnico</strong> sobre la tarea hasta que esta alcanza la fase de <strong>finalización técnica</strong>. Computa exclusivamente la fase de elaboración efectiva.</td>
+</tr>
+</tbody>
+</table>
+<p>Desde el punto de vista analítico, el Lead Time es invariablemente <strong>igual o superior</strong> al Cycle Time, dado que este último representa un subconjunto estricto del primero. La optimización del proceso en Kanban prioriza con frecuencia la reducción de los tiempos muertos previos al inicio del trabajo antes que forzar la compresión del Cycle Time de los desarrolladores.</p>
+<h3 id="tabla-comparativa-scrum-frente-a-kanban">Tabla Comparativa: Scrum frente a Kanban</h3>
+<p>Aunque ambos marcos se asientan sobre los valores del agilismo, presentan divergencias estructurales marcadas en su diseño operativo:</p>
+<table>
+<thead>
+<tr>
+<th>Dimensión</th>
+<th>Scrum</th>
+<th>Kanban</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cadencia temporal</strong></td>
+<td>Rígida y prefijada en intervalos temporales cerrados (<strong>Sprints</strong> de 1 a 4 semanas)</td>
+<td><strong>Flujo continuo</strong>, carente de iteraciones o entregas forzadas por calendario</td>
+</tr>
+<tr>
+<td><strong>Definición de roles</strong></td>
+<td>Roles formales <strong>prescriptivos</strong> (Product Owner, Scrum Master, Developers)</td>
+<td><strong>Ausencia de roles obligatorios</strong>; se superpone a las jerarquías operativas vigentes</td>
+</tr>
+<tr>
+<td><strong>Control del trabajo en curso</strong></td>
+<td>Indirecto: limitado por el volumen de ítems asumidos para el Sprint Backlog</td>
+<td>Directo y explícito: regulado mediante <strong>umbrales de WIP</strong> parametrizados por fase</td>
+</tr>
+<tr>
+<td><strong>Manejo del cambio</strong></td>
+<td>Los cambios de alcance se restringen durante la ejecución del Sprint</td>
+<td>El cambio se admite en cualquier instante que exista un hueco libre en el límite de WIP</td>
+</tr>
+<tr>
+<td><strong>Ceremonias estructuradas</strong></td>
+<td>Obligatorias (Planning, Daily, Review, Retrospective) con time-box definido</td>
+<td>Opcionales; los eventos de coordinación se convocan bajo demanda o necesidad</td>
+</tr>
+<tr>
+<td><strong>Métricas prioritarias</strong></td>
+<td>Velocidad del equipo (puntos de historia completados) y gráficos <em>Burndown</em></td>
+<td>Tiempos de ciclo (<strong>Cycle Time</strong>), tiempos de entrega (<strong>Lead Time</strong>) y rendimiento del flujo</td>
+</tr>
+</tbody>
+</table>
+<h2 id="extreme-programming-xp">Extreme Programming (XP)</h2>
+<p>Concebida a finales de los años 90 por <strong>Kent Beck</strong>, <strong>Extreme Programming (XP)</strong> es una metodología adaptativa orientada a llevar las <strong>buenas prácticas de ingeniería de software a niveles extremos</strong>. Si marcos como Scrum ponen el foco en la gestión organizativa, la inspección y los flujos de comunicación con el cliente, XP aborda de forma directa las técnicas de codificación y la excelencia del diseño lógico, postulando que la robustez técnica es la única base que permite al software evolucionar de forma ágil y segura ante cambios imprevistos.</p>
+<h3 id="practicas-tecnicas-fundamentales-de-xp">Prácticas Técnicas Fundamentales de XP</h3>
+<p>El núcleo operativo de XP se compone de un conjunto estructurado de prácticas técnicas interdependientes:</p>
+<h4 id="programacion-por-parejas-pair-programming">Programación por Parejas (<em>Pair Programming</em>)</h4>
+<p>Técnica de desarrollo en la que dos profesionales colaboran de forma simultánea sobre una misma estación de trabajo, compartiendo un único teclado y monitor. La dinámica articula dos roles complementarios que rotan periódicamente:</p>
+<ul>
+<li><strong>Conductor (<em>Driver</em>):</strong> Maneja los periféricos de entrada y se concentra en la tarea táctica inmediata: escribir código sintácticamente correcto, gestionar excepciones directas e interactuar con el entorno.</li>
+<li><strong>Navegador (<em>Navigator</em>):</strong> Mantiene una perspectiva estratégica: revisa el código en tiempo real para anticipar defectos lógicos, evalúa si la solución respeta los patrones de diseño del sistema, propone optimizaciones y planifica los siguientes pasos de la implementación.</li>
+</ul>
+<p>Esta práctica reduce sensiblemente la tasa de defectos en producción, eleva la calidad técnica global y homogeneiza el conocimiento del sistema en el seno del equipo, eliminando dependencias críticas sobre perfiles individuales.</p>
+<h4 id="desarrollo-dirigido-por-pruebas-test-driven-development-tdd">Desarrollo Dirigido por Pruebas (<em>Test-Driven Development</em>, TDD)</h4>
+<p>Metodología de construcción de software que subvierte el orden tradicional de la programación, imponiendo que el diseño de las pruebas automatizadas debe preceder a la escritura del código funcional. El proceso se ejecuta de manera cíclica a través del mecanismo denominado <strong>Red-Green-Refactor</strong>:</p>
+<ol>
+<li><strong>Fase Roja (<em>Red</em>):</strong> El desarrollador escribe una prueba unitaria que describe el comportamiento técnico o la regla de negocio que se pretende incorporar. Al ejecutarse, la prueba <strong>falla</strong> obligatoriamente, ya que la funcionalidad no existe todavía en el código base.</li>
+<li><strong>Fase Verde (<em>Green</em>):</strong> Se codifica la solución funcional empleando la <strong>cantidad mínima estrictamente necesaria de código</strong> para lograr que la prueba unitaria pase con éxito, sin atender inicialmente a consideraciones de elegancia o diseño sofisticado.</li>
+<li><strong>Fase de Refactorización (<em>Refactor</em>):</strong> Con la garantía objetiva que proporciona disponer de una batería de pruebas automatizadas en ejecución correcta, se reestructura y optimiza el diseño interno del código fuente (eliminando duplicidades, aislando responsabilidades y mejorando la legibilidad) sin alterar en ningún momento el comportamiento funcional del sistema.</li>
+</ol>
+<h4 id="integracion-continua-continuous-integration-ci">Integración Continua (<em>Continuous Integration</em>, CI)</h4>
+<p>Práctica mediante la cual los desarrolladores fusionan los avances de su código local en la rama principal del repositorio compartido con frecuencia diaria o incluso varias veces al día. Cada operación de integración desencadena de forma automatizada un proceso de compilación y la ejecución integral de las baterías de pruebas del sistema. </p>
+<p>El propósito consiste en detectar colisiones semánticas o fallos de interfaz entre componentes de forma inmediata, impidiendo la acumulación de conflictos de integración que tradicionalmente paralizaban las etapas finales de los proyectos.</p>
+<h4 id="refactorizacion-continua-y-diseno-simple">Refactorización Continua y Diseño Simple</h4>
+<ul>
+<li><strong>Refactorización:</strong> Modificación sistemática de la estructura interna del código para maximizar su cohesión, reducir su acoplamiento y simplificar su mantenimiento, sin modificar externamente su comportamiento observable.</li>
+<li><strong>Diseño simple:</strong> Se rige bajo el principio <strong>YAGNI</strong> (<em>You Aren't Gonna Need It</em>), prescribiendo que la arquitectura debe resolver exclusivamente los requerimientos técnicos y funcionales del presente, evitando introducir abstracciones especulativas para supuestas necesidades futuras que rara vez llegan a materializarse.</li>
+</ul>
+<h4 id="propiedad-colectiva-del-codigo">Propiedad Colectiva del Código</h4>
+<p>Se rechaza la atribución individual o la parcelación del repositorio en componentes de propiedad privada. Cualquier desarrollador del equipo dispone de la legitimidad, los permisos técnicos y la responsabilidad de modificar, refactorizar o corregir cualquier porción de la base de código del sistema. Esta práctica exige el respaldo de una cobertura amplia de pruebas automatizadas para que cualquier cambio introducido por un tercero pueda validarse de forma instantánea.</p>
+<h2 id="criterios-de-seleccion-modelos-predictivos-frente-a-modelos-agiles">Criterios de Selección: Modelos Predictivos frente a Modelos Ágiles</h2>
+<p>La elección del modelo de ciclo de vida de software no debe fundamentarse en preferencias de moda, sino en el análisis objetivo de las restricciones y variables que condicionan el proyecto:</p>
+<ul>
+<li><strong>Estabilidad y madurez de los requerimientos:</strong> Si el alcance técnico y las necesidades funcionales se conocen con certeza desde el inicio y es improbable que varíen durante el desarrollo, los enfoques predictivos resultan eficientes. Si los requerimientos son difusos, novedosos o sometidos a la volatilidad del mercado, el modelo ágil es la respuesta obligatoria.</li>
+<li><strong>Grado de incertidumbre e innovación tecnológica:</strong> Proyectos que emplean tecnologías consolidadas o resuelven problemas ampliamente estandarizados encajan con facilidad en la planificación tradicional. Por el contrario, iniciativas que exploran nuevos dominios exigen iteraciones cortas para evaluar viabilidad y reconducir la estrategia.</li>
+<li><strong>Nivel de criticidad del sistema:</strong> Sistemas críticos donde un error operativo puede ocasionar pérdidas de vidas humanas, desastres ecológicos o daños financieros irreversibles (aeronáutica, dispositivos médicos, infraestructuras nucleares) demandan los controles exhaustivos, las verificaciones formales y la documentación estricta propios de los modelos en cascada o en V.</li>
+<li><strong>Marco contractual y financiero:</strong> Contratos cerrados de precio cerrado y fecha fija (<em>fixed-price/fixed-scope</em>) empujan hacia la gestión predictiva tradicional, aun a costa de elevar el riesgo de desviaciones. Modelos contractuales flexibles basados en capacidad o consumo de tiempo (<em>time and materials</em>) permiten explotar plenamente las dinámicas ágiles.</li>
+<li><strong>Implicación y disponibilidad del cliente:</strong> La adopción de metodologías ágiles requiere una dedicación continuada por parte del cliente o sus delegados (como el Product Owner). Si el cliente solo está dispuesto a comparecer en el análisis y al momento de la recepción final, la ejecución ágil pierde su efectividad.</li>
+</ul>
+<h3 id="resumen-comparativo-estructurado">Resumen Comparativo Estructurado</h3>
+<table>
+<thead>
+<tr>
+<th>Criterio analítico</th>
+<th>Modelos Predictivos (Cascada / Modelo en V)</th>
+<th>Modelos Ágiles (Scrum / Kanban / XP)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Definición del alcance</strong></td>
+<td>Fijado, detallado y congelado al inicio del ciclo</td>
+<td>Variable, dinámico y refinado de forma incremental</td>
+</tr>
+<tr>
+<td><strong>Estimación del coste y tiempo</strong></td>
+<td>Fijo a partir de la planificación teórica inicial</td>
+<td>Variable o fijado por capacidad/tiempo, ajustando el alcance</td>
+</tr>
+<tr>
+<td><strong>Mecanismo de entrega</strong></td>
+<td>Entrega única y masiva del producto al cierre</td>
+<td>Despliegues frecuentes de incrementos funcionales de valor</td>
+</tr>
+<tr>
+<td><strong>Documentación técnica</strong></td>
+<td>Extensa, formal, prescriptiva y auditada</td>
+<td>Mínima suficiente, priorizando el software verificado</td>
+</tr>
+<tr>
+<td><strong>Implicación del cliente</strong></td>
+<td>Formalizada: recepción inicial y validación final</td>
+<td>Diaria o continua a lo largo de todo el desarrollo</td>
+</tr>
+<tr>
+<td><strong>Impacto económico del cambio</strong></td>
+<td>Exponencial a medida que avanza el proyecto</td>
+<td>Controlado y asumido como parte natural del ciclo</td>
+</tr>
+<tr>
+<td><strong>Indicador de avance real</strong></td>
+<td>Hitos documentales, diagramas de Gantt y fases cerradas</td>
+<td>Software probado y operativo en manos del usuario</td>
+</tr>
+<tr>
+<td><strong>Ámbitos de aplicación óptimos</strong></td>
+<td>Software aeroespacial, sistemas médicos, contratación pública rígida</td>
+<td>Aplicaciones web, apps móviles, entornos SaaS y startups</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Manuel Sánchez Gomis
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["search.suggest", "search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "content.code.copy", "content.tabs.link", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../../assets/_markdown_exec_pyodide.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../_static/js/notebook.js"></script>
+      
+    
+  </body>
+</html>

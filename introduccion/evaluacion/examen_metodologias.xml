@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+  <!-- ==================== CRITERIO A: Relación programa - hardware ==================== -->
+  <question type="multichoice">
+    <name><text>67d9d7108820d472</text></name>
+    <questiontext format="html"><text><![CDATA[<p>¿Cómo se denomina al conjunto de dispositivos físicos que conforman un ordenador (memoria, procesador, periféricos, etc.)?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html"><text><![CDATA[<p>¡Correcto!</p>]]></text></correctfeedback>
+    <partiallycorrectfeedback format="html"><text></text></partiallycorrectfeedback>
+    <incorrectfeedback format="html"><text><![CDATA[<p>Incorrecto.</p>]]></text></incorrectfeedback>
+    <answer fraction="100" format="html"><text><![CDATA[<p>Hardware</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Software</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Firmware</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Sistema operativo</p>]]></text><feedback format="html"><text></text></feedback></answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>639c75a539450665</text></name>
+    <questiontext format="html"><text><![CDATA[<p>El software es la parte ______ de un sistema informático, equivalente al equipamiento o soporte lógico.</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html"><text><![CDATA[<p>¡Correcto!</p>]]></text></correctfeedback>
+    <partiallycorrectfeedback format="html"><text></text></partiallycorrectfeedback>
+    <incorrectfeedback format="html"><text><![CDATA[<p>Incorrecto.</p>]]></text></incorrectfeedback>
+    <answer fraction="100" format="html"><text><![CDATA[<p>intangible (no física)</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>física</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>material</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>mecánica</p>]]></text><feedback format="html"><text></text></feedback></answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>03d6e05746a732ee</text></name>
+    <questiontext format="html"><text><![CDATA[<p>¿Quién estableció en 1946 la primera arquitectura hardware con programa almacenado?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html"><text><![CDATA[<p>¡Correcto!</p>]]></text></correctfeedback>
+    <partiallycorrectfeedback format="html"><text></text></partiallycorrectfeedback>
+    <incorrectfeedback format="html"><text><![CDATA[<p>Incorrecto.</p>]]></text></incorrectfeedback>
+    <answer fraction="100" format="html"><text><![CDATA[<p>John Von Neumann</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Alan Turing</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Charles Babbage</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>James Gosling</p>]]></text><feedback format="html"><text></text></feedback></answer>
+  </question>
+
+  <!-- ==================== CRITERIO B: Fases de desarrollo ==================== -->
+  <question type="multichoice">
+    <name><text>a15c85afeb0a6d6a</text></name>
+    <questiontext format="html"><text><![CDATA[<p>El SDLC (Systems Development Life Cycle) es...</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html"><text><![CDATA[<p>¡Correcto!</p>]]></text></correctfeedback>
+    <partiallycorrectfeedback format="html"><text></text></partiallycorrectfeedback>
+    <incorrectfeedback format="html"><text><![CDATA[<p>Incorrecto.</p>]]></text></incorrectfeedback>
+    <answer fraction="100" format="html"><text><![CDATA[<p>La estructura que contiene los procesos, actividades y tareas relacionadas con el desarrollo y mantenimiento de un producto software</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Un lenguaje de programación de alto nivel</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Un tipo de código intermedio para máquinas virtuales</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Un sistema de control de versiones</p>]]></text><feedback format="html"><text></text></feedback></answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>ee6e4e0339b8db93</text></name>
+    <questiontext format="html"><text><![CDATA[<p>¿En qué fase del ciclo de vida del software se intenta descubrir "qué es lo que realmente se necesita", es decir, los requerimientos del sistema?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html"><text><![CDATA[<p>¡Correcto!</p>]]></text></correctfeedback>
+    <partiallycorrectfeedback format="html"><text></text></partiallycorrectfeedback>
+    <incorrectfeedback format="html"><text><![CDATA[<p>Incorrecto.</p>]]></text></incorrectfeedback>
+    <answer fraction="100" format="html"><text><![CDATA[<p>Análisis</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Diseño</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Pruebas</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Mantenimiento</p>]]></text><feedback format="html"><text></text></feedback></answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>f8918b546ff053f9</text></name>
+    <questiontext format="html"><text><![CDATA[<p>¿Cuál es el orden correcto de las fases del SDLC?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html"><text><![CDATA[<p>¡Correcto!</p>]]></text></correctfeedback>
+    <partiallycorrectfeedback format="html"><text></text></partiallycorrectfeedback>
+    <incorrectfeedback format="html"><text><![CDATA[<p>Incorrecto.</p>]]></text></incorrectfeedback>
+    <answer fraction="100" format="html"><text><![CDATA[<p>Análisis → Diseño → Desarrollo → Pruebas → Instalación/Despliegue → Uso y mantenimiento</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Diseño → Análisis → Desarrollo → Pruebas → Mantenimiento → Instalación</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Desarrollo → Análisis → Diseño → Pruebas → Instalación → Mantenimiento</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Análisis → Pruebas → Diseño → Desarrollo → Mantenimiento → Instalación</p>]]></text><feedback format="html"><text></text></feedback></answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>5d352bd5fd0e2da6</text></name>
+    <questiontext format="html"><text><![CDATA[<p>¿Qué etapa del ciclo de vida consume típicamente entre el 40% y el 80% de los recursos de una empresa de desarrollo de software?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html"><text><![CDATA[<p>¡Correcto!</p>]]></text></correctfeedback>
+    <partiallycorrectfeedback format="html"><text></text></partiallycorrectfeedback>
+    <incorrectfeedback format="html"><text><![CDATA[<p>Incorrecto.</p>]]></text></incorrectfeedback>
+    <answer fraction="100" format="html"><text><![CDATA[<p>Mantenimiento</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Análisis</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Diseño</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Pruebas</p>]]></text><feedback format="html"><text></text></feedback></answer>
+  </question>
+
+  <!-- ==================== CRITERIO C: Fuente / objeto / ejecutable ==================== -->
+  <question type="multichoice">
+    <name><text>fbfb50c13ea4df24</text></name>
+    <questiontext format="html"><text><![CDATA[<p>El código fuente es...</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html"><text><![CDATA[<p>¡Correcto!</p>]]></text></correctfeedback>
+    <partiallycorrectfeedback format="html"><text></text></partiallycorrectfeedback>
+    <incorrectfeedback format="html"><text><![CDATA[<p>Incorrecto.</p>]]></text></incorrectfeedback>
+    <answer fraction="100" format="html"><text><![CDATA[<p>El conjunto de instrucciones escritas en un lenguaje de alto nivel, no ejecutable directamente por la máquina</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>El resultado de compilar y enlazar el código con las librerías</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Un código binario ejecutable directamente por el ordenador</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>La traducción del código a lenguaje máquina lista para ejecutar</p>]]></text><feedback format="html"><text></text></feedback></answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>0dec75591e2834e9</text></name>
+    <questiontext format="html"><text><![CDATA[<p>El código objeto es...</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html"><text><![CDATA[<p>¡Correcto!</p>]]></text></correctfeedback>
+    <partiallycorrectfeedback format="html"><text></text></partiallycorrectfeedback>
+    <incorrectfeedback format="html"><text><![CDATA[<p>Incorrecto.</p>]]></text></incorrectfeedback>
+    <answer fraction="100" format="html"><text><![CDATA[<p>El resultado de compilar el código fuente: código binario (o bytecode) que aún no se puede ejecutar directamente</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Las instrucciones escritas en un lenguaje de alto nivel</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>El archivo ejecutable final enlazado con las librerías</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>El código fuente con la documentación asociada</p>]]></text><feedback format="html"><text></text></feedback></answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>f4121bdd2648d5b1</text></name>
+    <questiontext format="html"><text><![CDATA[<p>El código ejecutable se obtiene...</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html"><text><![CDATA[<p>¡Correcto!</p>]]></text></correctfeedback>
+    <partiallycorrectfeedback format="html"><text></text></partiallycorrectfeedback>
+    <incorrectfeedback format="html"><text><![CDATA[<p>Incorrecto.</p>]]></text></incorrectfeedback>
+    <answer fraction="100" format="html"><text><![CDATA[<p>Compilando el código fuente y enlazando el código objeto resultante con las librerías</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Guardando el código fuente con extensión .exe</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Interpretando línea a línea el código fuente</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Traduciendo el código fuente a pseudocódigo</p>]]></text><feedback format="html"><text></text></feedback></answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>44c499bfe648aa6c</text></name>
+    <questiontext format="html"><text><![CDATA[<p>¿Qué software se encarga de unir los archivos de código objeto con las librerías para generar el programa ejecutable?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html"><text><![CDATA[<p>¡Correcto!</p>]]></text></correctfeedback>
+    <partiallycorrectfeedback format="html"><text></text></partiallycorrectfeedback>
+    <incorrectfeedback format="html"><text><![CDATA[<p>Incorrecto.</p>]]></text></incorrectfeedback>
+    <answer fraction="100" format="html"><text><![CDATA[<p>El enlazador (linker)</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>El compilador</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>El intérprete</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>El depurador</p>]]></text><feedback format="html"><text></text></feedback></answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>000766efe0fe93c1</text></name>
+    <questiontext format="html"><text><![CDATA[<p>¿Cuál es la diferencia principal entre el código fuente y el código objeto?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html"><text><![CDATA[<p>¡Correcto!</p>]]></text></correctfeedback>
+    <partiallycorrectfeedback format="html"><text></text></partiallycorrectfeedback>
+    <incorrectfeedback format="html"><text><![CDATA[<p>Incorrecto.</p>]]></text></incorrectfeedback>
+    <answer fraction="100" format="html"><text><![CDATA[<p>El fuente está en un lenguaje de alto nivel, mientras que el objeto es código binario resultado de la compilación</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>No hay ninguna diferencia, son sinónimos</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>El fuente es binario y el objeto está en alto nivel</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>El objeto es el ejecutable final enlazado con las librerías</p>]]></text><feedback format="html"><text></text></feedback></answer>
+  </question>
+
+  <!-- ==================== CRITERIO D: Código intermedio / máquinas virtuales ==================== -->
+  <question type="multichoice">
+    <name><text>ede925bc3236176e</text></name>
+    <questiontext format="html"><text><![CDATA[<p>¿Qué es el bytecode?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html"><text><![CDATA[<p>¡Correcto!</p>]]></text></correctfeedback>
+    <partiallycorrectfeedback format="html"><text></text></partiallycorrectfeedback>
+    <incorrectfeedback format="html"><text><![CDATA[<p>Incorrecto.</p>]]></text></incorrectfeedback>
+    <answer fraction="100" format="html"><text><![CDATA[<p>Un código intermedio interpretable por una máquina virtual</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>El código máquina nativo del procesador</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>El código fuente en lenguaje de alto nivel</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Un lenguaje de programación de bajo nivel</p>]]></text><feedback format="html"><text></text></feedback></answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>d55eb7140a7d5b15</text></name>
+    <questiontext format="html"><text><![CDATA[<p>Una máquina virtual es...</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html"><text><![CDATA[<p>¡Correcto!</p>]]></text></correctfeedback>
+    <partiallycorrectfeedback format="html"><text></text></partiallycorrectfeedback>
+    <incorrectfeedback format="html"><text><![CDATA[<p>Incorrecto.</p>]]></text></incorrectfeedback>
+    <answer fraction="100" format="html"><text><![CDATA[<p>Un software que separa el funcionamiento del ordenador de los componentes hardware, garantizando la portabilidad</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Un componente físico del ordenador</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Un tipo de lenguaje de programación</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Un periférico de entrada/salida</p>]]></text><feedback format="html"><text></text></feedback></answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>b44156d6bfc2750a</text></name>
+    <questiontext format="html"><text><![CDATA[<p>¿Qué significan las siglas JVM?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html"><text><![CDATA[<p>¡Correcto!</p>]]></text></correctfeedback>
+    <partiallycorrectfeedback format="html"><text></text></partiallycorrectfeedback>
+    <incorrectfeedback format="html"><text><![CDATA[<p>Incorrecto.</p>]]></text></incorrectfeedback>
+    <answer fraction="100" format="html"><text><![CDATA[<p>Java Virtual Machine</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Java Version Manager</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Java Visual Module</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Java Variable Memory</p>]]></text><feedback format="html"><text></text></feedback></answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>27307c8e7f7c1a1e</text></name>
+    <questiontext format="html"><text><![CDATA[<p>El JRE (Java Runtime Environment) está formado por...</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html"><text><![CDATA[<p>¡Correcto!</p>]]></text></correctfeedback>
+    <partiallycorrectfeedback format="html"><text></text></partiallycorrectfeedback>
+    <incorrectfeedback format="html"><text><![CDATA[<p>Incorrecto.</p>]]></text></incorrectfeedback>
+    <answer fraction="100" format="html"><text><![CDATA[<p>La Máquina Virtual Java (JVM) y las bibliotecas de clases estándar (API de Java)</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Únicamente el compilador de Java</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Solo el editor de código y el depurador</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>El enlazador y el código fuente</p>]]></text><feedback format="html"><text></text></feedback></answer>
+  </question>
+
+  <!-- ==================== CRITERIO E: Clasificación de lenguajes ==================== -->
+  <question type="multichoice">
+    <name><text>d82bce631601a69d</text></name>
+    <questiontext format="html"><text><![CDATA[<p>¿A qué generación de lenguajes de programación pertenece el lenguaje máquina (sistema binario)?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html"><text><![CDATA[<p>¡Correcto!</p>]]></text></correctfeedback>
+    <partiallycorrectfeedback format="html"><text></text></partiallycorrectfeedback>
+    <incorrectfeedback format="html"><text><![CDATA[<p>Incorrecto.</p>]]></text></incorrectfeedback>
+    <answer fraction="100" format="html"><text><![CDATA[<p>Primera generación</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Segunda generación</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Tercera generación</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Cuarta generación</p>]]></text><feedback format="html"><text></text></feedback></answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>15fb6871023fc0d0</text></name>
+    <questiontext format="html"><text><![CDATA[<p>Según su nivel, el lenguaje ensamblador se clasifica como un lenguaje de...</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html"><text><![CDATA[<p>¡Correcto!</p>]]></text></correctfeedback>
+    <partiallycorrectfeedback format="html"><text></text></partiallycorrectfeedback>
+    <incorrectfeedback format="html"><text><![CDATA[<p>Incorrecto.</p>]]></text></incorrectfeedback>
+    <answer fraction="100" format="html"><text><![CDATA[<p>bajo nivel</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>alto nivel</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>medio nivel</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>muy alto nivel</p>]]></text><feedback format="html"><text></text></feedback></answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>afd8502efa535499</text></name>
+    <questiontext format="html"><text><![CDATA[<p>¿Qué lenguaje se considera el más representativo de los lenguajes de medio nivel?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html"><text><![CDATA[<p>¡Correcto!</p>]]></text></correctfeedback>
+    <partiallycorrectfeedback format="html"><text></text></partiallycorrectfeedback>
+    <incorrectfeedback format="html"><text><![CDATA[<p>Incorrecto.</p>]]></text></incorrectfeedback>
+    <answer fraction="100" format="html"><text><![CDATA[<p>C</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Java</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Python</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Ensamblador</p>]]></text><feedback format="html"><text></text></feedback></answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>27ff45a67c48d426</text></name>
+    <questiontext format="html"><text><![CDATA[<p>El paradigma de programación que combina en una única unidad (el objeto) los datos y las funciones que operan sobre ellos se denomina...</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html"><text><![CDATA[<p>¡Correcto!</p>]]></text></correctfeedback>
+    <partiallycorrectfeedback format="html"><text></text></partiallycorrectfeedback>
+    <incorrectfeedback format="html"><text><![CDATA[<p>Incorrecto.</p>]]></text></incorrectfeedback>
+    <answer fraction="100" format="html"><text><![CDATA[<p>programación orientada a objetos</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>programación funcional</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>programación lógica</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>programación imperativa</p>]]></text><feedback format="html"><text></text></feedback></answer>
+  </question>
+
+    <question type="multichoice">
+    <name><text>6050373bc16b7631</text></name>
+    <questiontext format="html"><text><![CDATA[<p>Según el temario, ¿qué caracteriza a los lenguajes de guiones (scripting)?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html"><text><![CDATA[<p>¡Correcto!</p>]]></text></correctfeedback>
+    <partiallycorrectfeedback format="html"><text></text></partiallycorrectfeedback>
+    <incorrectfeedback format="html"><text><![CDATA[<p>Incorrecto.</p>]]></text></incorrectfeedback>
+    <answer fraction="100" format="html"><text><![CDATA[<p>Su código fuente se almacena en un archivo de texto plano y son casi siempre interpretados.</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Se compilan siempre a código máquina antes de su ejecución.</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Todo programa interpretado es considerado un script.</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>No permiten interactuar con el sistema operativo ni combinar componentes.</p>]]></text><feedback format="html"><text></text></feedback></answer>
+  </question>
+
+  <!-- ==================== CRITERIO F: Herramientas de desarrollo ==================== -->
+  <question type="multichoice">
+    <name><text>5923da9bc70591dd</text></name>
+    <questiontext format="html"><text><![CDATA[<p>Un compilador es un software que...</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html"><text><![CDATA[<p>¡Correcto!</p>]]></text></correctfeedback>
+    <partiallycorrectfeedback format="html"><text></text></partiallycorrectfeedback>
+    <incorrectfeedback format="html"><text><![CDATA[<p>Incorrecto.</p>]]></text></incorrectfeedback>
+    <answer fraction="100" format="html"><text><![CDATA[<p>Traduce, de una sola vez, todo el código fuente a su equivalente en lenguaje máquina</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Traduce y ejecuta el código instrucción a instrucción</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Elimina los errores lógicos de un programa</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Edita el código fuente con resaltado de sintaxis</p>]]></text><feedback format="html"><text></text></feedback></answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>79bebc103f385bc4</text></name>
+    <questiontext format="html"><text><![CDATA[<p>¿Cuál es la diferencia fundamental entre un compilador y un intérprete?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html"><text><![CDATA[<p>¡Correcto!</p>]]></text></correctfeedback>
+    <partiallycorrectfeedback format="html"><text></text></partiallycorrectfeedback>
+    <incorrectfeedback format="html"><text><![CDATA[<p>Incorrecto.</p>]]></text></incorrectfeedback>
+    <answer fraction="100" format="html"><text><![CDATA[<p>El intérprete traduce y ejecuta el código línea a línea, mientras el compilador traduce todo el código de una sola vez</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>El compilador necesita estar en memoria durante la ejecución, el intérprete no</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>El intérprete genera un archivo ejecutable, el compilador no</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>No existe ninguna diferencia entre ambos</p>]]></text><feedback format="html"><text></text></feedback></answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>6d429b533c201408</text></name>
+    <questiontext format="html"><text><![CDATA[<p>Un IDE (entorno de desarrollo integrado) es...</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html"><text><![CDATA[<p>¡Correcto!</p>]]></text></correctfeedback>
+    <partiallycorrectfeedback format="html"><text></text></partiallycorrectfeedback>
+    <incorrectfeedback format="html"><text><![CDATA[<p>Incorrecto.</p>]]></text></incorrectfeedback>
+    <answer fraction="100" format="html"><text><![CDATA[<p>Una aplicación que integra herramientas como editor, compilador y depurador para facilitar el desarrollo</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Un lenguaje de programación de alto nivel</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Un sistema operativo</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Un gestor de bases de datos</p>]]></text><feedback format="html"><text></text></feedback></answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>49d9f0f563abba82</text></name>
+    <questiontext format="html"><text><![CDATA[<p>¿Qué herramienta se utiliza para localizar y corregir los errores lógicos (bugs) de un programa?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html"><text><![CDATA[<p>¡Correcto!</p>]]></text></correctfeedback>
+    <partiallycorrectfeedback format="html"><text></text></partiallycorrectfeedback>
+    <incorrectfeedback format="html"><text><![CDATA[<p>Incorrecto.</p>]]></text></incorrectfeedback>
+    <answer fraction="100" format="html"><text><![CDATA[<p>El depurador (debugger)</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>El compilador</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>El enlazador</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>El editor de texto</p>]]></text><feedback format="html"><text></text></feedback></answer>
+  </question>
+
+  <!-- ==================== CRITERIO G: Metodologías ágiles ==================== -->
+  <question type="multichoice">
+    <name><text>83395b3f6d558abc</text></name>
+    <questiontext format="html"><text><![CDATA[<p>Según el Manifiesto Ágil, se valora más...</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html"><text><![CDATA[<p>¡Correcto!</p>]]></text></correctfeedback>
+    <partiallycorrectfeedback format="html"><text></text></partiallycorrectfeedback>
+    <incorrectfeedback format="html"><text><![CDATA[<p>Incorrecto.</p>]]></text></incorrectfeedback>
+    <answer fraction="100" format="html"><text><![CDATA[<p>Los individuos e interacciones que los procesos y las herramientas (sin desmerecer estos últimos)</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>La documentación exhaustiva que el software funcionando</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Seguir un plan que la respuesta ante el cambio</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>La negociación contractual que la colaboración con el cliente</p>]]></text><feedback format="html"><text></text></feedback></answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>650e7ccca246496b</text></name>
+    <questiontext format="html"><text><![CDATA[<p>Los tres pilares del control empírico de Scrum son...</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html"><text><![CDATA[<p>¡Correcto!</p>]]></text></correctfeedback>
+    <partiallycorrectfeedback format="html"><text></text></partiallycorrectfeedback>
+    <incorrectfeedback format="html"><text><![CDATA[<p>Incorrecto.</p>]]></text></incorrectfeedback>
+    <answer fraction="100" format="html"><text><![CDATA[<p>Transparencia, Inspección y Adaptación</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Compromiso, Foco y Respeto</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Análisis, Diseño e Implementación</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Planificación, Ejecución y Control</p>]]></text><feedback format="html"><text></text></feedback></answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>40e15495894a38b6</text></name>
+    <questiontext format="html"><text><![CDATA[<p>En Scrum, ¿quién es el responsable de maximizar el valor del producto y de gestionar y priorizar el Product Backlog?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html"><text><![CDATA[<p>¡Correcto!</p>]]></text></correctfeedback>
+    <partiallycorrectfeedback format="html"><text></text></partiallycorrectfeedback>
+    <incorrectfeedback format="html"><text><![CDATA[<p>Incorrecto.</p>]]></text></incorrectfeedback>
+    <answer fraction="100" format="html"><text><![CDATA[<p>El Product Owner</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>El Scrum Master</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Los Developers</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Los stakeholders</p>]]></text><feedback format="html"><text></text></feedback></answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>d7310923adf9f030</text></name>
+    <questiontext format="html"><text><![CDATA[<p>En el desarrollo guiado por pruebas (TDD), el ciclo Red-Green-Refactor consiste en...</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html"><text><![CDATA[<p>¡Correcto!</p>]]></text></correctfeedback>
+    <partiallycorrectfeedback format="html"><text></text></partiallycorrectfeedback>
+    <incorrectfeedback format="html"><text><![CDATA[<p>Incorrecto.</p>]]></text></incorrectfeedback>
+    <answer fraction="100" format="html"><text><![CDATA[<p>Escribir una prueba que falla, escribir el mínimo código para que pase y después refactorizar</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Diseñar, codificar y documentar</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Analizar, compilar y depurar</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>Planificar, ejecutar y revisar</p>]]></text><feedback format="html"><text></text></feedback></answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>e9f06061085ebd02</text></name>
+    <questiontext format="html"><text><![CDATA[<p>En Kanban, ¿qué es el WIP (Work In Progress)?</p>]]></text></questiontext>
+    <generalfeedback format="html"><text></text></generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html"><text><![CDATA[<p>¡Correcto!</p>]]></text></correctfeedback>
+    <partiallycorrectfeedback format="html"><text></text></partiallycorrectfeedback>
+    <incorrectfeedback format="html"><text><![CDATA[<p>Incorrecto.</p>]]></text></incorrectfeedback>
+    <answer fraction="100" format="html"><text><![CDATA[<p>El límite de trabajo que puede estar en curso simultáneamente, que ayuda a evitar cuellos de botella</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>El tiempo total desde que se solicita un trabajo hasta que se entrega</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>El tablero visual con las columnas de estados</p>]]></text><feedback format="html"><text></text></feedback></answer>
+    <answer fraction="-33.33333" format="html"><text><![CDATA[<p>El tiempo desde que se empieza un trabajo hasta que se termina</p>]]></text><feedback format="html"><text></text></feedback></answer>
+  </question>
+</quiz>

@@ -1,0 +1,1425 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Manuel Sánchez Gomis">
+      
+      
+      
+        <link rel="prev" href="../01%20-%20introduccion/">
+      
+      
+        <link rel="next" href="../03%20-%20plugins/">
+      
+      
+      <link rel="icon" href="../../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
+    
+    
+      
+        <title>IntelliJ IDEA - Entornos de desarrollo</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_markdown_exec_pyodide.css">
+    
+      <link rel="stylesheet" href="../../../_static/css/notebook.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#intellij-idea" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Entornos de desarrollo" class="md-header__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Entornos de desarrollo
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              IntelliJ IDEA
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo brillante"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo brillante" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Bienvenido
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Introducción al desarrollo de software
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Entornos de desarrollo
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Entornos de desarrollo" class="md-nav__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    Entornos de desarrollo
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bienvenido
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introducción al desarrollo de software
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Introducción al desarrollo de software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/02%20-%20lenguajes_programacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lenguajes de programación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/03%20-%20proceso_obtencion_codigo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proceso de obtención de código
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/04%20-%20desarrollo_aplicaciones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Desarrollo de aplicaciones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/05%20-%20metodologias_agiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metodologías Ágiles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Entornos de desarrollo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Entornos de desarrollo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a los entornos de desarrollo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    IntelliJ IDEA
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    IntelliJ IDEA
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#el-proceso-de-indexacion-del-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      El proceso de indexación del proyecto
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalacion-de-intellij" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instalación de IntelliJ
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#primeros-pasos-con-intellij" class="md-nav__link">
+    <span class="md-ellipsis">
+      Primeros pasos con IntelliJ
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Primeros pasos con IntelliJ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#crear-un-proyecto-de-java" class="md-nav__link">
+    <span class="md-ellipsis">
+      Crear un proyecto de Java
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creacion-de-un-nuevo-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creación de un nuevo proyecto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ventanas-del-ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ventanas del IDE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ayudas-a-la-edicion-del-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ayudas a la edición del código
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apertura-de-un-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apertura de un proyecto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cierre-de-un-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cierre de un proyecto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejecucion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejecución
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#errores-de-compilacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Errores de compilación
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#depuracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Depuración
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Depuración">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#depurar-con-intellij" class="md-nav__link">
+    <span class="md-ellipsis">
+      Depurar con IntelliJ
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlar-la-ejecucion-paso-a-paso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controlar la ejecución paso a paso
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-pila-de-llamadas-y-las-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      La pila de llamadas y las variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-puntos-de-ruptura" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuración de puntos de ruptura
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-y-gestion-del-sdk-java-development-kit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuración y gestión del SDK (Java Development Kit)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuración y gestión del SDK (Java Development Kit)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#la-funcion-del-jdk-el-motor-de-ejecucion-y-compilacion-tras-el-ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      La función del JDK: el motor de ejecución y compilación tras el IDE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#descarga-e-instalacion-integrada-del-jdk-desde-intellij" class="md-nav__link">
+    <span class="md-ellipsis">
+      Descarga e instalación integrada del JDK desde IntelliJ
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deteccion-y-vinculacion-de-un-jdk-instalado-localmente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detección y vinculación de un JDK instalado localmente
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-del-project-sdk-y-project-language-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gestión del Project SDK y Project Language Level
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03%20-%20plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalar plugins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04%20-%20personalizacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Personalización, automatización y mantenimiento del entorno
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05%20-%20compilacion_y_ejecutables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generación de ejecutables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#el-proceso-de-indexacion-del-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      El proceso de indexación del proyecto
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalacion-de-intellij" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instalación de IntelliJ
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#primeros-pasos-con-intellij" class="md-nav__link">
+    <span class="md-ellipsis">
+      Primeros pasos con IntelliJ
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Primeros pasos con IntelliJ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#crear-un-proyecto-de-java" class="md-nav__link">
+    <span class="md-ellipsis">
+      Crear un proyecto de Java
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creacion-de-un-nuevo-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creación de un nuevo proyecto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ventanas-del-ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ventanas del IDE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ayudas-a-la-edicion-del-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ayudas a la edición del código
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apertura-de-un-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apertura de un proyecto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cierre-de-un-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cierre de un proyecto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejecucion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejecución
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#errores-de-compilacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Errores de compilación
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#depuracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Depuración
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Depuración">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#depurar-con-intellij" class="md-nav__link">
+    <span class="md-ellipsis">
+      Depurar con IntelliJ
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlar-la-ejecucion-paso-a-paso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controlar la ejecución paso a paso
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-pila-de-llamadas-y-las-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      La pila de llamadas y las variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-puntos-de-ruptura" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuración de puntos de ruptura
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-y-gestion-del-sdk-java-development-kit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuración y gestión del SDK (Java Development Kit)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuración y gestión del SDK (Java Development Kit)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#la-funcion-del-jdk-el-motor-de-ejecucion-y-compilacion-tras-el-ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      La función del JDK: el motor de ejecución y compilación tras el IDE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#descarga-e-instalacion-integrada-del-jdk-desde-intellij" class="md-nav__link">
+    <span class="md-ellipsis">
+      Descarga e instalación integrada del JDK desde IntelliJ
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deteccion-y-vinculacion-de-un-jdk-instalado-localmente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detección y vinculación de un JDK instalado localmente
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-del-project-sdk-y-project-language-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gestión del Project SDK y Project Language Level
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="intellij-idea">IntelliJ IDEA</h1>
+<p><strong>IntelliJ IDEA</strong> es un IDE creado para ayudar a los desarrolladores Java en la creación, prueba y análisis de aplicaciones. Sus funciones incluyen coincidencia de patrones, automatización del flujo de trabajo, control de versiones, análisis de código estático, pruebas de unidades, descompilador integrado y atajos de teclado.</p>
+<p>La plataforma <strong>indexa todo el código</strong>, lo que ayuda a los desarrolladores a encontrar errores, navegar por las estructuras del código y realizar refactorizaciones del mismo. Con las funciones de finalización de miembros estáticos, encadenados e inteligentes, los programadores pueden recibir sugerencias sobre clases, métodos, campos o palabras clave relevantes, enumerar los símbolos aplicables accesibles a través de métodos y emplear métodos o funciones estáticos. Los desarrolladores pueden usar la herramienta de depuración para predecir riesgos y recibir alertas en caso de excepciones o condiciones falsas (<em>true/always</em>) en función del estado de ejecución del programa.</p>
+<p>IntelliJ IDEA ofrece varias herramientas de automatización de compilación, como Maven, Gradle, Ant, NPM y Grunt, que ayudan a los miembros del equipo a realizar actividades tales como compilación de código, empaquetado, pruebas y más. Los usuarios pueden acceder a bases de datos en vivo como PostgreSQL, Oracle, MySQL, MongoDB o Snowflake a través de DataGrip, un entorno de base de datos multimotor, así como ejecutar consultas, buscar y exportar datos y administrar esquemas desde la interfaz visual.</p>
+<h2 id="el-proceso-de-indexacion-del-proyecto">El proceso de indexación del proyecto</h2>
+<p>Hay una idea que conviene entender desde el principio, porque explica por qué IntelliJ se comporta como se comporta: la plataforma <strong>no trabaja con archivos sueltos, sino con un modelo completo del proyecto</strong>. Para construir ese modelo, cuando se abre un proyecto (o cuando se modifican archivos), IntelliJ lanza en segundo plano un proceso de <strong>indexación</strong>: recorre todo el código, lo analiza y construye una suerte de "mapa" interno con todas las clases, métodos, variables y relaciones que encuentra.</p>
+<p>Esa indexación es la razón por la que, la primera vez que se abre un proyecto grande, el IDE consume bastantes recursos (CPU, disco y memoria) durante un rato. Mientras el icono de progreso de la parte inferior derecha esté activo, el entorno está leyendo y catalogando el proyecto. No es un mal funcionamiento, sino el precio que hay que pagar para que después todo vaya rápido. En proyectos pequeños, ese proceso dura apenas unos segundos; en proyectos de cientos de archivos, puede tardar más, y conviene dejar que termine antes de ponerse a trabajar a fondo.</p>
+<p>Las ventajas que aporta ese trabajo previo son enormes e inmediatas:</p>
+<ul>
+<li><strong>Búsqueda instantánea</strong>: se puede buscar cualquier clase, método o símbolo en todo el proyecto y encontrarlo al momento, porque el índice ya sabe dónde está cada cosa.</li>
+<li><strong>Autocompletado inteligente</strong>: las sugerencias no se basan solo en el texto escrito, sino en el tipo real de cada variable y en las clases que existen de verdad. Por eso el IDE propone métodos que tienen sentido en ese contexto y descarta los que no.</li>
+<li><strong>Refactorizaciones seguras</strong>: al cambiar el nombre de una clase o de un método, IntelliJ puede actualizar automáticamente todas sus referencias en el proyecto, porque conoce todas las relaciones. Sin ese mapa interno, renombrar algo sería una operación arriesgada.</li>
+</ul>
+<p>En resumen, la indexación es lo que convierte a IntelliJ en un entorno que "comprende" el código, y es la base sobre la que se apoyan todas las ayudas que veremos a continuación.</p>
+<h2 id="instalacion-de-intellij">Instalación de IntelliJ</h2>
+<p>En este apartado vamos a describir los pasos para instalar IntelliJ en el sistema operativo Ubuntu.</p>
+<p><strong>Descargar IntelliJ</strong> desde la página oficial de JetBrains (<a href="https://www.jetbrains.com/es-es/idea/download/#section=linux">https://www.jetbrains.com/es-es/idea/download/#section=linux</a>). Al finalizar la descarga nos queda un archivo como este <code>ideaIC-2021.2.2.tar.gz</code> (el nombre puede variar según la versión) en la carpeta de descargas o donde lo hayamos descargado.</p>
+<figure>
+<img alt="" src="../../images/19.png" width="60%"/>
+</figure>
+<p><strong>Descomprimimos el archivo</strong> y lo generamos en la carpeta <code>/home/usuario</code> con el siguiente comando:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>tar<span class="w"> </span>-xvf<span class="w"> </span>~/Descargas/ideaIC-2021.2.2.tar.gz<span class="w"> </span>-C<span class="w"> </span>/home/usuario
+</span></code></pre></div>
+<p>Donde <code>usuario</code> es el nombre de nuestro usuario. Cabe destacar que la primera parte de la instrucción dependerá de la carpeta donde esté descargado el fichero. Se crea una carpeta en la carpeta de nuestro usuario con el nombre <code>idea-IC-212.5284.40</code>.</p>
+<p><strong>Renombramos</strong> el nombre de la carpeta a <code>intellij</code> (opcional) con el siguiente comando:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>mv<span class="w"> </span>/home/usuario/idea-IC-212.5284.40<span class="w"> </span>/home/usuario/intellij
+</span></code></pre></div>
+<p><strong>Ejecutamos el instalador</strong> con el siguiente comando:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>/home/usuario/intellij/bin/idea.sh
+</span></code></pre></div>
+<p>Seguimos los pasos de instalación y se elige crear acceso directo en escritorio.</p>
+<p>Por último, si queremos <strong>desinstalar IntelliJ</strong>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>rm<span class="w"> </span>-Rf<span class="w"> </span>/home/usuario/intellij
+</span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>rm<span class="w"> </span>/usr/share/applications/jetbrains-idea-ce.desktop
+</span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>rm<span class="w"> </span>-Rf<span class="w"> </span>.local/share/JetBrains/IdeaIC2021.2
+</span><span id="__span-3-4"><a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>rm<span class="w"> </span>-Rf<span class="w"> </span>.cache/JetBrains/IdeaIC2021.2
+</span><span id="__span-3-5"><a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>rm<span class="w"> </span>-Rf<span class="w"> </span>.config/JetBrains/IdeaIC2021.2
+</span><span id="__span-3-6"><a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>rm<span class="w"> </span>-Rf<span class="w"> </span>~/.local/share/JetBrains/consentOptions/accepted
+</span></code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Otros sistemas operativos</p>
+<p>Para instalar IntelliJ en <strong>Windows</strong> o en <strong>macOS</strong> se puede consultar la documentación oficial de JetBrains, ya que el proceso varía respecto al de Ubuntu.</p>
+</div>
+<h2 id="primeros-pasos-con-intellij">Primeros pasos con IntelliJ</h2>
+<p>En este punto vamos a ver un poco cómo funciona IntelliJ y cómo desenvolvernos con él para crear un nuevo proyecto, compilarlo y demás.</p>
+<h3 id="crear-un-proyecto-de-java">Crear un proyecto de Java</h3>
+<p>Al abrir el IDE se nos muestra un cuadro de diálogo donde podemos abrir proyectos abiertos anteriormente o crear un nuevo proyecto.</p>
+<figure>
+<img alt="" src="../../images/20.png" width="100%"/>
+</figure>
+<p>Si cerramos el IDE con un proyecto abierto, la próxima vez que iniciemos se abrirá directamente el proyecto en el que estábamos trabajando, sin mostrar el cuadro de diálogo anterior.</p>
+<p>En la pestaña <strong>"Customize"</strong> es posible modificar algunos parámetros de apariencia especiales, como son el esquema de colores (<em>Color Theme</em>) y el tamaño de las fuentes empleadas (<em>IDE Font</em>).</p>
+<h3 id="creacion-de-un-nuevo-proyecto">Creación de un nuevo proyecto</h3>
+<p>Pulsamos el botón <strong>"New Project"</strong> en la pestaña Projects del cuadro de diálogo.</p>
+<p>Seleccionamos el tipo de proyecto (Java) y la versión del JDK a emplear (<em>Project SDK</em>). También es posible seleccionar gestores de dependencias como Gradle o Maven.</p>
+<figure>
+<img alt="" src="../../images/21.png" width="100%"/>
+</figure>
+<p>Por defecto, el SDK tomado es el instalado en el ordenador, pero es posible desplegar la lista y seleccionar o descargar otras versiones del SDK de Java:</p>
+<figure>
+<img alt="" src="../../images/22.png" width="100%"/>
+</figure>
+<p>Lo siguiente es seleccionar una plantilla de proyecto. La plantilla <strong>"Command Line App"</strong> define una aplicación sin GUI para ejecutarse desde la línea de comandos.</p>
+<p>En el siguiente cuadro de diálogo debemos indicar el nombre del proyecto, la ubicación en el disco donde deseamos guardarlo y el nombre de paquete raíz que englobará todas las clases del proyecto:</p>
+<figure>
+<img alt="" src="../../images/23.png" width="100%"/>
+</figure>
+<h3 id="ventanas-del-ide">Ventanas del IDE</h3>
+<figure>
+<img alt="" src="../../images/24.png" width="80%"/>
+</figure>
+<p>La interfaz de usuario del IDE se divide básicamente en dos ventanas:</p>
+<ul>
+<li><strong>Ventana de proyecto</strong>: muestra la estructura del proyecto, indicando la librería Java SDK que se emplea en "External Libraries", y los paquetes y clases que componen el código fuente del proyecto en la carpeta "src".</li>
+<li><strong>Ventana de edición</strong>: muestra el código de los ficheros que se están editando. Pueden editarse varios archivos al mismo tiempo, que se muestran como pestañas en la parte superior. También es posible dividir la ventana para editar múltiples ficheros a la vez.</li>
+</ul>
+<h3 id="ayudas-a-la-edicion-del-codigo">Ayudas a la edición del código</h3>
+<p><strong>Autocompletado</strong>: muestra los posibles métodos que pueden llamarse, indicando los argumentos y el tipo del valor retornado para seleccionar el que se quiere.</p>
+<figure>
+<img alt="" src="../../images/25.png" width="100%"/>
+</figure>
+<p><strong>Indicación de errores y sugerencias</strong>: muestra errores en el código e indica sugerencias para resolverlos, como importar los paquetes necesarios para instanciar clases.</p>
+<h3 id="apertura-de-un-proyecto">Apertura de un proyecto</h3>
+<p>Para abrir un proyecto ya existente podemos hacer clic sobre su nombre en la ventana de inicio del IDE si ya lo abrimos anteriormente.</p>
+<p>Si, por el contrario, no se ha abierto antes, debemos pulsar el botón <strong>"Open"</strong> y seleccionar la carpeta donde se encuentra el proyecto. Las carpetas con un proyecto se muestran con un icono diferente:</p>
+<figure>
+<img alt="" src="../../images/26.png" width="100%"/>
+</figure>
+<h3 id="cierre-de-un-proyecto">Cierre de un proyecto</h3>
+<p>Para cerrar el proyecto actual seleccionamos <strong>File → Close Project</strong>.</p>
+<h3 id="ejecucion">Ejecución</h3>
+<p>Al crear una aplicación de tipo consola se crea una única clase <code>Main</code> provista de un único método estático <code>main()</code>.</p>
+<p>Podemos editar directamente el código en la ventana de edición y ayudarnos del autocompletado. Implementamos el siguiente código de prueba:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">es.cipsa</span><span class="p">;</span>
+</span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-4"><a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-5"><a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">tabla</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+</span><span id="__span-4-6"><a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">num</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-7"><a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">"%d x %d = %d"</span><span class="p">,</span><span class="w"> </span><span class="n">tabla</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="n">tabla</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">num</span><span class="p">));</span>
+</span><span id="__span-4-8"><a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-4-9"><a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-10"><a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="p">}</span>
+</span></code></pre></div>
+<figure>
+<img alt="" src="../../images/27.png" width="100%"/>
+</figure>
+<p>Para ejecutar el código hacemos clic sobre el icono de <strong>Run</strong> en la barra de herramientas. Esto ejecuta la aplicación con la configuración de ejecución predeterminada "Main".</p>
+<p>Si deseamos ejecutar el proyecto a partir de otra clase debemos:</p>
+<ul>
+<li>Seleccionar el archivo en la ventana de proyecto.</li>
+<li>Hacer clic con el botón derecho.</li>
+<li>Seleccionar la opción <strong>"Run \&lt;archivo&gt;"</strong>.</li>
+</ul>
+<p>Si el código no contiene errores, se despliega la ventana "Run" mostrando el resultado de la ejecución por pantalla.</p>
+<h3 id="errores-de-compilacion">Errores de compilación</h3>
+<p>Antes de seguir, conviene distinguir con claridad los dos grandes tipos de errores con los que se va a encontrar cualquier programador, porque se comportan de maneras muy distintas y se arreglan con herramientas diferentes.</p>
+<p>Los <strong>errores de compilación</strong> son los que impiden que el programa llegue siquiera a ejecutarse. Se producen cuando algo está mal escrito en el código: falta un punto y coma, se ha escrito mal el nombre de una variable, se usan tipos incompatibles, hay una llave sin cerrar. El compilador los detecta antes de traducir el programa, y por eso el entorno puede señalarlos de forma muy precisa, indicando el archivo, la línea y el motivo. Cuando hay un error de compilación, no se puede ejecutar nada hasta corregirlo: el programa simplemente no existe como tal.</p>
+<p>El segundo tipo son los <strong>errores lógicos</strong>, popularmente llamados <em>bugs</em>. En este caso el código compila perfectamente porque no hay ningún fallo de sintaxis, pero el programa no hace lo que debería: calcula mal un resultado, entra en un bucle infinito, se queda colgado, se cierra de forma inesperada o devuelve un valor incorrecto. Estos errores son mucho más difíciles de localizar, porque el compilador no los detecta: el programa funciona, solo que funciona mal. Para cazarlos es para lo que existe el <strong>depurador</strong>, que estudiaremos a fondo en el siguiente apartado.</p>
+<p>Vamos a ver ahora cómo se manifiesta un error de compilación en IntelliJ. Modificamos la línea 7 del código anterior borrando el valor <code>5</code>. Al momento se muestra una línea roja:</p>
+<figure>
+<img alt="" src="../../images/28.png" width="100%"/>
+</figure>
+<p>Y un indicador de errores en la parte superior:</p>
+<figure>
+<img alt="" src="../../images/29.png" width="100%"/>
+</figure>
+<p>Si intentamos ejecutar el código, se despliega la ventana <strong>Build</strong> mostrando los errores presentes en el código:</p>
+<figure>
+<img alt="" src="../../images/30.png" width="100%"/>
+</figure>
+<p>Si hacemos clic en el vínculo del lado derecho, se selecciona automáticamente la línea en la que se ha detectado el error de sintaxis, lo que ahorra el trabajo de buscarla a mano.</p>
+<p>Para comprobar si el código es correcto, podemos compilar el proyecto sin ejecutarlo con el botón de la barra de herramientas. Si la compilación es correcta, la ventana Build muestra un mensaje indicando que no hay errores.</p>
+<h2 id="depuracion">Depuración</h2>
+<p>Hasta aquí hemos visto cómo detectar y corregir errores de compilación, que son los "fáciles". Ahora entra en escena el terreno más delicado: los errores lógicos, esos que hacen que el programa compile y se ejecute, pero que produzcan resultados equivocados. Para enfrentarse a ellos, todo entorno de desarrollo, independientemente de la plataforma y del lenguaje utilizado, suministra una serie de <strong>herramientas de depuración</strong> que permiten verificar el código generado y ayudar a realizar pruebas tanto estructurales como funcionales.</p>
+<p>Durante el proceso de desarrollo de software se pueden producir, como decíamos, dos tipos de errores: errores de compilación o errores lógicos. Cuando se desarrolla una aplicación en un IDE, ya sea Visual Studio, Eclipse o NetBeans, si al escribir una sentencia olvidamos un <code>;</code>, hacemos referencia a una variable inexistente o utilizamos una sentencia incorrecta, se produce un error de compilación. Cuando ocurre un error de compilación, el entorno nos proporciona información de dónde se produce y cómo poder solucionarlo. El programa no puede compilarse hasta que el programador o programadora corrija ese error.</p>
+<p>El otro tipo de errores son los <strong>lógicos</strong>, comúnmente llamados <em>bugs</em>; estos no evitan que el programa se pueda compilar con éxito, ya que no hay errores sintácticos ni se utilizan variables no declaradas. Sin embargo, los errores lógicos pueden provocar que el programa devuelva resultados erróneos, que no sean los esperados, o pueden provocar que el programa termine antes de tiempo o que no termine nunca. Son, por definición, los que más cuesta encontrar, porque el compilador no da ninguna pista.</p>
+<p>Para solucionar este tipo de problemas, los entornos de desarrollo incorporan una herramienta conocida como <strong>depurador</strong>. El depurador permite supervisar la ejecución de los programas para localizar y eliminar los errores lógicos. Un programa debe compilarse con éxito para poder utilizarlo en el depurador. El depurador nos permite analizar todo el programa mientras este se ejecuta: permite suspender la ejecución, examinar y establecer los valores de las variables, comprobar los valores devueltos por un determinado método, el resultado de una comparación lógica o relacional, etc.</p>
+<p>El proceso de depuración comienza con la ejecución de un caso de prueba. Se evalúan los resultados de la ejecución y, fruto de esa evaluación, se comprueba que hay una falta de correspondencia entre los resultados esperados y los obtenidos realmente. El proceso de depuración siempre tiene uno de los dos resultados siguientes:</p>
+<ol>
+<li>Se encuentra la causa del error, se corrige y se elimina.</li>
+<li>No se encuentra la causa del error. En este caso, la persona encargada de la depuración debe sospechar la causa, diseñar casos de prueba que ayuden a confirmar sus sospechas y volver a repetir las pruebas para identificar los errores y corregirlos (pruebas de regresión, repetición selectiva de pruebas para detectar fallos introducidos durante la modificación).</li>
+</ol>
+<h3 id="depurar-con-intellij">Depurar con IntelliJ</h3>
+<p>La depuración permite detectar y corregir los errores de ejecución y lógicos. Para ello se emplean los <strong>puntos de ruptura</strong> (<em>breakpoints</em>). Un punto de ruptura es una marca que se coloca en una línea concreta del código y que le dice al depurador: "cuando la ejecución llegue aquí, detente". Es, en esencia, una forma de hacer una pausa controlada para poder mirar qué está pasando justo antes de que ocurra el problema.</p>
+<p>Para fijar un punto de ruptura se hace clic en el margen izquierdo de la línea donde se desea situarlo. Una vez situado, se muestra como un punto rojo en el margen izquierdo de la línea:</p>
+<figure>
+<img alt="" src="../../images/31.png" width="80%"/>
+</figure>
+<p>Cuando el programa se ejecuta en modo depuración y alcanza un punto de ruptura, <strong>el flujo de ejecución se detiene por completo</strong>. El programa queda congelado en ese instante: las variables conservan sus valores, la pila de llamadas refleja exactamente en qué punto está, y nada avanza hasta que el programador decide cómo continuar. Es como pausar una película en el fotograma exacto que interesa.</p>
+<p>Los puntos de ruptura ponen en pausa la ejecución del código cuando se ejecuta en modo de depuración, mediante el icono de <strong>Debug</strong>. Esto ejecuta la aplicación en modo de depuración empleando la configuración predeterminada "Main".</p>
+<p>Si queremos ejecutar en depuración el proyecto a partir de otra clase debemos:</p>
+<ul>
+<li>Seleccionar el archivo en la ventana de proyecto.</li>
+<li>Hacer clic con el botón derecho.</li>
+<li>Seleccionar la opción <strong>"Debug \&lt;archivo&gt;"</strong>.</li>
+</ul>
+<p>La ejecución se inicia hasta alcanzar el primer punto de ruptura y se detiene:</p>
+<figure>
+<img alt="" src="../../images/32.png" width="100%"/>
+</figure>
+<h3 id="controlar-la-ejecucion-paso-a-paso">Controlar la ejecución paso a paso</h3>
+<p>Se abre entonces la ventana <strong>"Debug"</strong>. Una vez detenido el programa, el programador decide cómo continuar la ejecución mediante los iconos de la barra superior. Cada uno de ellos mueve el <strong>puntero de instrucción</strong> (el marcador interno que indica cuál es la línea que se va a ejecutar a continuación) de una forma distinta, y entender bien qué hace cada uno es la clave para depurar con criterio:</p>
+<ul>
+<li><strong>Step Over</strong>: ejecuta la línea actual y salta a la siguiente, <strong>sin entrar</strong> en los métodos que se llamen. Si la línea contiene una llamada a un método, este se ejecuta por completo y el control continúa en la línea siguiente del método actual. Es el paso que se usa cuando no interesa inspeccionar el interior de la función llamada.</li>
+<li><strong>Step Into</strong>: si la línea actual contiene una llamada a un método, <strong>entra dentro</strong> de él y se detiene en su primera instrucción, lo que permite inspeccionar qué ocurre por dentro. Si la línea no es una llamada, se comporta como un Step Over. Es el paso que se usa para bucear hacia dentro y ver el detalle de una función sospechosa.</li>
+<li><strong>Step Out</strong>: sale del método en el que estamos actualmente y <strong>devuelve el control a la línea siguiente</strong> del método que lo había llamado. Es el movimiento inverso al Step Into, y sirve para terminar de una vez con el interior de una función cuando ya se ha visto lo que se quería.</li>
+<li><strong>Run to Cursor</strong>: continúa la ejecución normal hasta la línea donde se encuentre el cursor, y allí se detiene. Es una forma cómoda de avanzar rápido a un punto concreto sin colocar un punto de ruptura.</li>
+<li><strong>Resume Program</strong>: continúa la ejecución con normalidad hasta encontrar el próximo punto de ruptura. Es el botón de "seguir", y se usa cuando ya se ha inspeccionado lo que se quería y se desea dejar correr el programa.</li>
+<li><strong>Stop \&lt;fichero&gt;</strong>: detiene la depuración actual, terminando la ejecución del programa.</li>
+</ul>
+<p>Combinando estos movimientos, el programador puede recorrer el programa con la precisión de un cirujano, deteniéndose exactamente en los puntos que le interesan y evitando los que no aportan nada.</p>
+<h3 id="la-pila-de-llamadas-y-las-variables">La pila de llamadas y las variables</h3>
+<p>La ventana de depuración no solo permite moverse, sino también <strong>mirar dentro</strong> del programa. Dos paneles son esenciales para ello.</p>
+<p>La pestaña <strong>"Frames"</strong> muestra la <strong>pila de llamadas</strong> (<em>call stack</em>): la lista de métodos que se han ido llamando unos a otros hasta llegar al punto actual. Cuando un método llama a otro, la llamada se "apila" encima; cuando el segundo termina, se "desapila" y el control vuelve al primero. La pila de llamadas es, por tanto, el historial del camino que ha seguido la ejecución para llegar hasta aquí, con el método actual arriba del todo. Poder inspeccionarla es muy potente, porque permite <strong>subir y bajar por esos niveles</strong>: si se selecciona un frame superior (un método que llamó al actual), se puede ver el estado de sus variables en aquel momento, aunque ya se haya salido de él. Eso ayuda a entender cómo se llegó a la situación problemática.</p>
+<p>La pestaña <strong>"Variables"</strong> muestra las variables locales que están activas en el marco actual, con sus valores en el momento en que se ha detenido la ejecución. Es como mirar por una ventana a la memoria del programa y ver, en directo, qué vale cada variable. Al ir avanzando línea a línea, esos valores se van actualizando, de modo que se puede observar cómo cambia una variable sospechosa en cada iteración.</p>
+<figure>
+<img alt="" src="../../images/33.png" width="100%"/>
+</figure>
+<p>Pueden añadirse más variables y expresiones pulsando el botón <code>+</code>. El valor de las variables se actualiza al ir ejecutando línea a línea.</p>
+<h3 id="configuracion-de-puntos-de-ruptura">Configuración de puntos de ruptura</h3>
+<p>Los puntos de ruptura actúan por defecto deteniendo la ejecución cada vez que se alcanza la línea en modo de depuración. Esto está bien para la mayoría de los casos, pero se vuelve un lastre cuando el punto está dentro de un bucle que se repite cientos de veces: si el problema solo ocurre en la iteración 500, no tiene sentido pararse en las 499 anteriores. Para estos casos existen los <strong>puntos de ruptura condicionales</strong>, que solo detienen la ejecución cuando se cumple una condición.</p>
+<p>Para configurarlos, se accede a:</p>
+<p><strong>Run → View Breakpoints…</strong></p>
+<p>Se abre un cuadro de diálogo que muestra la posición de todos los puntos de ruptura:</p>
+<figure>
+<img alt="" src="../../images/34.png" width="100%"/>
+</figure>
+<p>Al seleccionar un punto de ruptura en el lado izquierdo se muestran sus opciones de configuración en el lado derecho. Si marcamos la casilla <strong>"Condition"</strong> e indicamos una condición, el punto de ruptura detendrá la ejecución únicamente cuando la ejecución lo alcance y la expresión indicada se evalúe como cierta. Así, para depurar un bucle largo, basta con poner algo como <code>num == 500</code> en la condición y dejar que el programa corra libremente hasta esa iteración concreta, sin tener que pulsar el botón de continuar una y otra vez. Es una de esas pequeñas funciones que ahorran una cantidad enorme de tiempo.</p>
+<h2 id="configuracion-y-gestion-del-sdk-java-development-kit">Configuración y gestión del SDK (Java Development Kit)</h2>
+<p>Hasta aquí hemos creado proyectos, los hemos ejecutado y hemos aprendido a cazar errores con el depurador, pero todo ese trabajo se ha apoyado en una pieza que hasta ahora ha permanecido invisible. Esa pieza es el <strong>SDK</strong> de Java, el conjunto de herramientas que convierte el código escrito en el editor en un programa que la máquina puede ejecutar. Sin él, IntelliJ se queda en un editor de texto muy sofisticado: colorea la sintaxis y propone métodos, pero es incapaz de compilar y de lanzar nada.</p>
+<p>La importancia de esa pieza se hace evidente en cuanto se abre un proyecto ajeno. Un repositorio clonado o un proyecto descargado de un compañero puede aparecer con todo el código subrayado en rojo, como si estuviera plagado de errores. Casi nunca el problema está en el código: lo que ocurre es que ese proyecto apunta a un SDK que en nuestro equipo no existe o que se encuentra en una ruta distinta. Diagnosticar y resolver esa situación es una tarea cotidiana con cualquier IDE, y conviene dominarla desde el principio.</p>
+<h3 id="la-funcion-del-jdk-el-motor-de-ejecucion-y-compilacion-tras-el-ide">La función del JDK: el motor de ejecución y compilación tras el IDE</h3>
+<p>Para empezar, conviene ordenar tres siglas que se suelen usar como sinónimos y que no lo son en absoluto. El <strong>JDK</strong> (<em>Java Development Kit</em>) es el kit de desarrollo completo: incluye el compilador <code>javac</code>, la máquina virtual <code>java</code> y las librerías de la plataforma. El <strong>JRE</strong> (<em>Java Runtime Environment</em>) es solo la parte necesaria para ejecutar programas ya compilados, de modo que contiene la máquina virtual y las librerías, pero no el compilador. El <strong>IDE</strong>, por su parte, es la herramienta de trabajo que orquesta todo el proceso, pero no aporta por sí mismo ninguna de las dos cosas anteriores.</p>
+<p>Esa separación explica por qué IntelliJ, siendo él mismo un programa escrito en Java, no fabrica el bytecode de nuestros proyectos por su cuenta. Cuando se pulsa el botón de ejecutar, el IDE no compila ni arranca nada de forma interna, sino que delega en las herramientas externas del JDK: entrega los ficheros <code>.java</code> al compilador <code>javac</code>, que los traduce a ficheros <code>.class</code> con bytecode, y después lanza la máquina virtual <code>java</code> para que interprete ese bytecode. El resultado material de ese proceso son los <code>.class</code> que aparecen en la carpeta de salida del proyecto, normalmente bajo <code>out/</code>. El IDE es, en esa cadena, la cabina desde la que se da la orden; el JDK es el motor y el combustible con los que el coche se mueve de verdad.</p>
+<p>Ese reparto de responsabilidades es justo el motivo del problema más repetido entre quienes empiezan: abrir un proyecto que no tiene SDK asignado y encontrar todo el código en rojo. El editor sabe qué clases y métodos existen porque los ha indexado, pero al no poder resolver las librerías estándar de Java que esas clases utilizan, marca como desconocido todo lo que de ellas depende. No son errores reales del código, sino la señal de que falta el motor. La solución pasa por conectar el IDE con un JDK, y eso puede hacerse de dos maneras: dejando que IntelliJ lo descargue o señalando uno que ya esté instalado en el equipo.</p>
+<h3 id="descarga-e-instalacion-integrada-del-jdk-desde-intellij">Descarga e instalación integrada del JDK desde IntelliJ</h3>
+<p>Para resolver la ausencia de SDK sin salir del entorno, el propio IDE incorpora un asistente de descarga que se abre desde <strong>File → Project Structure → Platform Settings → SDKs</strong>. Dentro de esa sección se pulsa el botón <code>+</code> y se elige la opción <strong>Download JDK</strong>. El mismo asistente aparece también en el diálogo <strong>New Project</strong>, desplegando la lista del <em>Project SDK</em> y seleccionando <strong>Add SDK → Download JDK</strong>, que es la vía cómoda cuando se configura todo de una vez al crear el proyecto.</p>
+<p>A partir de esa base, el diálogo de descarga plantea dos decisiones que merecen detenerse a mirar. De un lado está la <strong>versión</strong> del JDK, donde lo sensato para un entorno de clase es elegir una <strong>LTS</strong> (<em>Long Term Support</em>), es decir, una de esas versiones de soporte prolongado que el ecosistema mantiene durante años: la 8, la 11, la 17 o la 21. Las versiones no LTS reciben mejoras y correcciones durante un periodo mucho más corto, así que quedan descartadas de entrada para el trabajo diario. Del otro lado aparece el <strong>proveedor</strong> (<em>vendor</em>), porque el JDK no lo distribuye una única empresa: junto al OpenJDK de Oracle conviven compilaciones comunitarias como Eclipse Temurin, Amazon Corretto o Azul Zulu, que respetan el estándar y añaden sus propios parches de seguridad. Para el aula cualquiera de ellas sirve; lo importante es elegir una y mantenerse en ella para no mezclar versiones sin necesidad.</p>
+<p>Esto nos lleva directamente a la parte que ocurre tras bambalinas. Al pulsar Download, IntelliJ descarga el paquete y lo descomprime en una carpeta propia del perfil del usuario, que en Linux suele ser <code>~/.jdks</code>, en Windows <code>C:\Users\&lt;usuario&gt;\.jdks</code> y en macOS <code>~/Library/Java/JavaVirtualMachines</code>, tal y como se aprecia en el campo <em>Location</em> del diálogo. La instalación queda así dentro de la cuenta del alumno, sin tocar las rutas del sistema ni pedir permisos de administrador, algo que se agradece en equipos compartidos donde no se puede instalar software a nivel global. Una vez terminada la descarga, el IDE <strong>registra el SDK automáticamente</strong> y lo deja disponible en la lista de SDKs de la plataforma, de manera que no hay que anotar rutas ni editar variables de entorno a mano.</p>
+<figure>
+<img alt="" src="../../images/49.png" width="70%"/>
+</figure>
+<h3 id="deteccion-y-vinculacion-de-un-jdk-instalado-localmente">Detección y vinculación de un JDK instalado localmente</h3>
+<p>En otros equipos, sobre todo en los que ya vienen preparados por el centro, el JDK no hay que descargarlo porque ya está instalado en el sistema. En ese caso la operación consiste en <strong>señalar a IntelliJ dónde se encuentra</strong>. El camino es el mismo punto de partida, <strong>File → Project Structure → Platform Settings → SDKs</strong>, pero en lugar de Download JDK se elige <strong>Add SDK → JDK</strong>, una opción que también aparece en el diálogo <strong>New Project</strong> al desplegar la lista del <em>Project SDK</em>. Se abre entonces un explorador de archivos en el que hay que seleccionar la <strong>carpeta raíz</strong> del JDK, no una subcarpeta cualquiera.</p>
+<p>Reconocer esa carpeta raíz es sencillo si se conocen las ubicaciones habituales según el sistema operativo. En Linux los JDK viven bajo <code>/usr/lib/jvm/</code>, en Windows bajo <code>C:\Program Files\Java\</code> y en macOS bajo <code>/Library/Java/JavaVirtualMachines/</code>. Elegir bien el directorio importa porque el JDK tiene una estructura interna muy concreta: dentro de él están <code>bin</code> con <code>javac</code> y <code>java</code>, <code>lib</code> con las librerías y <code>jmods</code> con los módulos de la plataforma. Si se selecciona una carpeta equivocada, el IDE no reconoce el SDK y el código sigue en rojo.</p>
+<p>Una vez añadido, el SDK muestra en esa misma ventana toda la información que IntelliJ ha extraído de él. La lista de <strong>classpath</strong> reúne las rutas donde la máquina virtual buscará las clases compiladas, y funciona como el índice de un libro: sin ella, el programa no sabe en qué estante está cada cosa que necesita. Junto a esa lista aparecen las <strong>librerías estándar</strong> de Java y, si el paquete las incluye, los <strong>fuentes de la plataforma</strong>, que permiten entrar con el depurador dentro del propio código de la biblioteca. Comprobar que esos tres bloques están presentes y no vacíos es la forma más rápida de confirmar que la vinculación se ha hecho correctamente.</p>
+<figure>
+<img alt="" src="../../images/50.png" width="80%"/>
+</figure>
+<h3 id="gestion-del-project-sdk-y-project-language-level">Gestión del Project SDK y Project Language Level</h3>
+<p>Queda un último escalón por subir, y es el que enlaza el SDK de la plataforma con cada proyecto concreto. Para tocarlo se accede a <strong>File → Project Structure → Project</strong>, o con el atajo <strong>Ctrl + Alt + Shift + S</strong>, que abre la misma ventana desde cualquier punto del IDE. En esa pantalla se decide qué SDK global se asigna al proyecto actual, lo que resulta muy útil cuando el equipo tiene varias versiones conviviendo: un proyecto antiguo puede quedarse anclado a la 11 mientras otro reciente trabaja con la 21, sin que una configuración estorbe a la otra.</p>
+<p>El siguiente ajuste crítico de esa misma pantalla es el <strong>Project Language Level</strong>, y aquí merece la pena detenerse porque se confunde con frecuencia. El SDK define el <strong>juego de herramientas</strong> disponible, mientras que el Language Level declara qué <strong>características de sintaxis</strong> se permiten en el editor. Son dos cosas distintas que a menudo no van de la mano: se puede tener un JDK actual y, al mismo tiempo, un Language Level bajo que desactive las novedades del lenguaje. Por eso el IDE permite fijar ese nivel por separado, para mantener la compatibilidad con proyectos que deben compilarse en entornos más antiguos.</p>
+<p>La consecuencia de esa distinción aparece al escribir. Si con un Language Level configurado en una versión inferior se intenta usar sintaxis moderna como <code>var</code> para la inferencia de tipos o las expresiones <code>switch</code>, el editor marcará un error de compilación aunque la máquina virtual instalada sea perfectamente capaz de entenderlo. No es un fallo del JDK, sino del nivel declarado, y la solución pasa por <strong>subir el Language Level</strong> al valor que corresponda a la sintaxis que se quiere emplear. Ajustar esta pareja de valores a la versión real de Java del proyecto evita una buena cantidad de rojos fantasma.</p>
+<figure>
+<img alt="" src="../../images/51.png" width="80%"/>
+</figure>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Manuel Sánchez Gomis
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["search.suggest", "search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "content.code.copy", "content.tabs.link", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../../assets/_markdown_exec_pyodide.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../_static/js/notebook.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,951 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Manuel Sánchez Gomis">
+      
+      
+      
+        <link rel="prev" href="../04%20-%20personalizacion/">
+      
+      
+      
+      <link rel="icon" href="../../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
+    
+    
+      
+        <title>Generación de ejecutables - Entornos de desarrollo</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_markdown_exec_pyodide.css">
+    
+      <link rel="stylesheet" href="../../../_static/css/notebook.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#generacion-de-ejecutables-lenguajes-y-entornos" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Entornos de desarrollo" class="md-header__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Entornos de desarrollo
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Generación de ejecutables
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo brillante"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo brillante" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Bienvenido
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Introducción al desarrollo de software
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Entornos de desarrollo
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Entornos de desarrollo" class="md-nav__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    Entornos de desarrollo
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bienvenido
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introducción al desarrollo de software
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Introducción al desarrollo de software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/02%20-%20lenguajes_programacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lenguajes de programación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/03%20-%20proceso_obtencion_codigo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proceso de obtención de código
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/04%20-%20desarrollo_aplicaciones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Desarrollo de aplicaciones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/05%20-%20metodologias_agiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metodologías Ágiles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Entornos de desarrollo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Entornos de desarrollo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a los entornos de desarrollo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02%20-%20intellij/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IntelliJ IDEA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03%20-%20plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalar plugins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04%20-%20personalizacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Personalización, automatización y mantenimiento del entorno
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Generación de ejecutables
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Generación de ejecutables
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#generacion-de-ejecutables-en-distintos-lenguajes-con-un-mismo-ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generación de ejecutables en distintos lenguajes con un mismo IDE
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Generación de ejecutables en distintos lenguajes con un mismo IDE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#la-anatomia-interna-de-un-archivo-jar" class="md-nav__link">
+    <span class="md-ellipsis">
+      La anatomía interna de un archivo JAR
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generacion-de-ejecutables-a-partir-de-un-mismo-codigo-en-varios-ides" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generación de ejecutables a partir de un mismo código en varios IDEs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Generación de ejecutables a partir de un mismo código en varios IDEs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exportacion-del-proyecto-en-intellij-idea" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exportación del proyecto en IntelliJ IDEA
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exportacion-del-mismo-codigo-en-eclipse" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exportación del mismo código en Eclipse
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#generacion-de-ejecutables-en-distintos-lenguajes-con-un-mismo-ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generación de ejecutables en distintos lenguajes con un mismo IDE
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Generación de ejecutables en distintos lenguajes con un mismo IDE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#la-anatomia-interna-de-un-archivo-jar" class="md-nav__link">
+    <span class="md-ellipsis">
+      La anatomía interna de un archivo JAR
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generacion-de-ejecutables-a-partir-de-un-mismo-codigo-en-varios-ides" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generación de ejecutables a partir de un mismo código en varios IDEs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Generación de ejecutables a partir de un mismo código en varios IDEs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exportacion-del-proyecto-en-intellij-idea" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exportación del proyecto en IntelliJ IDEA
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exportacion-del-mismo-codigo-en-eclipse" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exportación del mismo código en Eclipse
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="generacion-de-ejecutables-lenguajes-y-entornos">Generación de ejecutables: lenguajes y entornos</h1>
+<p>Un <strong>artefacto ejecutable</strong> es el resultado final de empaquetar el código compilado junto con todo lo que necesita para arrancar por sí solo: las <strong>dependencias</strong> (las librerías externas que utiliza) y un <strong>manifiesto de arranque</strong> que le indica a la máquina virtual cuál es el punto de entrada del programa.</p>
+<p>Para entender por qué hace falta ese empaquetado, conviene comparar dos situaciones que a menudo se confunden. Cuando ejecutamos un programa <strong>dentro del IDE</strong>, todo parece mágico: pulsamos Run y funciona. Lo que no se ve es que el IDE está haciendo un montón de trabajo por debajo: sabe dónde están las clases compiladas, conoce la ruta de todas las librerías del proyecto, tiene configurado el <strong>classpath</strong> (la lista de lugares donde buscar las clases) y ha preparado el entorno para que el programa encuentre todo lo que necesita. El IDE es, en ese momento, un andamiaje que sostiene la ejecución.</p>
+<p>El problema aparece cuando queremos <strong>entregar</strong> ese programa a otra persona o ejecutarlo en otro equipo. Ese otro equipo no tiene el IDE, no conoce las rutas del proyecto ni el classpath, y desde luego no sabe dónde están las librerías. Si le pasamos solo los archivos compilados sueltos, la aplicación no arrancará. Necesitamos un paquete <strong>autónomo</strong> que lleve dentro todo lo necesario y que incluya la información de por dónde empezar. Eso es un artefacto ejecutable, y entender cómo se genera es lo que separa un proyecto que solo funciona en nuestro ordenador de una aplicación que se puede distribuir.</p>
+<h2 id="generacion-de-ejecutables-en-distintos-lenguajes-con-un-mismo-ide">Generación de ejecutables en distintos lenguajes con un mismo IDE</h2>
+<p>Buena parte de ese trabajo se puede hacer sin salir de IntelliJ IDEA, porque el IDE tiene un <strong>soporte multilenguaje</strong> que va más allá de Java. La plataforma JVM ejecuta indistintamente bytecode de <strong>Java</strong> y de <strong>Kotlin</strong>, y ambos lenguajes pueden convivir en un mismo proyecto e incluso llamarse entre sí. Esa interoperabilidad nativa permite compilar y empaquetar aplicaciones escritas en uno u otro lenguaje con el mismo flujo de trabajo, algo que resulta muy práctico y que demuestra la flexibilidad del entorno.</p>
+<hr/>
+<h3 id="la-anatomia-interna-de-un-archivo-jar">La anatomía interna de un archivo JAR</h3>
+<p>Para empezar, conviene entender cómo es un <strong>archivo JAR ejecutable</strong> por dentro, porque casi todos los malentendidos sobre "por qué no arranca mi programa" vienen de no conocer esta estructura. Un JAR no es más que un archivo <strong>ZIP</strong> con una estructura concreta: por dentro tiene carpetas y archivos comprimidos, igual que cualquier comprimido normal. Si se cambia la extensión a <code>.zip</code> y se descomprime, se ve el contenido tal cual.</p>
+<p>Lo que convierte a un ZIP cualquiera en un JAR ejecutable es su <strong>archivo <code>MANIFEST.MF</code></strong>, un pequeño fichero de texto situado en la carpeta <code>META-INF</code>. Ese manifiesto es, por así decirlo, la etiqueta del paquete: en él se declaran metadatos del artefacto, como la versión o el autor. Y, dentro de él, hay una directiva especialmente importante: <strong><code>Main-Class</code></strong>, que indica cuál es la clase que contiene el método <code>main()</code> que la máquina virtual debe lanzar al arrancar.</p>
+<p>Esa línea es la que resuelve el problema de "por dónde empiezo". Un JAR puede contener cientos de clases, pero sin la directiva <code>Main-Class</code> la máquina virtual no sabe cuál de ellas es el punto de entrada, y se limita a avisar de que no encuentra la clase principal. Con esa directiva, en cambio, basta con pedirle que lo ejecute y el programa arranca por donde debe.</p>
+<p>En IntelliJ, el empaquetado se define como un <strong>artefacto</strong> desde <strong>File → Project Structure</strong>, dentro de la sección <strong>Artifacts</strong> del panel de Project Settings.</p>
+<figure>
+<img alt="" src="../../images/43.png" width="100%"/>
+</figure>
+<p>Con esa sección abierta, se pulsa el botón <code>+</code> y se elige la plantilla <strong>JAR → From modules with dependencies</strong>, que recoge automáticamente las clases del proyecto y las librerías de las que depende.</p>
+<figure>
+<img alt="" src="../../images/44.png" width="80%"/>
+</figure>
+<p>En el diálogo siguiente se selecciona la <strong>Main-Class</strong>, la clase que contiene el método <code>main()</code>, que IntelliJ traducirá a la clave correspondiente del <code>MANIFEST.MF</code>.</p>
+<figure>
+<img alt="" src="../../images/46.png" width="80%"/>
+</figure>
+<p>Con el artefacto ya definido, la construcción se lanza desde <strong>Build → Build Artifacts</strong>. El IDE compila el código y deja el paquete en la carpeta de salida del proyecto, normalmente bajo <code>out/artifacts</code>.</p>
+<figure>
+<img alt="" src="../../images/45.png" width="100%"/>
+</figure>
+<p>A partir de ahí, la comprobación es inmediata desde la terminal:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>java<span class="w"> </span>-jar<span class="w"> </span>aplicacion.jar
+</span></code></pre></div>
+<p>Ese comando arranca la aplicación usando la <code>Main-Class</code> declarada en el manifiesto, lo que confirma que el empaquetado está bien hecho y que el programa funciona fuera del IDE.</p>
+<h2 id="generacion-de-ejecutables-a-partir-de-un-mismo-codigo-en-varios-ides">Generación de ejecutables a partir de un mismo código en varios IDEs</h2>
+<p>Lo anterior demuestra que el IDE es una herramienta cómoda para empaquetar, pero conviene recordar una idea que está en el corazón de todo el ecosistema Java: <strong>el código fuente es portable y las configuraciones no</strong>. Un mismo programa Java puede compilarse y empaquetarse desde IntelliJ o desde Eclipse, y el JAR resultante debería comportarse igual, porque lo que viaja en el artefacto es <strong>bytecode</strong>, no la configuración de un IDE concreto.</p>
+<p>Esta es la esencia de la portabilidad de la JVM que ya estudiamos en el primer tema. El bytecode es un formato <strong>estándar</strong>: no depende de si se compiló en IntelliJ, en Eclipse, en NetBeans o directamente con <code>javac</code> desde la terminal. Cualquier máquina virtual de Java que cumpla las especificaciones lo interpreta de la misma manera. Por eso, un JAR generado con las especificaciones estándar se ejecuta exactamente igual venga de donde venga, y esa independencia es la que permite trabajar en entornos distintos sin atarse a uno solo.</p>
+<hr/>
+<h3 id="exportacion-del-proyecto-en-intellij-idea">Exportación del proyecto en IntelliJ IDEA</h3>
+<p>En IntelliJ, el flujo ya lo tenemos recorrido: se define el artefacto desde <strong>Project Structure → Artifacts</strong> y se construye con <strong>Build → Build Artifacts</strong>. El archivo <code>.jar</code> compilado aparece en la carpeta <strong><code>out/artifacts</code></strong> del proyecto, y desde ahí se puede copiar, distribuir o ejecutar por consola como cualquier otro ejecutable.</p>
+<hr/>
+<h3 id="exportacion-del-mismo-codigo-en-eclipse">Exportación del mismo código en Eclipse</h3>
+<p>Llevar ese mismo código a Eclipse es sencillo, porque el lenguaje no cambia: basta con <strong>importar o crear el proyecto</strong> en el IDE a partir del mismo código fuente. La diferencia está en el procedimiento de empaquetado, que en Eclipse no pasa por artefactos, sino por un asistente de exportación.</p>
+<p>En Eclipse, la ruta es <strong>File → Export... → Java → Runnable JAR file</strong>. El asistente pide dos datos: la <strong>Launch Configuration</strong> de arranque, que le indica cuál es la clase con el método <code>main()</code>, y la <strong>ruta de exportación</strong> donde se guardará el archivo <code>.jar</code>. En el mismo diálogo se decide cómo se tratan las librerías externas, con la opción habitual de extraerlas dentro del propio JAR para que el ejecutable sea autónomo. Es, en el fondo, la misma información que IntelliJ guardaba en el artefacto, pero presentada con otros nombres y en otro orden.</p>
+<figure>
+<img alt="" src="../../images/48.png" width="80%"/>
+</figure>
+<p>Para cerrar este ciclo, merece la pena comparar los dos resultados. Los JAR generados por IntelliJ y por Eclipse pueden tener nombres distintos y un manifiesto escrito de forma algo diferente, pero al ejecutarlos por consola con <code>java -jar</code> deben producir <strong>exactamente la misma salida</strong>, porque en ambos casos se está lanzando el mismo bytecode. Esa comprobación, que parece un detalle anecdótico, es en realidad la prueba práctica de una idea fundamental: el código fuente es el activo real del proyecto, y el IDE es solo la herramienta que lo empaqueta. Cambiar de IDE no cambia el programa; solo cambia la forma de prepararlo para que se ejecute.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Manuel Sánchez Gomis
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["search.suggest", "search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "content.code.copy", "content.tabs.link", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../../assets/_markdown_exec_pyodide.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../_static/js/notebook.js"></script>
+      
+    
+  </body>
+</html>

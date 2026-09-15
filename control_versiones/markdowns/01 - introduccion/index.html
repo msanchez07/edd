@@ -1,0 +1,926 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Manuel Sánchez Gomis">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
+    
+    
+      
+        <title>Introducción al control de versiones - Entornos de desarrollo</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_markdown_exec_pyodide.css">
+    
+      <link rel="stylesheet" href="../../../_static/css/notebook.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduccion-al-control-de-versiones" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Entornos de desarrollo" class="md-header__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Entornos de desarrollo
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introducción al control de versiones
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo brillante"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo brillante" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Bienvenido
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Introducción al desarrollo de software
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Entornos de desarrollo
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Entornos de desarrollo" class="md-nav__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    Entornos de desarrollo
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bienvenido
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introducción al desarrollo de software
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Introducción al desarrollo de software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/02%20-%20lenguajes_programacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lenguajes de programación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/03%20-%20proceso_obtencion_codigo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proceso de obtención de código
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/04%20-%20desarrollo_aplicaciones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Desarrollo de aplicaciones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/05%20-%20metodologias_agiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metodologías Ágiles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Entornos de desarrollo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Entornos de desarrollo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a los entornos de desarrollo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/02%20-%20intellij/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IntelliJ IDEA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/03%20-%20plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalar plugins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/04%20-%20personalizacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Personalización, automatización y mantenimiento del entorno
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/05%20-%20compilacion_y_ejecutables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generación de ejecutables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#concepto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepto
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Concepto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#funcionalidades-de-los-sistemas-de-control-de-versiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Funcionalidades de los sistemas de control de versiones
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#componentes-de-un-sistema-de-control-de-versiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Componentes de un sistema de control de versiones
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clasificacion-de-los-sistemas-de-control-de-versiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clasificación de los sistemas de control de versiones
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Clasificación de los sistemas de control de versiones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sistemas-locales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sistemas locales
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sistemas-centralizados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sistemas centralizados
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sistemas-distribuidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sistemas distribuidos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operaciones-basicas-de-un-sistema-de-control-de-versiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operaciones básicas de un sistema de control de versiones
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="introduccion-al-control-de-versiones">Introducción al control de versiones</h1>
+<p>Cuando alguien empieza a programar, lo habitual es trabajar con unos pocos archivos y guardarlos a mano cada cierto tiempo. Mientras el proyecto es pequeño, ese método parece suficiente: se escribe código, se guarda el archivo y, si algo se estropea, se intenta recordar qué se había cambiado para dejarlo como estaba. El problema aparece cuando el proyecto crece, cuando pasa el tiempo o cuando deja de ser una tarea individual para convertirse en un trabajo de equipo. En ese momento, la gestión manual de los archivos se vuelve un caos difícil de sostener.</p>
+<p>Imaginemos el escenario clásico del trabajo individual desordenado: una carpeta con archivos llamados <code>proyecto_final.java</code>, <code>proyecto_final_v2.java</code>, <code>proyecto_final_v2_bueno.java</code> y <code>proyecto_final_ahora_si.java</code>. Cada nombre es el rastro de una decisión tomada bajo presión, y ninguno explica con claridad qué cambió respecto al anterior ni por qué. Si hay que recuperar una versión concreta, ya no basta con leer los nombres: hay que abrir los archivos, compararlos a ojo y cruzar los dedos para no escoger la copia equivocada. Ese trabajo, además, depende por completo de la memoria y la disciplina de una sola persona; si esa persona falta o simplemente olvida hacer la copia, la información se pierde.</p>
+<p>En un equipo, el problema se multiplica. Varias personas editan los mismos archivos a la vez, y sin un mecanismo que ordene los cambios es casi imposible saber quién tocó qué, cuándo lo hizo y con qué intención. El resultado típico son los conflictos de sobrescritura: alguien guarda su versión, borrando sin querer el trabajo que otro acababa de subir, y nadie se da cuenta hasta que el programa deja de funcionar. Aquí es donde entran en juego las <strong>herramientas de control de versiones</strong>, cuyo objetivo es precisamente poner orden en todo este proceso.</p>
+<p>El uso de estas herramientas asegura, por un lado, que los proyectos mantengan una <strong>trazabilidad</strong> de todos los cambios que han sufrido a lo largo de su vida y de quién los ha realizado, cuestión de vital importancia cuando se trabaja en equipos de software. Y, por otro, convierte el historial del proyecto en una red de seguridad: cualquier estado anterior queda registrado y puede recuperarse, lo que reduce drásticamente el miedo a experimentar y a equivocarse.</p>
+<p>Así pues, para un trabajo que no empieza y acaba dentro de un periodo corto de tiempo, o para trabajos que tienen que ser desarrollados por un equipo de personas, es muy recomendable llevar un control de las tareas que se han hecho, cuándo se han llevado a cabo y quién las ha hecho. No es algo exclusivo del desarrollo de software: cualquier proyecto que evoluciona durante meses y en el que intervienen varias manos acaba necesitando un mecanismo de este tipo.</p>
+<p>Se habla de <strong>gestión de proyectos</strong> cuando ese trabajo, además de desarrollarse, se planifica de forma consciente. ¿Qué tiene que ver la gestión de proyectos con el control de versiones de un software que se está desarrollando? Tienen mucho en común, porque ambos comparten la misma lógica de fondo. Si el trabajo pedido es el cambio de la fuente de alimentación de un ordenador, no hará falta planificarlo ni, probablemente, dejar documentada la situación si se deja a medias. En cambio, si un único programador tiene que implementar una calculadora, será discutible decidir si necesita una planificación formal de todo el proceso (analizando, diseñando y desarrollando como si fuera un proyecto completo) o si le basta con una herramienta que gestione las versiones que va produciendo. En ese segundo caso, llevar un control de versiones del software le servirá para poder volver atrás en el momento en que llegue a un punto de no retorno.</p>
+<p>Entonces, ¿cuándo es realmente recomendable utilizar un control de versiones? La respuesta es que resulta imprescindible en todos aquellos desarrollos que implican muchas horas de trabajo, un número elevado de ficheros distintos y, aunque no necesariamente, la presencia de varias personas colaborando sobre el mismo proyecto. Un ejemplo paradigmático lo encontramos en el desarrollo de un <strong>ERP</strong> (<em>Enterprise Resource Planning</em>), un sistema de gestión empresarial formado por decenas de módulos que se construye y se mantiene durante años; en entornos así, trabajar sin control de versiones sería sencillamente inviable.</p>
+<h2 id="concepto">Concepto</h2>
+<p>Se puede definir <strong>control de versiones</strong> como la capacidad de recordar todos los cambios que se realizan tanto en la estructura de directorios como en el contenido de los archivos. Dicho de otro modo, es la memoria del proyecto: cada modificación queda registrada junto al momento en que se produjo, de manera que siempre se puede reconstruir cómo era el trabajo en cualquier instante del pasado. Esto resulta de mucha utilidad cuando se desea recuperar un documento, una carpeta o un proyecto entero en un momento concreto de su desarrollo.</p>
+<p>Esa capacidad de memoria también es clave cuando se necesita mantener un cierto control de los cambios sobre documentos, archivos o proyectos que comparten varias personas o un equipo de trabajo. En esos casos no basta con saber <em>qué</em> cambió: también hay que saber <strong>quién</strong> lo hizo y <strong>cuándo</strong>, porque esos datos son los que permiten coordinar el trabajo, repartir responsabilidades y entender el porqué de cada decisión.</p>
+<p>Un <strong>sistema de control de versiones</strong> es una herramienta de ayuda al desarrollo de software que irá almacenando, según los parámetros indicados, la situación del código fuente en momentos determinados. La analogía más útil para entenderlo es la de una máquina que va tirando fotos de forma regular: cada cierto tiempo, o cada vez que el programador lo decide, captura el estado completo del código y guarda esa imagen en su historial. Gracias a esas "fotos", siempre se puede volver a contemplar el proyecto tal y como estaba en una fecha anterior.</p>
+<p>El tipo de información que hay que almacenar depende mucho del contexto. En un entorno donde solo trabaja un programador, basta con guardar el estado del código cada cierto tiempo junto con los datos principales, como el número de versión o la fecha y hora en que se almacenó. En un entorno multiusuario, donde muchas personas distintas pueden manipular los ficheros e incluso modificar a la vez un mismo documento, la cantidad de información a gestionar crece de golpe: hay que registrar qué usuario ha implementado cada cambio, desde qué máquina se hizo, si se está produciendo algún tipo de conflicto y otra multitud de detalles que solo tienen sentido cuando hay varias manos sobre el mismo proyecto.</p>
+<p>Esta funcionalidad no solo será importante en el desarrollo de software, sino también en muchos otros ámbitos. Por poner algunos ejemplos, la creación de un libro a cargo de varios autores es un caso perfecto: si queda grabado en qué momento hizo cada cambio cada colaborador y se conserva una copia de cada modificación, el resto de autores dispone de una información valiosísima para no repetir contenidos ni duplicar esfuerzos. Un ejemplo real de esta forma de trabajar es la redacción de la Wikipedia, donde miles de redactores crean y revisan contenidos con una herramienta que permite el trabajo en equipo y lleva el control de todo lo aportado.</p>
+<p>Otro caso ilustrativo lo encontramos en una gestoría o un bufete de abogados que redacta un contrato en colaboración con varios clientes. Ahí no hace falta una herramienta tan potente como una wiki; muchas veces basta con un buen editor de textos que incluya la función de <strong>gestión de cambios</strong>, de forma que cada modificación quede marcada con un color distinto en función del usuario que la haya realizado. Es la misma idea del control de versiones llevada a un terreno mucho más modesto.</p>
+<p>En el desarrollo de software, los sistemas de control de versiones son herramientas que pueden facilitar enormemente el trabajo de los programadores y aumentar la productividad de forma considerable, siempre que se utilicen de forma correcta. Un mal uso del control de versiones (por ejemplo, dejarlo todo para un único <em>commit</em> gigantesco al final del día) genera exactamente los mismos problemas que pretendía resolver, así que la herramienta importa, pero también importa la disciplina con la que se emplea.</p>
+<hr/>
+<h3 id="funcionalidades-de-los-sistemas-de-control-de-versiones">Funcionalidades de los sistemas de control de versiones</h3>
+<p>Algunas de las funcionalidades que ofrecen los sistemas de control de versiones son las siguientes:</p>
+<ul>
+<li><strong>Comparar cambios</strong> en los diferentes archivos a lo largo del tiempo. Esta es una de las funciones más útiles en el día a día: permite ver exactamente qué líneas se han modificado entre dos versiones y, además, averiguar quién ha modificado por última vez un determinado archivo o trozo de código fuente. Cuando algo deja de funcionar, esa información ahorra horas de búsqueda.</li>
+<li><strong>Reducción de los problemas de coordinación</strong> entre programadores. Con un sistema de control de versiones, el equipo puede compartir su trabajo, ofrecer las últimas versiones del código o de los documentos y, lo más importante, trabajar de forma simultánea sin el temor permanente a sobrescribir el trabajo ajeno. La coordinación deja de depender de acuerdos verbales y pasa a estar respaldada por la propia herramienta.</li>
+<li><strong>Posibilidad de acceder a versiones anteriores</strong> de los documentos o del código fuente. Las copias de seguridad pueden generarse de forma programada o, incluso, almacenar cada cambio efectuado. Si el programador comete un error puntual, o si descubre que durante los últimos días ha ido por el camino equivocado, puede acceder a versiones anteriores del código o deshacer, paso a paso, todo lo desarrollado.</li>
+<li><strong>Ver qué programador</strong> ha sido el último en modificar un determinado trozo de código que puede estar causando un problema. Saber quién hizo un cambio es el primer paso para entender por qué se hizo, y muchas veces la conversación con esa persona resuelve el problema en cuestión de minutos.</li>
+<li><strong>Acceso al historial de cambios</strong> sobre todos los archivos a medida que avanza el proyecto. Este historial no solo interesa a quien programa: también sirve al jefe de proyecto o a cualquier parte interesada (<em>stakeholder</em>) con permisos para ver la evolución del trabajo y entender el ritmo al que avanza.</li>
+<li><strong>Volver</strong> un archivo concreto, o el proyecto entero, a uno o varios estados anteriores. Esta es la red de seguridad definitiva: por muy mal que se tuerzan las cosas, siempre existe una versión saludable a la que regresar.</li>
+</ul>
+<p>Los sistemas de control de versiones ofrecen, además, un conjunto de funcionalidades orientadas a la gestión y al seguimiento del proyecto:</p>
+<ul>
+<li><strong>Control histórico detallado de cada archivo</strong>: permite almacenar toda la información de lo que ha sucedido con un archivo, como por ejemplo todos los cambios efectuados, quiénes los hicieron, el motivo de cada cambio y todas las versiones que ha tenido desde su creación.</li>
+<li><strong>Control de usuarios con permisos</strong> para acceder a los archivos. Cada usuario tendrá un tipo de acceso determinado: podrá consultar, modificar, borrar o crear archivos, pero siempre dentro de lo que la herramienta le permita. Este control lo gestiona el propio sistema de control de versiones, almacenando los usuarios posibles y los permisos que tienen asignados.</li>
+<li><strong>Creación de ramas de un mismo proyecto</strong>: en el desarrollo de un proyecto hay momentos en que conviene ramificarlo, es decir, a partir de un punto determinado, crear dos líneas de desarrollo que avanzan por separado. Un caso típico se da al entregar una primera versión estable a los clientes: por un lado hay que mantenerla y corregir sus fallos, y por otro hay que seguir evolucionando el producto con nuevas funcionalidades.</li>
+<li><strong>Fusionar dos versiones de un mismo archivo</strong>: permite unir dos conjuntos de cambios, escogiendo de cada parte el código que más interese a los desarrolladores. Es una operación delicada que, cuando hay cambios solapados, requiere la validación manual de una persona.</li>
+</ul>
+<h2 id="componentes-de-un-sistema-de-control-de-versiones">Componentes de un sistema de control de versiones</h2>
+<p>Un sistema de control de versiones se compone de varios elementos que manejan una terminología un poco específica. Conviene familiarizarse con ella desde el principio, porque aparece constantemente en la documentación y en las conversaciones técnicas. A continuación se definen los elementos más importantes:</p>
+<ul>
+<li><strong>Repositorio</strong>: el conjunto de datos almacenados que forman el historial del proyecto. Es el lugar donde quedan guardados todos los datos y cambios, y puede estar en un sistema de archivos de un disco duro, en una base de datos o en un servidor. Un mismo repositorio puede contener las versiones de un único proyecto o de varios.</li>
+<li><strong>Módulo</strong>: una carpeta o directorio específico dentro del repositorio. Un módulo puede hacer referencia al proyecto completo o solo a una parte de él, es decir, a un conjunto determinado de archivos.</li>
+<li><strong>Revisión o versión</strong>: cada una de las versiones almacenadas de un proyecto. Puede referirse a todos los archivos que componen una versión en un instante de tiempo, o solo a los archivos que se han modificado desde la última versión. Algunos sistemas identifican las revisiones con un número contador (como Subversion); otros las identifican mediante un código de detección de modificaciones (Git usa SHA1). A la última versión se la conoce como la cabeza o <strong>HEAD</strong>.</li>
+<li><strong>Etiquetar o rotular (tag)</strong>: información que se añade a un módulo para señalar alguna característica especial que lo distingue. Suele ser un texto y, a menudo, se introduce manualmente. Su utilidad principal es marcar hitos importantes: cuando se publica una versión concreta, se le pone una etiqueta para poder localizarla y recuperarla en cualquier momento. Las etiquetas permiten identificar de forma sencilla las revisiones relevantes de un proyecto, como la versión 1.0 o una entrega a un cliente.</li>
+<li><strong>Tronco (trunk)</strong>: la línea principal de desarrollo de un proyecto, sobre la que se va construyendo el producto y de la que salen las ramas.</li>
+<li><strong>Rama</strong>: una copia de un módulo o de una revisión entera que se aparta para trabajar en paralelo sin afectar al desarrollo en curso. Cuando se crea una rama, se bifurca el proyecto y se originan dos líneas de trabajo independientes. Los motivos habituales para crear una rama son el desarrollo de una nueva funcionalidad o la corrección de un error, sin que ese trabajo interfiera con la versión estable.</li>
+<li><strong>Desplegar (checkout)</strong>: crear una copia de trabajo del proyecto, o de archivos y carpetas del repositorio, en el equipo local. Por defecto se obtiene la última versión, aunque también se puede pedir una versión concreta. El <em>checkout</em> vincula la carpeta de trabajo local con el repositorio y crea los metadatos de control de versiones.</li>
+<li><strong>Confirmar (commit o check-in)</strong>: el acto de confirmar los cambios realizados en local para integrarlos en el repositorio. Es el momento en el que el trabajo personal pasa a formar parte del historial común.</li>
+<li><strong>Exportación (export)</strong>: similar al <em>checkout</em>, pero sin vincular la copia con el repositorio. Es una copia limpia, sin los metadatos de control de versiones, útil cuando solo se quiere el contenido.</li>
+<li><strong>Importación (import)</strong>: la subida de carpetas y archivos del equipo local al repositorio, que se puede hacer en cualquier momento desde el sistema de archivos.</li>
+<li><strong>Actualizar (update)</strong>: la operación de integrar en la copia de trabajo local los cambios que otros han hecho en el repositorio. Es el paso previo imprescindible antes de empezar a modificar, para no trabajar sobre una versión antigua.</li>
+<li><strong>Fusión (merge)</strong>: unir los cambios realizados sobre uno o varios archivos en una única revisión. Se suele realizar cuando hay varias líneas de desarrollo separadas en ramas y, en algún momento, se necesita juntar los cambios entre ramas o entre una rama y el tronco principal.</li>
+<li><strong>Conflicto</strong>: la situación que ocurre cuando dos usuarios crean una copia local de la misma versión de un archivo, uno de ellos realiza cambios y los envía al repositorio, y el otro, sin actualizar esos cambios, modifica el archivo e intenta enviar también sus cambios. En ese momento el sistema no es capaz de fusionar por sí solo las dos versiones y avisa de que hay un conflicto.</li>
+<li><strong>Resolver conflicto</strong>: la actuación del usuario para atender ese conflicto, combinando los dos conjuntos de cambios o eligiendo uno de ellos.</li>
+</ul>
+<p>Para trabajar con un sistema de control de versiones, lo primero es crearse una copia local de la información del repositorio con un <em>checkout</em>, lo que vincula esa copia con el repositorio. A partir de ahí, el usuario realiza sus modificaciones y, una vez finalizadas, sube los cambios con un <em>commit</em>. Si la copia ya está vinculada al repositorio, antes de modificar nada conviene hacer un <em>update</em>, para asegurarse de que los cambios parten de la última versión disponible y no de una copia desfasada.</p>
+<h2 id="clasificacion-de-los-sistemas-de-control-de-versiones">Clasificación de los sistemas de control de versiones</h2>
+<p>Las herramientas de control de versiones pueden clasificarse en función de dónde vive el historial del proyecto y de cómo acceden los desarrolladores a él. Según ese criterio, hablamos de sistemas <strong>locales</strong>, <strong>centralizados</strong> y <strong>distribuidos</strong>. Aunque los tres persiguen el mismo objetivo, su arquitectura marca diferencias profundas en la resiliencia, la colaboración y los riesgos que asume el equipo.</p>
+<hr/>
+<h3 id="sistemas-locales">Sistemas locales</h3>
+<p>Los sistemas de control de versiones locales son aquellos que permiten llevar a cabo todas las acciones necesarias dentro de la propia máquina del programador, sin depender de ningún servidor. En su forma más básica, ni siquiera requieren una herramienta específica: un programador que trabaje solo puede ir haciendo copias de seguridad de sus archivos o carpetas de vez en cuando. Este planteamiento tan artesanal arrastra dos características intrínsecas:</p>
+<ul>
+<li>El propio programador es quien debe <strong>recordar</strong> hacer las copias de seguridad cada cierto tiempo, según el criterio que se haya fijado.</li>
+<li>El propio programador es quien debe decidir <strong>dónde</strong> almacena esas copias, que lo habitual es que acaben en local, en otra ubicación del disco duro interno o en un dispositivo de almacenamiento externo.</li>
+</ul>
+<figure>
+<img alt="" src="../../images/01.png" width="80%"/>
+</figure>
+<p>Estos sistemas tienen un riesgo alto, precisamente porque dependen por completo de las decisiones de una persona, pero a cambio son extremadamente sencillos de planificar y de ejecutar. Lo más común en estos casos es ir creando copias de seguridad (que vienen a ser versiones del proyecto) en carpetas con nombres representativos, como la fecha y la hora en que se hicieron. Ese método se convierte en un colador en cuanto aparece la más mínima falta de disciplina: un olvido a la hora de copiar, una confusión que lleva al programador a seguir desarrollando sobre una copia antigua o a repartir el trabajo en ubicaciones distintas durante días diferentes. Cuando eso ocurre, el historial deja de ser fiable y la supuesta red de seguridad se rompe.</p>
+<p>Para atajar estos problemas aparecieron los primeros <strong>repositorios de versiones</strong>, que incorporaban una pequeña base de datos donde se registraban de forma automatizada todos los cambios efectuados: sobre qué archivos, quién los había hecho y cuándo. Ese fue el primer paso desde las copias manuales hacia un control de versiones de verdad.</p>
+<hr/>
+<h3 id="sistemas-centralizados">Sistemas centralizados</h3>
+<p>Un sistema de control de versiones centralizado es el que permite desarrollar un proyecto informático con más de un ordenador, y se contrapone al sistema distribuido, que también trabaja con varios ordenadores pero de una forma muy distinta. En los sistemas centralizados hay varios programadores desarrollando en varios equipos, todos ellos accediendo a los mismos archivos de trabajo y a las mismas versiones almacenadas. Es una situación mucho más cercana a la realidad de cualquier equipo de desarrollo actual.</p>
+<p>La idea central es que las copias de seguridad, o versiones almacenadas, se encuentran de forma <strong>centralizada en un único servidor</strong>, accesible desde cualquier ordenador que participe en el proyecto. Cuando un programador quiere trabajar, se conecta a ese servidor, descarga los archivos, los modifica y, cuando termina, envía sus cambios de vuelta. Todo el historial vive en ese punto central, y los equipos de los desarrolladores son meros clientes que consultan y envían información.</p>
+<figure>
+<img alt="" src="../../images/02.png" width="80%"/>
+</figure>
+<p>Ese diseño, cómodo y fácil de entender, introduce sin embargo un inconveniente que a veces es muy difícil de salvar: el <strong>punto único de fallo</strong>. ¿Qué sucede si el servidor central se cae? Si es un fallo temporal, los desarrolladores se quedan sin poder acceder durante un rato. Pero si es un fallo del sistema, habrá que disponer de un sistema de recuperación o de una copia alternativa, porque mientras el servidor esté caído nadie podrá trabajar de forma colaborativa, ni consultar las versiones almacenadas, ni enviar nuevas. Toda la actividad del equipo queda en suspenso hasta que el servidor vuelva a estar disponible. Esta dependencia absoluta de un único punto es la desventaja más seria de la arquitectura centralizada.</p>
+<p>Además, como el repositorio se concentra en un único ordenador y en una única ubicación, la creación de una rama también se lleva a cabo en ese mismo lugar, duplicando carpetas dentro del servidor. Los puntos débiles del trabajo con ramas heredan, por tanto, los mismos problemas que acabamos de describir para el conjunto del sistema.</p>
+<hr/>
+<h3 id="sistemas-distribuidos">Sistemas distribuidos</h3>
+<p>Los sistemas de control de versiones distribuidos surgen como respuesta directa a esa debilidad. La solución que proponen es tan sencilla como potente: en lugar de que solo el servidor guarde el historial, <strong>cada ordenador de trabajo dispone también de una copia completa de las versiones almacenadas</strong>. Es decir, cada desarrollador tiene en su máquina un repositorio entero, con todo el historial, no una simple copia parcial.</p>
+<figure>
+<img alt="" src="../../images/03.png" width="45%"/>
+</figure>
+<p>Esta duplicidad de las versiones ofrece una disponibilidad que reduce muchísimo las posibilidades de quedarse sin acceso a los archivos. La clave está en que el historial ya no vive en un solo lugar: si el servidor falla, el resto de ordenadores pueden seguir trabajando con normalidad, porque cada uno conserva su propia copia completa. Y, llegado el caso, cualquiera de esos clientes puede volcar su copia íntegra hacia el servidor para restaurarlo tal y como estaba.</p>
+<p>¿Cómo funciona este sistema en la práctica? Cada vez que un ordenador cliente accede al servidor para obtener una versión anterior, no se limita a copiar ese archivo suelto, sino que sincroniza el conjunto de los datos. La idea es que el servidor sigue actuando como punto de encuentro que gestiona el sistema de versiones, pero deja de ser un eslabón imprescindible: en caso de necesidad, se puede recurrir a las copias locales que atesoran los ordenadores clientes. Esa resiliencia, la capacidad de seguir funcionando a pesar de la caída de un componente, es la gran ventaja de los sistemas distribuidos y la razón por la que Git, el sistema que estudiaremos a fondo, adopta este modelo.</p>
+<h2 id="operaciones-basicas-de-un-sistema-de-control-de-versiones">Operaciones básicas de un sistema de control de versiones</h2>
+<p>Entre las operaciones más habituales de un sistema de control de versiones (tanto en los centralizados como en los distribuidos) se pueden diferenciar dos grandes tipos: aquellas que permiten la <strong>entrada de datos</strong> al repositorio y aquellas que permiten <strong>obtener datos</strong> del repositorio. Entender esta distinción ayuda a saber, en cada momento, si estamos aportando trabajo al historial común o trayendo trabajo desde él.</p>
+<figure>
+<img alt="" src="../../images/04.png" width="80%"/>
+</figure>
+<p>Entre las <strong>operaciones de introducción de datos</strong> al repositorio se encuentran:</p>
+<ul>
+<li><strong>Importación de datos</strong>: permite llevar a cabo la primera copia de seguridad o versionado de los archivos con los que se va a trabajar en local hacia el repositorio. Es el punto de partida, el momento en el que un proyecto deja de ser un conjunto de archivos sueltos y pasa a tener historial.</li>
+<li><strong>Confirmar (commit)</strong>: permite enviar al repositorio los datos correspondientes a los cambios que se han producido en el equipo local. Aquí hay un matiz importante: no se hace una copia entera de toda la información, sino que solo se envían los archivos que se han modificado, lo que mantiene la operación ligera y rápida.</li>
+</ul>
+<p>Entre las <strong>operaciones de exportación de datos</strong> del repositorio se encuentran:</p>
+<ul>
+<li><strong>Desplegar (checkout)</strong>: permite tener acceso y descargar una versión de trabajo de un archivo, un módulo o una revisión completa a un ordenador cliente. Es la operación con la que un desarrollador se lleva el proyecto a su máquina para empezar a trabajar.</li>
+<li><strong>Actualización (update)</strong>: permite llevar a cabo una copia de seguridad de todos los datos del repositorio al ordenador cliente con el que trabajará el programador. Esta operación se puede efectuar de forma manual, cuando el programador lo estime oportuno, o de forma automática, como sucede en los sistemas distribuidos, donde cada vez que un cliente accede al repositorio se hace una copia completa en local.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Manuel Sánchez Gomis
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["search.suggest", "search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "content.code.copy", "content.tabs.link", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../../assets/_markdown_exec_pyodide.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../_static/js/notebook.js"></script>
+      
+    
+  </body>
+</html>
