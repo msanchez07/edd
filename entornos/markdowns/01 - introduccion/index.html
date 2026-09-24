@@ -1,0 +1,1632 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Manuel Sánchez Gomis">
+      
+      
+      
+        <link rel="prev" href="../../../introduccion/markdowns/05%20-%20metodologias_agiles/">
+      
+      
+        <link rel="next" href="../02%20-%20intellij/">
+      
+      
+      <link rel="icon" href="../../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
+    
+    
+      
+        <title>Introducción a los entornos de desarrollo - Entornos de desarrollo</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_markdown_exec_pyodide.css">
+    
+      <link rel="stylesheet" href="../../../_static/css/notebook.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduccion-a-los-entornos-de-desarrollo" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Entornos de desarrollo" class="md-header__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Entornos de desarrollo
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introducción a los entornos de desarrollo
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo brillante"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo brillante" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Bienvenido
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Introducción al desarrollo de software
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+    
+  
+  Entornos de desarrollo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../control_versiones/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Control de versiones
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Entornos de desarrollo" class="md-nav__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    Entornos de desarrollo
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bienvenido
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introducción al desarrollo de software
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Introducción al desarrollo de software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/02%20-%20lenguajes_programacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lenguajes de programación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/03%20-%20proceso_obtencion_codigo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proceso de obtención de código
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/04%20-%20desarrollo_aplicaciones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Desarrollo de aplicaciones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/05%20-%20metodologias_agiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metodologías Ágiles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Entornos de desarrollo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Entornos de desarrollo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Introducción a los entornos de desarrollo
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a los entornos de desarrollo
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#editores-de-texto-plano-editores-enriquecidos-y-plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Editores de texto plano, editores enriquecidos y plugins
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Editores de texto plano, editores enriquecidos y plugins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#algunas-utilidades-de-los-editores-de-texto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algunas utilidades de los editores de texto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplos-de-editores-de-texto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplos de editores de texto
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejemplos de editores de texto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#notepad" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notepad++
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sublime-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sublime Text
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atom" class="md-nav__link">
+    <span class="md-ellipsis">
+      Atom
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ultraedit" class="md-nav__link">
+    <span class="md-ellipsis">
+      UltraEdit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vim
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coffeecup" class="md-nav__link">
+    <span class="md-ellipsis">
+      CoffeeCup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#komodo-edit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Komodo Edit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#textmate" class="md-nav__link">
+    <span class="md-ellipsis">
+      TextMate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual-studio-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visual Studio Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bbedit" class="md-nav__link">
+    <span class="md-ellipsis">
+      BBEdit
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ides-cuando-la-herramienta-comprende-el-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      IDEs: cuando la herramienta comprende el proyecto
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IDEs: cuando la herramienta comprende el proyecto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#la-arquitectura-interna-de-un-ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      La arquitectura interna de un IDE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#el-modelo-de-proyectos-frente-a-los-ficheros-sueltos" class="md-nav__link">
+    <span class="md-ellipsis">
+      El modelo de Proyectos frente a los ficheros sueltos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas-de-los-ides" class="md-nav__link">
+    <span class="md-ellipsis">
+      Características de los IDEs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplos-de-ides" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplos de IDEs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejemplos de IDEs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eclipse" class="md-nav__link">
+    <span class="md-ellipsis">
+      Eclipse
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#netbeans" class="md-nav__link">
+    <span class="md-ellipsis">
+      NetBeans
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual-studio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visual Studio
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xcode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Xcode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intellij-idea" class="md-nav__link">
+    <span class="md-ellipsis">
+      IntelliJ IDEA
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02%20-%20intellij/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IntelliJ IDEA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03%20-%20plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalar plugins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04%20-%20personalizacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Personalización, automatización y mantenimiento del entorno
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05%20-%20compilacion_y_ejecutables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generación de ejecutables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../99%20-%20ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Control de versiones
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Control de versiones
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción al control de versiones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/02%20-%20herramientas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Herramientas de control de versiones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/03%20-%20introduccion_git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/04%20-%20uso_basico_git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trabajo básico con Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/05%20-%20github/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/06%20-%20integracion_continua/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integración continua
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/99%20-%20ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios de Git y GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#editores-de-texto-plano-editores-enriquecidos-y-plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Editores de texto plano, editores enriquecidos y plugins
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Editores de texto plano, editores enriquecidos y plugins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#algunas-utilidades-de-los-editores-de-texto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algunas utilidades de los editores de texto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplos-de-editores-de-texto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplos de editores de texto
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejemplos de editores de texto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#notepad" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notepad++
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sublime-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sublime Text
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atom" class="md-nav__link">
+    <span class="md-ellipsis">
+      Atom
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ultraedit" class="md-nav__link">
+    <span class="md-ellipsis">
+      UltraEdit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vim
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coffeecup" class="md-nav__link">
+    <span class="md-ellipsis">
+      CoffeeCup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#komodo-edit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Komodo Edit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#textmate" class="md-nav__link">
+    <span class="md-ellipsis">
+      TextMate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual-studio-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visual Studio Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bbedit" class="md-nav__link">
+    <span class="md-ellipsis">
+      BBEdit
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ides-cuando-la-herramienta-comprende-el-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      IDEs: cuando la herramienta comprende el proyecto
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IDEs: cuando la herramienta comprende el proyecto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#la-arquitectura-interna-de-un-ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      La arquitectura interna de un IDE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#el-modelo-de-proyectos-frente-a-los-ficheros-sueltos" class="md-nav__link">
+    <span class="md-ellipsis">
+      El modelo de Proyectos frente a los ficheros sueltos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas-de-los-ides" class="md-nav__link">
+    <span class="md-ellipsis">
+      Características de los IDEs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplos-de-ides" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplos de IDEs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejemplos de IDEs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eclipse" class="md-nav__link">
+    <span class="md-ellipsis">
+      Eclipse
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#netbeans" class="md-nav__link">
+    <span class="md-ellipsis">
+      NetBeans
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual-studio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visual Studio
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xcode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Xcode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intellij-idea" class="md-nav__link">
+    <span class="md-ellipsis">
+      IntelliJ IDEA
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="introduccion-a-los-entornos-de-desarrollo">Introducción a los entornos de desarrollo</h1>
+<p>Programar no es tarea fácil. Aprender un lenguaje, dominar la lógica de la programación y desarrollar código de calidad puede llevarnos bastante más tiempo del que uno imagina al empezar. Por eso resulta imprescindible contar con una serie de herramientas que permitan al desarrollador realizar estas tareas de una manera cómoda y práctica, en lugar de pelearse constantemente con el medio en el que se escribe.</p>
+<p>Durante los primeros años de la informática, se programaba directamente sobre la máquina, con interruptores o tarjetas perforadas, y no existía nada parecido a un editor. Con la llegada de las pantallas, el primer paso natural fue usar un <strong>editor de texto plano</strong> genérico, el mismo que servía para escribir una carta, para redactar código. Ese planteamiento tiene la ventaja de que siempre está disponible —cualquier sistema operativo trae uno—, pero carece de todo conocimiento sobre lo que se está escribiendo: el editor ve letras, no ve código. No sabe qué es una palabra reservada, no distingue un error de sintaxis, no entiende de compiladores ni de depuradores. Programar así equivale a escribir un idioma extranjero sin corrector, sin diccionario y sin nadie que te advierta de los fallos.</p>
+<p>De ese punto de partida surgieron dos caminos que conviene distinguir con claridad. El primero fue el de los <strong>editores de texto especializados</strong> (o enriquecidos), programas pensados para trabajar con código pero que siguen concibiendo el trabajo como un conjunto de ficheros sueltos: resaltan la sintaxis, autocompletan palabras y ofrecen atajos, pero no comprenden el proyecto en su conjunto. El segundo camino fue el de los <strong>IDEs</strong> (Entornos de Desarrollo Integrado, del inglés <em>Integrated Development Environment</em>), que dieron un salto conceptual: dejaron de ser un simple editor para convertirse en una plataforma que reúne, coordina y entiende todas las piezas del desarrollo.</p>
+<p>A simple vista, tanto un editor avanzado como un IDE pueden parecer muy similares, porque en ambos se escribe código y se puede ejecutar pero en los detalles se marcan la diferencia entre una herramienta que solo edita texto y otra que comprende el proyecto entero.</p>
+<p>Conviene aclarar que estas tres categorías no son compartimentos estancos, sino puntos de un continuo que ha ido evolucionando. Un bloc de notas moderno puede tener resaltado de sintaxis; un editor como VS Code, que nació como editor, ha ido incorporando tantas capacidades de IDE que hoy es difícil clasificarlo; y un IDE, por debajo, sigue teniendo un editor de texto. La clave no está en la etiqueta, sino en el <strong>grado de conocimiento que la herramienta tiene del proyecto</strong>.</p>
+<h2 id="editores-de-texto-plano-editores-enriquecidos-y-plugins">Editores de texto plano, editores enriquecidos y plugins</h2>
+<p>Empecemos por el extremo más sencillo. Un <strong>editor de texto plano</strong> es una herramienta minimalista: abre un archivo, permite escribir caracteres, guarda y cierra. No entiende de lenguajes ni de proyectos, y todo el peso del trabajo recae sobre la persona, que debe recordar la sintaxis, compilar a mano y ejecutar los comandos por su cuenta. Es útil para retoques rápidos y para archivos pequeños, pero se queda corto en cuanto el proyecto crece.</p>
+<p>Los <strong>editores de texto enriquecidos o especializados</strong> añaden una capa de ayuda. Siguen trabajando archivo a archivo, pero incorporan funciones que mejoran mucho la experiencia: el resaltado de sintaxis colorea las palabras reservadas, las cadenas y los comentarios; el autocompletado sugiere palabras a medida que se escriben; la búsqueda y sustitución con expresiones regulares permite hacer cambios masivos; y el sistema de pestañas facilita moverse entre varios archivos. Existen editores sofisticados y elegantes como Atom, Sublime Text y Brackets, que muestran el código de una forma cuidada y permiten cambiar los temas visuales.</p>
+<figure>
+<img alt="" src="../../images/01.png" width="80%"/>
+</figure>
+<figure>
+<img alt="" src="../../images/02.png" width="100%"/>
+</figure>
+<p>Al contemplar las capturas anteriores, lo que se aprecia es, en esencia, un bloc de notas con un árbol de archivos a un lado. Hay pocas opciones visibles y la interfaz es deliberadamente sencilla. Ese minimalismo es a la vez su virtud y su límite: es ágil y ligero, pero no ofrece mucho más allá de lo que hace un buen procesador de texto aplicado al código.</p>
+<p>El <strong>nivel de extensibilidad</strong> de estos editores, aunque ha crecido mucho, sigue siendo más limitado que el de un IDE. Existen plugins que aportan funcionalidades valiosas, pero la ayuda al programador es, por lo general, básica, y la inteligencia a la hora de predecir lo que se va a escribir está bastante acotada. Un editor no "comprende" el proyecto: solo mira el archivo que tiene delante.</p>
+<hr/>
+<h3 id="algunas-utilidades-de-los-editores-de-texto">Algunas utilidades de los editores de texto</h3>
+<ul>
+<li>En general, los editores incluyen funciones muy parecidas a las de los procesadores de texto: cortar, pegar, modificar, importar y deshacer acciones.</li>
+<li>Cuentan con opciones para buscar y reemplazar mediante expresiones regulares, resaltar la sintaxis, autocompletar y trabajar con múltiples pestañas o paneles de ventana.</li>
+<li>Facilitan la puesta en marcha de listas y bases de datos que se pueden cargar en cualquier gestor, como MySQL, con sencillez y rapidez, sin necesidad de cargar aplicaciones especiales.</li>
+<li>Permiten crear notas rápidas e incluso redactar correos.</li>
+<li>A menudo se integran con el software de gestión de código fuente y generan herramientas de automatización a través de complementos.</li>
+</ul>
+<p>Son, en definitiva, herramientas magníficas para escribir texto y código, pero se quedan a mitad de camino cuando el trabajo exige comprender un proyecto completo y automatizar tareas repetitivas.</p>
+<hr/>
+<h3 id="ejemplos-de-editores-de-texto">Ejemplos de editores de texto</h3>
+<p>Muchos editores vienen incluidos en el propio sistema operativo y otros se instalan según las necesidades. Dependiendo de sus funciones, encontraremos editores libres o de pago. A continuación se repasan algunos de los más utilizados.</p>
+<h4 id="notepad">Notepad++</h4>
+<p><img alt="" src="../../images/03.png" width="120"/></p>
+<p><strong>Notepad++</strong> es un editor de código fuente gratuito para Windows que permite crear y modificar archivos de código de cualquier lenguaje de programación. Es muy útil para desarrolladores web, pero también para toda la comunidad de programadores en general.</p>
+<p>Su interfaz sencilla ofrece muchas utilidades, como resaltado de colores, edición de varios documentos a la vez, autocompletado de código o menús contextuales. Está escrito en C++ y utiliza puramente Win32 API y STL, lo que garantiza una mayor velocidad de ejecución y un tamaño de programa más pequeño.</p>
+<h4 id="sublime-text">Sublime Text</h4>
+<p><img alt="" src="../../images/04.png" width="120"/></p>
+<p><strong>Sublime Text</strong> es un programa de pago, pero cuenta también con una versión de prueba gratuita y de tiempo ilimitado con muchas funciones.</p>
+<p>Es un editor de texto y código fuente creado en Python y C++, capaz de escribir código de manera eficiente. Es muy sencillo y minimalista, con las funcionalidades justas para facilitar la codificación. Es multiplataforma, tiene minimapa y permite la previsualización miniaturizada del contenido del archivo, y soporta la mayoría de los lenguajes de programación. Es muy configurable y cuenta con un gran número de plugins para personalizar la plataforma.</p>
+<h4 id="atom">Atom</h4>
+<p><img alt="" src="../../images/05.png" width="120"/></p>
+<p><strong>Atom</strong> es un editor de código fuente de código abierto desarrollado por GitHub. Sirve para trabajar en cualquier sistema operativo (Windows, OS X o Linux) y permite agregar nuevas características y funcionalidades utilizando su administrador de paquetes integrado. Es una opción interesante para quienes también necesitan una herramienta de colaboración.</p>
+<p>Algunas de sus funciones son el autocompletado inteligente, la búsqueda o reemplazo de texto de forma sencilla, entre otras. Tiene integración con Node.js y navegador de sistema de archivos.</p>
+<h4 id="ultraedit">UltraEdit</h4>
+<p><img alt="" src="../../images/06.png" width="120"/></p>
+<p><strong>UltraEdit</strong> es un editor de texto que cuenta con herramientas para resaltar con color líneas específicas y predefinidas en cada lenguaje. Dispone de autocorrección y autocompletado de las líneas de código. Posee búsqueda avanzada de archivos y reformateo de datos de texto, y tiene un editor hexadecimal, opciones de impresión y la posibilidad de conectarse a un FTP.</p>
+<h4 id="vim">Vim</h4>
+<p><img alt="" src="../../images/07.png" width="120"/></p>
+<p><strong>Vim</strong> es un editor de texto altamente configurable y muy eficiente para la creación o edición de textos. Se incluye como «vi» con la mayoría de los sistemas UNIX y con Apple OS X. Dispone de un sistema de ayuda completo, resaltado sintáctico, scripting nativo (vimscript), un modo visual para la selección de texto y posibilidad de comparar archivos.</p>
+<p>Soporta cientos de lenguajes de programación y formatos de archivo, además de búsqueda y reemplazo de gran alcance. Permite integrarse con muchas herramientas. Es una buena opción para desarrolladores experimentados a quienes les gusta usar una interfaz más antigua o prefieren trabajar a través de la línea de comandos.</p>
+<h4 id="coffeecup">CoffeeCup</h4>
+<p><img alt="" src="../../images/08.png" width="120"/></p>
+<p><strong>CoffeeCup</strong> es un editor HTML disponible solo para Windows. Ofrece una versión gratuita limitada y otra de pago con una interfaz más completa. Cuenta con un panel de vista previa en pantalla dividida que permite ver lo que genera el código HTML y CSS. Además, tiene una pestaña de etiquetas que incluye referencias para (X)HTML, PHP y CSS. Conviene destacar que para hacer FTP o FTP seguro se necesita una aplicación separada.</p>
+<h4 id="komodo-edit">Komodo Edit</h4>
+<p><img alt="" src="../../images/09.png" width="120"/></p>
+<p><strong>Komodo Edit</strong> es un editor de texto gratuito y de código abierto para lenguajes de programación dinámicos, incluyendo PHP, CSS, JavaScript, Python, Ruby, Perl, Tcl, NodeJS, HTML y muchos otros. Soporta herramientas básicas como editor multilenguaje y autocompletado de código, ofrece análisis de sintaxis en segundo plano, resaltado por colores y la posibilidad de obtener una vista previa de la página web que estemos diseñando.</p>
+<h4 id="textmate">TextMate</h4>
+<p><img alt="" src="../../images/10.png" width="120"/></p>
+<p><strong>TextMate</strong> es un editor de código multilenguaje para Mac. Su sistema de extensiones puede escribirse en cualquier lenguaje, de modo que se pueden automatizar tareas habituales usando el lenguaje que más guste.</p>
+<p>Algunas de sus características son la búsqueda y reemplazo de texto en un proyecto, el autocompletado de palabras, la búsqueda por expresiones regulares o el autoemparejado de corchetes y otros caracteres.</p>
+<h4 id="visual-studio-code">Visual Studio Code</h4>
+<p><img alt="" src="../../images/11.png" width="120"/></p>
+<p><strong>Visual Studio Code</strong> es un editor de código fuente gratuito, multiplataforma y de código abierto desarrollado por Microsoft para Windows, Linux y macOS. Ofrece una herramienta de programación avanzada como alternativa al Bloc de Notas.</p>
+<p>Una de sus características más destacadas es <strong>IntelliSense</strong>, que de manera intuitiva se adelanta al texto que se va escribiendo. Además, siempre tiene plugins nuevos y actualizados a disposición de los desarrolladores.</p>
+<h4 id="bbedit">BBEdit</h4>
+<p><img alt="" src="../../images/12.png" width="120"/></p>
+<p><strong>BBEdit</strong> es un editor de texto para Mac OS y, desde su aparición, también para Mac OS X. Fue diseñado originalmente para editar HTML y está especialmente pensado para programadores y diseñadores web. Ofrece funciones de edición, búsqueda y manipulación de texto. Puede probarse gratuitamente durante 30 días y, después, seguir usándolo de forma gratuita con funciones limitadas; para aprovecharlo a plena capacidad hay que pagar una suscripción.</p>
+<h2 id="ides-cuando-la-herramienta-comprende-el-proyecto">IDEs: cuando la herramienta comprende el proyecto</h2>
+<p>Llegamos a las grandes ligas. Un <strong>IDE</strong> es mucho más que un editor con más botones: es una plataforma que reúne en un mismo programa todas las herramientas que un desarrollador necesita y, lo que es más importante, las hace trabajar de forma coordinada sobre un conocimiento compartido del proyecto.</p>
+<p>La diferencia fundamental respecto a los editores no está en la cantidad de funciones, sino en el <strong>modelo de trabajo</strong>. Un editor trabaja con <strong>archivos y carpetas sueltos</strong>: abres una carpeta y ves lo que hay dentro, sin más. Un IDE trabaja con <strong>Proyectos</strong>: una unidad superior que agrupa el código, pero también toda la información que la herramienta necesita para entenderlo.</p>
+<p>Un proyecto es, físicamente, una carpeta en el disco duro, pero con una diferencia crucial: el IDE crea <strong>archivos adicionales al código</strong> para optimizar la experiencia. En esos archivos vive la configuración del proyecto: cómo se ejecuta, cómo se despliega, qué tipo de aplicación es, qué librerías externas usa, qué versión del lenguaje se emplea. Esa información no forma parte del programa en sí, pero es lo que permite al IDE ofrecer todas sus ayudas sin que el programador tenga que repetirlas cada vez.</p>
+<figure>
+<img alt="" src="../../images/13.png" width="80%"/>
+</figure>
+<p>Debido a que los IDE son plataformas muy complejas, es posible hacer con ellos un sinfín de cosas, y los plugins que ofrecen son prácticamente ilimitados. Entre las capacidades que más destacan están:</p>
+<ul>
+<li><strong>Debugger en tiempo real</strong>: permiten detener la ejecución del programa, inspeccionar el valor de las variables y avanzar paso a paso, algo imprescindible para cazar errores lógicos.</li>
+<li><strong>Visualización gráfica</strong> de casi cualquier tipo de archivo: XML, JSON, UML, bases de datos, interfaces gráficas, etc. El IDE no ve un texto plano, sino una estructura que puede representar de forma comprensible.</li>
+<li><strong>Ayuda en tiempo real</strong>: a medida que se escribe, el IDE ofrece las clases o métodos disponibles, qué parámetros reciben y qué devuelven, e incluso muestra la documentación asociada. Es como tener un manual que se abre solo en la página que hace falta.</li>
+</ul>
+<hr/>
+<h3 id="la-arquitectura-interna-de-un-ide">La arquitectura interna de un IDE</h3>
+<p>Para entender por qué un IDE es tan potente, conviene mirar dentro y ver las piezas que lo componen. Aunque el usuario lo percibe como un programa único, por debajo conviven varias herramientas especializadas que se coordinan entre sí:</p>
+<ul>
+<li><strong>Editor de código</strong>: es la pieza visible, el lugar donde se escribe. A diferencia de un editor genérico, este conoce el lenguaje: colorea la sintaxis, autocompleta, marca errores en tiempo real y ofrece refactorizaciones. Es la puerta de entrada al resto del sistema.</li>
+<li><strong>Compilador integrado</strong>: traduce el código fuente escrito en un lenguaje de alto nivel a código objeto, la representación que la máquina puede entender. En un IDE, la compilación no es un paso aislado que se lanza a mano: está integrada y puede ejecutarse al vuelo, de modo que los errores de sintaxis se detectan casi mientras se escriben.</li>
+<li><strong>Enlazador (linker)</strong>: combina los distintos archivos de código objeto y las librerías externas para producir un único fichero ejecutable. Es la pieza que une las partes y resuelve las referencias entre ellas.</li>
+<li><strong>Depurador (debugger)</strong>: permite ejecutar el programa de forma controlada, detenerlo en puntos concretos y observar qué está pasando por dentro. Es la herramienta que convierte un error misterioso en un dato concreto.</li>
+<li><strong>Analizador estático</strong>: examina el código sin ejecutarlo y detecta patrones problemáticos, código muerto, posibles errores o malas prácticas. Es como un revisor que lee el programa antes de que llegue a ejecutarse y avisa de lo que huele mal.</li>
+</ul>
+<p>Lo importante no es que cada herramienta exista por separado, sino que <strong>todas trabajen juntas sobre un mismo modelo del proyecto</strong>. El editor sabe qué clases existen porque el compilador las ha analizado; el depurador puede mostrar los nombres de las variables porque comprende la estructura del código; el analizador estático puede sugerir mejoras porque conoce el conjunto. Esa coordinación es lo que hace que un IDE se sienta "inteligente" y que un editor, por muy avanzado que sea, se quede corto.</p>
+<hr/>
+<h3 id="el-modelo-de-proyectos-frente-a-los-ficheros-sueltos">El modelo de Proyectos frente a los ficheros sueltos</h3>
+<p>La diferencia de flujo de trabajo entre un editor y un IDE merece un apartado propio, porque es la que más afecta al día a día.</p>
+<p>Cuando se trabaja con un <strong>editor de texto</strong>, el modelo es el del sistema de archivos: se abre una carpeta y se tratan los ficheros como elementos independientes. Si el proyecto necesita compilarse, hay que abrir una terminal, escribir el comando de compilación, ejecutar el programa, y repetir ese ritual cada vez. Si se quiere probar con distintos parámetros, hay que recordar cómo se lanzaba. Si se quiere saber qué clases existen, hay que buscarlas a mano. Toda la coordinación recae en la persona.</p>
+<p>Con un <strong>IDE</strong>, en cambio, el proyecto es la unidad de trabajo, y todo gira a su alrededor. Al abrirlo, el IDE lee su configuración y ya sabe cómo compilarlo, cómo ejecutarlo, qué librerías usa y qué versión del lenguaje necesita. El programador no tiene que recordar comandos: pulsa un botón y la herramienta hace lo correcto. Los archivos de configuración que el IDE añade a la carpeta son, precisamente, esa memoria del proyecto, y son los que permiten que cualquiera que abra el proyecto en su equipo lo encuentre listo para trabajar.</p>
+<p>Esa diferencia tiene consecuencias muy prácticas. En un IDE, el conocimiento del proyecto está <strong>desacoplado del código</strong>: la configuración no se mezcla con el programa, sino que vive en archivos aparte, de manera que el mismo código puede ejecutarse con distintas configuraciones sin tocarlo. Esto es lo que permite, por ejemplo, tener un perfil de ejecución para pruebas y otro para producción, o cambiar de versión de Java sin reescribir una sola línea. El modelo de proyectos es, en definitiva, el paso de tratar el código como una colección de textos a tratarlo como un sistema que se entiende y se gestiona como un todo.</p>
+<hr/>
+<h3 id="caracteristicas-de-los-ides">Características de los IDEs</h3>
+<p>Cualquier IDE debe reunir una serie de características básicas que garanticen que la experiencia del usuario será satisfactoria. Las esenciales son las siguientes:</p>
+<ul>
+<li><strong>Editor de código</strong>: un editor de texto creado exclusivamente para trabajar con el código fuente de programas informáticos.</li>
+<li><strong>Compilador</strong>: un programa encargado de traducir las instrucciones escritas en un lenguaje de programación a código objeto, el único lenguaje que el ordenador entiende.</li>
+<li><strong>Depurador o debugger</strong>: un programa que permite probar y buscar errores en otros programas.</li>
+<li><strong>Linker</strong>: la herramienta que combina diferentes archivos de código fuente para convertirlos en un único fichero ejecutable.</li>
+<li><strong>Refactorización de código</strong>: el proceso de recurrir a funciones como el reformateo o la encapsulación para mejorar el código fuente sin cambiar su comportamiento.</li>
+</ul>
+<hr/>
+<h3 id="ejemplos-de-ides">Ejemplos de IDEs</h3>
+<p>El abanico de IDEs es muy amplio, y decantarse por uno u otro dependerá de las exigencias y necesidades de cada programador, que incluso puede usar IDEs diferentes para trabajos distintos. Entre las alternativas más utilizadas y mejor valoradas están las siguientes.</p>
+<h4 id="eclipse">Eclipse</h4>
+<p><img alt="" src="../../images/14.png" width="120"/></p>
+<p><strong>Eclipse</strong> es, probablemente, uno de los IDEs más utilizados, y la clave está en que se trata de un entorno de desarrollo integrado de código abierto y multiplataforma. Desarrollado por IBM en su inicio, hoy lo gestiona la Fundación Eclipse, una entidad legal sin ánimo de lucro. Cada año cuenta con una versión actualizada que incluye una enorme biblioteca de plugins para desarrollar todo tipo de aplicaciones con Java, JSP, C, C++, Python, Ruby, PHP, entre otros.</p>
+<p>Cuenta con una lista de tareas y un editor de texto que muestra el contenido del fichero en el que se trabaja; la compilación se lleva a cabo en tiempo real y, a medida que se avanza en el diseño, su asistente propone recomendaciones para solucionar errores y optimizar el código.</p>
+<h4 id="netbeans">NetBeans</h4>
+<p><img alt="" src="../../images/15.png" width="120"/></p>
+<p><strong>NetBeans</strong> es otro IDE de código abierto y gratuito, con el que crear aplicaciones empleando lenguajes como Java, PHP, C++, HTML, etc. Puede ejecutarse en cualquier sistema operativo y entre sus ventajas está que permite programar con el framework de Java Swing, lo que facilita el desarrollo de aplicaciones con entorno gráfico, es decir, mucho más dinámicas. También se puede programar para Android instalando los plugins necesarios. Entre sus atractivos están el manejo automático de la memoria y una interfaz de usuario muy cómoda.</p>
+<h4 id="visual-studio">Visual Studio</h4>
+<p><img alt="" src="../../images/16.png" width="120"/></p>
+<p><strong>Visual Studio</strong> es la apuesta de Microsoft, un IDE que ofrece al programador múltiples funciones para crear código, depurar errores o realizar pruebas en el desarrollo de aplicaciones con el marco .NET y en cualquier plataforma. Su editor de código es compatible con IntelliSense y su depurador funciona tanto a nivel fuente como a nivel máquina. Cuenta con un generador de perfiles de código y permite crear aplicaciones GUI, diseños web o utilizar su diseñador de esquemas de base de datos.</p>
+<h4 id="xcode">Xcode</h4>
+<p><img alt="" src="../../images/17.png" width="120"/></p>
+<p><strong>Xcode</strong> es el IDE oficial de Apple, creado para desarrolladores de Mac e iOS, que también facilita programar en Java. Incluye infinidad de herramientas para desarrollar software para iOS, macOS, watchOS y tvOS. Incorpora un excelente depurador, un generador de GUI y permite el autocompletado de perfiles. También ofrece soporte para AppleScript, Python, Ruby, Swift, C, C++, Objective-C y Objective-C++.</p>
+<h4 id="intellij-idea">IntelliJ IDEA</h4>
+<p><img alt="" src="../../images/18.png" width="120"/></p>
+<p><strong>IntelliJ IDEA</strong> fue creado por JetBrains y tiene dos versiones. Una, de libre descarga, la Community Edition; y otra, la Ultimate Edition, cuyo precio supera los 500 dólares de suscripción anual, pero que ofrece un periodo de prueba gratuito durante 30 días para comprobar lo que ofrece. Permite utilizar diferentes lenguajes de programación y trabajar con distintas versiones de software sin que afecte al desarrollo del trabajo. Es el IDE que estudiaremos en profundidad en el siguiente apartado.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Manuel Sánchez Gomis
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["search.suggest", "search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "content.code.copy", "content.tabs.link", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../../assets/_markdown_exec_pyodide.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../_static/js/notebook.js"></script>
+      
+    
+  </body>
+</html>

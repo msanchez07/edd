@@ -1,0 +1,1285 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Manuel Sánchez Gomis">
+      
+      
+      
+        <link rel="prev" href="../01%20-%20introduccion/">
+      
+      
+        <link rel="next" href="../03%20-%20introduccion_git/">
+      
+      
+      <link rel="icon" href="../../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
+    
+    
+      
+        <title>Herramientas de control de versiones - Entornos de desarrollo</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_markdown_exec_pyodide.css">
+    
+      <link rel="stylesheet" href="../../../_static/css/notebook.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#herramientas-de-control-de-versiones" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Entornos de desarrollo" class="md-header__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Entornos de desarrollo
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Herramientas de control de versiones
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo brillante"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo brillante" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Bienvenido
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Introducción al desarrollo de software
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Entornos de desarrollo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Control de versiones
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Entornos de desarrollo" class="md-nav__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    Entornos de desarrollo
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bienvenido
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introducción al desarrollo de software
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Introducción al desarrollo de software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/02%20-%20lenguajes_programacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lenguajes de programación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/03%20-%20proceso_obtencion_codigo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proceso de obtención de código
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/04%20-%20desarrollo_aplicaciones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Desarrollo de aplicaciones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/05%20-%20metodologias_agiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metodologías Ágiles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Entornos de desarrollo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Entornos de desarrollo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a los entornos de desarrollo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/02%20-%20intellij/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IntelliJ IDEA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/03%20-%20plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalar plugins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/04%20-%20personalizacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Personalización, automatización y mantenimiento del entorno
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/05%20-%20compilacion_y_ejecutables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generación de ejecutables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/99%20-%20ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Control de versiones
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Control de versiones
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción al control de versiones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Herramientas de control de versiones
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Herramientas de control de versiones
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#otras-herramientas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Otras herramientas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#depositos-de-herramientas-de-control-de-versiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Depósitos de herramientas de control de versiones
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problematicas-de-los-sistemas-de-control-de-versiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problemáticas de los sistemas de control de versiones
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Problemáticas de los sistemas de control de versiones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compartir-archivos-por-parte-de-diferentes-programadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compartir archivos por parte de diferentes programadores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bloquear-los-archivos-utilizados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bloquear los archivos utilizados
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fusionar-los-archivos-modificados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fusionar los archivos modificados
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03%20-%20introduccion_git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04%20-%20uso_basico_git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trabajo básico con Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05%20-%20github/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06%20-%20integracion_continua/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integración continua
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../99%20-%20ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios de Git y GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#otras-herramientas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Otras herramientas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#depositos-de-herramientas-de-control-de-versiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Depósitos de herramientas de control de versiones
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problematicas-de-los-sistemas-de-control-de-versiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problemáticas de los sistemas de control de versiones
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Problemáticas de los sistemas de control de versiones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compartir-archivos-por-parte-de-diferentes-programadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compartir archivos por parte de diferentes programadores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bloquear-los-archivos-utilizados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bloquear los archivos utilizados
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fusionar-los-archivos-modificados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fusionar los archivos modificados
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="herramientas-de-control-de-versiones">Herramientas de control de versiones</h1>
+<p>Para llevar a cabo un control de versiones automatizado existen varias herramientas que facilitan mucho este trabajo. Estas herramientas pueden ser <strong>independientes</strong> del resto del utilaje que se emplea para gestionar y desarrollar el proyecto, o pueden venir <strong>integradas</strong> dentro de otros programas, como Visual Studio o Eclipse, lo que simplifica aún más la vida a los miembros del equipo. Esa integración es una ventaja nada despreciable: si el control de versiones vive dentro del propio entorno en el que se escribe el código, el programador no tiene que saltar entre aplicaciones para guardar o recuperar sus cambios.</p>
+<p>Las funcionalidades que ofrecen abarcan un abanico muy amplio. Van desde lo más básico, como el control del código fuente y la administración de versiones de archivos y directorios, hasta aspectos más ambiciosos como la configuración y gestión del cambio o la integración completa del proyecto, con tareas que pueden incluir el análisis, la planificación, la compilación, la ejecución y la prueba automática de la aplicación. Cuanto más integrada está la herramienta en el ciclo de trabajo, menos huecos quedan por donde se pueden perder los cambios.</p>
+<p>Algunas de las herramientas de control de versiones más conocidas son las siguientes:</p>
+<ul>
+<li><strong>Team Foundation Server</strong>: desarrollada por Microsoft, lo que la convierte en una herramienta <strong>privativa</strong>. Está preparada para trabajar en colaboración con Visual Studio 2010 y ofrece control del código, administración del proyecto, seguimiento de los elementos de trabajo y gestión de los archivos a partir de un portal web del proyecto. Es la evolución de una herramienta anterior, Visual Source Safe.</li>
+<li><strong>CVS (Concurrent Versions System)</strong>: una de las herramientas clásicas del mundo del software libre, con una serie de funcionalidades que ayudan mucho al programador: mantiene el registro de todo el trabajo de los miembros del equipo, graba todos los cambios en los ficheros y permite el trabajo colaborativo entre desarrolladores que se encuentran a gran distancia. Su modelo de trabajo, basado en la fusión de cambios, fue la base de lo que hoy entendemos por control de versiones moderno.</li>
+<li><strong>Subversion</strong>: herramienta de <strong>código abierto</strong> e independiente del sistema operativo de la máquina en la que se use. Nació en el año 2000 con el objetivo declarado de sustituir a CVS, corrigiendo algunos de sus defectos y añadiendo nuevas funcionalidades. Está disponible para varios sistemas operativos, como distintas distribuciones de RedHat o macOS.</li>
+<li><strong>Mylyn</strong>: herramienta que funciona como <strong>extensión del IDE Eclipse</strong>. Permite tanto la gestión del proyecto como la gestión de las versiones, y está disponible para Linux y Mac OS X.</li>
+<li><strong>Git</strong>: la herramienta de control de versiones que estudiaremos a fondo. Fue desarrollada para los programadores del núcleo de Linux, precisamente porque las alternativas de la época no cubrían sus necesidades a esa escala. Hoy es el estándar de facto de la industria.</li>
+</ul>
+<h2 id="otras-herramientas">Otras herramientas</h2>
+<p>Existen muchas otras herramientas de ayuda al control de versiones. Algunas se pueden clasificar en función del lenguaje de programación al que asisten y otras en función del sistema para el que fueron desarrolladas. A continuación se recogen algunas, clasificadas según pertenezcan a <strong>software libre</strong> o a <strong>software privativo</strong>:</p>
+<ul>
+<li><strong>Software libre</strong>:<ul>
+<li>GNU Arch</li>
+<li>RedMine</li>
+<li>Mercurial (ALSA, MoinMoin, Mutt, Xen)</li>
+<li>PHPCollab</li>
+<li>Git</li>
+<li>Mylyn</li>
+<li>CVS</li>
+<li>Subversion</li>
+</ul>
+</li>
+<li><strong>Software privativo</strong>:<ul>
+<li>ClearCase</li>
+<li>Darcs</li>
+<li>Team Foundation Server</li>
+</ul>
+</li>
+</ul>
+<h2 id="depositos-de-herramientas-de-control-de-versiones">Depósitos de herramientas de control de versiones</h2>
+<p>Un <strong>depósito</strong> es un almacén de datos donde se guarda todo lo relacionado con una aplicación informática o con unos datos determinados de un proyecto. La palabra puede sonar muy técnica, pero la idea es simple: un lugar central donde vive la información y del que todos los interesados pueden tirar cuando la necesitan.</p>
+<p>El uso de depósitos no es una técnica exclusiva de las herramientas de control de versiones. Las aplicaciones y los proyectos informáticos suelen emplear depósitos que contienen información muy variada. Por ejemplo, un depósito relacionado con una base de datos guardará todo lo referente a cómo está implementada esa base: qué tablas tendrá, qué campos, cómo serán esos campos, cuáles son sus características y sus valores límite. En este caso, el depósito es el sitio donde se describe y se conserva la estructura de los datos.</p>
+<p>En el ámbito del control de versiones, disponer de un depósito supone contar con un <strong>almacén central</strong> que guarda toda la información en forma de ficheros y directorios y que permite llevar a cabo una gestión ordenada de todo ello. Es el corazón de la herramienta: sin ese almacén, no habría historial que consultar ni versiones que recuperar.</p>
+<p>Toda herramienta de control de versiones tiene un <strong>repositorio</strong> que actúa como ese almacén central. La información que almacena es todo lo referente al proyecto informático que se está desarrollando. Los clientes se conectan a ese repositorio para leer o escribir información, de modo que acceden al trabajo de otros clientes o hacen pública su propia aportación. Es, en definitiva, un punto de encuentro que también actúa como memoria colectiva del proyecto.</p>
+<figure>
+<img alt="" src="../../images/05.png" width="100%"/>
+</figure>
+<p>Gracias a la información grabada en el repositorio se puede:</p>
+<ul>
+<li>Consultar la última versión de los archivos que se hayan almacenado.</li>
+<li>Acceder a la versión de un determinado día y compararla con la actual.</li>
+<li>Consultar quién ha modificado un determinado trozo de código y cuándo fue modificado.</li>
+</ul>
+<p>Un repositorio es, por tanto, la parte principal de un sistema de control de versiones. Son sistemas diseñados para grabar, guardar y gestionar todos los cambios e informaciones sobre los datos de un proyecto a lo largo del tiempo, de manera que nada se pierda y todo quede a disposición de quien lo necesite.</p>
+<h2 id="problematicas-de-los-sistemas-de-control-de-versiones">Problemáticas de los sistemas de control de versiones</h2>
+<p>Un sistema de control de versiones tiene que resolver un problema de fondo que aparece en cuanto hay más de una persona trabajando sobre los mismos archivos: <strong>evitar que las acciones de un programador se sobrepongan a las de otro</strong>. Si dos personas editan a la vez el mismo fichero, ¿qué ocurre con los cambios de cada una? ¿Se pierden? ¿Se mezclan? La respuesta depende del modelo de concurrencia que aplique la herramienta. Existen tres alternativas para afrontar este escenario:</p>
+<ul>
+<li>Compartir archivos por parte de diferentes programadores (el escenario problemático que queremos evitar).</li>
+<li>Bloquear los archivos utilizados (modelo <strong>pesimista</strong>).</li>
+<li>Fusionar los archivos modificados (modelo <strong>optimista</strong>).</li>
+</ul>
+<p>Vamos a recorrer cada una con calma, porque entender sus ventajas y sus límites es la clave para comprender por qué Git funciona como funciona.</p>
+<hr/>
+<h3 id="compartir-archivos-por-parte-de-diferentes-programadores">Compartir archivos por parte de diferentes programadores</h3>
+<p>Antes de ver las soluciones, conviene entender bien el problema. Imaginemos que dos compañeros que trabajan en el mismo proyecto, desarrollando una aplicación informática, deciden editar el mismo fichero del repositorio a la vez. La secuencia de los hechos sería la siguiente:</p>
+<ul>
+<li>Pau y Montse están editando un mismo fichero.</li>
+<li>Pau graba sus cambios al repositorio.</li>
+<li>Como Pau y Montse han accedido a la vez, la versión sobre la cual trabaja Montse no contiene los cambios efectuados por Pau.</li>
+<li>Montse podrá, accidentalmente, <strong>sobrescribir</strong> esos cambios con su nueva versión del archivo, por el simple hecho de ser la última persona que lo guarda. Los cambios de Pau no estarán en la versión de Montse.</li>
+<li>La versión del archivo de Pau no se habrá perdido para siempre, porque el sistema recuerda cada cambio y queda en el histórico del archivo.</li>
+<li>El resto de programadores que accedan al repositorio verán la nueva versión de Montse, pero no los cambios de Pau, a no ser que indaguen en el histórico.</li>
+</ul>
+<p>El trabajo de Pau habrá quedado <strong>obviado</strong>, y eso es exactamente lo que no puede permitirse. Para evitarlo, las herramientas de control de versiones ofrecen varias estrategias, y las dos grandes son el <strong>bloqueo de archivos</strong> y la <strong>fusión de cambios</strong>.</p>
+<figure>
+<img alt="" src="../../images/06.png" width="70%"/>
+</figure>
+<hr/>
+<h3 id="bloquear-los-archivos-utilizados">Bloquear los archivos utilizados</h3>
+<p>El caso anterior se puede prevenir aplicando un modelo <strong>pesimista</strong>: como el conflicto es posible, se supone de antemano que va a ocurrir y se evita por sistema. Muchos sistemas adoptan esta solución, que consiste en <strong>bloquear los archivos afectados</strong> en cuanto un usuario accede a ellos en modo modificación. La secuencia sería:</p>
+<ol>
+<li>Bloquear el archivo al que se quiere acceder.</li>
+<li>Modificar el archivo por parte del usuario.</li>
+<li>Desbloquear el archivo una vez modificado y actualizado al repositorio.</li>
+</ol>
+<figure>
+<img alt="" src="../../images/07.png" width="70%"/>
+</figure>
+<p>La mecánica es sencilla de entender y también de implementar, y elimina de raíz la posibilidad de sobrescritura: mientras Pau tiene el archivo bloqueado, nadie más puede tocarlo. Pero tiene algunos puntos no tan positivos. Para empezar, solo permite modificar un archivo a un único usuario a la vez. En el caso planteado, Pau podrá acceder al archivo para consultarlo y modificarlo, pero Montse no podrá hacerlo, porque Pau lo tiene bloqueado. Habrá que esperar a que Pau termine y lo desbloquee para que ella pueda entrar. Se trata de una solución muy restrictiva que, en la práctica, puede frenar el trabajo con bastante frecuencia.</p>
+<p>Los problemas de este modelo de bloqueo merecen un análisis detallado, porque son los que empujaron a la industria hacia la fusión:</p>
+<ul>
+<li><strong>Posible creación de inconsistencias</strong>: puede parecer que el bloqueo da más seguridad a la hora de manipular archivos, pero puede provocar justo lo contrario. Imaginemos que Pau bloquea y edita el archivo A mientras Montse, simultáneamente, bloquea y edita el archivo B. Ninguno de los dos puede trabajar en el archivo del otro, así que ninguno ve lo que hace el otro. Cuando ambos desbloqueen, puede resultar que los cambios de cada uno sean <strong>semánticamente incompatibles</strong>: A y B dejan de funcionar juntos. El bloqueo protegía cada archivo por separado, pero no era capaz de proteger la coherencia del conjunto.</li>
+<li><strong>Bloqueo prolongado</strong>: mientras Pau mantiene bloqueado un archivo, el resto de desarrolladores no puede acceder a él. Si Pau olvida desbloquearlo, o simplemente se va de vacaciones con él bloqueado, el resto del equipo queda a la espera y ve su trabajo paralizado por una decisión que ni siquiera ha tomado conscientemente. En proyectos grandes, donde decenas de personas dependen unos de otros, un bloqueo olvidado puede detener el avance de todo un equipo y generar tensiones internas difíciles de gestionar.</li>
+<li><strong>Accesos independientes</strong>: muchas veces, las necesidades de acceso a un mismo archivo son independientes. Pau puede necesitar editar el principio del archivo y Montse simplemente quiere cambiar el final. Sus cambios no se superponen en absoluto, así que podrían editar el fichero de forma simultánea sin ningún problema, siempre que se asuma que los cambios se combinan correctamente. Obligarles a turnarse en ese caso no aporta ninguna seguridad, solo pérdida de tiempo.</li>
+</ul>
+<p>Ese último problema es el que sugiere que el bloqueo quizá no sea la solución más eficiente, y abre la puerta a un modelo distinto.</p>
+<hr/>
+<h3 id="fusionar-los-archivos-modificados">Fusionar los archivos modificados</h3>
+<p>La alternativa al bloqueo es un modelo <strong>optimista</strong>, que parte de la base contraria: se supone que los conflictos son la excepción, no la norma, y por tanto no se impide que varios programadores trabajen a la vez. En lugar de proteger el archivo por adelantado, se deja trabajar a todo el mundo y, cuando llega el momento de unir los cambios, el sistema intenta fusionarlos automáticamente. La secuencia es la siguiente:</p>
+<ul>
+<li>Cada uno de los desarrolladores que necesite editar un archivo se efectúa una <strong>copia privada</strong>.</li>
+<li>Cada desarrollador edita su copia privada del archivo, con total libertad.</li>
+<li>Finalmente, se <strong>fusionan</strong> las distintas copias privadas del archivo modificado.</li>
+</ul>
+<p>Esta fusión la realiza el sistema de forma automática en la mayoría de los casos, aunque la última palabra siempre la tienen los desarrolladores, que son los responsables de dar el visto bueno si el resultado de la fusión es correcto.</p>
+<figure>
+<img alt="" src="../../images/08.png" width="100%"/>
+</figure>
+<div class="admonition example">
+<p class="admonition-title">Ejemplo</p>
+<p>Pau y Montse crean copias de trabajo del mismo proyecto, obtenidas del repositorio. Los dos desarrolladores trabajan simultáneamente y efectúan cambios en el mismo fichero A, cada uno en su copia local:</p>
+<ul>
+<li>Montse es la primera en grabar sus cambios al repositorio.</li>
+<li>Cuando Pau intenta guardar los suyos, el repositorio le informa de que su archivo A no está actualizado.</li>
+<li>Pau puede solicitar al asistente que efectúe una propuesta de superposición de los cambios.</li>
+<li>Lo más probable es que las modificaciones de Montse y de Pau no se superpongan, por lo que, una vez que ambos conjuntos de cambios se han integrado, se graba la nueva versión del archivo en el repositorio.</li>
+</ul>
+</div>
+<p>Este sistema funciona de maravilla mientras los cambios de cada desarrollador no afecten al trabajo del otro. La pregunta clave es qué sucede si ambos han tocado exactamente la misma línea de código. En ese caso no hay forma automática de decidir cuál de las dos versiones es la correcta, y aparece un <strong>conflicto</strong>. Para resolverlo, el sistema actúa con cautela y deja la decisión en manos de la persona:</p>
+<ul>
+<li>Cuando Pau pide que se fusionen los últimos cambios del repositorio con su copia de trabajo, su archivo A queda marcado de alguna manera como <strong>en estado de conflicto</strong>.</li>
+<li>Pau será capaz de ver los dos conjuntos de cambios que chocan y, manualmente, podrá elegir uno de los dos o combinar el código para que tenga en cuenta ambos.</li>
+<li>Una vez resueltos los solapamientos, podrá guardar con seguridad la versión fusionada en el repositorio.</li>
+</ul>
+<p>Conviene subrayar que esta situación se produce pocas veces, porque la mayoría de los cambios concurrentes no se pisan entre sí. Y, cuando ocurre, el tiempo invertido en resolver el conflicto suele ser mucho menor que el tiempo que se pierde con un sistema de bloqueos mal gestionado, donde el equipo espera turnos innecesariamente.</p>
+<p>Hay, sin embargo, un límite importante que conviene conocer: el modelo de fusión <strong>no funciona con archivos no fusionables</strong>. El caso más claro son los archivos binarios, como las imágenes. Si Pau y Montse modifican la misma fotografía, cada uno a su manera, el sistema no puede combinar automáticamente las dos versiones: o se queda la de uno, o se queda la de otro. No hay término medio. En esos casos, la fusión automática no sirve y hay que recurrir a acuerdos manuales o al bloqueo.</p>
+<p>En conclusión, el sistema de fusión de archivos, empleado por herramientas como CVS o Subversion, tiene como <strong>punto fuerte</strong> que permite el trabajo en paralelo de más de un desarrollador al mismo tiempo, sin esperas artificiales. Su <strong>punto débil</strong> es que no puede aplicarse a archivos no fusionables, como las imágenes gráficas. Aun así, la balanza se decanta claramente hacia la fusión: es el modelo que hace posible que equipos grandes y distribuidos trabajen de forma fluida, y es la base sobre la que Git construye su forma de trabajar.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Manuel Sánchez Gomis
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["search.suggest", "search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "content.code.copy", "content.tabs.link", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../../assets/_markdown_exec_pyodide.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../_static/js/notebook.js"></script>
+      
+    
+  </body>
+</html>

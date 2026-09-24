@@ -1,0 +1,166 @@
+<div
+  style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; width: 100%; max-width: 1000px; margin: 10px auto; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); overflow: hidden; color: #334155; line-height: 1.5; box-sizing: border-box;">
+  
+  <!-- CABECERA: TÍTULO Y PRESENTACIÓN -->
+  <div style="padding: 20px 24px; border-bottom: 1px solid #f1f5f9; background: #ffffff;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 8px;">
+      <h2 style="margin: 0; color: #0f172a; font-size: 1.35rem; font-weight: bold; display: flex; align-items: center;">
+        <span style="margin-right: 8px;">📋</span> Tarea Evaluativa: Asesoría Técnica para "VetCare"
+      </h2>
+      <span style="background: #eff6ff; color: #1d4ed8; font-weight: 600; padding: 3px 10px; border-radius: 6px; font-size: 0.8rem; border: 1px solid #bfdbfe;">
+        UD 01 · Desarrollo de software
+      </span>
+    </div>
+    <p style="margin: 0 0 14px 0; font-size: 0.92rem; color: #475569;">
+      Esta práctica os sitúa como consultores técnicos de software. Deberéis analizar de forma autónoma las opciones de la clínica, plasmar vuestro dictamen en un documento breve y defenderlo de manera presencial en el aula para obtener la calificación.
+    </p>
+
+    <!-- FICHA DE CONDICIONES -->
+    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 18px; display: flex; flex-direction: column; gap: 10px; font-size: 0.88rem;">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 1.1rem;">👤</span> <strong>Modalidad:</strong> Individual
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 1.1rem;">📄</span> <strong>Entregable previo en Aules:</strong> Documento PDF (máximo 2 páginas)
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 1.1rem;">🎤</span> <strong>Defensa:</strong> 2 - 3 minutos individuales en el aula
+        </div>
+      </div>
+      <div style="border-top: 1px dashed #cbd5e1; padding-top: 10px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px;">
+        <div style="display: flex; align-items: center; gap: 8px; color: #854d0e;">
+          <span style="font-size: 1.1rem;">⚠️</span>
+          <strong>Calificación:</strong> La nota de la tarea corresponderá <strong>íntegramente (100%) a la defensa oral presencial</strong>.
+        </div>
+        <div style="background: #fefce8; border: 1px solid #fef08a; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; color: #854d0e; font-weight: 600;">
+          Defensa individual obligatoria
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTEXTO DEL PROBLEMA -->
+  <div style="padding: 20px 24px; background: #fafaf9; border-bottom: 1px solid #e2e8f0;">
+    <p style="margin: 0; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; color: #64748b;">
+      Escenario de Negocio
+    </p>
+    <h3 style="margin: 4px 0 10px 0; color: #1e293b; font-size: 1.05rem;">
+      Caso Real: Red de Clínicas Veterinarias "VetCare"
+    </h3>
+    <p style="margin: 0 0 12px 0; font-size: 0.88rem; color: #475569;">
+      La red de clínicas <strong>VetCare</strong> quiere modernizar su sistema informático y os solicita asesoramiento técnico urgente para resolver tres problemas concretos:
+    </p>
+    <ul style="margin: 0; padding-left: 20px; font-size: 0.87rem; color: #475569; display: flex; flex-direction: column; gap: 8px;">
+      <li>
+        <strong style="color: #0f172a;">Gestión vs. Quirófano:</strong> La gestión de citas y clientes debe operar en los PC con Windows de recepción y en tabletas (Android/iPadOS) en campo. Por su parte, la máquina de radiografías digitales de quirófano exige respuesta crítica en milisegundos con acceso directo a memoria y CPU.
+      </li>
+      <li>
+        <strong style="color: #0f172a;">Requisitos inestables:</strong> Los veterinarios dudan de cómo estructurar la facturación y la venta física; piden expresamente ver prototipos funcionando cada 2 o 3 semanas para probarlos con pacientes reales y adaptar requisitos sobre la marcha.
+      </li>
+      <li>
+        <strong style="color: #0f172a;">Coordinación del equipo:</strong> Dos desarrolladores trabajan editando archivos sobre una carpeta compartida en red (sobrescribiéndose código mutuamente) y prueban las fórmulas de cálculo de dosis anestésicas directamente en el código principal, arriesgándose a fallos letales.
+      </li>
+    </ul>
+  </div>
+
+  <!-- DECISIONES A RESOLVER EN EL DOCUMENTO -->
+  <div style="padding: 20px 24px; background: #ffffff; border-bottom: 1px solid #e2e8f0;">
+    <p style="margin: 0; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; color: #64748b;">
+      Entregable Escrito (PDF)
+    </p>
+    <h3 style="margin: 4px 0 14px 0; color: #1e293b; font-size: 1.05rem;">
+      Cuestiones Técnicas a Resolver en la Memoria
+    </h3>
+
+    <!-- DECISIÓN 1 -->
+    <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 12px; overflow: hidden;">
+      <div style="background: #f8fafc; padding: 8px 14px; border-bottom: 1px solid #e2e8f0;">
+        <span style="font-weight: bold; color: #0f172a; font-size: 0.9rem;">⚙️ 1. Dictamen de Arquitectura, Lenguajes y Ejecución</span>
+      </div>
+      <div style="padding: 12px 16px; font-size: 0.87rem; color: #475569; display: flex; flex-direction: column; gap: 8px;">
+        <div>La dirección tiene sobre la mesa tres propuestas contrapuestas de proveedores:
+          <ul style="margin: 4px 0 6px 0; padding-left: 20px;">
+            <li><strong>Propuesta A (Monolítica con Python):</strong> Desarrollarlo todo íntegramente en Python alegando rapidez de codificación y facilidad de mantenimiento tanto para las citas como para el quirófano.</li>
+            <li><strong>Propuesta B (Nativa múltiple con C/C++):</strong> Desarrollar aplicaciones nativas compiladas en C/C++ de forma independiente para cada entorno (Windows, Android, iPadOS y la máquina de quirófano).</li>
+            <li><strong>Propuesta C (Híbrida y modular):</strong> Separar el sistema empleando una tecnología basada en código intermedio y máquina virtual (como Java) para la gestión multiplataforma, y un desarrollo compilado a código máquina nativo (como C) para el quirófano.</li>
+          </ul>
+        </div>
+        <div>
+          Dictamina cuál de las tres opciones adoptas para la empresa y argumenta de forma razonada tu elección frente a las descartadas. Tu justificación técnica debe sostenerse analizando:
+          <ul style="margin: 4px 0 0 0; padding-left: 20px;">
+            <li>El impacto del tipo de ejecución y traducción del código (interpretado frente a binario compilado nativo) ante las exigencias de tiempo real de los sensores de quirófano.</li>
+            <li>La viabilidad de mantener la aplicación en múltiples sistemas operativos sin multiplicar los costes de desarrollo.</li>
+            <li>La gestión que realizará el Sistema Operativo sobre la memoria RAM y el procesador para garantizar la estabilidad de ambos entornos en la clínica.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- DECISIÓN 2 -->
+    <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 12px; overflow: hidden;">
+      <div style="background: #f8fafc; padding: 8px 14px; border-bottom: 1px solid #e2e8f0;">
+        <span style="font-weight: bold; color: #0f172a; font-size: 0.9rem;">🔄 2. Dictamen Metodológico: Modelo de Ciclo de Vida y Control de Calidad</span>
+      </div>
+      <div style="padding: 12px 16px; font-size: 0.87rem; color: #475569; display: flex; flex-direction: column; gap: 8px;">
+        <div>La dirección y los veterinarios mantienen posturas enfrentadas:
+          <ul style="margin: 4px 0 6px 0; padding-left: 20px;">
+            <li><strong>Enfoque de Dirección (Predictivo tradicional):</strong> Exige firmar un contrato cerrado a precio y alcance fijo basado en un modelo en cascada, congelando por escrito todas las especificaciones para los próximos 12 meses antes de codificar.</li>
+            <li><strong>Enfoque Veterinario (Adaptativo e incremental):</strong> No tienen claros los flujos y exigen entregas funcionales cada 2 o 3 semanas para probarlas con pacientes y ajustar los requisitos sobre la marcha.</li>
+          </ul>
+        </div>
+        <div>
+          Dictamina qué modelo de ciclo de vida impones en VetCare y defiende tu resolución frente a la postura contraria. Tu justificación técnica debe sostenerse analizando:
+          <ul style="margin: 4px 0 0 0; padding-left: 20px;">
+            <li>El impacto financiero y temporal derivado de la detección tardía de errores de análisis en cada una de las fases del ciclo de vida del software (SDLC).</li>
+            <li>La viabilidad del marco de trabajo elegido para absorber la incertidumbre de los requisitos y validar el avance del producto.</li>
+            <li>Los mecanismos de control de calidad para las entregas: diseña, para la funcionalidad de registrar una nueva mascota, un Criterio de Aceptación funcional específico y un requisito transversal para la Definición de Hecho (DoD) del equipo.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- DECISIÓN 3 -->
+    <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden;">
+      <div style="background: #f8fafc; padding: 8px 14px; border-bottom: 1px solid #e2e8f0;">
+        <span style="font-weight: bold; color: #0f172a; font-size: 0.9rem;">🛠️ 3. Plan de Saneamiento de Ingeniería y Seguridad</span>
+      </div>
+      <div style="padding: 12px 16px; font-size: 0.87rem; color: #475569; display: flex; flex-direction: column; gap: 8px;">
+        <p style="margin: 0 0 6px 0;">
+          Los dos programadores actuales incurren en malas prácticas que comprometen el proyecto: trabajan editando código directamente sobre una carpeta compartida en red y prueban las fórmulas de dosificación anestésica alterando el código principal en caliente, con el consiguiente riesgo vital para los animales.
+        </p>
+        <div>
+          Establece las directrices técnicas obligatorias que debe adoptar el equipo para profesionalizar el flujo de trabajo y blindar la fiabilidad del software. Tu justificación técnica debe sostenerse analizando:
+          <ul style="margin: 4px 0 0 0; padding-left: 20px;">
+            <li>El ecosistema de herramientas de desarrollo indispensable para erradicar el trabajo a ciegas y la pérdida de código, diferenciando el papel operativo de un IDE, un sistema de control de versiones, un depurador y un enlazador.</li>
+            <li>La disciplina de diseño y verificación basada en TDD (Desarrollo Dirigido por Pruebas) para implementar con total seguridad los cálculos farmacológicos críticos, detallando la operativa exacta del desarrollador a través de las fases de su ciclo de trabajo.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CÓMO SERÁ LA DEFENSA ORAL -->
+  <div style="padding: 18px 24px; background: #fafaf9; border-bottom: 1px solid #f1f5f9;">
+    <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #10b981; border-radius: 6px; padding: 12px 16px; font-size: 0.85rem;">
+      <div style="font-weight: bold; color: #1e293b; margin-bottom: 4px; display: flex; align-items: center;">
+        <span style="margin-right: 6px;">🎯</span> Funcionamiento de la Defensa Presencial (100% de la Calificación)
+      </div>
+      <div style="color: #475569; margin-bottom: 4px;">
+        Durante la sesión presencial de clase, cada estudiante acudirá de forma individual al puesto docente con su documento entregado:
+      </div>
+      <ul style="margin: 0; padding-left: 18px; color: #475569; display: flex; flex-direction: column; gap: 2px;">
+        <li><strong>Presentación breve:</strong> Explicación sintética de las tres decisiones adoptadas en el informe.</li>
+        <li><strong>Ronda de preguntas de caso:</strong> El profesor planteará situaciones reales y operativas de la clínica para verificar que el alumno comprende, defiende y asume las consecuencias técnicas de su propio dictamen.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CIERRE -->
+  <div style="padding: 12px 24px; background: #ffffff; text-align: center;">
+    <span style="font-weight: 600; color: #1e3a8a; font-size: 0.9rem;">
+      💻 ¡Mucho ánimo con la consultoría y preparad bien vuestra defensa!
+    </span>
+  </div>
+
+</div>
