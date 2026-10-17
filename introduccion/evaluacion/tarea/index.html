@@ -1,0 +1,1278 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Manuel Sánchez Gomis">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
+    
+    
+      
+        <title>BLOQUE 1: ENUNCIADO PARA EL ALUMNADO (MEMORIA TÉCNICA Y DEFENSA) - Entornos de desarrollo</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_markdown_exec_pyodide.css">
+    
+      <link rel="stylesheet" href="../../../_static/css/notebook.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#bloque-1-enunciado-para-el-alumnado-memoria-tecnica-y-defensa" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Entornos de desarrollo" class="md-header__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Entornos de desarrollo
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              BLOQUE 1: ENUNCIADO PARA EL ALUMNADO (MEMORIA TÉCNICA Y DEFENSA)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo brillante"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo brillante" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Bienvenido
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Introducción al desarrollo de software
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Entornos de desarrollo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../control_versiones/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Control de versiones
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Entornos de desarrollo" class="md-nav__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    Entornos de desarrollo
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bienvenido
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introducción al desarrollo de software
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Introducción al desarrollo de software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../markdowns/02%20-%20lenguajes_programacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lenguajes de programación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../markdowns/03%20-%20proceso_obtencion_codigo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proceso de obtención de código
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../markdowns/04%20-%20desarrollo_aplicaciones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Desarrollo de aplicaciones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../markdowns/05%20-%20metodologias_agiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metodologías Ágiles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Entornos de desarrollo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Entornos de desarrollo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a los entornos de desarrollo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/02%20-%20intellij/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IntelliJ IDEA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/03%20-%20plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalar plugins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/04%20-%20personalizacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Personalización, automatización y mantenimiento del entorno
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/05%20-%20compilacion_y_ejecutables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generación de ejecutables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/99%20-%20ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Control de versiones
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Control de versiones
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción al control de versiones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/02%20-%20herramientas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Herramientas de control de versiones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/03%20-%20introduccion_git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/04%20-%20uso_basico_git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trabajo básico con Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/05%20-%20github/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/06%20-%20integracion_continua/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integración continua
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/99%20-%20ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios de Git y GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#informe-de-consultoria-y-dictamen-tecnico-caso-vetcare" class="md-nav__link">
+    <span class="md-ellipsis">
+      Informe de Consultoría y Dictamen Técnico: Caso "VetCare"
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Informe de Consultoría y Dictamen Técnico: Caso "VetCare"">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#condiciones-de-la-prueba" class="md-nav__link">
+    <span class="md-ellipsis">
+      Condiciones de la prueba
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#el-escenario-en-vetcare" class="md-nav__link">
+    <span class="md-ellipsis">
+      El Escenario en VetCare
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apartados-a-desarrollar-en-el-dictamen-pdf-max-2-paginas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apartados a Desarrollar en el Dictamen (PDF, máx. 2 páginas)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-dictamen-de-arquitectura-lenguajes-y-ejecucion" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Dictamen de Arquitectura, Lenguajes y Ejecución
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-dictamen-metodologico-modelo-de-ciclo-de-vida-y-control-de-calidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Dictamen Metodológico: Modelo de Ciclo de Vida y Control de Calidad
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-plan-de-saneamiento-de-ingenieria-y-seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Plan de Saneamiento de Ingeniería y Seguridad
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="bloque-1-enunciado-para-el-alumnado-memoria-tecnica-y-defensa">BLOQUE 1: ENUNCIADO PARA EL ALUMNADO (MEMORIA TÉCNICA Y DEFENSA)</h1>
+<h2 id="informe-de-consultoria-y-dictamen-tecnico-caso-vetcare">Informe de Consultoría y Dictamen Técnico: Caso "VetCare"</h2>
+<h3 id="condiciones-de-la-prueba">Condiciones de la prueba</h3>
+<ul>
+<li>Modalidad: Individual.</li>
+<li>Entregable en Aules: Dictamen técnico en PDF (máximo 2 páginas).</li>
+<li>Defensa presencial: Exposición y debate técnico individual en el aula (2 - 3 minutos).</li>
+<li>Calificación: 100% ligada a la defensa oral presencial. La entrega del PDF es el requisito obligatorio para poder defender; la nota evaluará la capacidad de sostener y justificar las decisiones ante el docente.</li>
+</ul>
+<hr/>
+<h3 id="el-escenario-en-vetcare">El Escenario en VetCare</h3>
+<p>La dirección de la red de clínicas veterinarias VetCare ha recibido dos propuestas técnicas contradictorias de proveedores externos y está a punto de tomar decisiones que comprometerán el proyecto. Te han contratado como consultor independiente para emitir un Dictamen Técnico que analice tres dilemas y proponga soluciones con criterio de ingeniería del software.</p>
+<hr/>
+<h3 id="apartados-a-desarrollar-en-el-dictamen-pdf-max-2-paginas">Apartados a Desarrollar en el Dictamen (PDF, máx. 2 páginas)</h3>
+<h3 id="1-dictamen-de-arquitectura-lenguajes-y-ejecucion">1. Dictamen de Arquitectura, Lenguajes y Ejecución</h3>
+<p>La dirección de VetCare tiene sobre la mesa tres propuestas técnicas contrapuestas presentadas por distintos proveedores:</p>
+<ul>
+<li><strong>Propuesta A (Monolítica con Python):</strong> Desarrollarlo todo íntegramente en Python alegando rapidez de codificación y facilidad de mantenimiento tanto para las citas como para el quirófano.</li>
+<li><strong>Propuesta B (Nativa múltiple con C/C++):</strong> Desarrollar aplicaciones nativas compiladas en C/C++ de forma independiente para cada entorno (Windows, Android, iPadOS y la máquina de quirófano).</li>
+<li><strong>Propuesta C (Híbrida y modular):</strong> Separar el sistema empleando una tecnología basada en código intermedio y máquina virtual (como Java) para la gestión multiplataforma, y un desarrollo compilado a código máquina nativo (como C) para el quirófano.</li>
+</ul>
+<p>Dictamina cuál de las tres opciones adoptas para la empresa y argumenta de forma razonada tu elección frente a las descartadas. </p>
+<p>Tu justificación técnica debe sostenerse analizando:
+* El impacto del tipo de ejecución y traducción del código (interpretado frente a binario compilado nativo) ante las exigencias de tiempo real de los sensores de quirófano.
+* La viabilidad de mantener la aplicación en múltiples sistemas operativos sin multiplicar los costes de desarrollo.
+* La gestión que realizará el Sistema Operativo sobre la memoria RAM y el procesador para garantizar la estabilidad de ambos entornos en la clínica.</p>
+<hr/>
+<h3 id="2-dictamen-metodologico-modelo-de-ciclo-de-vida-y-control-de-calidad">2. Dictamen Metodológico: Modelo de Ciclo de Vida y Control de Calidad</h3>
+<p>La dirección y el equipo veterinario mantienen posturas irreconciliables sobre cómo gestionar el desarrollo del proyecto:</p>
+<ul>
+<li><strong>Enfoque de Dirección (Predictivo tradicional):</strong> El director general exige firmar un contrato cerrado a precio y alcance fijo basado en un modelo en cascada, congelando por escrito todas las especificaciones para los próximos 12 meses antes de comenzar la codificación.</li>
+<li><strong>Enfoque Veterinario (Adaptativo e incremental):</strong> El personal sanitario reconoce no tener claros los flujos de facturación ni de tienda hasta verlos en uso con pacientes reales. Exigen entregas funcionales cada 2 o 3 semanas para probarlas y ajustar los requisitos sobre la marcha.</li>
+</ul>
+<p>Dictamina qué modelo de ciclo de vida impones en VetCare y defiende tu resolución frente a la postura contraria.</p>
+<p>Tu justificación técnica debe sostenerse analizando:
+* El impacto financiero y temporal derivado de la detección tardía de errores de análisis en cada una de las fases del ciclo de vida del software (SDLC).
+* La viabilidad del marco de trabajo elegido para absorber la incertidumbre de los requisitos y validar el avance del producto.
+* Los mecanismos de control de calidad para las entregas: diseña, para la funcionalidad de registrar una nueva mascota, un Criterio de Aceptación funcional específico y un requisito transversal para la Definición de Hecho (DoD) del equipo.</p>
+<hr/>
+<h3 id="3-plan-de-saneamiento-de-ingenieria-y-seguridad">3. Plan de Saneamiento de Ingeniería y Seguridad</h3>
+<p>Los dos programadores actuales incurren en malas prácticas que comprometen el proyecto: trabajan editando código directamente sobre una carpeta compartida en red (sobrescribiendo cambios mutuamente) y prueban las fórmulas de dosificación anestésica alterando el código principal en caliente, con el consiguiente riesgo vital para los animales.</p>
+<p>Establece las directrices técnicas obligatorias que debe adoptar el equipo para profesionalizar el flujo de trabajo y blindar la fiabilidad del software.</p>
+<p>Tu justificación técnica debe sostenerse analizando:
+* El ecosistema de herramientas de desarrollo indispensable para erradicar el trabajo a ciegas y la pérdida de código, diferenciando el papel operativo de un IDE, un sistema de control de versiones, un depurador y un enlazador.
+* La disciplina de diseño y verificación basada en TDD (Desarrollo Dirigido por Pruebas) para implementar con total seguridad los cálculos farmacológicos críticos, detallando la operativa exacta del desarrollador a través de las fases de su ciclo de trabajo.</p>
+<hr/>
+<h1 id="lista-de-cotejo-para-la-defensa-oral-vetcare">LISTA DE COTEJO PARA LA DEFENSA ORAL (VETCARE)</h1>
+<p>El docente formula estas 6 preguntas de situación real en la clínica para comprobar que el alumno entiende y sostiene las decisiones que ha tomado en su memoria, sin dar por sentada ninguna respuesta concreta.</p>
+<hr/>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Aspecto evaluado</th>
+<th>Pregunta directa de caso formulada al alumno</th>
+<th style="text-align: center;">Puntos</th>
+<th style="text-align: center;">Superado</th>
+<th style="text-align: center;">No superado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong></td>
+<td>Elección de arquitectura frente a quirófano y tabletas.</td>
+<td>¿Cuál de las tres propuestas has elegido en tu informe y por qué consideras que es mejor opción que las otras dos para atender a los animales y gestionar la clínica?</td>
+<td style="text-align: center;">1,5</td>
+<td style="text-align: center;">[ ]</td>
+<td style="text-align: center;">[ ]</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>Portabilidad y estabilidad del equipo central.</td>
+<td>Si la clínica compra tabletas nuevas y al mismo tiempo el programa de citas se cuelga en el ordenador principal, ¿qué ocurre en ambos casos con la solución que has propuesto?</td>
+<td style="text-align: center;">2,0</td>
+<td style="text-align: center;">[ ]</td>
+<td style="text-align: center;">[ ]</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td>Modelo de trabajo frente a los costes y cambios.</td>
+<td>El director quería firmar un contrato cerrado y tú has marcado una postura en tu informe. Si los veterinarios cambian de opinión a mitad de proyecto, ¿qué consecuencias económicas y de plazos tiene tu decisión?</td>
+<td style="text-align: center;">1,5</td>
+<td style="text-align: center;">[ ]</td>
+<td style="text-align: center;">[ ]</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td>Control de calidad antes de usar una función.</td>
+<td>Sobre el alta de mascotas que has preparado: si el veterinario ve la pantalla terminada y pide usarla ya, pero tu equipo dice que aún no cumple las condiciones técnicas internas, ¿qué haces y por qué?</td>
+<td style="text-align: center;">2,0</td>
+<td style="text-align: center;">[ ]</td>
+<td style="text-align: center;">[ ]</td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td>Solución a la pérdida de código y errores de cálculo.</td>
+<td>Si un programador borra código de su compañero o la fórmula de anestesia calcula mal la dosis sin avisar, ¿cómo resuelven ambos problemas las herramientas que has obligado a usar?</td>
+<td style="text-align: center;">1,5</td>
+<td style="text-align: center;">[ ]</td>
+<td style="text-align: center;">[ ]</td>
+</tr>
+<tr>
+<td><strong>6</strong></td>
+<td>Seguridad en la programación de dosis médicas.</td>
+<td>Para programar las fórmulas de anestesia sin poner en riesgo la vida de los animales, ¿qué orden exacto de trabajo le exiges seguir a los programadores a la hora de hacer las pruebas?</td>
+<td style="text-align: center;">1,5</td>
+<td style="text-align: center;">[ ]</td>
+<td style="text-align: center;">[ ]</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>TOTAL</strong></td>
+<td></td>
+<td style="text-align: center;"><strong>10</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h3 id="registro-de-calificaciones-en-el-aula">Registro de Calificaciones en el Aula</h3>
+<table>
+<thead>
+<tr>
+<th>Alumno/a</th>
+<th style="text-align: center;">PDF Entregado</th>
+<th style="text-align: center;">1 (1,5p)</th>
+<th style="text-align: center;">2 (2,0p)</th>
+<th style="text-align: center;">3 (1,5p)</th>
+<th style="text-align: center;">4 (2,0p)</th>
+<th style="text-align: center;">5 (1,5p)</th>
+<th style="text-align: center;">6 (1,5p)</th>
+<th style="text-align: center;">NOTA TOTAL (10)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td style="text-align: center;">Sí / No</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align: center;">Sí / No</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align: center;">Sí / No</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align: center;">Sí / No</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align: center;">Sí / No</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align: center;">Sí / No</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align: center;">Sí / No</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Manuel Sánchez Gomis
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["search.suggest", "search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "content.code.copy", "content.tabs.link", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../../assets/_markdown_exec_pyodide.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../_static/js/notebook.js"></script>
+      
+    
+  </body>
+</html>

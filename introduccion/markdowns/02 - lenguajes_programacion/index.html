@@ -1,0 +1,1237 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Manuel Sánchez Gomis">
+      
+      
+      
+        <link rel="prev" href="../01%20-%20introduccion/">
+      
+      
+        <link rel="next" href="../03%20-%20proceso_obtencion_codigo/">
+      
+      
+      <link rel="icon" href="../../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
+    
+    
+      
+        <title>Lenguajes de programación - Entornos de desarrollo</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_markdown_exec_pyodide.css">
+    
+      <link rel="stylesheet" href="../../../_static/css/notebook.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lenguajes-de-programacion" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Entornos de desarrollo" class="md-header__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Entornos de desarrollo
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lenguajes de programación
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo brillante"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo brillante" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Bienvenido
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Introducción al desarrollo de software
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Entornos de desarrollo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../control_versiones/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Control de versiones
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Entornos de desarrollo" class="md-nav__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    Entornos de desarrollo
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bienvenido
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Introducción al desarrollo de software
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Introducción al desarrollo de software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Lenguajes de programación
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Lenguajes de programación
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#elementos-de-un-lenguaje-de-programacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Elementos de un lenguaje de programación
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clasificacion-de-los-lenguajes-de-programacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clasificación de los lenguajes de programación
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Clasificación de los lenguajes de programación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clasificacion-por-generaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clasificación por generaciones
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clasificacion-por-nivel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clasificación por nivel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clasificacion-por-paradigma" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clasificación por paradigma
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03%20-%20proceso_obtencion_codigo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proceso de obtención de código
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04%20-%20desarrollo_aplicaciones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Desarrollo de aplicaciones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05%20-%20metodologias_agiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metodologías Ágiles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Entornos de desarrollo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Entornos de desarrollo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a los entornos de desarrollo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/02%20-%20intellij/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IntelliJ IDEA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/03%20-%20plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalar plugins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/04%20-%20personalizacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Personalización, automatización y mantenimiento del entorno
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/05%20-%20compilacion_y_ejecutables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generación de ejecutables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/99%20-%20ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Control de versiones
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Control de versiones
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción al control de versiones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/02%20-%20herramientas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Herramientas de control de versiones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/03%20-%20introduccion_git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/04%20-%20uso_basico_git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trabajo básico con Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/05%20-%20github/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/06%20-%20integracion_continua/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integración continua
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/99%20-%20ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios de Git y GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#elementos-de-un-lenguaje-de-programacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Elementos de un lenguaje de programación
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clasificacion-de-los-lenguajes-de-programacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clasificación de los lenguajes de programación
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Clasificación de los lenguajes de programación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clasificacion-por-generaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clasificación por generaciones
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clasificacion-por-nivel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clasificación por nivel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clasificacion-por-paradigma" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clasificación por paradigma
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="lenguajes-de-programacion">Lenguajes de programación</h1>
+<p>Se puede definir un <strong>lenguaje de programación</strong> como un lenguaje formal que especifica una serie de instrucciones para que una computadora produzca diversas respuestas. Un lenguaje de programación permite poner algoritmos en práctica, los cuales controlan el comportamiento físico y lógico de una computadora.</p>
+<p>Todo lenguaje de programación se forma a partir de un conjunto de símbolos, llamado <strong>alfabeto</strong>, una serie de reglas léxico/morfológicas y sintácticas, y otras reglas semánticas, que componen todas las estructuras válidas en el lenguaje y su significado. La <strong>programación</strong> es el proceso de escribir, probar, depurar, compilar y mantener el código fuente de un programa informático.</p>
+<p>Hoy en día, existen una gran cantidad de lenguajes de programación que emplean los programadores, como <strong>C++, C, C#, Java, Visual Basic, XML, HTML, Perl, PHP, JavaScript</strong>, etc. No obstante, aunque sean lenguajes más antiguos, todavía se utilizan profesionalmente los clásicos <strong>COBOL, FORTRAN, Pascal</strong> o el mítico <strong>BASIC</strong>.</p>
+<p>Todos estos lenguajes de programación se denominan <strong>lenguajes de alto nivel</strong> y permiten a los profesionales resolver problemas convirtiendo sus algoritmos en programas escritos en alguno de estos lenguajes de programación.</p>
+<h2 id="elementos-de-un-lenguaje-de-programacion">Elementos de un lenguaje de programación</h2>
+<p>La práctica totalidad de los lenguajes de programación emplean los siguientes elementos:</p>
+<ol>
+<li>
+<p><strong>Tipos de datos</strong>: para poder representar los datos de un programa, la mayoría de los lenguajes admite un conjunto de tipos de datos básicos, denominados tipos elementales, tales como números enteros, números reales, caracteres o booleanos. Además, cada lenguaje admite distintos tipos de datos complejos, como arrays, cadenas de caracteres, listas, registros y ficheros.</p>
+</li>
+<li>
+<p><strong>Variables</strong>: espacios de memoria donde almacenar información que puede ir variando con la ejecución o interpretación del programa. A cada uno de esos espacios de memoria reservados se les asigna un nombre, de forma que a través de dicho nombre se conoce la dirección de memoria a la que acceder a la información de la variable.</p>
+</li>
+<li>
+<p><strong>Estructuras de control y bucles</strong>: permiten ejecutar unas instrucciones u otras, en función de dichas condiciones, o bien ejecutar un conjunto de instrucciones un número determinado de veces.</p>
+</li>
+<li>
+<p><strong>Funciones y procedimientos</strong>: los lenguajes suelen permitir modularizar el código, es decir, separar las instrucciones en bloques independientes, de forma que se puedan reutilizar en distintas partes del código.</p>
+</li>
+<li>
+<p><strong>Comentarios</strong>: bloques de texto opcional añadido al código entre símbolos especiales, de forma que sirven a los programadores para documentar y explicar el código que realizan. Son ignorados por el ordenador a la hora de ejecutar o interpretar el programa.</p>
+</li>
+</ol>
+<h2 id="clasificacion-de-los-lenguajes-de-programacion">Clasificación de los lenguajes de programación</h2>
+<p>Los lenguajes de programación se pueden clasificar atendiendo a distintos criterios: por niveles de lenguajes, por el paradigma que emplean, por el nicho de mercado o tipo de aplicaciones que abarcan, etc. A continuación veremos las clasificaciones más importantes.</p>
+<h3 id="clasificacion-por-generaciones">Clasificación por generaciones</h3>
+<p>Así como los ordenadores y el hardware ha pasado por diferentes generaciones, podemos realizar una misma aproximación respecto a los lenguajes de programación. Estas generaciones no coinciden exactamente con las generaciones del hardware, aunque sí de forma aproximada. Existen los siguientes lenguajes:</p>
+<ol>
+<li>
+<p><strong>Lenguajes de primera generación</strong>: la primera generación consiste en la utilización del <strong>lenguaje máquina</strong> para comunicarse con el ordenador, mediante el sistema binario. Sus instrucciones ejercen un control directo sobre el hardware y están condicionados por la estructura física de las computadoras que lo soportan. No obstante, eran lenguajes muy complejos de programar dado que se comunicaban directamente con el hardware.</p>
+</li>
+<li>
+<p><strong>Lenguajes de segunda generación</strong>: la siguiente evolución de los lenguajes de programación simplificaba las instrucciones del lenguaje máquina, haciéndolas más legibles para los programadores. El <strong>lenguaje ensamblador</strong>, junto con macros que permitían declarar estructuras de datos y de control complejas, hizo que la comunicación con las máquinas fuera más fluida.</p>
+</li>
+<li>
+<p><strong>Lenguajes de tercera generación</strong>: comienzan a surgir los <strong>lenguajes de alto nivel</strong>, independientes de las máquinas, tales como C, Fortran o Ada. Gracias a ellos, el usuario podía solucionar los problemas o tareas de datos de forma más sencilla y rápida, consiguiendo un mayor rendimiento. Aparecen también las bibliotecas para facilitar la programación que permiten la reutilización de código.</p>
+</li>
+<li>
+<p><strong>Lenguajes de cuarta generación</strong>: la cuarta generación destaca por el paradigma de los lenguajes de programación <strong>orientados a objetos</strong>, como Java. Estos lenguajes permiten el acceso a bases de datos y la generación de componentes gráficos complejos. Con esta generación se consiguió una gran mejora en la productividad y una mejor comunicación del programador con las máquinas.</p>
+</li>
+<li>
+<p><strong>Lenguajes de quinta generación</strong>: se utilizan principalmente en la investigación de la <strong>inteligencia artificial</strong>. <em>Python</em>, <em>Prolog</em>, <em>Lisp</em> y <em>R</em> son los mejores ejemplos, lenguajes que ofrecen gran productividad y una mejor comunicación del programador con las máquinas.</p>
+</li>
+</ol>
+<h3 id="clasificacion-por-nivel">Clasificación por nivel</h3>
+<p>El nivel de un lenguaje de programación alude a lo cercano o lejano que éste se encuentra del lenguaje humano. Cuanto más similar sea, más de <strong>alto nivel</strong> se considera. Por contra, si es más difícilmente comprensible por el ser humano, pero más asimilable por el ordenador, se entiende que es un lenguaje de <strong>bajo nivel</strong>. Existen tres niveles:</p>
+<ol>
+<li>
+<p><strong>Lenguajes de alto nivel</strong>: los lenguajes de alto nivel, como se ha comentado, son aquellos cuya sintaxis y términos se asemejan más al lenguaje humano. La inmensa mayoría de los lenguajes de programación disponibles hoy en día pertenecen a esta categoría, por lo que podemos citar varios de ellos: Java, C#, PHP, Javascript, etc.</p>
+</li>
+<li>
+<p><strong>Lenguajes de medio nivel</strong>: englobaría aquellos lenguajes de programación que tienen características de alto nivel pero también poseen características de bajo nivel, en cuanto al acceso directo a determinados recursos hardware, y mecanismos de codificación algo más confusos para el ser humano, pero más fácilmente traducibles a lenguaje máquina. El lenguaje más representativo de esta categoría es el lenguaje <strong>C</strong>, aunque C++ también podría englobarse en este grupo.</p>
+</li>
+<li>
+<p><strong>Lenguajes de bajo nivel</strong>: los lenguajes de bajo nivel disponen de un conjunto de instrucciones sencillas de traducir a lenguaje máquina, pero más difícilmente comprensibles por el ser humano. En este grupo se englobarían los lenguajes de programación en <strong>ensamblador</strong>, para las diferentes arquitecturas disponibles, como la 8086.</p>
+</li>
+</ol>
+<figure>
+<img alt="" src="../../images/04.png" width="90%"/>
+</figure>
+<h3 id="clasificacion-por-paradigma">Clasificación por paradigma</h3>
+<p>Un <strong>paradigma de programación</strong> establece una serie de pautas para escribir el código a la hora de realizar un programa. De esta forma, se "obliga" a la comunidad a ajustarse a esta serie de normas, y el código resulta mucho más estándar, legible y mantenible.</p>
+<ol>
+<li>
+<p><strong>Lenguajes imperativos</strong>: la programación imperativa se define como un modelado de la realidad por medio de representaciones de la información y de un conjunto de acciones a realizar. Orden de las acciones en el tiempo. También podemos decir que es una representación simbólica de una posición de memoria que cambia de valor. Los lenguajes imperativos son lenguajes controlados por mandatos u orientados a instrucciones. La instrucción básica del paradigma imperativo es la <strong>asignación</strong>.</p>
+</li>
+<li>
+<p><strong>Lenguajes funcionales</strong>: la programación funcional se basa en el uso de las <strong>funciones matemáticas</strong> para producir mejores efectos y que sus resultados sean más eficientes. La función se define basándose en procedimientos y ésta puede ser recursiva. Un lenguaje funcional se compone de un grupo de funciones primitivas (predefinidas por el lenguaje), un grupo de formas funcionales (funciones que pueden ser combinadas para crear nuevas funciones), la operación de la aplicación (construcción de un mecanismo para aplicar una función a sus argumentos y producir un valor) y un grupo de datos objetos (miembros que permiten los grupos de dominio y rango).</p>
+</li>
+<li>
+<p><strong>Lenguajes lógicos</strong>: en la programación lógica, los programas se consideran como una serie de aserciones lógicas. De esta forma, el conocimiento se representa mediante reglas, tratándose de sistemas declarativos. Una representación declarativa es aquella en la que el conocimiento está especificado, pero en la que la manera en que dicho conocimiento debe ser usado no viene dado.</p>
+</li>
+<li>
+<p><strong>Lenguajes orientados a objetos</strong>: la programación orientada a objetos es, tal vez, el paradigma de programación más utilizado en el mundo. Al contrario que la programación procedimental, que enfatiza en los algoritmos, la POO enfatiza en los datos. La idea fundamental de los lenguajes orientados a objetos es combinar en una única unidad o módulo, tanto los datos como las funciones que operan sobre esos datos. Tal unidad se llama <strong>objeto</strong>.</p>
+<p>Los datos de un objeto se conocen también como <strong>atributos</strong> o variables de instancia. Las funciones de un objeto se llaman funciones miembros en C++ o <strong>métodos</strong>, y son el único medio para acceder a sus datos. No se puede acceder a los datos directamente. Los datos son ocultos, de modo que están protegidos de alteraciones accidentales. Los datos y las funciones se dice que están <strong>encapsulados</strong> en una única entidad. El encapsulamiento de datos y la ocultación de los datos son términos clave en la descripción de lenguajes orientados a objetos.</p>
+</li>
+<li>
+<p><strong>Lenguajes dirigidos por eventos</strong>: la programación dirigida por eventos es un paradigma de programación en que la ejecución de los programas va determinada por los sucesos que ocurran en el sistema, definidos por el usuario o que ellos mismos provoquen.</p>
+<p>Mientras en la programación secuencial (o estructurada) es el programador el que define cuál va a ser el flujo del programa, en la programación dirigida por eventos será el propio usuario el que dirija el flujo del programa. Aunque en la programación secuencial puede haber intervención de un agente externo al programa, estas intervenciones ocurrirán cuando el programador lo haya determinado, y no en cualquier momento como puede ser en el caso de la programación dirigida por eventos.</p>
+</li>
+<li>
+<p><strong>Lenguajes de guiones (scripting)</strong>: el código fuente de un programa creado usando lenguajes de scripting es almacenado en un archivo de texto plano. Los scripts son casi siempre interpretados, pero no todo programa interpretado es considerado un script. El uso habitual de los guiones es realizar diversas tareas como combinar componentes, interactuar con el sistema operativo o con el usuario.</p>
+</li>
+<li>
+<p><strong>Lenguajes cuánticos</strong>: las computadoras cuánticas todavía son bastante básicas y la mayoría son utilizadas como intrigantes juguetes en los laboratorios de investigación avanzada. Esto podría cambiar gracias a los nuevos lenguajes de programación que algunos expertos han empezado a desarrollar.</p>
+<p>El más reciente proviene de Microsoft, que ha presentado su nuevo lenguaje <strong>Q#</strong> junto a un conjunto de herramientas que ayudan a los desarrolladores a usarlo para crear software. Éste se suma a <strong>QCL</strong> y <strong>Quipper</strong>, los otros lenguajes de programación cuántica de alto nivel más conocidos.</p>
+<p>Una de las peculiaridades de la computación cuántica es que tiene limitaciones que no existen en los lenguajes de programación clásicos. Por ejemplo, los programas cuánticos no pueden tener bucles que repitan una secuencia de instrucciones, sino que tienen que ejecutarse linealmente hasta su finalización. Para lidiar con estos problemas, Q# se combina con un par de lenguajes clásicos. Los desarrolladores sin experiencia cuántica pueden escribir así sus programas principales en lenguajes que ya conocen y luego usar un programa Q# cuando deseen involucrar el poder de procesamiento cuántico.</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Manuel Sánchez Gomis
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["search.suggest", "search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "content.code.copy", "content.tabs.link", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../../assets/_markdown_exec_pyodide.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../_static/js/notebook.js"></script>
+      
+    
+  </body>
+</html>

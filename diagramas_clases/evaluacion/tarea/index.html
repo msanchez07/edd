@@ -1,0 +1,1154 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Manuel Sánchez Gomis">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
+    
+    
+      
+        <title>Tarea de evaluación: modelado de clases - Entornos de desarrollo</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_markdown_exec_pyodide.css">
+    
+      <link rel="stylesheet" href="../../../_static/css/notebook.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tarea-de-evaluacion-modelado-de-clases" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Entornos de desarrollo" class="md-header__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Entornos de desarrollo
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tarea de evaluación: modelado de clases
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo brillante"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo brillante" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Bienvenido
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Introducción al desarrollo de software
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Entornos de desarrollo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../control_versiones/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Control de versiones
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Entornos de desarrollo" class="md-nav__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    Entornos de desarrollo
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bienvenido
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introducción al desarrollo de software
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Introducción al desarrollo de software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/02%20-%20lenguajes_programacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lenguajes de programación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/03%20-%20proceso_obtencion_codigo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proceso de obtención de código
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/04%20-%20desarrollo_aplicaciones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Desarrollo de aplicaciones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/05%20-%20metodologias_agiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metodologías Ágiles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Entornos de desarrollo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Entornos de desarrollo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a los entornos de desarrollo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/02%20-%20intellij/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IntelliJ IDEA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/03%20-%20plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalar plugins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/04%20-%20personalizacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Personalización, automatización y mantenimiento del entorno
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/05%20-%20compilacion_y_ejecutables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generación de ejecutables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/99%20-%20ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Control de versiones
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Control de versiones
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción al control de versiones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/02%20-%20herramientas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Herramientas de control de versiones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/03%20-%20introduccion_git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/04%20-%20uso_basico_git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trabajo básico con Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/05%20-%20github/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/06%20-%20integracion_continua/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integración continua
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/99%20-%20ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios de Git y GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#condiciones-de-la-prueba" class="md-nav__link">
+    <span class="md-ellipsis">
+      Condiciones de la prueba
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#el-escenario-la-clinica-veterinaria" class="md-nav__link">
+    <span class="md-ellipsis">
+      El escenario: la clínica veterinaria
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bloque-a-los-conceptos-de-la-orientacion-a-objetos-criterio-5a" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bloque A. Los conceptos de la orientación a objetos (criterio 5.a)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bloque-b-el-diagrama-de-clases-y-sus-decisiones-criterios-5b-5c-y-5d" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bloque B. El diagrama de clases y sus decisiones (criterios 5.b, 5.c y 5.d)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bloque-c-del-modelo-al-codigo-y-del-codigo-al-modelo-criterios-5e-y-5f" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bloque C. Del modelo al código y del código al modelo (criterios 5.e y 5.f)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bloque-d-aplicar-la-arquitectura-al-cambio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bloque D. Aplicar la arquitectura al cambio
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ampliacion-2-puntos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ampliación (2 puntos)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="tarea-de-evaluacion-modelado-de-clases">Tarea de evaluación: modelado de clases</h1>
+<p>Esta tarea evalúa el bloque de diagramas de clases y se corresponde con los criterios de evaluación <strong>5.a</strong>, <strong>5.b</strong>, <strong>5.c</strong>, <strong>5.d</strong>, <strong>5.e</strong> y <strong>5.f</strong> del módulo profesional 0487 (Entornos de desarrollo):</p>
+<ul>
+<li><strong>5.a</strong> Se han identificado los conceptos básicos de la programación orientada a objetos.</li>
+<li><strong>5.b</strong> Se han utilizado herramientas para la elaboración de diagramas de clases.</li>
+<li><strong>5.c</strong> Se ha interpretado el significado de diagramas de clases.</li>
+<li><strong>5.d</strong> Se han trazado diagramas de clases a partir de las especificaciones de las mismas.</li>
+<li><strong>5.e</strong> Se ha generado código a partir de un diagrama de clases.</li>
+<li><strong>5.f</strong> Se ha generado un diagrama de clases mediante ingeniería inversa.</li>
+</ul>
+<p>El criterio que se evalúa no es que el dibujo sea bonito, sino que cada símbolo esté puesto por un motivo que se pueda explicar.</p>
+<hr/>
+<h2 id="condiciones-de-la-prueba">Condiciones de la prueba</h2>
+<ul>
+<li><strong>Modalidad:</strong> individual.</li>
+<li><strong>Entregables:</strong><ul>
+<li>Los ficheros del proyecto de modelado (el documento <code>.dia</code> y el proyecto Java de IntelliJ).</li>
+<li><strong>Memoria técnica en PDF</strong> (máximo 5 páginas) con las evidencias y las justificaciones que se piden en cada bloque.</li>
+<li><strong>Defensa oral</strong> individual de 3 a 5 minutos.</li>
+</ul>
+</li>
+<li><strong>Calificación:</strong> 10 puntos, repartidos en 8 puntos para los bloques guiados (2 puntos por bloque) y 2 puntos para la ampliación final. Entregar la memoria es obligatorio para poder defender la tarea.</li>
+<li><strong>Herramientas:</strong> Dia para dibujar el modelo e IntelliJ IDEA para trabajar con el código. Se valorará que se usen las dos y que se sepa decir para qué sirve cada una.</li>
+</ul>
+<hr/>
+<h2 id="el-escenario-la-clinica-veterinaria">El escenario: la clínica veterinaria</h2>
+<p>Vas a modelar la aplicación de gestión de una clínica veterinaria. El punto de partida es este enunciado:</p>
+<blockquote>
+<p>La clínica atiende a <strong>mascotas</strong>, de las que guarda un número de chip, el nombre, la especie y la fecha de nacimiento. Cada mascota pertenece a un <strong>dueño</strong>, del que se registran el DNI, el nombre y el teléfono. Un dueño puede tener varias mascotas.</p>
+<p>La clínica dispone de un equipo de <strong>veterinarios</strong>, con su número de colegiado, su nombre y su especialidad. Existen veterinarios generalistas y veterinarios especialistas, y de los especialistas interesa además el área en la que están acreditados.</p>
+<p>Un veterinario atiende <strong>visitas</strong>, y de cada visita se anota la fecha, el diagnóstico y el importe. Una mascota puede recibir muchas visitas a lo largo de su vida, y cada visita la realiza un único veterinario.</p>
+<p>Cada visita puede generar una o varias <strong>recetas</strong>, y una receta no tiene sentido sin la visita que la originó: si se anula una visita, sus recetas desaparecen con ella. Cada receta lleva el <strong>medicamento</strong> prescrito y la dosis. El catálogo de medicamentos es común a toda la clínica y se mantiene con independencia de las recetas emitidas.</p>
+<p>La clínica necesita poder calcular el importe total de las visitas de una mascota y comprobar, antes de dar cita, si un veterinario concreto tiene hueco ese día.</p>
+</blockquote>
+<hr/>
+<h2 id="bloque-a-los-conceptos-de-la-orientacion-a-objetos-criterio-5a">Bloque A. Los conceptos de la orientación a objetos (criterio 5.a)</h2>
+<p>El objetivo de este bloque es demostrar que sabes distinguir los conceptos antes de dibujar nada. No se trata de dibujar, sino de razonar por escrito.</p>
+<p>Elabora tres listas a partir del enunciado: <strong>clases</strong>, <strong>atributos</strong> y <strong>operaciones</strong>. Cada elemento debe ir acompañado de una frase que justifique por qué pertenece a esa lista y no a otra. Presta especial atención a los casos dudosos: "diagnóstico" o "dosis" pueden parecer clases, y "cita" puede parecer un atributo de la mascota. Decide en cada caso y explica el criterio que has aplicado.</p>
+<p>A continuación, y en la misma memoria, identifica y explica con tus palabras los cuatro conceptos de la orientación a objetos que aparecen en el enunciado: <strong>encapsulación</strong>, <strong>abstracción</strong>, <strong>herencia</strong> y <strong>polimorfismo</strong>. Para cada uno, señala la frase del enunciado que lo justifica y qué consecuencia tendría en el código si se ignorase. En el caso de la herencia, indica qué clase hace de madre, qué clases hacen de hijas y qué se gana con esa decisión.</p>
+<hr/>
+<h2 id="bloque-b-el-diagrama-de-clases-y-sus-decisiones-criterios-5b-5c-y-5d">Bloque B. El diagrama de clases y sus decisiones (criterios 5.b, 5.c y 5.d)</h2>
+<p>Constrúyelo en Dia, con un documento nuevo y la hoja de formas <strong>UML</strong>, y exporta el resultado a SVG o PNG para incorporarlo a la memoria. El diagrama debe incluir:</p>
+<ul>
+<li>Las clases con sus atributos, sus tipos y su visibilidad, y las operaciones que permitan calcular el importe de las visitas y comprobar la disponibilidad del veterinario.</li>
+<li>La generalización entre el veterinario y sus especializaciones.</li>
+<li>La asociación entre dueño y mascota, con su multiplicidad y su navegabilidad.</li>
+<li>La asociación entre veterinario y visita, con su multiplicidad.</li>
+<li>La relación entre visita y receta, y entre receta y medicamento, eligiendo cada una con criterio.</li>
+</ul>
+<p>En la memoria debes justificar <strong>cuatro decisiones</strong> de forma explícita, y son las que se puntúan:</p>
+<table>
+<thead>
+<tr>
+<th>Decisión</th>
+<th>Qué hay que justificar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Navegabilidad</strong></td>
+<td>En qué sentido se recorre cada asociación y por qué. Qué consecuencia tendría dejarla bidireccional</td>
+</tr>
+<tr>
+<td><strong>Multiplicidad</strong></td>
+<td>Por qué los valores concretos están en cada extremo, y qué restricción del enunciado los justifica</td>
+</tr>
+<tr>
+<td><strong>Agregación o composición</strong></td>
+<td>Qué relación hay entre visita y receta, y entre receta y medicamento, y en qué te has basado para decidirlo</td>
+</tr>
+<tr>
+<td><strong>Clase asociativa</strong></td>
+<td>Explica si alguna de las relaciones del modelo admitiría una clase asociativa y por qué en este caso sí o no</td>
+</tr>
+</tbody>
+</table>
+<p>Acompaña cada justificación con una captura del diagrama en la que se vea el elemento discutido. No se acepta una justificación que diga "porque es de este tipo" sin explicar el criterio.</p>
+<hr/>
+<h2 id="bloque-c-del-modelo-al-codigo-y-del-codigo-al-modelo-criterios-5e-y-5f">Bloque C. Del modelo al código y del código al modelo (criterios 5.e y 5.f)</h2>
+<p>Este bloque comprueba que sabes moverte en los dos sentidos.</p>
+<p>Para el criterio <strong>5.e</strong>, obtén el esqueleto del código Java a partir del modelo. Tienes dos vías y debes usar las dos: generar el código desde el archivo de Dia con <code>dia2code -t java clinica.dia</code>, y añadir desde el propio diagrama de IntelliJ al menos un campo y una relación con <strong>Content | New</strong> y el modo <strong>Edge Creation</strong>, comprobando que el código fuente cambia. En la memoria debes incluir el código obtenido por una de las dos vías y responder a dos preguntas: qué partes ha escrito la herramienta sola y qué partes has tenido que completar a mano, y por qué esa frontera está donde está.</p>
+<p>Para el criterio <strong>5.f</strong>, abre el código que acabas de generar como proyecto Java en IntelliJ IDEA y obtén su diagrama aplicando ingeniería inversa, mediante <strong>Diagrams | Show Diagram</strong> (<code>Ctrl+Alt+Shift+U</code>) y <strong>Java Class Diagram</strong>. Compara los tres artefactos que tienes ahora (el diagrama dibujado en Dia, el código Java y el diagrama generado por IntelliJ) y responde: ¿en qué se parecen y en qué se diferencian?, ¿por qué el diagrama de IntelliJ no puede contener nada que no esté en el código?, y ¿qué información del diseño original se ha perdido por el camino?</p>
+<hr/>
+<h2 id="bloque-d-aplicar-la-arquitectura-al-cambio">Bloque D. Aplicar la arquitectura al cambio</h2>
+<p>El equipo directivo de la clínica anuncia dos cambios:</p>
+<ol>
+<li>Van a incorporar <strong>veterinarios a domicilio</strong>, que trabajan igual pero no tienen consulta asignada y cobran un desplazamiento.</li>
+<li>Van a empezar a trabajar con <strong>seguros de mascotas</strong>, de modo que una visita puede estar cubierta total o parcialmente por una aseguradora. Cada visita tendrá que saber qué parte paga el cliente y qué parte paga la aseguradora.</li>
+</ol>
+<p>Modifica el diagrama para reflejar los dos cambios y explica en la memoria, en cada caso, qué has tenido que añadir y por qué. Después responde a esta pregunta: ¿qué partes del modelo anterior has podido dejar intactas, y qué te dice eso sobre la calidad del diseño inicial?</p>
+<hr/>
+<h2 id="ampliacion-2-puntos">Ampliación (2 puntos)</h2>
+<p>Sin pasos guiados. Elige <strong>una</strong> de las dos opciones y documenta el proceso completo en la memoria:</p>
+<ol>
+<li><strong>Refactorizar el diseño.</strong> Localiza en el modelo la clase que acumula más responsabilidades y propón una refactorización que las reparta. Debes mostrar el modelo antes y después, y comprobar que el nuevo modelo sigue admitiendo todos los casos que admitía el anterior.</li>
+<li><strong>Modelar con polimorfismo.</strong> Añade al sistema los tres tipos de visita que existen (consulta general, especialista y urgencia) de modo que el cálculo del importe se resuelva sin ninguna cadena de condiciones en el código que suma los totales. Muestra el diagrama, el código generado y el fragmento del método que recorre las visitas, y explica por qué ese método no necesita preguntar de qué tipo es cada visita.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Manuel Sánchez Gomis
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["search.suggest", "search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "content.code.copy", "content.tabs.link", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../../assets/_markdown_exec_pyodide.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../_static/js/notebook.js"></script>
+      
+    
+  </body>
+</html>

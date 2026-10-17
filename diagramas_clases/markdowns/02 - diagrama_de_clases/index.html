@@ -1,0 +1,1506 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Manuel Sánchez Gomis">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
+    
+    
+      
+        <title>El diagrama de clases - Entornos de desarrollo</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_markdown_exec_pyodide.css">
+    
+      <link rel="stylesheet" href="../../../_static/css/notebook.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#el-diagrama-de-clases" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Entornos de desarrollo" class="md-header__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Entornos de desarrollo
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              El diagrama de clases
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo brillante"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo brillante" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Bienvenido
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Introducción al desarrollo de software
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Entornos de desarrollo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../control_versiones/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Control de versiones
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Entornos de desarrollo" class="md-nav__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    Entornos de desarrollo
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bienvenido
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introducción al desarrollo de software
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Introducción al desarrollo de software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/02%20-%20lenguajes_programacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lenguajes de programación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/03%20-%20proceso_obtencion_codigo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proceso de obtención de código
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/04%20-%20desarrollo_aplicaciones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Desarrollo de aplicaciones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/05%20-%20metodologias_agiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metodologías Ágiles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Entornos de desarrollo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Entornos de desarrollo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a los entornos de desarrollo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/02%20-%20intellij/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IntelliJ IDEA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/03%20-%20plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalar plugins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/04%20-%20personalizacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Personalización, automatización y mantenimiento del entorno
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/05%20-%20compilacion_y_ejecutables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generación de ejecutables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/99%20-%20ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Control de versiones
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Control de versiones
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción al control de versiones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/02%20-%20herramientas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Herramientas de control de versiones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/03%20-%20introduccion_git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/04%20-%20uso_basico_git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trabajo básico con Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/05%20-%20github/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/06%20-%20integracion_continua/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integración continua
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/99%20-%20ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios de Git y GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#las-clases-atributos-y-operaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Las clases: atributos y operaciones
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-visibilidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      La visibilidad
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#los-objetos-y-la-instanciacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Los objetos y la instanciación
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#las-relaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Las relaciones
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Las relaciones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#la-relacion-de-asociacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      La relación de asociación
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-relacion-de-agregacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      La relación de agregación
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-relacion-de-composicion" class="md-nav__link">
+    <span class="md-ellipsis">
+      La relación de composición
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-relacion-de-dependencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      La relación de dependencia
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-relacion-de-generalizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      La relación de generalización
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-clase-asociativa" class="md-nav__link">
+    <span class="md-ellipsis">
+      La clase asociativa
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-interfaz" class="md-nav__link">
+    <span class="md-ellipsis">
+      La interfaz
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="La interfaz">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#la-relacion-de-realizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      La relación de realización
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#el-polimorfismo" class="md-nav__link">
+    <span class="md-ellipsis">
+      El polimorfismo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#el-diagrama-de-objetos" class="md-nav__link">
+    <span class="md-ellipsis">
+      El diagrama de objetos
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="el-diagrama-de-clases">El diagrama de clases</h1>
+<p>De todos los diagramas que define UML, el <strong>diagrama de clases</strong> es el que ocupa el lugar central en el diseño orientado a objetos. Representa las clases que serán utilizadas dentro del sistema y las relaciones que existen entre ellas, y se emplea durante las fases de análisis y de diseño de un proyecto. Es en ese momento cuando se empieza a crear el modelo conceptual de los datos que usará la aplicación: se identifican los componentes que tomarán parte en los procesos, con sus atributos y sus funcionalidades, y se definen las relaciones que habrá entre ellos.</p>
+<p>Entender por qué este diagrama es tan importante resulta más fácil si se piensa en lo que ocurre cuando no existe. Sin un diagrama de clases, cada desarrollador del equipo se hace una idea distinta de qué información guarda el sistema y quién es responsable de cada operación; el resultado aparece semanas después, en forma de datos duplicados, métodos que hacen lo mismo con nombres diferentes y dependencias cruzadas que nadie se atreve a tocar. El diagrama de clases evita ese escenario porque obliga a decidir la estructura antes de escribirla, y deja la decisión por escrito en un formato que cualquiera puede leer y discutir.</p>
+<p>Un diagrama de clases lleva vinculados una serie de conceptos que conviene tener presentes desde el principio:</p>
+<ul>
+<li><strong>Clases</strong>: atributos, métodos u operaciones, y visibilidad.</li>
+<li><strong>Relaciones</strong>: asociación, herencia, composición, agregación, realización y dependencia.</li>
+<li><strong>Objetos</strong>: instanciación.</li>
+<li><strong>Interfaces</strong>.</li>
+</ul>
+<p>Todos ellos aparecen representados en la siguiente figura, que sirve de mapa de notación antes de entrar en detalle.</p>
+<figure>
+<img alt="" src="../../images/12.png" width="70%"/>
+</figure>
+<p>En la parte superior se ve la representación de una clase, de un objeto y de una interfaz. Debajo, la generalización o herencia junto a la clase asociativa, y en la parte inferior los distintos símbolos de asociación con sus cardinalidades. Esta lámina es la referencia rápida del apartado: cada elemento que aparece en ella se explica a continuación con su propio ejemplo.</p>
+<h2 id="las-clases-atributos-y-operaciones">Las clases: atributos y operaciones</h2>
+<p>Una <strong>clase</strong> describe un conjunto de objetos que comparten los mismos atributos y las mismas operaciones. Los <strong>atributos</strong>, también llamados propiedades o características, representan las características estables de la clase y son los datos detallados que contienen los objetos. Los valores concretos de esos atributos corresponden al objeto que instancia la clase, y es precisamente eso lo que hace que dos objetos de la misma clase sean diferentes entre sí.</p>
+<p>Todo atributo tiene asignado un <strong>tipo</strong> y puede tener una lista formada por uno o más valores de ese tipo, de acuerdo con la multiplicidad correspondiente. Esos valores tienen que pertenecer al tipo declarado y pueden variar a lo largo del tiempo. Un atributo posible de la clase <code>Persona</code> sería el nombre, de tipo <code>String</code>; otro sería la fecha de nacimiento, de tipo <code>Date</code>.</p>
+<p>Los <strong>métodos</strong>, también llamados operaciones o funcionalidades, implementan las acciones que se podrán llevar a cabo sobre los atributos. Ofrecen la posibilidad de aplicar cambios sobre ellos, pero también cubren muchas otras acciones relacionadas con el objeto, como abrirlo, cerrarlo o cargarlo. Cada método tiene una <strong>firma</strong> que describe los eventuales parámetros y su valor de retorno. Además, un método puede devolver <strong>excepciones</strong> durante su ejecución: una excepción es una instancia de una clase que es su tipo, y el hecho de que una operación devuelva una excepción normalmente indica que se ha producido una anomalía.</p>
+<figure>
+<img alt="" src="../../images/13.png" width="70%"/>
+</figure>
+<p>La representación gráfica de una clase es un rectángulo dividido en tres filas:</p>
+<ul>
+<li>En la primera se indica el <strong>nombre de la clase</strong>. Si el nombre aparece en cursiva, la clase es <strong>abstracta</strong>.</li>
+<li>En la segunda se indican los <strong>atributos</strong> que dan las características de la clase, con su visibilidad y con su tipo. Esta fila es opcional.</li>
+<li>En la tercera se indican los <strong>métodos u operaciones</strong>, con su declaración y su visibilidad. Esta fila también es opcional.</li>
+</ul>
+<p>Volviendo a la figura, la clase <code>Persona</code> declara cinco atributos privados (<code>nom</code>, <code>dni</code>, <code>adreca</code>, <code>telefon</code> y <code>dataNaixement</code>) y una operación pública, <code>calcularEdat()</code>, que devuelve un entero. El código que se generaría a partir de este modelo podría ser el siguiente:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Calendar</span><span class="p">;</span>
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Date</span><span class="p">;</span>
+</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Persona</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">    </span><span class="c1">// atributos</span>
+</span><span id="__span-0-7"><a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">nom</span><span class="p">;</span>
+</span><span id="__span-0-8"><a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">dni</span><span class="p">;</span>
+</span><span id="__span-0-9"><a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">adreca</span><span class="p">;</span>
+</span><span id="__span-0-10"><a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">telefon</span><span class="p">;</span>
+</span><span id="__span-0-11"><a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Date</span><span class="w"> </span><span class="n">dataNaixement</span><span class="p">;</span>
+</span><span id="__span-0-12"><a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>
+</span><span id="__span-0-13"><a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">    </span><span class="c1">// constructor</span>
+</span><span id="__span-0-14"><a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Persona</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">nom</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">dni</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">adreca</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">telefon</span><span class="p">,</span><span class="w"> </span><span class="n">Date</span><span class="w"> </span><span class="n">dataNaixement</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-15"><a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">nom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nom</span><span class="p">;</span>
+</span><span id="__span-0-16"><a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">dni</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dni</span><span class="p">;</span>
+</span><span id="__span-0-17"><a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">adreca</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">adreca</span><span class="p">;</span>
+</span><span id="__span-0-18"><a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">telefon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">telefon</span><span class="p">;</span>
+</span><span id="__span-0-19"><a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">dataNaixement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dataNaixement</span><span class="p">;</span>
+</span><span id="__span-0-20"><a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-21"><a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a>
+</span><span id="__span-0-22"><a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="w">    </span><span class="c1">// métodos u operaciones</span>
+</span><span id="__span-0-23"><a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">calcularEdat</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-24"><a href="#__codelineno-0-24" id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="w">        </span><span class="n">Calendar</span><span class="w"> </span><span class="n">avui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Calendar</span><span class="p">.</span><span class="na">getInstance</span><span class="p">();</span>
+</span><span id="__span-0-25"><a href="#__codelineno-0-25" id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="w">        </span><span class="n">Calendar</span><span class="w"> </span><span class="n">naixement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Calendar</span><span class="p">.</span><span class="na">getInstance</span><span class="p">();</span>
+</span><span id="__span-0-26"><a href="#__codelineno-0-26" id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="w">        </span><span class="n">naixement</span><span class="p">.</span><span class="na">setTime</span><span class="p">(</span><span class="n">dataNaixement</span><span class="p">);</span>
+</span><span id="__span-0-27"><a href="#__codelineno-0-27" id="__codelineno-0-27" name="__codelineno-0-27"></a>
+</span><span id="__span-0-28"><a href="#__codelineno-0-28" id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">anys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">avui</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">Calendar</span><span class="p">.</span><span class="na">YEAR</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">naixement</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">Calendar</span><span class="p">.</span><span class="na">YEAR</span><span class="p">);</span>
+</span><span id="__span-0-29"><a href="#__codelineno-0-29" id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="w">        </span><span class="kt">boolean</span><span class="w"> </span><span class="n">encaraNoHaFetAnys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">avui</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">Calendar</span><span class="p">.</span><span class="na">MONTH</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">naixement</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">Calendar</span><span class="p">.</span><span class="na">MONTH</span><span class="p">)</span>
+</span><span id="__span-0-30"><a href="#__codelineno-0-30" id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="w">                </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">avui</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">Calendar</span><span class="p">.</span><span class="na">MONTH</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">naixement</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">Calendar</span><span class="p">.</span><span class="na">MONTH</span><span class="p">)</span>
+</span><span id="__span-0-31"><a href="#__codelineno-0-31" id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="w">                    </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">avui</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">Calendar</span><span class="p">.</span><span class="na">DAY_OF_MONTH</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">naixement</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">Calendar</span><span class="p">.</span><span class="na">DAY_OF_MONTH</span><span class="p">));</span>
+</span><span id="__span-0-32"><a href="#__codelineno-0-32" id="__codelineno-0-32" name="__codelineno-0-32"></a>
+</span><span id="__span-0-33"><a href="#__codelineno-0-33" id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">encaraNoHaFetAnys</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-34"><a href="#__codelineno-0-34" id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="w">            </span><span class="n">anys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">anys</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-0-35"><a href="#__codelineno-0-35" id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-0-36"><a href="#__codelineno-0-36" id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">anys</span><span class="p">;</span>
+</span><span id="__span-0-37"><a href="#__codelineno-0-37" id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-38"><a href="#__codelineno-0-38" id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Merece la pena detenerse un momento en <code>calcularEdat()</code>, porque es un buen ejemplo de por qué conviene separar la representación externa de un dato de su valor real. La tentación inicial es guardar la fecha como texto y trocearla con <code>split()</code> para restar los años a mano. Ese camino funciona con una fecha concreta delante, pero se rompe en cuanto aparece otro formato, otro idioma o un separador distinto. Tratar la fecha como un <code>Date</code> y dejar que la clase <code>Calendar</code> se encargue de los meses y de los días hace que el método funcione con cualquier fecha válida, independientemente de cómo se muestre después por pantalla.</p>
+<h2 id="la-visibilidad">La visibilidad</h2>
+<p>La <strong>visibilidad</strong> de un atributo o de una operación define el ámbito desde el cual podrán ser utilizados esos elementos. Esta característica está directamente relacionada con el concepto de orientación a objetos llamado <strong>encapsulación</strong>, mediante el cual se permite a los objetos decidir cuál de su información será más o menos pública para el resto.</p>
+<p>Las posibilidades de visibilidad, tanto para atributos como para métodos, son cuatro:</p>
+<ul>
+<li><code>+</code> en UML, o <strong>public</strong>, indica que el elemento es accesible por todos los demás elementos del sistema.</li>
+<li><code>-</code> en UML, o <strong>private</strong>, indica que el elemento sólo es accesible por los elementos contenidos dentro del mismo objeto.</li>
+<li><code>#</code> en UML, o <strong>protected</strong>, indica que el elemento sólo es visible para los elementos de su mismo objeto y para los elementos de objetos que son especializaciones suyas.</li>
+<li><code>~</code> en UML, o <strong>package</strong>, sólo puede aplicarse cuando el objeto no es un paquete, y significa que el elemento sólo es visible para los elementos contenidos directa o indirectamente dentro del paquete que contiene el objeto.</li>
+</ul>
+<p>La diferencia entre lo público y lo privado es la que marca el límite entre lo que un objeto promete y lo que guarda para sí. Poniendo un símil cotidiano: un coche ofrece un volante, unos pedales y una palanca de cambios, y todo eso es público; el mecanismo interno del cambio de marchas es privado, y el conductor no necesita saber cómo funciona. Gracias a esa frontera, el fabricante puede rediseñar la caja de cambios sin que el conductor tenga que aprender a conducir de nuevo.</p>
+<p>Para verlo en acción, consideremos el código de la clase <code>Habitacion</code>, la clase <code>Persona</code> y la clase <code>Test</code>. Cada una tiene sus atributos y sus métodos, y algunos de esos elementos son públicos y otros privados.</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Habitacion</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">fechaEntrada</span><span class="p">;</span>
+</span><span id="__span-1-4"><a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">fechaSalida</span><span class="p">;</span>
+</span><span id="__span-1-5"><a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Persona</span><span class="w"> </span><span class="n">cliente</span><span class="p">;</span>
+</span><span id="__span-1-6"><a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Habitacion</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">fechaEntrada</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">fechaSalida</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">nom</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-8"><a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">fechaEntrada</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fechaEntrada</span><span class="p">;</span>
+</span><span id="__span-1-9"><a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">fechaSalida</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fechaSalida</span><span class="p">;</span>
+</span><span id="__span-1-10"><a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">cliente</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Persona</span><span class="p">(</span><span class="n">nom</span><span class="p">);</span>
+</span><span id="__span-1-11"><a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-12"><a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>
+</span><span id="__span-1-13"><a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getFechaEntrada</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-14"><a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">fechaEntrada</span><span class="p">;</span>
+</span><span id="__span-1-15"><a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-16"><a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a>
+</span><span id="__span-1-17"><a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getFechaSalida</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-18"><a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">fechaSalida</span><span class="p">;</span>
+</span><span id="__span-1-19"><a href="#__codelineno-1-19" id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-20"><a href="#__codelineno-1-20" id="__codelineno-1-20" name="__codelineno-1-20"></a>
+</span><span id="__span-1-21"><a href="#__codelineno-1-21" id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Persona</span><span class="w"> </span><span class="nf">getCliente</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-22"><a href="#__codelineno-1-22" id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">cliente</span><span class="p">;</span>
+</span><span id="__span-1-23"><a href="#__codelineno-1-23" id="__codelineno-1-23" name="__codelineno-1-23"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-24"><a href="#__codelineno-1-24" id="__codelineno-1-24" name="__codelineno-1-24"></a><span class="p">}</span>
+</span><span id="__span-1-25"><a href="#__codelineno-1-25" id="__codelineno-1-25" name="__codelineno-1-25"></a>
+</span><span id="__span-1-26"><a href="#__codelineno-1-26" id="__codelineno-1-26" name="__codelineno-1-26"></a><span class="kd">class</span> <span class="nc">Persona</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-27"><a href="#__codelineno-1-27" id="__codelineno-1-27" name="__codelineno-1-27"></a>
+</span><span id="__span-1-28"><a href="#__codelineno-1-28" id="__codelineno-1-28" name="__codelineno-1-28"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">nom</span><span class="p">;</span>
+</span><span id="__span-1-29"><a href="#__codelineno-1-29" id="__codelineno-1-29" name="__codelineno-1-29"></a>
+</span><span id="__span-1-30"><a href="#__codelineno-1-30" id="__codelineno-1-30" name="__codelineno-1-30"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Persona</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">nom</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-31"><a href="#__codelineno-1-31" id="__codelineno-1-31" name="__codelineno-1-31"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">nom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nom</span><span class="p">;</span>
+</span><span id="__span-1-32"><a href="#__codelineno-1-32" id="__codelineno-1-32" name="__codelineno-1-32"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-33"><a href="#__codelineno-1-33" id="__codelineno-1-33" name="__codelineno-1-33"></a>
+</span><span id="__span-1-34"><a href="#__codelineno-1-34" id="__codelineno-1-34" name="__codelineno-1-34"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getNom</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-35"><a href="#__codelineno-1-35" id="__codelineno-1-35" name="__codelineno-1-35"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">nom</span><span class="p">;</span>
+</span><span id="__span-1-36"><a href="#__codelineno-1-36" id="__codelineno-1-36" name="__codelineno-1-36"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-37"><a href="#__codelineno-1-37" id="__codelineno-1-37" name="__codelineno-1-37"></a>
+</span><span id="__span-1-38"><a href="#__codelineno-1-38" id="__codelineno-1-38" name="__codelineno-1-38"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setNom</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">nom</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-39"><a href="#__codelineno-1-39" id="__codelineno-1-39" name="__codelineno-1-39"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">nom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nom</span><span class="p">;</span>
+</span><span id="__span-1-40"><a href="#__codelineno-1-40" id="__codelineno-1-40" name="__codelineno-1-40"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-41"><a href="#__codelineno-1-41" id="__codelineno-1-41" name="__codelineno-1-41"></a><span class="p">}</span>
+</span><span id="__span-1-42"><a href="#__codelineno-1-42" id="__codelineno-1-42" name="__codelineno-1-42"></a>
+</span><span id="__span-1-43"><a href="#__codelineno-1-43" id="__codelineno-1-43" name="__codelineno-1-43"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Test</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-44"><a href="#__codelineno-1-44" id="__codelineno-1-44" name="__codelineno-1-44"></a>
+</span><span id="__span-1-45"><a href="#__codelineno-1-45" id="__codelineno-1-45" name="__codelineno-1-45"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-46"><a href="#__codelineno-1-46" id="__codelineno-1-46" name="__codelineno-1-46"></a><span class="w">        </span><span class="n">Habitacion</span><span class="w"> </span><span class="n">reserva</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Habitacion</span><span class="p">(</span><span class="s">"27/03/2019"</span><span class="p">,</span><span class="w"> </span><span class="s">"28/03/2019"</span><span class="p">,</span><span class="w"> </span><span class="s">"Luna Rosillo"</span><span class="p">);</span>
+</span><span id="__span-1-47"><a href="#__codelineno-1-47" id="__codelineno-1-47" name="__codelineno-1-47"></a><span class="w">        </span><span class="n">Persona</span><span class="w"> </span><span class="n">cliente</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">reserva</span><span class="p">.</span><span class="na">getCliente</span><span class="p">();</span>
+</span><span id="__span-1-48"><a href="#__codelineno-1-48" id="__codelineno-1-48" name="__codelineno-1-48"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">nom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">reserva</span><span class="p">.</span><span class="na">getCliente</span><span class="p">().</span><span class="na">getNom</span><span class="p">();</span>
+</span><span id="__span-1-49"><a href="#__codelineno-1-49" id="__codelineno-1-49" name="__codelineno-1-49"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">nom</span><span class="p">);</span>
+</span><span id="__span-1-50"><a href="#__codelineno-1-50" id="__codelineno-1-50" name="__codelineno-1-50"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-51"><a href="#__codelineno-1-51" id="__codelineno-1-51" name="__codelineno-1-51"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Conviene fijarse en la línea del método <code>main</code> que llama a <code>reserva.getCliente()</code>. Desde la clase <code>Test</code> se tiene acceso únicamente a los atributos y a los métodos públicos de la clase <code>Persona</code>, de modo que se puede consultar el nombre de la persona a través del método público <code>getNom()</code>, pero no se puede leer el atributo privado <code>nom</code> directamente. El intento de escribir <code>reserva.getCliente().nom</code> no compila, y ese error de compilación es exactamente lo que la encapsulación busca: impedir que una clase ajena manipule el estado interno de un objeto sin pasar por los métodos que el propio objeto ha decidido ofrecer.</p>
+<p>La otra cara de la moneda son los métodos <code>getNom()</code> y <code>setNom()</code> de la clase <code>Persona</code>. Al estar declarados dentro de la propia clase, sí tienen visibilidad sobre sus atributos privados, así que pueden leer y modificar <code>nom</code> sin ningún problema. Esa asimetría es la esencia de la encapsulación: dentro de casa se accede a todo, fuera sólo a lo que está en el escaparate.</p>
+<h2 id="los-objetos-y-la-instanciacion">Los objetos y la instanciación</h2>
+<p>Un <strong>objeto</strong> es una instanciación de una clase, y la <strong>instanciación</strong> es la acción de crear una instancia de esa clase. La palabra viene del inglés <em>instance</em>, y de ahí el término instancia que usamos en programación orientada a objetos.</p>
+<p>Crear una instancia de una clase consiste en hacer una llamada al <strong>método constructor</strong> de esa clase en tiempo de ejecución. Un objeto se puede definir entonces como una unidad de memoria relacionada que, durante la ejecución, lleva a cabo acciones dentro del software. Es algo que se puede distinguir y que tiene una existencia propia, ya sea conceptual o física.</p>
+<figure>
+<img alt="" src="../../images/14.png" width="75%"/>
+</figure>
+<p>En la figura se representa el objeto <code>Joan : Persona</code>. La notación tiene dos partes separadas por dos puntos: a la izquierda el nombre del objeto concreto, y a la derecha el nombre de la clase a la que pertenece. En la fila de atributos aparecen ya los valores reales, no los tipos: <code>nom</code> vale <code>Joan Garcia</code>, <code>dni</code> vale <code>40247856</code> y así con el resto. La diferencia entre esta lámina y la de la clase <code>Persona</code> es la misma que existe entre el formulario en blanco de una ficha de cliente y la ficha de un cliente concreto ya rellenada.</p>
+<p>El método para crear un objeto o instancia sería el siguiente:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="n">Persona</span><span class="w"> </span><span class="n">luna</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Persona</span><span class="p">(</span><span class="s">"Luna Rosillo"</span><span class="p">,</span><span class="w"> </span><span class="s">"33242104O"</span><span class="p">,</span><span class="w"> </span><span class="s">"C/Constitución 130"</span><span class="p">,</span><span class="w"> </span><span class="s">"555223355"</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Date</span><span class="p">());</span>
+</span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>La instrucción <code>new</code> es la que reserva memoria y ejecuta el constructor: a partir de ese momento existe un objeto independiente al que nos referimos con la variable <code>luna</code>. Un aspecto característico de los objetos es que tienen <strong>identidad</strong>, lo que significa que dos objetos creados por separado se consideran siempre diferentes aunque tengan exactamente los mismos valores en sus características estructurales. Si se crean dos objetos <code>Persona</code> con el mismo nombre y el mismo DNI, siguen siendo dos objetos distintos con dos direcciones de memoria distintas.</p>
+<p>Existen, en cambio, clases cuyas instancias no tienen identidad. En esos casos, dos instancias con los mismos valores en las características estructurales se consideran la misma instancia, porque no representan entidades únicas sino valores. Es un matiz que se entiende mejor pensando en el dinero: dos billetes de veinte euros con el mismo número de serie serían el mismo billete, pero dos personas con el mismo nombre son dos personas.</p>
+<figure>
+<img alt="" src="../../images/15.png" width="80%"/>
+</figure>
+<p>La figura anterior resume la relación entre los tres conceptos. La clase <code>Persona</code> funciona como molde, los identificadores <code>Joan Garcia</code> y <code>Esther Fernández</code> son instancias creadas a partir de ese molde, y cada una de esas instancias es un objeto con existencia propia. El esquema deja claro por qué decimos que una clase se escribe con mayúscula y se dibuja una sola vez, mientras que los objetos se crean tantas veces como haga falta en tiempo de ejecución.</p>
+<h2 id="las-relaciones">Las relaciones</h2>
+<p>Las <strong>relaciones</strong> son elementos imprescindibles en un diagrama de clases. Por relación se entiende que un objeto <code>obj1</code> pide a otro objeto <code>obj2</code>, mediante un mensaje, que ejecute una operación de las definidas en la clase de <code>obj2</code>. En el ejemplo del cliente que reserva una habitación de hotel intervienen dos clases, <code>Habitacion</code> y <code>Persona</code>, que están relacionadas porque la habitación consulta el nombre del cliente correspondiente.</p>
+<figure>
+<img alt="" src="../../images/16.png" width="85%"/>
+</figure>
+<p>En el diagrama se aprecia la clase <code>Habitacion</code>, con sus atributos privados y sus métodos públicos, unida a la clase <code>Persona</code> por una línea. Sobre esa línea aparece el nombre de la asociación, <code>reserva</code>, y en sus extremos la multiplicidad. La lectura correcta de la línea es la siguiente: un cliente puede reservar muchas habitaciones a lo largo del tiempo, pero cada habitación concreta pertenece a un único cliente.</p>
+<p>Las relaciones que existen entre las diferentes clases se denominan de forma genérica <strong>asociaciones</strong>. Una asociación es un clasificador que define una relación entre varias clases y que establece conexiones con un cierto significado entre las instancias respectivas. Una asociación tiene varios <strong>extremos de asociación</strong>, y en cada uno de ellos hay un clasificador que juega un papel determinado. Un mismo clasificador puede aparecer en más de un extremo de la misma asociación desempeñando papeles diferentes. Cuando una asociación tiene dos extremos se llama <strong>binaria</strong>, que es el caso del cliente que reserva una habitación, y cuando tiene tres se denomina <strong>ternaria</strong>.</p>
+<figure>
+<img alt="" src="../../images/17.png" width="70%"/>
+</figure>
+<p>En la asociación ternaria de la figura, la relación no se establece entre dos clases sino entre tres a la vez: un estudiante y un profesor se relacionan en el marco de una universidad. Este tipo de relación aparece siempre que el vínculo sólo tiene sentido cuando concurren los tres participantes, y no se puede descomponer en tres asociaciones binarias sin perder información.</p>
+<p>La <strong>multiplicidad</strong>, representada con valores del estilo <code>&lt;mín...máx&gt;</code>, indica el número máximo de enlaces posibles que se podrán dar en una relación. Esa multiplicidad nunca puede ser negativa y, además, el valor máximo es siempre mayor o igual que el valor mínimo.</p>
+<figure>
+<img alt="" src="../../images/18.png" width="70%"/>
+</figure>
+<p>En la figura se ve la asociación <code>préstamo</code> entre las clases <code>Libro</code> y <code>Lector</code>. La lectura del diagrama es que, en esa asociación, para cada objeto de la clase <code>Lector</code> puede haber como mínimo 0 objetos de la clase <code>Libro</code> y como máximo 3. A la inversa, para cada objeto de la clase <code>Libro</code> puede haber como mínimo 0 y como máximo 1 objeto de la clase <code>Lector</code>. Los valores de la multiplicidad se colocan siempre junto al extremo opuesto al que se está leyendo, detalle que provoca muchos errores de interpretación al principio.</p>
+<p>Para expresar las multiplicidades mínimas y máximas se utiliza la siguiente notación:</p>
+<table>
+<thead>
+<tr>
+<th>Notación</th>
+<th>Cardinalidad / multiplicidad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0..1</code></td>
+<td>Cero o una vez</td>
+</tr>
+<tr>
+<td><code>1</code></td>
+<td>Una y sólo una vez</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>De cero a varias veces</td>
+</tr>
+<tr>
+<td><code>1..*</code></td>
+<td>De una a varias veces</td>
+</tr>
+<tr>
+<td><code>M..N</code></td>
+<td>Entre M y N veces</td>
+</tr>
+<tr>
+<td><code>N</code></td>
+<td>N veces</td>
+</tr>
+</tbody>
+</table>
+<p>Una clase puede asociarse consigo misma creando una <strong>asociación reflexiva</strong>, similar a las relaciones reflexivas del modelo Entidad/Relación. Estas relaciones unen entre sí instancias de una misma clase y son más frecuentes de lo que parece: un empleado que es jefe de otros empleados, una carpeta que contiene otras carpetas o una persona que tiene amigos son todos casos del mismo patrón.</p>
+<figure>
+<img alt="" src="../../images/19.png" width="55%"/>
+</figure>
+<p>En el ejemplo, la clase <code>Empleado</code> se relaciona consigo misma con dos papeles distintos: un empleado puede ser <code>empleadojefe</code> de muchos otros (<code>1..*</code>) y, a la vez, todo empleado tiene un jefe o ninguno (<code>1</code>). La asociación reflexiva obliga además a etiquetar los dos extremos, porque si no el diagrama sería ambiguo: no se sabría cuál de los dos roles corresponde a cada lado.</p>
+<p>Se pueden encontrar diferentes tipos de relaciones entre clases, clasificables de muchas maneras. La siguiente lista recoge las más habituales y sirve de índice para lo que viene a continuación:</p>
+<ul>
+<li>Relación de asociación.</li>
+<li>Relación de asociación de agregación.</li>
+<li>Relación de asociación de composición.</li>
+<li>Relaciones de dependencia.</li>
+<li>Relación de generalización.</li>
+</ul>
+<h3 id="la-relacion-de-asociacion">La relación de asociación</h3>
+<p>La <strong>relación de asociación</strong> se representa mediante una línea continua sin flechas ni ningún otro símbolo en los extremos. Es el tipo de relación que se ha estado explicando hasta este momento, y es también la más común de todas. Se trata de una relación estructural que define las conexiones entre dos o más objetos, lo que permite asociar objetos que instancian clases que colaboran entre sí.</p>
+<p>Esa línea admite, además, un símbolo opcional que conviene conocer: la <strong>navegabilidad</strong>. Cuando el diseñador quiere dejar escrito que la asociación se recorre en un solo sentido, añade una punta de flecha abierta en el extremo hacia el que se puede navegar. Una asociación dibujada sin flechas es navegable en los dos sentidos; una asociación con flecha en un solo extremo sólo permite ir en esa dirección.</p>
+<figure>
+<img alt="" src="../../images/20.png" width="85%"/>
+</figure>
+<p>La figura muestra la misma asociación entre <code>Habitacion</code> y <code>Persona</code> que ya conocemos, pero con la flecha de navegabilidad señalando a <code>Persona</code>. La lectura es que desde una habitación se puede llegar a su cliente, y que no existe el camino inverso por defecto. El símbolo no es decorativo, porque se traduce directamente en el código: en una asociación navegable en un solo sentido, sólo la clase del extremo de origen guarda un atributo del tipo de la clase destino, mientras que la clase destino no sabe nada de la primera. En una asociación bidireccional, en cambio, las dos clases guardan una referencia a la otra, y mantener esas dos referencias sincronizadas pasa a ser responsabilidad de quien programe.</p>
+<p>Esa es la razón práctica por la que conviene decidir la navegabilidad con intención y no por costumbre. Si desde <code>Persona</code> nunca hace falta llegar a sus habitaciones, dejar la asociación sin flechas obliga a <code>Persona</code> a cargar con una lista que no usa, y abre la puerta a que las dos listas se desincronicen cuando alguien añada o borre una reserva por un solo lado. Si en algún momento hiciera falta recorrer el camino contrario, siempre es posible añadir un método que consulte a la base de datos en lugar de duplicar la estructura.</p>
+<p>Conviene no confundir esta relación con la de dependencia, que veremos más adelante. La asociación es un vínculo estable: los objetos asociados se conocen y pueden intercambiar mensajes a lo largo de toda su vida. La dependencia, en cambio, es un vínculo puntual y mucho más débil.</p>
+<h3 id="la-relacion-de-agregacion">La relación de agregación</h3>
+<p>Una <strong>relación de asociación de agregación</strong> es un caso especial de asociación entre dos o más objetos. Se trata de una relación del tipo <strong>todo-parte</strong>, e implica dos tipos de objetos: el objeto denominado <strong>base</strong> y el objeto que estará <strong>incluido</strong> en él. La relación indica que el objeto base necesita del objeto incluido para poder existir y hacer sus funcionalidades. La clave está en qué ocurre cuando desaparece el objeto base: los objetos incluidos <strong>no desaparecen</strong> y pueden continuar existiendo con sus funcionalidades propias.</p>
+<p>La agregación se representa mediante una línea continua que finaliza en uno de sus extremos con un <strong>rombo vacío</strong>, sin rellenar. El rombo se coloca siempre del lado del objeto base.</p>
+<figure>
+<img alt="" src="../../images/21.png" width="85%"/>
+</figure>
+<p>En la figura, el objeto base es la <code>Frutería</code> y los objetos incluidos son <code>Manzana</code>, <code>Naranja</code>, <code>Pera</code> y <code>Fresa</code>. Se establece una relación todo-parte en la que las frutas forman parte de la frutería. El ejemplo deja claro el matiz importante: si la frutería deja de existir, las frutas continúan existiendo como entidades con sentido propio.</p>
+<p>Un segundo ejemplo ayuda a fijar la notación con multiplicidad.</p>
+<figure>
+<img alt="" src="../../images/22.png" width="60%"/>
+</figure>
+<p>Aquí un <code>Equipo</code> agrega a sus jugadores con multiplicidad <code>1..*</code>, lo que significa que un equipo tiene uno o más jugadores, mientras que cada jugador puede quedar sin equipo asignado. La frase que resume la agregación en lenguaje natural es "forma parte de, pero puede vivir sin ello".</p>
+<h3 id="la-relacion-de-composicion">La relación de composición</h3>
+<p>Una <strong>relación de asociación de composición</strong> es también un caso especial de asociación y también una relación del tipo todo-parte. Se parece mucho a la agregación, con una diferencia fundamental: existe una <strong>dependencia de existencia</strong> entre el objeto base y los objetos incluidos. Si deja de existir el objeto base, dejarán de existir también los objetos incluidos; el tiempo de vida del objeto incluido depende por completo del tiempo de vida del objeto base.</p>
+<p>La composición se representa mediante una línea continua finalizada en uno de sus extremos por un <strong>rombo pintado</strong>, relleno. Igual que en la agregación, el rombo se sitúa del lado del objeto base.</p>
+<figure>
+<img alt="" src="../../images/23.png" width="85%"/>
+</figure>
+<p>En el ejemplo, el objeto base <code>Mano</code> se compone de los objetos incluidos <code>Meñique</code>, <code>Anular</code>, <code>Corazón</code>, <code>Índice</code> y <code>Pulgar</code>. Sin la mano, el resto de objetos deja de existir: un dedo separado del cuerpo no es un dedo, es tejido. Esa es la diferencia esencial frente a la frutería, donde las frutas siguen siendo frutas cuando la tienda cierra.</p>
+<p>La siguiente tabla resume las diferencias entre la agregación y la composición:</p>
+<table>
+<thead>
+<tr>
+<th>Criterio</th>
+<th>Agregación</th>
+<th>Composición</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Varias asociaciones comparten los componentes</td>
+<td>Sí</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Destrucción de los componentes al destruir el compuesto</td>
+<td>No</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td>Cardinalidad del compuesto</td>
+<td>Cualquiera</td>
+<td><code>0..1</code> o <code>1</code></td>
+</tr>
+</tbody>
+</table>
+<p>Otro ejemplo de composición puede verse en el montaje de un ordenador.</p>
+<figure>
+<img alt="" src="../../images/24.png" width="80%"/>
+</figure>
+<p>La clase <code>Ordenador</code> se compone de <code>PlacaBase</code>, <code>Memoria</code>, <code>Teclado</code> y <code>Discos</code>. Cada uno de esos elementos se integra en el conjunto con su propia multiplicidad: hay una placa base, puede haber varios módulos de memoria, un teclado y uno o más discos. Si el ordenador se desmonta definitivamente, esas piezas pierden su función como partes y la relación desaparece con él.</p>
+<p>Elegir entre agregación y composición no es un detalle estético, porque la decisión tiene consecuencias directas en el código. En una composición, el objeto base crea y destruye sus partes, y por tanto es el único responsable de su ciclo de vida; en una agregación, las partes llegan al objeto base ya creadas y siguen existiendo fuera de él. Si se modela como composición algo que en realidad es una agregación, se acaba destruyendo información que debía sobrevivir, y al contrario, si se modela como agregación algo que era una composición, quedan objetos huérfanos ocupando memoria.</p>
+<h3 id="la-relacion-de-dependencia">La relación de dependencia</h3>
+<p>La <strong>relación de dependencia</strong> se representa mediante una flecha discontinua entre dos elementos. El objeto del cual sale la flecha se considera un objeto <strong>dependiente</strong>, y el objeto al cual llega la flecha se considera un objeto <strong>independiente</strong>. Se trata de una relación semántica: si hay un cambio en el objeto independiente, el objeto dependiente se verá afectado.</p>
+<figure>
+<img alt="" src="../../images/25.png" width="75%"/>
+</figure>
+<p>En el ejemplo, el elemento <code>Actor</code> es independiente y existe una dependencia normal de <code>Pelicula</code> respecto a él, puesto que el actor se usa como parámetro en los métodos <code>setActor()</code> y <code>getActor()</code> de la película. Si cambia la clase <code>Actor</code>, la clase <code>Pelicula</code> se verá afectada y probablemente habrá que recompilarla. La dependencia es, por tanto, la relación más débil de todas: no hay un atributo que guarde al otro objeto, sólo un uso puntual.</p>
+<p>Otros ejemplos de relación de dependencia serían la clase <code>Impresora</code> respecto a una clase <code>Documento</code>, ya que la impresora necesita el documento para imprimirlo, o la relación entre un <code>Viajero</code> y su <code>Equipaje</code>, puesto que el viajero necesita su equipaje para viajar.</p>
+<figure>
+<img alt="" src="../../images/26.png" width="55%"/>
+</figure>
+<p>La utilidad práctica de detectar dependencias está en la dirección de las flechas. Si al dibujar el diagrama aparecen flechas que van y vienen entre dos clases, esas dos clases están tan acopladas que en realidad deberían ser una sola o deberían comunicarse a través de una tercera pieza. Un diagrama lleno de dependencias cruzadas es la señal de alarma más fiable de un diseño frágil.</p>
+<h3 id="la-relacion-de-generalizacion">La relación de generalización</h3>
+<p>La <strong>relación de generalización</strong> se da entre dos clases cuando existe un vínculo que se puede considerar de herencia. Una de las clases se denomina <strong>clase madre</strong> o <strong>superclase</strong>, y la otra u otras se denominan <strong>clases hijas</strong> o <strong>subclases</strong>, que heredan los atributos y los métodos de la clase madre. La relación se especifica mediante una flecha con la punta triangular vacía que sale de la clase hija y acaba en la clase madre.</p>
+<figure>
+<img alt="" src="../../images/27.png" width="80%"/>
+</figure>
+<p>En la figura, <code>Directivo</code> y <code>Comercial</code> heredan de <code>Persona</code>. La clase madre concentra lo que todas las personas tienen en común (<code>nom</code>, <code>dni</code>, <code>dirección</code> y sus métodos de acceso), y cada subclase añade lo que le es propio; en el caso de <code>Comercial</code>, un atributo <code>NumeroVentas</code>. La herencia ofrece como punto fuerte la posibilidad de reutilizar parte del contenido de una clase, extendiendo sus atributos y sus métodos a las clases hijas, porque lo que se cambia en la madre se refleja automáticamente en todas ellas.</p>
+<p>Esa ventaja tiene una contrapartida que conviene conocer: la herencia crea el acoplamiento más fuerte que existe en orientación a objetos. Un cambio en la clase madre repercute en todas las hijas, incluso en las que no lo necesitaban, así que conviene reservarla para relaciones de especialización genuinas. Si la frase "un X <strong>es un</strong> Y" no se cumple, la herencia es la herramienta equivocada.</p>
+<h2 id="la-clase-asociativa">La clase asociativa</h2>
+<p>Cuando una asociación tiene propiedades o métodos propios, se representa como una <strong>clase asociativa</strong>, unida a la línea de la asociación por medio de una línea discontinua. Tanto la línea como el rectángulo de clase representan el mismo elemento conceptual: la asociación. Es decir, el dato no pertenece a ninguna de las dos clases que se relacionan, sino al vínculo que se establece entre ellas.</p>
+<figure>
+<img alt="" src="../../images/28.png" width="70%"/>
+</figure>
+<p>En el ejemplo, la nota está directamente relacionada con las clases <code>Módulo</code> y <code>Estudiante</code>. Cada alumno de la asignatura tendrá una determinada nota, y la nota no tiene sentido ni guardada en el estudiante (porque depende de la asignatura) ni guardada en la asignatura (porque depende del estudiante). La única forma de modelar correctamente esta situación en UML es con una clase asociativa, que convierte esa tercera dimensión en un elemento de primera clase con su propio atributo <code>nota : int</code>.</p>
+<p>Si en lugar de una clase asociativa se colocara el atributo en una de las dos clases, el modelo arrastraría un error difícil de corregir: el estudiante tendría que guardar una lista de notas paralela a su lista de módulos, y mantener las dos listas sincronizadas sería responsabilidad de quien programe, no del modelo.</p>
+<h2 id="la-interfaz">La interfaz</h2>
+<p>Una <strong>interfaz</strong> contiene la declaración de las operaciones sin su implementación, que tendrán que ser implementadas por una clase o un componente. Llegados a este punto conviene responder a una pregunta habitual: ¿qué diferencia hay entre una interfaz y una clase abstracta? Una interfaz es simplemente una lista de métodos no implementados, no tiene atributos, pero puede contener la declaración de posibles constantes. Una clase abstracta, a diferencia de las interfaces, puede incluir tanto métodos implementados como no implementados.</p>
+<figure>
+<img alt="" src="../../images/29.png" width="65%"/>
+</figure>
+<p>La figura muestra la interfaz <code>Calculadora</code>, que declara los métodos <code>sumar</code>, <code>restar</code>, <code>mult</code> y <code>div</code>. La notación incluye el estereotipo <code>«interface»</code> en la primera fila y deja la fila de atributos vacía, porque una interfaz no guarda estado. El código que definiría esa interfaz podría ser el siguiente:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kd">interface</span> <span class="nc">Calculadora</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">suma</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">ope1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ope2</span><span class="p">);</span>
+</span><span id="__span-3-4"><a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">resta</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">ope1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ope2</span><span class="p">);</span>
+</span><span id="__span-3-6"><a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">multiplicacio</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">ope1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ope2</span><span class="p">);</span>
+</span><span id="__span-3-8"><a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">divisio</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">ope1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ope2</span><span class="p">);</span>
+</span><span id="__span-3-10"><a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>No hace falta escribir los modificadores <code>public abstract</code> en cada método: dentro de una interfaz todas las operaciones son implícitamente públicas y abstractas, y añadirlos a mano sólo genera ruido. Una vez definida la interfaz, se puede ver cómo se utiliza en el código siguiente:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CalculadoraSimple</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Calculadora</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="nd">@Override</span>
+</span><span id="__span-4-4"><a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">suma</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">ope1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ope2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-5"><a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ope1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ope2</span><span class="p">;</span>
+</span><span id="__span-4-6"><a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-7"><a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a>
+</span><span id="__span-4-8"><a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">    </span><span class="nd">@Override</span>
+</span><span id="__span-4-9"><a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">resta</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">ope1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ope2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-10"><a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ope1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">ope2</span><span class="p">;</span>
+</span><span id="__span-4-11"><a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-12"><a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a>
+</span><span id="__span-4-13"><a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="w">    </span><span class="nd">@Override</span>
+</span><span id="__span-4-14"><a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">multiplicacio</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">ope1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ope2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-15"><a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ope1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ope2</span><span class="p">;</span>
+</span><span id="__span-4-16"><a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-17"><a href="#__codelineno-4-17" id="__codelineno-4-17" name="__codelineno-4-17"></a>
+</span><span id="__span-4-18"><a href="#__codelineno-4-18" id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="w">    </span><span class="nd">@Override</span>
+</span><span id="__span-4-19"><a href="#__codelineno-4-19" id="__codelineno-4-19" name="__codelineno-4-19"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">divisio</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">ope1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ope2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-20"><a href="#__codelineno-4-20" id="__codelineno-4-20" name="__codelineno-4-20"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ope1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">ope2</span><span class="p">;</span>
+</span><span id="__span-4-21"><a href="#__codelineno-4-21" id="__codelineno-4-21" name="__codelineno-4-21"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-22"><a href="#__codelineno-4-22" id="__codelineno-4-22" name="__codelineno-4-22"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>La palabra <code>implements</code> es la que establece el contrato: la clase <code>CalculadoraSimple</code> se compromete a ofrecer todos los métodos que declara <code>Calculadora</code>. Si se olvidara alguno, el compilador daría error inmediatamente. La anotación <code>@Override</code> no es obligatoria, pero es muy recomendable, porque le indica al compilador que ese método pretende sobrescribir el de la interfaz y hace que un error de escritura en el nombre se detecte en compilación en lugar de pasar desapercibido.</p>
+<p>La ventaja de programar contra interfaces y no contra clases concretas se aprecia en cuanto el sistema crece. Si mañana hiciera falta una calculadora científica o una calculadora que trabaje con decimales, bastaría con crear otra clase que implemente <code>Calculadora</code>; el resto del programa, que sólo conoce la interfaz, seguiría funcionando sin cambios. Es el mismo principio del puerto USB aplicado a las clases.</p>
+<h3 id="la-relacion-de-realizacion">La relación de realización</h3>
+<p>Ese <code>implements</code> del código tiene su propio símbolo en el diagrama, y es la relación de <strong>realización</strong>. Se dibuja con una línea discontinua terminada en un triángulo hueco, idéntica a la generalización salvo por el trazo, y la punta apunta siempre a la interfaz.</p>
+<figure>
+<img alt="" src="../../images/30.png" width="55%"/>
+</figure>
+<p>En la figura, <code>CalculadoraSimple</code> realiza la interfaz <code>Calculadora</code>: la línea sale de la clase, va en trazo discontinuo y acaba en el triángulo hueco que toca la interfaz. La diferencia con la generalización es sólo gráfica en apariencia, pero conceptualmente son dos cosas distintas. La generalización expresa identidad, y por eso se lee como "es un": un <code>Comercial</code> <strong>es una</strong> <code>Persona</code>. La realización expresa obligación, y se lee como "cumple el contrato de": <code>CalculadoraSimple</code> <strong>no es</strong> una <code>Calculadora</code>, sino que se compromete a ofrecer las operaciones que la interfaz declara.</p>
+<p>Esa distinción tiene una consecuencia directa en el modelo. Mientras que una clase sólo puede heredar de una única clase madre en lenguajes como Java, puede realizar tantas interfaces como necesite: una clase puede ser <code>Comparable</code>, <code>Serializable</code> y <code>Calculadora</code> a la vez, porque cumplir varios contratos no plantea ningún conflicto. Por eso, cuando en un diagrama aparecen muchas flechas de realización apuntando a una misma interfaz, lo que se está describiendo no es una jerarquía de tipos, sino un conjunto de piezas intercambiables.</p>
+<h3 id="el-polimorfismo">El polimorfismo</h3>
+<p>La realización y la generalización preparan el terreno para el concepto que da sentido a todo lo anterior: el <strong>polimorfismo</strong>. Polimorfismo significa, literalmente, "muchas formas", y describe la capacidad de invocar una misma operación sobre objetos de clases distintas obteniendo en cada caso el comportamiento que corresponde al objeto real.</p>
+<p>El mecanismo que lo hace posible está en la firma compartida. Cuando <code>Factura</code> declara <code>calculoImporte()</code> como abstracta y cada clase hija la implementa a su manera, todas las hijas ofrecen una operación con el mismo nombre, los mismos parámetros y el mismo tipo de retorno. Gracias a esa coincidencia, el código que calcula el total de un lote de facturas puede limitarse a recorrer la colección y llamar a <code>calculoImporte()</code> en cada elemento, sin preguntar de qué tipo es cada uno:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Factura</span><span class="o">&gt;</span><span class="w"> </span><span class="n">facturas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cargarFacturasDelMes</span><span class="p">();</span>
+</span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="kt">double</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Factura</span><span class="w"> </span><span class="n">factura</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">facturas</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-4"><a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="n">total</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">factura</span><span class="p">.</span><span class="na">calculoImporte</span><span class="p">();</span>
+</span><span id="__span-5-5"><a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Ese bucle no contiene ni una sola condición. La decisión de qué implementación ejecutar no la toma el programador al escribir el bucle, sino la máquina virtual en tiempo de ejecución, mirando el tipo real del objeto al que apunta la variable. A ese mecanismo se le llama <strong>enlace dinámico</strong>, y es exactamente lo que hace que el diseño orientado a objetos resista bien los cambios: si mañana aparece un tercer tipo de factura, basta con crear la clase y heredar de <code>Factura</code>; el bucle anterior sigue siendo correcto sin tocar una línea.</p>
+<p>La alternativa a este mecanismo, y el motivo por el que conviene tenerlo presente, es la cadena de condiciones. Sin polimorfismo, el total se calcularía con algo parecido a <code>if (factura.getTipo().equals("servicios")) { ... } else if (factura.getTipo().equals("productos")) { ... }</code>, y esa estructura habría que ampliarla en cada lugar del programa donde se use el importe. Cada tipo nuevo obligaría a revisar todos esos puntos y a acordarse de todos ellos, que es precisamente la clase de tarea que nadie recuerda hacer bien.</p>
+<h2 id="el-diagrama-de-objetos">El diagrama de objetos</h2>
+<p>Un objeto es una instancia de una clase, así que el <strong>diagrama de objetos</strong> se puede considerar una instancia del diagrama de clases. Sólo puede contener instancias y relaciones entre objetos, es decir, enlaces y dependencias que tengan lugar entre instancias, y los clasificadores y asociaciones que aparezcan en él tienen que haber sido definidos previamente en un diagrama de clases.</p>
+<p>A menudo cumple la función de simple ejemplo de un diagrama de clases o de una parte de él, y ahí está su valor: sirve para comprobar que el modelo funciona con datos reales. En las dos figuras siguientes se muestra primero un diagrama de clases con dos clases, <code>Habitacion</code> y <code>Persona</code>, y después el diagrama de objetos que se deriva de él.</p>
+<figure>
+<img alt="" src="../../images/31.png" width="80%"/>
+</figure>
+<figure>
+<img alt="" src="../../images/32.png" width="80%"/>
+</figure>
+<p>La comparación entre ambas láminas explica el concepto mejor que cualquier definición. En el diagrama de clases aparece la clase <code>Habitacion</code> con un atributo <code>cliente</code> de tipo <code>Persona</code> y una multiplicidad <code>1..*</code>; en el diagrama de objetos aparecen dos habitaciones concretas, <code>Habitacion111 : Habitacion</code> y <code>Habitacion112 : Habitacion</code>, con sus fechas reales, y una única <code>Luna : Persona</code> que reserva las dos. Lo que en el modelo era "de uno a muchos" se convierte en la práctica en un objeto que apunta a otros dos, y cualquier duda sobre si el modelo era correcto se resuelve mirando el ejemplo con datos.</p>
+<p>Con esto queda recorrido el diagrama de clases completo: sus clases y atributos, los cuatro niveles de visibilidad, la creación de objetos, los cinco tipos de relación con sus símbolos y multiplicidades, la clase asociativa y la interfaz. El siguiente paso lógico es llevarlo a una herramienta real, que es lo que haremos en el apartado siguiente construyendo el diagrama de un sistema de facturación desde cero.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Manuel Sánchez Gomis
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["search.suggest", "search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "content.code.copy", "content.tabs.link", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../../assets/_markdown_exec_pyodide.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../_static/js/notebook.js"></script>
+      
+    
+  </body>
+</html>

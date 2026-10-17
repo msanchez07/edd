@@ -1,0 +1,1309 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Manuel Sánchez Gomis">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
+    
+    
+      
+        <title>Introducción al diseño de software - Entornos de desarrollo</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_markdown_exec_pyodide.css">
+    
+      <link rel="stylesheet" href="../../../_static/css/notebook.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduccion-al-diseno-de-software" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Entornos de desarrollo" class="md-header__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Entornos de desarrollo
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introducción al diseño de software
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo brillante"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo brillante" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Bienvenido
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Introducción al desarrollo de software
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Entornos de desarrollo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../control_versiones/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Control de versiones
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Entornos de desarrollo" class="md-nav__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    Entornos de desarrollo
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bienvenido
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introducción al desarrollo de software
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Introducción al desarrollo de software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/02%20-%20lenguajes_programacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lenguajes de programación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/03%20-%20proceso_obtencion_codigo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proceso de obtención de código
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/04%20-%20desarrollo_aplicaciones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Desarrollo de aplicaciones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/05%20-%20metodologias_agiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metodologías Ágiles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Entornos de desarrollo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Entornos de desarrollo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a los entornos de desarrollo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/02%20-%20intellij/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IntelliJ IDEA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/03%20-%20plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalar plugins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/04%20-%20personalizacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Personalización, automatización y mantenimiento del entorno
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/05%20-%20compilacion_y_ejecutables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generación de ejecutables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/99%20-%20ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Control de versiones
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Control de versiones
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción al control de versiones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/02%20-%20herramientas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Herramientas de control de versiones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/03%20-%20introduccion_git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/04%20-%20uso_basico_git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trabajo básico con Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/05%20-%20github/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/06%20-%20integracion_continua/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integración continua
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/99%20-%20ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios de Git y GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#el-analisis-y-el-diseno-orientado-a-objetos" class="md-nav__link">
+    <span class="md-ellipsis">
+      El análisis y el diseño orientado a objetos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="El análisis y el diseño orientado a objetos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#el-diseno-estructurado" class="md-nav__link">
+    <span class="md-ellipsis">
+      El diseño estructurado
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#el-giro-hacia-la-programacion-orientada-a-objetos" class="md-nav__link">
+    <span class="md-ellipsis">
+      El giro hacia la programación orientada a objetos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#las-fases-de-un-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Las fases de un proyecto
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#el-lenguaje-unificado-de-modelado-uml" class="md-nav__link">
+    <span class="md-ellipsis">
+      El Lenguaje Unificado de Modelado (UML)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="El Lenguaje Unificado de Modelado (UML)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#los-catorce-diagramas-de-uml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Los catorce diagramas de UML
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#los-diagramas-de-estructura" class="md-nav__link">
+    <span class="md-ellipsis">
+      Los diagramas de estructura
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Los diagramas de estructura">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-de-paquetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagrama de paquetes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-de-clases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagrama de clases
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-de-objetos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagrama de objetos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-de-estructuras-compuestas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagrama de estructuras compuestas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-de-componentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagrama de componentes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-de-despliegue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagrama de despliegue
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-de-perfil" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagrama de perfil
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#los-diagramas-de-comportamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Los diagramas de comportamiento
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="introduccion-al-diseno-de-software">Introducción al diseño de software</h1>
+<p>Cuando alguien decide construir una casa, lo primero que encarga no son ladrillos ni cemento, sino un plano. Ese plano fija cuántas habitaciones habrá, por dónde discurrirá la instalación eléctrica y qué muros soportarán la estructura. Sin él, cada gremio trabajaría a su aire y el resultado sólo se descubriría al final, cuando ya no queda margen para rectificar. En el desarrollo de software ocurre algo muy parecido: entre saber <strong>qué</strong> tiene que hacer un programa y escribir las líneas de código que lo hacen, existe una fase intermedia que decide <strong>cómo</strong> se va a construir. Esa fase es el diseño.</p>
+<p>El diseño se apoya siempre en el resultado de la fase anterior, el análisis de requerimientos. Si el análisis ha dejado claro qué necesita el usuario, el diseño traduce esas necesidades a una estructura técnica concreta: qué piezas formarán el sistema, cómo se relacionarán entre ellas y qué responsabilidad asumirá cada una. Un proyecto bien diseñado resulta más caro de preparar, porque consume tiempo y recursos antes de que exista la primera línea de código ejecutable, pero esa inversión se recupera con creces más adelante. Cuando el diseño está bien hecho y se apoya en herramientas de generación automática o semiautomática de código, buena parte del programa nace del propio modelo, y lo que antes era picar línea a línea se convierte en revisar y completar. La balanza, por tanto, se inclina casi siempre del lado del diseño.</p>
+<p>Hay una segunda idea que conviene fijar desde el principio: el diseño no es un trámite aislado, sino que debe estar en sintonía con la metodología de desarrollo escogida. En un proyecto gestionado con una metodología ágil, el diseño no se cierra de una vez para siempre, sino que se ajusta en ciclos cortos a medida que el producto crece. En un proyecto gobernado por una metodología predictiva, el diseño se elabora y se valida antes de empezar a codificar. En los dos casos existe, lo único que cambia es el momento en que se aborda y el grado de detalle con el que se documenta.</p>
+<p>Durante muchos años la forma dominante de diseñar fue el <strong>diseño estructurado</strong>, heredero directo de la programación modular. Hoy ese enfoque sigue vivo en algunos proyectos, pero la industria se ha movido de forma mayoritaria hacia el <strong>diseño orientado a objetos</strong>. En este apartado trabajaremos precisamente ese segundo camino, y lo haremos con el lenguaje de modelado que se ha convertido en estándar universal: <strong>UML</strong>.</p>
+<h2 id="el-analisis-y-el-diseno-orientado-a-objetos">El análisis y el diseño orientado a objetos</h2>
+<p>La creación de una aplicación informática puede considerarse, sin exagerar, una obra de ingeniería. De hecho, hace décadas que se habla de <strong>ingeniería del software</strong>, una de las áreas más importantes de la informática, que agrupa el conjunto de metodologías, técnicas y herramientas destinadas a facilitar el trabajo en todas y cada una de las fases de un proyecto.</p>
+<p>Esa disciplina ha evolucionado de forma continua, adaptándose a las nuevas tecnologías y a las nuevas formas de trabajar. En la década de los setenta, con la generalización de la programación en las organizaciones y la aparición de la figura del programador, existía un único objetivo: que la aplicación hiciera lo que tenía que hacer, optimizando la velocidad y el consumo de memoria. En aquellos primeros programas nadie se preocupaba por el mantenimiento futuro ni por si el código resultaba fácil de entender para otra persona. El programa se escribía, se entregaba y, si funcionaba, el trabajo estaba terminado.</p>
+<p>Con los años, las aplicaciones empezaron a pedir cada vez más funcionalidades y el desarrollo se volvió más complejo a medida que mejoraban el hardware y el software disponibles. La programación evolucionó entonces hacia la <strong>programación estructurada</strong>, organizada en módulos, mucho más sencilla de entender y de mantener. A mediados y finales de los setenta aparecieron las primeras metodologías, y su motivo era muy concreto: construir el código a base de improvisaciones e intuiciones pone el proyecto entero en riesgo. Aparecen entonces funcionalidades poco eficaces, errores que no responden a lo que pedían las especificaciones y decisiones que nadie puede justificar después. Las metodologías recogen la experiencia acumulada de muchos proyectos y ofrecen una serie de pasos ordenados para desarrollar software con garantías. Entre esos pasos está, precisamente, la división del trabajo en fases, y una de ellas es el diseño.</p>
+<h3 id="el-diseno-estructurado">El diseño estructurado</h3>
+<p>El <strong>diseño estructurado</strong>, también llamado diseño orientado al flujo de datos, establece la transición desde el Diagrama de Flujo de Datos (DFD) hacia una descripción de la estructura del programa, que se representa mediante un diagrama de estructuras. La lógica es sencilla: primero se dibuja por dónde viaja la información dentro del sistema y qué transformaciones sufre en cada punto; después, ese recorrido se traduce en una jerarquía de módulos que la implementan. Las herramientas que facilitan y automatizan este tipo de diseño se conocen como <strong>herramientas CASE</strong> (<em>Computer Aided Software Engineering</em>).</p>
+<figure>
+<img alt="" src="../../images/01.png" width="80%"/>
+</figure>
+<p>En el diagrama anterior se ve el funcionamiento del alquiler de películas en un videoclub. Los círculos representan procesos que transforman datos, los rectángulos abiertos representan los almacenes de información y las flechas indican por dónde circula cada dato entre ellos. Es una fotografía muy útil del movimiento de la información, y durante años fue la manera estándar de empezar un proyecto.</p>
+<p>El problema del diseño estructurado aparece cuando el sistema crece. La unidad de trabajo es el proceso, no el dato, así que los datos viajan de un módulo a otro sin que ningún módulo sea su dueño. Si más adelante hay que añadir un campo al alquiler, ese cambio obliga a revisar todos los módulos por los que pasa la información. El diseño funciona, pero cada modificación se convierte en una operación delicada que puede tocar media aplicación.</p>
+<h3 id="el-giro-hacia-la-programacion-orientada-a-objetos">El giro hacia la programación orientada a objetos</h3>
+<p>A partir de los años ochenta empieza a imponerse la <strong>programación orientada a objetos</strong>. La base ya no son las estructuras ni los módulos, sino las clases y los objetos. En lugar de organizar el programa por procesos, se organiza por responsables: cada clase agrupa los datos que le pertenecen y las operaciones que sabe hacer con ellos, y el resto del sistema sólo puede pedirle cosas a través de esa frontera.</p>
+<p>La analogía que mejor describe el cambio es la de un taller artesanal comparado con un equipo de especialistas. En el taller artesanal, una sola persona sigue todo el proceso y conoce cada paso de memoria; si enferma o se marcha, nadie sabe continuar el trabajo. En el equipo de especialistas, cada uno domina su oficio, recibe un encargo concreto y devuelve un resultado; sustituir a uno de ellos no desmonta la cadena. La programación orientada a objetos traslada esa idea al código: los objetos son los especialistas, cada uno con su información interna bien guardada y con una lista pública de lo que sabe hacer.</p>
+<p>Al cabo de unos años de ganar terreno entre los desarrolladores, la orientación a objetos arrastró consigo una serie de prácticas que hoy nos resultan familiares:</p>
+<ul>
+<li><strong>Modelización de sistemas orientados a objetos</strong>: representar el sistema como un conjunto de clases y relaciones antes de escribir código.</li>
+<li><strong>Diseño orientado a objetos</strong>: decidir la estructura del software pensando en objetos desde el primer boceto.</li>
+<li><strong>Generación automática de código</strong>: obtener el esqueleto del programa directamente desde el modelo gráfico.</li>
+<li><strong>Metodologías ágiles</strong>: formas de gestión que asumen que los requisitos cambian y que el software debe entregarse en incrementos cortos.</li>
+</ul>
+<p>En la actualidad conviven tres grandes familias de tecnologías de desarrollo: las <strong>metodologías estructuradas</strong>, las <strong>metodologías orientadas a objetos</strong> y las <strong>metodologías ágiles</strong>. Dejando la tercera aparte, porque afecta más a la gestión que al diseño, las dos primeras comparten una estructura de fases muy parecida, aunque con nombres y matices distintos según el autor que se consulte.</p>
+<h3 id="las-fases-de-un-proyecto">Las fases de un proyecto</h3>
+<p>Aunque las propuestas de fases varían de un autor a otro, la mayoría coinciden en un esquema común. El resumen sería el siguiente.</p>
+<table>
+<thead>
+<tr>
+<th>Fase</th>
+<th>Qué se decide en ella</th>
+<th>Resultado que deja</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Estudio previo</strong></td>
+<td>Se delimita el ámbito del proyecto y se evalúan viabilidad, riesgos, costes y calendario</td>
+<td>Un estudio de viabilidad del proyecto</td>
+</tr>
+<tr>
+<td><strong>Análisis de requerimientos</strong></td>
+<td>Se describen con precisión las necesidades de información que el software debe satisfacer</td>
+<td>Un catálogo de requisitos funcionales y no funcionales</td>
+</tr>
+<tr>
+<td><strong>Diseño</strong></td>
+<td>Se proyecta el software para un entorno tecnológico concreto (lenguaje, IDE, gestor de bases de datos)</td>
+<td>El modelo del sistema listo para implementar</td>
+</tr>
+<tr>
+<td><strong>Desarrollo y pruebas</strong></td>
+<td>Se escribe el código que cumple lo definido en las fases anteriores y se verifica su funcionamiento</td>
+<td>El software funcionando y probado</td>
+</tr>
+<tr>
+<td><strong>Finalización y transferencia</strong></td>
+<td>Se prepara el software para su explotación y su mantenimiento posterior</td>
+<td>El sistema en producción, mantenido en el tiempo</td>
+</tr>
+</tbody>
+</table>
+<p>El <strong>estudio previo</strong> delimita el ámbito del proyecto y determina si merece la pena llevarlo a cabo, con qué riesgos, con qué coste y en cuánto tiempo. El <strong>análisis de requerimientos</strong> describe de manera adecuada los requisitos del software, es decir, las necesidades de información que debe satisfacer. Esta fase tiene que dejar muy claro qué se quiere hacer a partir del estudio de un problema determinado, y los requisitos recogidos deben ser funcionales y no funcionales. Además, deben ser independientes de la tecnología y del tipo de programación escogidos: todavía no toca hablar de lenguajes ni de bases de datos.</p>
+<p>El <strong>diseño</strong> proyecta el software ya pensando en un entorno tecnológico concreto, definido por aspectos como el lenguaje de programación, el entorno de desarrollo y el gestor de bases de datos, de los que puede intervenir más de uno dentro de un mismo proyecto. A partir del qué definido en la fase anterior, el diseño determina el cómo. Todas las decisiones que se tomen aquí tendrán consecuencias en las fases siguientes, así que el detalle debe ser suficientemente fino como para que otra persona pueda desarrollar el proyecto partiendo de esas indicaciones.</p>
+<p>En la fase de <strong>desarrollo y pruebas</strong> se lleva a cabo la codificación del código fuente que satisface las funcionalidades establecidas antes. Conviene aclarar que esta fase no se limita a escribir código a mano: también incluye la programación gráfica, la generación automática de código, la configuración de herramientas y otras técnicas. Además, incorpora las pruebas del software. No hay que imaginarla como un bloque monolítico, porque algunas partes de la programación pueden empezar antes de que el diseño esté terminado del todo, y ciertas partes pueden probarse mientras se acaban de implementar otras.</p>
+<p>La última fase, <strong>finalización y transferencia</strong>, prepara el software para que esté en explotación. A partir de ese momento el sistema pasa a ser objeto de mantenimiento, con tres objetivos permanentes: eliminar los errores que no se corrigieron durante las pruebas, introducir mejoras y adaptarlo a los cambios tecnológicos y organizativos que se produzcan en el entorno de trabajo de los usuarios.</p>
+<p>Un modelo adecuado evita situaciones tan habituales como la que ilustra la siguiente figura, donde se aprecian las diferencias de entendimiento entre las partes y las fases implicadas en la gestión de un proyecto informático.</p>
+<figure>
+<img alt="" src="../../images/02.png" width="85%"/>
+</figure>
+<p>La viñeta resume un clásico de la ingeniería del software: el usuario explica lo que necesita, el jefe de proyecto interpreta una cosa, el analista diseña otra, el programador construye una tercera y el consultor externo recomienda algo distinto todavía. El resultado final no se parece a lo que el usuario esperaba, y el columpio del dibujo es la mejor metáfora de lo que ocurre cuando cada fase trabaja con una idea distinta del producto. Un modelo compartido, escrito y verificable es lo que rompe esa cadena de malentendidos, y de ahí la importancia de UML.</p>
+<h2 id="el-lenguaje-unificado-de-modelado-uml">El Lenguaje Unificado de Modelado (UML)</h2>
+<p><strong>UML</strong> es el acrónimo inglés de <em>Unified Modeling Language</em>, es decir, Lenguaje Unificado de Modelado. No es un programa ni un lenguaje de programación: es un conjunto de notaciones gráficas que sirven para especificar, diseñar, elaborar y documentar modelos de sistemas y, en particular, de aplicaciones informáticas. A partir de esas notaciones gráficas, el analista y el diseñador pueden plasmar las características que deberá tener la aplicación que los desarrolladores construirán después.</p>
+<p>En la actualidad es el lenguaje de modelado de sistemas más conocido y utilizado. Disfruta de una aceptación casi universal y ha tenido un efecto muy concreto en la industria: ha impulsado el desarrollo de herramientas de modelado gráfico de software orientado a objetos. Además, está reconocido y recomendado por la <strong>OMG</strong> (<em>Object Management Group</em>), un consorcio fundado en 1989 con el objetivo de fomentar el uso de la tecnología orientada a objetos mediante el establecimiento de estándares.</p>
+<p>Las ventajas de la notación UML son las siguientes:</p>
+<ul>
+<li>Está respaldada por la OMG como notación estándar para el desarrollo de proyectos informáticos.</li>
+<li>Se basa en una notación gráfica concreta y fácil de interpretar, que además se completa con explicaciones escritas.</li>
+<li>Permite al analista o al diseñador hacer uso de los diagramas que considere oportunos y con el grado de detalle que estime conveniente, en función de las características del sistema.</li>
+<li>Ofrece una visión global del sistema a implementar.</li>
+<li>Promueve la reutilización de elementos y de modelos.</li>
+</ul>
+<p>Entre sus desventajas conviene ser honesto:</p>
+<ul>
+<li>UML no es una metodología, es una notación. No dice cómo trabajar ni en qué orden, sólo cómo dibujar.</li>
+<li>UML no es un lenguaje de programación, así que no se puede ejecutar directamente.</li>
+<li>Puede resultar complejo llegar a conocer en profundidad todas las posibilidades del lenguaje.</li>
+</ul>
+<p>Esa primera advertencia es la que más confunde al principio. Aprender UML no es aprender a programar mejor ni a gestionar un proyecto, sino aprender a dibujar el plano con un vocabulario que cualquier otro profesional del sector entenderá igual que nosotros.</p>
+<h3 id="los-catorce-diagramas-de-uml">Los catorce diagramas de UML</h3>
+<p>En su versión 2.4.1, UML define un total de <strong>catorce tipos de diagramas</strong> distintos. Tener catorce opciones puede sonar abrumador, pero todas ellas responden a dos preguntas muy simples: cómo es el sistema por dentro y qué hace cuando está en marcha. De esa distinción nacen las dos grandes visiones del modelo.</p>
+<p>La <strong>visión estática</strong> (o estructural) se construye con objetos, atributos, operaciones y relaciones. Da valor a los elementos que se encontrarán en el modelo del sistema desde el punto de vista de su estructura. Describe aspectos que son estructurales y, por tanto, permanentes: aquello que el sistema <strong>tiene</strong>.</p>
+<p>La <strong>visión dinámica</strong> (o de comportamiento) da valor al comportamiento del sistema, es decir, a aquello que <strong>tiene que pasar</strong> en él. Con los diagramas de comportamiento se muestra cómo colaboran los elementos del sistema entre sí y cómo cambian de estado. Representan aquello que el sistema <strong>puede hacer</strong>.</p>
+<figure>
+<img alt="" src="../../images/03.png" width="60%"/>
+</figure>
+<p>La comparación útil aquí es la de un esqueleto frente a una grabación en vídeo. El esqueleto dice cuántos huesos hay, cómo se llaman y cómo se articulan entre ellos, pero no dice nada de cómo camina la persona. El vídeo muestra el movimiento, pero sin el esqueleto no se entiende por qué la pierna puede doblarse en esa dirección y no en otra. Diseñar un sistema con UML consiste en producir las dos cosas: el esqueleto con los diagramas de estructura y la grabación con los de comportamiento.</p>
+<h3 id="los-diagramas-de-estructura">Los diagramas de estructura</h3>
+<p>Dentro de los diagramas estáticos o de estructura podemos encontrar <strong>siete tipos</strong>:</p>
+<ul>
+<li><strong>Diagrama de paquetes</strong>: refleja la organización de los paquetes y de los elementos que contienen.</li>
+<li><strong>Diagrama de clases</strong>: describe clases de todo tipo y los diferentes tipos de relaciones entre ellas. Es el que probablemente más gente considera el diagrama principal de UML.</li>
+<li><strong>Diagrama de objetos</strong>: representa instancias de clases (objetos) definidas previamente en un diagrama de clases, junto con las relaciones entre esas instancias.</li>
+<li><strong>Diagrama de estructuras compuestas</strong>: describe los casos en que las instancias de una clase tienen como partes instancias de otras, o bien en que en el comportamiento de una clase participan instancias de otras.</li>
+<li><strong>Diagrama de componentes</strong>: es un diagrama de clases y de estructuras compuestas simplificado, más adecuado para determinadas tecnologías de programación.</li>
+<li><strong>Diagrama de despliegue</strong>: describe la configuración en tiempo de ejecución de un software especificado normalmente por un diagrama de componentes, y también el hardware físico sobre el que ese software se ejecutará.</li>
+<li><strong>Diagrama de perfil</strong>: permite adaptar o personalizar el modelo con construcciones específicas de un dominio concreto, de una plataforma determinada o de un método de desarrollo.</li>
+</ul>
+<figure>
+<img alt="" src="../../images/04.png" width="100%"/>
+</figure>
+<p>El árbol anterior resume la relación entre los siete. A continuación repasamos cada uno con un poco más de detalle, dejando el diagrama de clases para el siguiente apartado, donde lo estudiaremos a fondo.</p>
+<h4 id="diagrama-de-paquetes">Diagrama de paquetes</h4>
+<p>Un <strong>paquete</strong> permite organizar los elementos del modelo en grupos relacionados semánticamente. Un paquete no tiene un significado propio: es una caja, no un concepto del negocio. Su utilidad es la misma que la de las carpetas en el sistema de archivos, evitar que un proyecto con cientos de clases se convierta en una lista plana imposible de recorrer. El diagrama de paquetes describe la estructura del modelo en términos de paquetes interrelacionados.</p>
+<figure>
+<img alt="" src="../../images/05.png" width="70%"/>
+</figure>
+<p>En la figura se ha representado un paquete llamado <em>Diagramas</em> que contiene a su vez dos paquetes: el estático o de estructura y el dinámico o de comportamiento. La forma de la carpeta con una pestaña es la notación habitual de un paquete, y el anidamiento visual indica la contención. Las herramientas de modelado permiten además editar esa jerarquía desde una ventana de propiedades, sin tener que dibujarla a mano.</p>
+<figure>
+<img alt="" src="../../images/06.png" width="75%"/>
+</figure>
+<p>En la ventana de especificación se ve la pestaña <em>Children</em>, es decir, los hijos del paquete. Ahí aparecen los dos paquetes internos con su tipo, y desde el botón <em>Open Specification</em> se puede profundizar en cualquiera de ellos. Es el equivalente de abrir una carpeta del proyecto en el explorador de archivos: el diagrama muestra la estructura, la ventana muestra los detalles del elemento seleccionado.</p>
+<h4 id="diagrama-de-clases">Diagrama de clases</h4>
+<p>El <strong>diagrama de clases</strong> representa las clases que serán utilizadas dentro del sistema y las relaciones que existen entre ellas. Es la pieza central del UML estático, hasta el punto de que muchos autores lo consideran el diagrama principal. Se utiliza durante las fases de análisis y de diseño, y es el momento en que se empieza a crear el modelo conceptual de los datos que usará el sistema. Lo estudiaremos con detalle en el apartado siguiente, así que aquí basta con dejar anotado su papel: describe con precisión qué piezas habrá y cómo se conectarán.</p>
+<h4 id="diagrama-de-objetos">Diagrama de objetos</h4>
+<p>Un <strong>objeto</strong> es una instancia de una clase, por lo que el diagrama de objetos se puede entender como una instantánea de un diagrama de clases en un momento concreto de la ejecución. Sólo puede contener instancias y las relaciones entre ellas (enlaces y dependencias), y los clasificadores y asociaciones que utilice tienen que haber sido definidos antes en un diagrama de clases. Su función habitual es ejemplificar un diagrama de clases o una parte de él, y también lo veremos en detalle en el apartado siguiente.</p>
+<h4 id="diagrama-de-estructuras-compuestas">Diagrama de estructuras compuestas</h4>
+<p>Una <strong>estructura compuesta</strong> es un conjunto de elementos interconectados que colaboran en tiempo de ejecución para conseguir algún propósito. La finalidad de este diagrama es describir objetos compuestos con la máxima precisión posible, y complementa al diagrama de clases.</p>
+<p>Para entender por qué UML necesitó este diagrama, sirve un ejemplo. Imaginemos un sistema que modela una videoconsola y una minicadena, ambas compuestas por una CPU. En la videoconsola esa CPU procesa el juego para mostrarlo en un dispositivo de salida, como un televisor, mientras que en la minicadena procesa la música para que pueda escucharse. Una primera aproximación podría dibujarse así:</p>
+<figure>
+<img alt="" src="../../images/07.png" width="80%"/>
+</figure>
+<p>El dibujo, no obstante, es ambiguo: al compartir el mismo tipo de pieza, cualquiera puede interpretar que la CPU de la minicadena también podría procesar juegos. UML 2.0 introdujo el diagrama de estructura compuesta precisamente para concretar qué partes componen cada clase y con qué alcance. Con él, el sistema queda representado delimitando claramente el ámbito de la videoconsola y el de la minicadena.</p>
+<figure>
+<img alt="" src="../../images/08.png" width="80%"/>
+</figure>
+<p>Cada rectángulo grande representa ahora el compuesto, y las cajas internas, con nombres como <code>cpu : CPU</code> o <code>j : Juego</code>, representan los roles que esas partes juegan dentro del compuesto. La consecuencia práctica es que ya no hay ambigüedad posible: la CPU de la minicadena está encerrada en el contexto de la minicadena y no puede procesar juegos.</p>
+<h4 id="diagrama-de-componentes">Diagrama de componentes</h4>
+<p>Un <strong>componente</strong> es una pieza del software que conforma el sistema, y que además puede ser reutilizable y fácilmente sustituible. Un componente suele hacer uso de una <strong>interfaz</strong>, que define las operaciones que el componente implementará. El diagrama de componentes muestra qué componentes conforman el sistema y cómo se relacionan entre sí.</p>
+<figure>
+<img alt="" src="../../images/09.png" width="85%"/>
+</figure>
+<p>En el ejemplo, <code>FormularioSolicitud</code> y <code>GestionSolicitud</code> son dos componentes conectados a través de la interfaz <code>InterfaceSolicitud</code>. El símbolo del pequeño conector con un semicírculo o un círculo es la notación de una interfaz provista o requerida. La idea de fondo es la misma que la de un puerto USB: mientras se respete la forma del conector, se puede cambiar un dispositivo por otro sin tocar el resto del ordenador.</p>
+<h4 id="diagrama-de-despliegue">Diagrama de despliegue</h4>
+<p>El <strong>diagrama de despliegue</strong> describe la distribución de las partes de una aplicación y sus interrelaciones, todo ello en tiempo de ejecución. Dicho de otra forma, describe la configuración de un sistema de software en ejecución en términos de recursos de hardware y de los componentes de software, procesos y objetos que se alojan en ellos, ya sea en memoria o almacenados en bases de datos.</p>
+<figure>
+<img alt="" src="../../images/10.png" width="85%"/>
+</figure>
+<p>Aquí aparecen los nodos <em>Servidor</em> y <em>Cliente</em>, considerados a nivel de clasificador, unidos por una línea de comunicaciones. La multiplicidad indica que cada instancia de <em>Cliente</em> puede intercambiar información con una sola instancia de <em>Servidor</em>, mientras que una instancia de <em>Servidor</em> puede atender al menos a una instancia de <em>Cliente</em>, pero también a muchas más. Es el plano de la instalación, el momento en que el diseño deja de hablar de clases y empieza a hablar de máquinas.</p>
+<p>Un artefacto puede desplegarse dentro de un nodo de dos maneras: incluyendo el símbolo del artefacto dentro del nodo, o dibujando el despliegue del artefacto hacia el nodo. La figura siguiente muestra un ejemplo de cada opción, la primera con instancias y la segunda con clasificadores.</p>
+<figure>
+<img alt="" src="../../images/11.png" width="80%"/>
+</figure>
+<h4 id="diagrama-de-perfil">Diagrama de perfil</h4>
+<p>El <strong>diagrama de perfil</strong> permite adaptar o personalizar el modelo con construcciones específicas de un dominio particular, de una plataforma determinada o de un método concreto de desarrollo de software. Es el mecanismo que tiene UML para extenderse sin romper el estándar, y se apoya en estereotipos que añaden significado a los elementos habituales. No lo usaremos en este curso, pero conviene saber que existe: es la respuesta de UML a la pregunta de qué hacer cuando el vocabulario estándar se queda corto.</p>
+<h3 id="los-diagramas-de-comportamiento">Los diagramas de comportamiento</h3>
+<p>La otra mitad de UML es la familia de los <strong>diagramas de comportamiento</strong>, formada por siete tipos que describen lo que el sistema hace en lugar de lo que tiene. A ella pertenecen el diagrama de casos de uso, el de estados, el de actividades y las cuatro variantes del diagrama de interacción, que son los diagramas de secuencias, de comunicaciones, de visión general de la interacción y temporal.</p>
+<p>Esa familia no se trabaja en este apartado. Tiene el suyo propio, <strong>Diagramas de comportamiento</strong>, porque responde a un resultado de aprendizaje distinto y maneja un vocabulario que aquí no hace falta: actores, escenarios, líneas de vida, activaciones, eventos y transiciones. Lo que sí conviene retener ahora es la dependencia que existe entre las dos familias. Los diagramas de comportamiento se construyen <strong>sobre</strong> los de estructura, nunca antes: para describir cómo un objeto envía un mensaje a otro hay que saber primero qué objetos existen y qué operaciones ofrecen, y esa información la proporciona el diagrama de clases.</p>
+<p>Ese es exactamente el motivo de que este apartado continúe con la pieza que sostiene todo lo demás, el diagrama de clases. En las páginas siguientes aprenderemos a decidir qué elementos forman el sistema, cómo se llaman, qué guardan, qué saben hacer y cómo se relacionan entre ellos. Con ese esqueleto dibujado, describir después el comportamiento deja de ser un ejercicio de imaginación y se convierte en una consecuencia del propio modelo.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Manuel Sánchez Gomis
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["search.suggest", "search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "content.code.copy", "content.tabs.link", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../../assets/_markdown_exec_pyodide.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../_static/js/notebook.js"></script>
+      
+    
+  </body>
+</html>

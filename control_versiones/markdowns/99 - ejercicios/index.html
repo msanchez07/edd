@@ -1,0 +1,1920 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Manuel Sánchez Gomis">
+      
+      
+      
+        <link rel="prev" href="../06%20-%20integracion_continua/">
+      
+      
+      
+      <link rel="icon" href="../../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
+    
+    
+      
+        <title>Ejercicios de Git y GitHub - Entornos de desarrollo</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_markdown_exec_pyodide.css">
+    
+      <link rel="stylesheet" href="../../../_static/css/notebook.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ejercicios-de-git-y-github" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Entornos de desarrollo" class="md-header__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Entornos de desarrollo
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Ejercicios de Git y GitHub
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo brillante"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo brillante" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Bienvenido
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Introducción al desarrollo de software
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Entornos de desarrollo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Control de versiones
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Entornos de desarrollo" class="md-nav__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    Entornos de desarrollo
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bienvenido
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introducción al desarrollo de software
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Introducción al desarrollo de software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/02%20-%20lenguajes_programacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lenguajes de programación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/03%20-%20proceso_obtencion_codigo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proceso de obtención de código
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/04%20-%20desarrollo_aplicaciones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Desarrollo de aplicaciones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/05%20-%20metodologias_agiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metodologías Ágiles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Entornos de desarrollo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Entornos de desarrollo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a los entornos de desarrollo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/02%20-%20intellij/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IntelliJ IDEA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/03%20-%20plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalar plugins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/04%20-%20personalizacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Personalización, automatización y mantenimiento del entorno
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/05%20-%20compilacion_y_ejecutables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generación de ejecutables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/99%20-%20ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Control de versiones
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Control de versiones
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción al control de versiones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02%20-%20herramientas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Herramientas de control de versiones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03%20-%20introduccion_git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04%20-%20uso_basico_git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trabajo básico con Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05%20-%20github/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06%20-%20integracion_continua/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integración continua
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios de Git y GitHub
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="ejercicios-de-git-y-github">Ejercicios de Git y GitHub</h1>
+<p>A continuación tienes una colección de ejercicios prácticos para afianzar el manejo de Git y de GitHub. Los ejercicios están pensados para realizarse de forma secuencial: en los primeros trabajarás con un repositorio local llamado <code>libro</code> que simula la redacción de un libro, y en los últimos publicarás ese repositorio en <strong>GitHub</strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Terminal recomendada: Git Bash en Windows</p>
+<p>Varios ejercicios crean ficheros con redirecciones multilínea del tipo <code>cat &gt; archivo &lt;&lt; 'EOF' ... EOF</code>, una sintaxis propia de las terminales tipo Unix que <strong>no funciona ni en PowerShell ni en el símbolo del sistema (CMD)</strong>. En Windows, ejecuta estos ejercicios en <strong>Git Bash</strong> (se instala junto con Git for Windows). Si prefieres otra terminal o trabajar desde el editor, tienes dos alternativas: crear el fichero con tu editor de texto y guardarlo con el nombre indicado, o ir añadiendo las líneas con <code>echo "texto" &gt; archivo</code> para la primera y <code>echo "texto" &gt;&gt; archivo</code> para las siguientes.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Repositorios en GitHub</p>
+<p>Para los ejercicios 20 a 23 es necesario disponer de una <strong>cuenta de GitHub</strong> y crear en ella los repositorios correspondientes.</p>
+</div>
+<hr/>
+<div class="admonition question">
+<p class="admonition-title">1. Configurar Git</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Enunciado</label><label for="__tabbed_1_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Configurar Git definiendo el nombre del usuario, el correo electrónico y activar el coloreado de la salida. Mostrar la configuración final.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">"Tu Nombre"</span>
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">"tu.correo@ejemplo.com"</span>
+</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>color.ui<span class="w"> </span><span class="nb">true</span>
+</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>git<span class="w"> </span>config<span class="w"> </span>--list
+</span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">2. Crear un repositorio</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">Enunciado</label><label for="__tabbed_2_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Crear un repositorio nuevo con el nombre <code>libro</code> y mostrar su contenido.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>mkdir<span class="w"> </span>libro
+</span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="nb">cd</span><span class="w"> </span>libro
+</span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>git<span class="w"> </span>init
+</span><span id="__span-1-4"><a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>ls<span class="w"> </span>-la
+</span></code></pre></div>
+<p>El comando <code>ls -la</code> muestra, entre otras cosas, la carpeta oculta <code>.git</code> que indica que el directorio ya es un repositorio Git.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">3. Crear y preparar el fichero índice.txt</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><input id="__tabbed_3_2" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">Enunciado</label><label for="__tabbed_3_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Comprueba el estado del repositorio. Crea un nuevo fichero <code>indice.txt</code> con el siguiente contenido:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>Capítulo 1: Introducción a Git
+</span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>Capítulo 2: Flujo de trabajo básico
+</span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>Capítulo 3: Repositorios remotos
+</span></code></pre></div>
+<p>Comprueba el nuevo estado del repositorio y añade el fichero a la zona de intercambio temporal. Comprueba otra vez el estado del repositorio.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>git<span class="w"> </span>status
+</span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="c1"># Git Bash / terminal tipo Unix</span>
+</span><span id="__span-3-4"><a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>indice.txt<span class="w"> </span><span class="s">&lt;&lt; 'EOF'</span>
+</span><span id="__span-3-5"><a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="s">Capítulo 1: Introducción a Git</span>
+</span><span id="__span-3-6"><a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="s">Capítulo 2: Flujo de trabajo básico</span>
+</span><span id="__span-3-7"><a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="s">Capítulo 3: Repositorios remotos</span>
+</span><span id="__span-3-8"><a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="s">EOF</span>
+</span><span id="__span-3-9"><a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a>
+</span><span id="__span-3-10"><a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="c1"># Alternativa en PowerShell / CMD (sin heredoc)</span>
+</span><span id="__span-3-11"><a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="c1"># echo "Capítulo 1: Introducción a Git" &gt; indice.txt</span>
+</span><span id="__span-3-12"><a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="c1"># echo "Capítulo 2: Flujo de trabajo básico" &gt;&gt; indice.txt</span>
+</span><span id="__span-3-13"><a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="c1"># echo "Capítulo 3: Repositorios remotos" &gt;&gt; indice.txt</span>
+</span><span id="__span-3-14"><a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a>
+</span><span id="__span-3-15"><a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a>git<span class="w"> </span>status
+</span><span id="__span-3-16"><a href="#__codelineno-3-16" id="__codelineno-3-16" name="__codelineno-3-16"></a>git<span class="w"> </span>add<span class="w"> </span>indice.txt
+</span><span id="__span-3-17"><a href="#__codelineno-3-17" id="__codelineno-3-17" name="__codelineno-3-17"></a>git<span class="w"> </span>status
+</span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">4. Realizar el primer commit</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"/><input id="__tabbed_4_2" name="__tabbed_4" type="radio"/><div class="tabbed-labels"><label for="__tabbed_4_1">Enunciado</label><label for="__tabbed_4_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Realizar un <em>commit</em> de los últimos cambios con el mensaje "Añadido índice del libro." y ver el estado del repositorio.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Añadido índice del libro."</span>
+</span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>git<span class="w"> </span>status
+</span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">5. Modificar el índice y hacer commit</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"/><input id="__tabbed_5_2" name="__tabbed_5" type="radio"/><div class="tabbed-labels"><label for="__tabbed_5_1">Enunciado</label><label for="__tabbed_5_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Cambiar el fichero <code>indice.txt</code> para que contenga lo siguiente:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>Capítulo 1: Introducción a Git
+</span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>Capítulo 2: Flujo de trabajo básico
+</span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>Capítulo 3: Gestión de ramas
+</span><span id="__span-5-4"><a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a>Capítulo 4: Repositorios remotos
+</span></code></pre></div>
+<p>Mostrar los cambios con respecto a la última versión guardada en el repositorio. Hacer un <em>commit</em> de los cambios con el mensaje "Añadido capítulo 3 sobre gestión de ramas".</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>indice.txt<span class="w"> </span><span class="s">&lt;&lt; 'EOF'</span>
+</span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="s">Capítulo 1: Introducción a Git</span>
+</span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="s">Capítulo 2: Flujo de trabajo básico</span>
+</span><span id="__span-6-4"><a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="s">Capítulo 3: Gestión de ramas</span>
+</span><span id="__span-6-5"><a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="s">Capítulo 4: Repositorios remotos</span>
+</span><span id="__span-6-6"><a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="s">EOF</span>
+</span><span id="__span-6-7"><a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a>
+</span><span id="__span-6-8"><a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a>git<span class="w"> </span>diff
+</span><span id="__span-6-9"><a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a>git<span class="w"> </span>add<span class="w"> </span>indice.txt
+</span><span id="__span-6-10"><a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Añadido capítulo 3 sobre gestión de ramas"</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">6. Modificar el mensaje del último commit</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"/><input id="__tabbed_6_2" name="__tabbed_6" type="radio"/><div class="tabbed-labels"><label for="__tabbed_6_1">Enunciado</label><label for="__tabbed_6_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Mostrar los cambios de la última versión del repositorio con respecto a la anterior. Cambiar el mensaje del último <em>commit</em> por "Añadido capítulo 3 sobre gestión de ramas al índice." Volver a mostrar los últimos cambios del repositorio.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>git<span class="w"> </span>show<span class="w"> </span>HEAD
+</span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>git<span class="w"> </span>commit<span class="w"> </span>--amend<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Añadido capítulo 3 sobre gestión de ramas al índice."</span>
+</span><span id="__span-7-3"><a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a>git<span class="w"> </span>show<span class="w"> </span>HEAD
+</span></code></pre></div>
+<p>El comando <code>git show HEAD</code> muestra el último <em>commit</em> y sus cambios, y <code>git commit --amend</code> permite reescribir su mensaje.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">7. Crear la carpeta capítulos</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio"/><input id="__tabbed_7_2" name="__tabbed_7" type="radio"/><div class="tabbed-labels"><label for="__tabbed_7_1">Enunciado</label><label for="__tabbed_7_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Mostrar el historial de cambios del repositorio. Crear la carpeta <code>capítulos</code> y, dentro de ella, el fichero <code>capitulo1.txt</code> con el siguiente texto:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>Git es un sistema de control de versiones ideado por Linus Torvalds.
+</span></code></pre></div>
+<p>Añadir los cambios a la zona de intercambio temporal. Hacer un <em>commit</em> de los cambios con el mensaje "Añadido capítulo 1." Volver a mostrar el historial de cambios del repositorio.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline
+</span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a>
+</span><span id="__span-9-3"><a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a>mkdir<span class="w"> </span>capítulos
+</span><span id="__span-9-4"><a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>capítulos/capitulo1.txt<span class="w"> </span><span class="s">&lt;&lt; 'EOF'</span>
+</span><span id="__span-9-5"><a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="s">Git es un sistema de control de versiones ideado por Linus Torvalds.</span>
+</span><span id="__span-9-6"><a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="s">EOF</span>
+</span><span id="__span-9-7"><a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a>
+</span><span id="__span-9-8"><a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a>git<span class="w"> </span>add<span class="w"> </span>.
+</span><span id="__span-9-9"><a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Añadido capítulo 1."</span>
+</span><span id="__span-9-10"><a href="#__codelineno-9-10" id="__codelineno-9-10" name="__codelineno-9-10"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline
+</span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">8. Crear el capítulo 2</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio"/><input id="__tabbed_8_2" name="__tabbed_8" type="radio"/><div class="tabbed-labels"><label for="__tabbed_8_1">Enunciado</label><label for="__tabbed_8_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Crear el fichero <code>capitulo2.txt</code> en la carpeta <code>capítulos</code> con el siguiente texto:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>El flujo de trabajo básico con Git consiste en:
+</span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>1- Hacer cambios en el repositorio.
+</span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a>2- Añadir los cambios a la zona de intercambio temporal.
+</span><span id="__span-10-4"><a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a>3- Hacer un commit de los cambios.
+</span></code></pre></div>
+<p>Añadir los cambios a la zona de intercambio temporal. Hacer un <em>commit</em> de los cambios con el mensaje "Añadido capítulo 2." Mostrar las diferencias entre la última versión y dos versiones anteriores.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>capítulos/capitulo2.txt<span class="w"> </span><span class="s">&lt;&lt; 'EOF'</span>
+</span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="s">El flujo de trabajo básico con Git consiste en:</span>
+</span><span id="__span-11-3"><a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="s">1- Hacer cambios en el repositorio.</span>
+</span><span id="__span-11-4"><a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="s">2- Añadir los cambios a la zona de intercambio temporal.</span>
+</span><span id="__span-11-5"><a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="s">3- Hacer un commit de los cambios.</span>
+</span><span id="__span-11-6"><a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="s">EOF</span>
+</span><span id="__span-11-7"><a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a>
+</span><span id="__span-11-8"><a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a>git<span class="w"> </span>add<span class="w"> </span>.
+</span><span id="__span-11-9"><a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Añadido capítulo 2."</span>
+</span><span id="__span-11-10"><a href="#__codelineno-11-10" id="__codelineno-11-10" name="__codelineno-11-10"></a>git<span class="w"> </span>diff<span class="w"> </span>HEAD~2<span class="w"> </span>HEAD
+</span></code></pre></div>
+<p>El comando <code>git diff HEAD~2 HEAD</code> muestra los cambios introducidos en los dos últimos <em>commits</em>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">9. Crear el capítulo 3</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio"/><input id="__tabbed_9_2" name="__tabbed_9" type="radio"/><div class="tabbed-labels"><label for="__tabbed_9_1">Enunciado</label><label for="__tabbed_9_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Crear el fichero <code>capitulo3.txt</code> en la carpeta <code>capítulos</code> con el siguiente texto:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>Git permite la creación de ramas lo que permite tener distintas versiones del mismo proyecto y trabajar de manera simultánea en ellas.
+</span></code></pre></div>
+<p>Añadir los cambios a la zona de intercambio temporal. Hacer un <em>commit</em> de los cambios con el mensaje "Añadido capítulo 3." Mostrar las diferencias entre la primera y la última versión del repositorio.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>capítulos/capitulo3.txt<span class="w"> </span><span class="s">&lt;&lt; 'EOF'</span>
+</span><span id="__span-13-2"><a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="s">Git permite la creación de ramas lo que permite tener distintas versiones del mismo proyecto y trabajar de manera simultánea en ellas.</span>
+</span><span id="__span-13-3"><a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="s">EOF</span>
+</span><span id="__span-13-4"><a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a>
+</span><span id="__span-13-5"><a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a>git<span class="w"> </span>add<span class="w"> </span>.
+</span><span id="__span-13-6"><a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Añadido capítulo 3."</span>
+</span><span id="__span-13-7"><a href="#__codelineno-13-7" id="__codelineno-13-7" name="__codelineno-13-7"></a>
+</span><span id="__span-13-8"><a href="#__codelineno-13-8" id="__codelineno-13-8" name="__codelineno-13-8"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline
+</span><span id="__span-13-9"><a href="#__codelineno-13-9" id="__codelineno-13-9" name="__codelineno-13-9"></a>git<span class="w"> </span>diff<span class="w"> </span>&lt;hash-del-primer-commit&gt;<span class="w"> </span>HEAD
+</span></code></pre></div>
+<p>Para comparar la primera versión con la última, primero se localiza el <em>hash</em> del primer <em>commit</em> con <code>git log --oneline</code> y, a continuación, se ejecuta <code>git diff</code> indicando ese <em>hash</em> y <code>HEAD</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">10. Añadir el capítulo 5 al índice</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:2"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio"/><input id="__tabbed_10_2" name="__tabbed_10" type="radio"/><div class="tabbed-labels"><label for="__tabbed_10_1">Enunciado</label><label for="__tabbed_10_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Añadir al final del fichero <code>indice.txt</code> la siguiente línea:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a>Capítulo 5: Conceptos avanzados
+</span></code></pre></div>
+<p>Añadir los cambios a la zona de intercambio temporal. Hacer un <em>commit</em> de los cambios con el mensaje "Añadido capítulo 5 al índice." Mostrar quién ha hecho cambios sobre el fichero <code>indice.txt</code>.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Capítulo 5: Conceptos avanzados"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>indice.txt
+</span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a>
+</span><span id="__span-15-3"><a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a>git<span class="w"> </span>add<span class="w"> </span>indice.txt
+</span><span id="__span-15-4"><a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Añadido capítulo 5 al índice."</span>
+</span><span id="__span-15-5"><a href="#__codelineno-15-5" id="__codelineno-15-5" name="__codelineno-15-5"></a>
+</span><span id="__span-15-6"><a href="#__codelineno-15-6" id="__codelineno-15-6" name="__codelineno-15-6"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>--<span class="w"> </span>indice.txt
+</span></code></pre></div>
+<p>El comando <code>git log -- indice.txt</code> muestra el historial de <em>commits</em> que han afectado al fichero. Alternativamente, <code>git blame indice.txt</code> muestra línea a línea el autor de cada cambio.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">11. Deshacer cambios en el directorio de trabajo</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:2"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio"/><input id="__tabbed_11_2" name="__tabbed_11" type="radio"/><div class="tabbed-labels"><label for="__tabbed_11_1">Enunciado</label><label for="__tabbed_11_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Eliminar la última línea del fichero <code>indice.txt</code> y guardarlo. Comprobar el estado del repositorio. Deshacer los cambios realizados en el fichero <code>indice.txt</code> para volver a la versión anterior del fichero. Volver a comprobar el estado del repositorio.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="c1"># Editar indice.txt eliminando la última línea</span>
+</span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a>git<span class="w"> </span>status
+</span><span id="__span-16-3"><a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a>git<span class="w"> </span>restore<span class="w"> </span>indice.txt
+</span><span id="__span-16-4"><a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a>git<span class="w"> </span>status
+</span></code></pre></div>
+<p><code>git restore indice.txt</code> descarta los cambios del fichero y lo devuelve a la última versión confirmada. La versión antigua de este comando era <code>git checkout -- indice.txt</code>, que todavía aparece en muchos manuales.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">12. Quitar cambios de la zona de intercambio temporal</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="12:2"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio"/><input id="__tabbed_12_2" name="__tabbed_12" type="radio"/><div class="tabbed-labels"><label for="__tabbed_12_1">Enunciado</label><label for="__tabbed_12_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Eliminar la última línea del fichero <code>indice.txt</code> y guardarlo. Añadir los cambios a la zona de intercambio temporal. Comprobar de nuevo el estado del repositorio. Quitar los cambios de la zona de intercambio temporal, pero mantenerlos en el directorio de trabajo. Comprobar de nuevo el estado del repositorio. Deshacer los cambios realizados en el fichero <code>indice.txt</code> para volver a la versión anterior del fichero. Volver a comprobar el estado del repositorio.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="c1"># Editar indice.txt eliminando la última línea</span>
+</span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a>git<span class="w"> </span>add<span class="w"> </span>indice.txt
+</span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a>git<span class="w"> </span>status
+</span><span id="__span-17-4"><a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a>git<span class="w"> </span>restore<span class="w"> </span>--staged<span class="w"> </span>indice.txt
+</span><span id="__span-17-5"><a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a>git<span class="w"> </span>status
+</span><span id="__span-17-6"><a href="#__codelineno-17-6" id="__codelineno-17-6" name="__codelineno-17-6"></a>git<span class="w"> </span>restore<span class="w"> </span>indice.txt
+</span><span id="__span-17-7"><a href="#__codelineno-17-7" id="__codelineno-17-7" name="__codelineno-17-7"></a>git<span class="w"> </span>status
+</span></code></pre></div>
+<p><code>git restore --staged indice.txt</code> quita el fichero de la zona de intercambio temporal (los cambios vuelven al directorio de trabajo) y es el equivalente moderno de <code>git reset indice.txt</code>, mientras que <code>git restore indice.txt</code> los descarta por completo.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">13. Deshacer varios tipos de cambios</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="13:2"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio"/><input id="__tabbed_13_2" name="__tabbed_13" type="radio"/><div class="tabbed-labels"><label for="__tabbed_13_1">Enunciado</label><label for="__tabbed_13_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Eliminar la última línea del fichero <code>indice.txt</code> y guardarlo. Eliminar el fichero <code>capítulos/capitulo3.txt</code>. Añadir un fichero nuevo <code>capítulos/capitulo4.txt</code> vacío. Añadir los cambios a la zona de intercambio temporal. Comprobar de nuevo el estado del repositorio. Quitar los cambios de la zona de intercambio temporal, pero mantenerlos en el directorio de trabajo. Comprobar de nuevo el estado del repositorio. Deshacer los cambios realizados para volver a la versión del repositorio. Volver a comprobar el estado del repositorio.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="c1"># 1. Editar indice.txt eliminando la última línea</span>
+</span><span id="__span-18-2"><a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="c1"># 2. Eliminar capitulo3.txt y crear capitulo4.txt vacío</span>
+</span><span id="__span-18-3"><a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a>rm<span class="w"> </span>capítulos/capitulo3.txt
+</span><span id="__span-18-4"><a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a>touch<span class="w"> </span>capítulos/capitulo4.txt
+</span><span id="__span-18-5"><a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a>
+</span><span id="__span-18-6"><a href="#__codelineno-18-6" id="__codelineno-18-6" name="__codelineno-18-6"></a>git<span class="w"> </span>add<span class="w"> </span>.
+</span><span id="__span-18-7"><a href="#__codelineno-18-7" id="__codelineno-18-7" name="__codelineno-18-7"></a>git<span class="w"> </span>status
+</span><span id="__span-18-8"><a href="#__codelineno-18-8" id="__codelineno-18-8" name="__codelineno-18-8"></a>git<span class="w"> </span>restore<span class="w"> </span>--staged<span class="w"> </span>.
+</span><span id="__span-18-9"><a href="#__codelineno-18-9" id="__codelineno-18-9" name="__codelineno-18-9"></a>git<span class="w"> </span>status
+</span><span id="__span-18-10"><a href="#__codelineno-18-10" id="__codelineno-18-10" name="__codelineno-18-10"></a>
+</span><span id="__span-18-11"><a href="#__codelineno-18-11" id="__codelineno-18-11" name="__codelineno-18-11"></a><span class="c1"># Deshacer los cambios de los archivos con seguimiento</span>
+</span><span id="__span-18-12"><a href="#__codelineno-18-12" id="__codelineno-18-12" name="__codelineno-18-12"></a>git<span class="w"> </span>restore<span class="w"> </span>.
+</span><span id="__span-18-13"><a href="#__codelineno-18-13" id="__codelineno-18-13" name="__codelineno-18-13"></a><span class="c1"># Eliminar el archivo nuevo que no tiene seguimiento</span>
+</span><span id="__span-18-14"><a href="#__codelineno-18-14" id="__codelineno-18-14" name="__codelineno-18-14"></a>rm<span class="w"> </span>capítulos/capitulo4.txt
+</span><span id="__span-18-15"><a href="#__codelineno-18-15" id="__codelineno-18-15" name="__codelineno-18-15"></a>
+</span><span id="__span-18-16"><a href="#__codelineno-18-16" id="__codelineno-18-16" name="__codelineno-18-16"></a>git<span class="w"> </span>status
+</span></code></pre></div>
+<p><code>git restore .</code> descarta los cambios de los archivos con seguimiento (restaura <code>indice.txt</code> y <code>capitulo3.txt</code>), pero no elimina los archivos nuevos sin seguimiento como <code>capitulo4.txt</code>, que hay que borrar manualmente. Por su parte, <code>git restore --staged .</code> saca de la zona de preparación todos los archivos de una vez, igual que hacía <code>git reset</code> sin argumentos.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">14. Deshacer commits</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="14:2"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio"/><input id="__tabbed_14_2" name="__tabbed_14" type="radio"/><div class="tabbed-labels"><label for="__tabbed_14_1">Enunciado</label><label for="__tabbed_14_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Eliminar la última línea del fichero <code>indice.txt</code> y guardarlo. Eliminar el fichero <code>capítulos/capitulo3.txt</code>. Añadir los cambios a la zona de intercambio temporal y hacer un <em>commit</em> con el mensaje "Borrado accidental." Comprobar el historial del repositorio. Deshacer el último <em>commit</em> pero mantener los cambios anteriores en el directorio de trabajo y la zona de intercambio temporal. Comprobar el historial y el estado del repositorio. Volver a hacer el <em>commit</em> con el mismo mensaje de antes. Deshacer el último <em>commit</em> y los cambios anteriores del directorio de trabajo volviendo a la versión anterior del repositorio. Comprobar de nuevo el historial y el estado del repositorio.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="c1"># 1. Editar indice.txt eliminando la última línea</span>
+</span><span id="__span-19-2"><a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="c1"># 2. Eliminar capitulo3.txt</span>
+</span><span id="__span-19-3"><a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a>rm<span class="w"> </span>capítulos/capitulo3.txt
+</span><span id="__span-19-4"><a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a>
+</span><span id="__span-19-5"><a href="#__codelineno-19-5" id="__codelineno-19-5" name="__codelineno-19-5"></a>git<span class="w"> </span>add<span class="w"> </span>.
+</span><span id="__span-19-6"><a href="#__codelineno-19-6" id="__codelineno-19-6" name="__codelineno-19-6"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Borrado accidental."</span>
+</span><span id="__span-19-7"><a href="#__codelineno-19-7" id="__codelineno-19-7" name="__codelineno-19-7"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline
+</span><span id="__span-19-8"><a href="#__codelineno-19-8" id="__codelineno-19-8" name="__codelineno-19-8"></a>
+</span><span id="__span-19-9"><a href="#__codelineno-19-9" id="__codelineno-19-9" name="__codelineno-19-9"></a>git<span class="w"> </span>reset<span class="w"> </span>--soft<span class="w"> </span>HEAD~1
+</span><span id="__span-19-10"><a href="#__codelineno-19-10" id="__codelineno-19-10" name="__codelineno-19-10"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline
+</span><span id="__span-19-11"><a href="#__codelineno-19-11" id="__codelineno-19-11" name="__codelineno-19-11"></a>git<span class="w"> </span>status
+</span><span id="__span-19-12"><a href="#__codelineno-19-12" id="__codelineno-19-12" name="__codelineno-19-12"></a>
+</span><span id="__span-19-13"><a href="#__codelineno-19-13" id="__codelineno-19-13" name="__codelineno-19-13"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Borrado accidental."</span>
+</span><span id="__span-19-14"><a href="#__codelineno-19-14" id="__codelineno-19-14" name="__codelineno-19-14"></a>
+</span><span id="__span-19-15"><a href="#__codelineno-19-15" id="__codelineno-19-15" name="__codelineno-19-15"></a>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>HEAD~1
+</span><span id="__span-19-16"><a href="#__codelineno-19-16" id="__codelineno-19-16" name="__codelineno-19-16"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline
+</span><span id="__span-19-17"><a href="#__codelineno-19-17" id="__codelineno-19-17" name="__codelineno-19-17"></a>git<span class="w"> </span>status
+</span></code></pre></div>
+<p><code>git reset --soft</code> deshace el <em>commit</em> conservando los cambios en la zona de intercambio temporal, mientras que <code>git reset --hard</code> deshace el <em>commit</em> y descarta los cambios por completo.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">15. Crear la rama bibliografía</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="15:2"><input checked="checked" id="__tabbed_15_1" name="__tabbed_15" type="radio"/><input id="__tabbed_15_2" name="__tabbed_15" type="radio"/><div class="tabbed-labels"><label for="__tabbed_15_1">Enunciado</label><label for="__tabbed_15_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Crear una nueva rama <code>bibliografía</code> y mostrar las ramas del repositorio.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a>git<span class="w"> </span>branch<span class="w"> </span>bibliografía
+</span><span id="__span-20-2"><a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a>git<span class="w"> </span>branch
+</span></code></pre></div>
+<p>La rama actual aparece marcada con un asterisco. Al crearla con <code>git branch</code> (sin <code>switch</code>) seguimos en la rama <code>main</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">16. Crear el capítulo 4</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="16:2"><input checked="checked" id="__tabbed_16_1" name="__tabbed_16" type="radio"/><input id="__tabbed_16_2" name="__tabbed_16" type="radio"/><div class="tabbed-labels"><label for="__tabbed_16_1">Enunciado</label><label for="__tabbed_16_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Crear el fichero <code>capítulos/capitulo4.txt</code> y añadir el texto siguiente:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a>En este capítulo veremos cómo usar GitHub para alojar repositorios en remoto.
+</span></code></pre></div>
+<p>Añadir los cambios a la zona de intercambio temporal. Hacer un <em>commit</em> con el mensaje "Añadido capítulo 4." Mostrar la historia del repositorio incluyendo todas las ramas.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>capítulos/capitulo4.txt<span class="w"> </span><span class="s">&lt;&lt; 'EOF'</span>
+</span><span id="__span-22-2"><a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="s">En este capítulo veremos cómo usar GitHub para alojar repositorios en remoto.</span>
+</span><span id="__span-22-3"><a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="s">EOF</span>
+</span><span id="__span-22-4"><a href="#__codelineno-22-4" id="__codelineno-22-4" name="__codelineno-22-4"></a>
+</span><span id="__span-22-5"><a href="#__codelineno-22-5" id="__codelineno-22-5" name="__codelineno-22-5"></a>git<span class="w"> </span>add<span class="w"> </span>.
+</span><span id="__span-22-6"><a href="#__codelineno-22-6" id="__codelineno-22-6" name="__codelineno-22-6"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Añadido capítulo 4."</span>
+</span><span id="__span-22-7"><a href="#__codelineno-22-7" id="__codelineno-22-7" name="__codelineno-22-7"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>--graph<span class="w"> </span>--all
+</span></code></pre></div>
+<p>El parámetro <code>--all</code> hace que <code>git log</code> muestre también los <em>commits</em> de la rama <code>bibliografía</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">17. Trabajar en la rama bibliografía</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="17:2"><input checked="checked" id="__tabbed_17_1" name="__tabbed_17" type="radio"/><input id="__tabbed_17_2" name="__tabbed_17" type="radio"/><div class="tabbed-labels"><label for="__tabbed_17_1">Enunciado</label><label for="__tabbed_17_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Cambiar a la rama <code>bibliografía</code>. Crear el fichero <code>bibliografia.txt</code> y añadir la siguiente referencia:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a>Chacon, S. and Straub, B. Pro Git. Apress.
+</span></code></pre></div>
+<p>Añadir los cambios a la zona de intercambio temporal. Hacer un <em>commit</em> con el mensaje "Añadida primera referencia bibliográfica." Mostrar la historia del repositorio incluyendo todas las ramas.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a>git<span class="w"> </span>switch<span class="w"> </span>bibliografía
+</span><span id="__span-24-2"><a href="#__codelineno-24-2" id="__codelineno-24-2" name="__codelineno-24-2"></a>
+</span><span id="__span-24-3"><a href="#__codelineno-24-3" id="__codelineno-24-3" name="__codelineno-24-3"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>bibliografia.txt<span class="w"> </span><span class="s">&lt;&lt; 'EOF'</span>
+</span><span id="__span-24-4"><a href="#__codelineno-24-4" id="__codelineno-24-4" name="__codelineno-24-4"></a><span class="s">Chacon, S. and Straub, B. Pro Git. Apress.</span>
+</span><span id="__span-24-5"><a href="#__codelineno-24-5" id="__codelineno-24-5" name="__codelineno-24-5"></a><span class="s">EOF</span>
+</span><span id="__span-24-6"><a href="#__codelineno-24-6" id="__codelineno-24-6" name="__codelineno-24-6"></a>
+</span><span id="__span-24-7"><a href="#__codelineno-24-7" id="__codelineno-24-7" name="__codelineno-24-7"></a>git<span class="w"> </span>add<span class="w"> </span>.
+</span><span id="__span-24-8"><a href="#__codelineno-24-8" id="__codelineno-24-8" name="__codelineno-24-8"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Añadida primera referencia bibliográfica."</span>
+</span><span id="__span-24-9"><a href="#__codelineno-24-9" id="__codelineno-24-9" name="__codelineno-24-9"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>--graph<span class="w"> </span>--all
+</span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">18. Fusionar y eliminar la rama</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="18:2"><input checked="checked" id="__tabbed_18_1" name="__tabbed_18" type="radio"/><input id="__tabbed_18_2" name="__tabbed_18" type="radio"/><div class="tabbed-labels"><label for="__tabbed_18_1">Enunciado</label><label for="__tabbed_18_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Fusionar la rama <code>bibliografía</code> con la rama <code>main</code>. Mostrar la historia del repositorio incluyendo todas las ramas. Eliminar la rama <code>bibliografía</code>. Mostrar de nuevo la historia del repositorio incluyendo todas las ramas.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-25-1"><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a>git<span class="w"> </span>switch<span class="w"> </span>main
+</span><span id="__span-25-2"><a href="#__codelineno-25-2" id="__codelineno-25-2" name="__codelineno-25-2"></a>git<span class="w"> </span>merge<span class="w"> </span>bibliografía
+</span><span id="__span-25-3"><a href="#__codelineno-25-3" id="__codelineno-25-3" name="__codelineno-25-3"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>--graph<span class="w"> </span>--all
+</span><span id="__span-25-4"><a href="#__codelineno-25-4" id="__codelineno-25-4" name="__codelineno-25-4"></a>
+</span><span id="__span-25-5"><a href="#__codelineno-25-5" id="__codelineno-25-5" name="__codelineno-25-5"></a>git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>bibliografía
+</span><span id="__span-25-6"><a href="#__codelineno-25-6" id="__codelineno-25-6" name="__codelineno-25-6"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>--graph<span class="w"> </span>--all
+</span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">19. Resolver un conflicto de fusión</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="19:2"><input checked="checked" id="__tabbed_19_1" name="__tabbed_19" type="radio"/><input id="__tabbed_19_2" name="__tabbed_19" type="radio"/><div class="tabbed-labels"><label for="__tabbed_19_1">Enunciado</label><label for="__tabbed_19_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Crear la rama <code>bibliografía</code> y cambiar a ella. Cambiar el fichero <code>bibliografia.txt</code> para que contenga las siguientes referencias:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a href="#__codelineno-26-1" id="__codelineno-26-1" name="__codelineno-26-1"></a>Scott Chacon and Ben Straub. Pro Git. Apress.
+</span><span id="__span-26-2"><a href="#__codelineno-26-2" id="__codelineno-26-2" name="__codelineno-26-2"></a>Ryan Hodson. Ry's Git Tutorial. Smashwords (2014)
+</span></code></pre></div>
+<p>Añadir los cambios a la zona de intercambio temporal y hacer un <em>commit</em> con el mensaje "Añadida nueva referencia bibliográfica."</p>
+<p>Cambiar a la rama <code>main</code>. Cambiar el fichero <code>bibliografia.txt</code> para que contenga las siguientes referencias:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a href="#__codelineno-27-1" id="__codelineno-27-1" name="__codelineno-27-1"></a>Chacon, S. and Straub, B. Pro Git. Apress.
+</span><span id="__span-27-2"><a href="#__codelineno-27-2" id="__codelineno-27-2" name="__codelineno-27-2"></a>Loeliger, J. and McCullough, M. Version control with Git. O'Reilly.
+</span></code></pre></div>
+<p>Añadir los cambios a la zona de intercambio temporal y hacer un <em>commit</em> con el mensaje "Añadida nueva referencia bibliográfica."</p>
+<p>Fusionar la rama <code>bibliografia</code> con la rama <code>main</code>. Resolver el conflicto dejando el fichero <code>bibliografia.txt</code> con las referencias:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a href="#__codelineno-28-1" id="__codelineno-28-1" name="__codelineno-28-1"></a>Chacon, S. and Straub, B. Pro Git. Apress.
+</span><span id="__span-28-2"><a href="#__codelineno-28-2" id="__codelineno-28-2" name="__codelineno-28-2"></a>Loeliger, J. and McCullough, M. Version control with Git. O'Reilly.
+</span><span id="__span-28-3"><a href="#__codelineno-28-3" id="__codelineno-28-3" name="__codelineno-28-3"></a>Hodson, R. Ry's Git Tutorial. Smashwords (2014)
+</span></code></pre></div>
+<p>Añadir los cambios a la zona de intercambio temporal y hacer un <em>commit</em> con el mensaje "Resuelto conflicto de bibliografía." Mostrar la historia del repositorio incluyendo todas las ramas.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-29-1"><a href="#__codelineno-29-1" id="__codelineno-29-1" name="__codelineno-29-1"></a>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>bibliografía
+</span><span id="__span-29-2"><a href="#__codelineno-29-2" id="__codelineno-29-2" name="__codelineno-29-2"></a>
+</span><span id="__span-29-3"><a href="#__codelineno-29-3" id="__codelineno-29-3" name="__codelineno-29-3"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>bibliografia.txt<span class="w"> </span><span class="s">&lt;&lt; 'EOF'</span>
+</span><span id="__span-29-4"><a href="#__codelineno-29-4" id="__codelineno-29-4" name="__codelineno-29-4"></a><span class="s">Scott Chacon and Ben Straub. Pro Git. Apress.</span>
+</span><span id="__span-29-5"><a href="#__codelineno-29-5" id="__codelineno-29-5" name="__codelineno-29-5"></a><span class="s">Ryan Hodson. Ry's Git Tutorial. Smashwords (2014)</span>
+</span><span id="__span-29-6"><a href="#__codelineno-29-6" id="__codelineno-29-6" name="__codelineno-29-6"></a><span class="s">EOF</span>
+</span><span id="__span-29-7"><a href="#__codelineno-29-7" id="__codelineno-29-7" name="__codelineno-29-7"></a>
+</span><span id="__span-29-8"><a href="#__codelineno-29-8" id="__codelineno-29-8" name="__codelineno-29-8"></a>git<span class="w"> </span>add<span class="w"> </span>.
+</span><span id="__span-29-9"><a href="#__codelineno-29-9" id="__codelineno-29-9" name="__codelineno-29-9"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Añadida nueva referencia bibliográfica."</span>
+</span><span id="__span-29-10"><a href="#__codelineno-29-10" id="__codelineno-29-10" name="__codelineno-29-10"></a>
+</span><span id="__span-29-11"><a href="#__codelineno-29-11" id="__codelineno-29-11" name="__codelineno-29-11"></a>git<span class="w"> </span>switch<span class="w"> </span>main
+</span><span id="__span-29-12"><a href="#__codelineno-29-12" id="__codelineno-29-12" name="__codelineno-29-12"></a>
+</span><span id="__span-29-13"><a href="#__codelineno-29-13" id="__codelineno-29-13" name="__codelineno-29-13"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>bibliografia.txt<span class="w"> </span><span class="s">&lt;&lt; 'EOF'</span>
+</span><span id="__span-29-14"><a href="#__codelineno-29-14" id="__codelineno-29-14" name="__codelineno-29-14"></a><span class="s">Chacon, S. and Straub, B. Pro Git. Apress.</span>
+</span><span id="__span-29-15"><a href="#__codelineno-29-15" id="__codelineno-29-15" name="__codelineno-29-15"></a><span class="s">Loeliger, J. and McCullough, M. Version control with Git. O'Reilly.</span>
+</span><span id="__span-29-16"><a href="#__codelineno-29-16" id="__codelineno-29-16" name="__codelineno-29-16"></a><span class="s">EOF</span>
+</span><span id="__span-29-17"><a href="#__codelineno-29-17" id="__codelineno-29-17" name="__codelineno-29-17"></a>
+</span><span id="__span-29-18"><a href="#__codelineno-29-18" id="__codelineno-29-18" name="__codelineno-29-18"></a>git<span class="w"> </span>add<span class="w"> </span>.
+</span><span id="__span-29-19"><a href="#__codelineno-29-19" id="__codelineno-29-19" name="__codelineno-29-19"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Añadida nueva referencia bibliográfica."</span>
+</span><span id="__span-29-20"><a href="#__codelineno-29-20" id="__codelineno-29-20" name="__codelineno-29-20"></a>
+</span><span id="__span-29-21"><a href="#__codelineno-29-21" id="__codelineno-29-21" name="__codelineno-29-21"></a>git<span class="w"> </span>merge<span class="w"> </span>bibliografía
+</span></code></pre></div>
+<p>Al fusionar, Git detecta que ambos <em>commits</em> han modificado las mismas líneas y marca el fichero en estado de <strong>conflicto</strong>. Se abre el fichero <code>bibliografia.txt</code>, se edita dejando las tres referencias:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a href="#__codelineno-30-1" id="__codelineno-30-1" name="__codelineno-30-1"></a>Chacon, S. and Straub, B. Pro Git. Apress.
+</span><span id="__span-30-2"><a href="#__codelineno-30-2" id="__codelineno-30-2" name="__codelineno-30-2"></a>Loeliger, J. and McCullough, M. Version control with Git. O'Reilly.
+</span><span id="__span-30-3"><a href="#__codelineno-30-3" id="__codelineno-30-3" name="__codelineno-30-3"></a>Hodson, R. Ry's Git Tutorial. Smashwords (2014)
+</span></code></pre></div>
+<p>Y se completa la fusión:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-31-1"><a href="#__codelineno-31-1" id="__codelineno-31-1" name="__codelineno-31-1"></a>git<span class="w"> </span>add<span class="w"> </span>bibliografia.txt
+</span><span id="__span-31-2"><a href="#__codelineno-31-2" id="__codelineno-31-2" name="__codelineno-31-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Resuelto conflicto de bibliografía."</span>
+</span><span id="__span-31-3"><a href="#__codelineno-31-3" id="__codelineno-31-3" name="__codelineno-31-3"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>--graph<span class="w"> </span>--all
+</span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">20. Crear un repositorio en GitHub</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="20:2"><input checked="checked" id="__tabbed_20_1" name="__tabbed_20" type="radio"/><input id="__tabbed_20_2" name="__tabbed_20" type="radio"/><div class="tabbed-labels"><label for="__tabbed_20_1">Enunciado</label><label for="__tabbed_20_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Crear un nuevo repositorio <strong>público</strong> en GitHub con el nombre <code>libro-git</code>. Añadirlo al repositorio local del libro. Mostrar todos los repositorios remotos configurados.</p>
+</div>
+<div class="tabbed-block">
+<p>Desde la página de GitHub, se pulsa <strong>"New repository"</strong> y se crea el repositorio público <code>libro-git</code> (sin añadir README, <code>.gitignore</code> ni licencia). Después, en local:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-32-1"><a href="#__codelineno-32-1" id="__codelineno-32-1" name="__codelineno-32-1"></a>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>https://github.com/tu-usuario/libro-git.git
+</span><span id="__span-32-2"><a href="#__codelineno-32-2" id="__codelineno-32-2" name="__codelineno-32-2"></a>git<span class="w"> </span>remote<span class="w"> </span>-v
+</span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">21. Subir los cambios a GitHub</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="21:2"><input checked="checked" id="__tabbed_21_1" name="__tabbed_21" type="radio"/><input id="__tabbed_21_2" name="__tabbed_21" type="radio"/><div class="tabbed-labels"><label for="__tabbed_21_1">Enunciado</label><label for="__tabbed_21_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Añadir los cambios del repositorio local al repositorio remoto de GitHub. Acceder a GitHub y comprobar que se han subido los cambios mostrando el historial de versiones.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-33-1"><a href="#__codelineno-33-1" id="__codelineno-33-1" name="__codelineno-33-1"></a>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main
+</span></code></pre></div>
+<p>Al acceder a la página del repositorio en GitHub se puede comprobar que todos los ficheros y el historial de <em>commits</em> se han subido correctamente.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">22. Colaborar en un repositorio remoto</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="22:2"><input checked="checked" id="__tabbed_22_1" name="__tabbed_22" type="radio"/><input id="__tabbed_22_2" name="__tabbed_22" type="radio"/><div class="tabbed-labels"><label for="__tabbed_22_1">Enunciado</label><label for="__tabbed_22_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Colaborar en el repositorio remoto <code>libro-git</code> de otro usuario. Clonar su repositorio <code>libro-git</code>. Añadir el fichero <code>autores.txt</code> que contenga el nombre del usuario y su correo electrónico. Añadir los cambios a la zona de intercambio temporal. Hacer un <em>commit</em> con el mensaje "Añadido autor." Subir los cambios al repositorio remoto.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-34-1"><a href="#__codelineno-34-1" id="__codelineno-34-1" name="__codelineno-34-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/otro-usuario/libro-git.git
+</span><span id="__span-34-2"><a href="#__codelineno-34-2" id="__codelineno-34-2" name="__codelineno-34-2"></a><span class="nb">cd</span><span class="w"> </span>libro-git
+</span><span id="__span-34-3"><a href="#__codelineno-34-3" id="__codelineno-34-3" name="__codelineno-34-3"></a>
+</span><span id="__span-34-4"><a href="#__codelineno-34-4" id="__codelineno-34-4" name="__codelineno-34-4"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Tu Nombre &lt;tu.correo@ejemplo.com&gt;"</span><span class="w"> </span>&gt;<span class="w"> </span>autores.txt
+</span><span id="__span-34-5"><a href="#__codelineno-34-5" id="__codelineno-34-5" name="__codelineno-34-5"></a>
+</span><span id="__span-34-6"><a href="#__codelineno-34-6" id="__codelineno-34-6" name="__codelineno-34-6"></a>git<span class="w"> </span>add<span class="w"> </span>autores.txt
+</span><span id="__span-34-7"><a href="#__codelineno-34-7" id="__codelineno-34-7" name="__codelineno-34-7"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Añadido autor."</span>
+</span><span id="__span-34-8"><a href="#__codelineno-34-8" id="__codelineno-34-8" name="__codelineno-34-8"></a>git<span class="w"> </span>push
+</span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">23. Fork y Pull Request</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="23:2"><input checked="checked" id="__tabbed_23_1" name="__tabbed_23" type="radio"/><input id="__tabbed_23_2" name="__tabbed_23" type="radio"/><div class="tabbed-labels"><label for="__tabbed_23_1">Enunciado</label><label for="__tabbed_23_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Hacer una bifurcación (<em>fork</em>) del repositorio remoto <code>asalber/libro-git</code> en GitHub. Clonar el repositorio creado en la cuenta de GitHub del usuario. Crear una nueva rama <code>autoría</code> y activarla. Añadir el nombre del usuario y su correo al fichero <code>autores.txt</code>. Añadir los cambios a la zona de intercambio temporal. Hacer un <em>commit</em> con el mensaje "Añadido nuevo autor." Subir los cambios de la rama <code>autoría</code> al repositorio remoto en GitHub. Hacer un <em>Pull Request</em> de los cambios en la rama <code>autoría</code>.</p>
+</div>
+<div class="tabbed-block">
+<p>Primero, en GitHub, se pulsa el botón <strong>"Fork"</strong> en el repositorio <code>asalber/libro-git</code>, lo que crea una copia en nuestra cuenta. Después, en local:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-35-1"><a href="#__codelineno-35-1" id="__codelineno-35-1" name="__codelineno-35-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/tu-usuario/libro-git.git
+</span><span id="__span-35-2"><a href="#__codelineno-35-2" id="__codelineno-35-2" name="__codelineno-35-2"></a><span class="nb">cd</span><span class="w"> </span>libro-git
+</span><span id="__span-35-3"><a href="#__codelineno-35-3" id="__codelineno-35-3" name="__codelineno-35-3"></a>
+</span><span id="__span-35-4"><a href="#__codelineno-35-4" id="__codelineno-35-4" name="__codelineno-35-4"></a>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>autoría
+</span><span id="__span-35-5"><a href="#__codelineno-35-5" id="__codelineno-35-5" name="__codelineno-35-5"></a>
+</span><span id="__span-35-6"><a href="#__codelineno-35-6" id="__codelineno-35-6" name="__codelineno-35-6"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Tu Nombre &lt;tu.correo@ejemplo.com&gt;"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>autores.txt
+</span><span id="__span-35-7"><a href="#__codelineno-35-7" id="__codelineno-35-7" name="__codelineno-35-7"></a>
+</span><span id="__span-35-8"><a href="#__codelineno-35-8" id="__codelineno-35-8" name="__codelineno-35-8"></a>git<span class="w"> </span>add<span class="w"> </span>autores.txt
+</span><span id="__span-35-9"><a href="#__codelineno-35-9" id="__codelineno-35-9" name="__codelineno-35-9"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Añadido nuevo autor."</span>
+</span><span id="__span-35-10"><a href="#__codelineno-35-10" id="__codelineno-35-10" name="__codelineno-35-10"></a>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>autoría
+</span></code></pre></div>
+<p>Por último, desde la página del repositorio en GitHub, se pulsa <strong>"Compare &amp; pull request"</strong> y se crea el <em>Pull Request</em> de la rama <code>autoría</code> para proponer los cambios al repositorio original.</p>
+</div>
+</div>
+</div>
+</div>
+<hr/>
+<div class="admonition question">
+<p class="admonition-title">24. Guardar cambios temporalmente con stash</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="24:2"><input checked="checked" id="__tabbed_24_1" name="__tabbed_24" type="radio"/><input id="__tabbed_24_2" name="__tabbed_24" type="radio"/><div class="tabbed-labels"><label for="__tabbed_24_1">Enunciado</label><label for="__tabbed_24_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Añadir la línea "Capítulo 6: Referencias" al final del fichero <code>indice.txt</code> <strong>sin</strong> confirmarla. Guardar temporalmente los cambios con <code>git stash</code> y comprobar que el directorio de trabajo queda limpio. Después, recuperar los cambios con <code>git stash pop</code> y comprobar de nuevo el estado del repositorio.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-36-1"><a href="#__codelineno-36-1" id="__codelineno-36-1" name="__codelineno-36-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Capítulo 6: Referencias"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>indice.txt
+</span><span id="__span-36-2"><a href="#__codelineno-36-2" id="__codelineno-36-2" name="__codelineno-36-2"></a>
+</span><span id="__span-36-3"><a href="#__codelineno-36-3" id="__codelineno-36-3" name="__codelineno-36-3"></a>git<span class="w"> </span>status
+</span><span id="__span-36-4"><a href="#__codelineno-36-4" id="__codelineno-36-4" name="__codelineno-36-4"></a>git<span class="w"> </span>stash
+</span><span id="__span-36-5"><a href="#__codelineno-36-5" id="__codelineno-36-5" name="__codelineno-36-5"></a>git<span class="w"> </span>status
+</span><span id="__span-36-6"><a href="#__codelineno-36-6" id="__codelineno-36-6" name="__codelineno-36-6"></a>
+</span><span id="__span-36-7"><a href="#__codelineno-36-7" id="__codelineno-36-7" name="__codelineno-36-7"></a>git<span class="w"> </span>stash<span class="w"> </span>pop
+</span><span id="__span-36-8"><a href="#__codelineno-36-8" id="__codelineno-36-8" name="__codelineno-36-8"></a>git<span class="w"> </span>status
+</span></code></pre></div>
+<p><code>git stash</code> guarda los cambios pendientes y deja el directorio de trabajo limpio, mientras que <code>git stash pop</code> los recupera.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">25. Revertir un commit</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="25:2"><input checked="checked" id="__tabbed_25_1" name="__tabbed_25" type="radio"/><input id="__tabbed_25_2" name="__tabbed_25" type="radio"/><div class="tabbed-labels"><label for="__tabbed_25_1">Enunciado</label><label for="__tabbed_25_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Añadir la línea "Capítulo 7: Conclusiones" al final del fichero <code>indice.txt</code> y hacer un <em>commit</em> con el mensaje "Añadido capítulo 7 al índice." A continuación, revierte ese <em>commit</em> con <code>git revert</code>, de forma que se cree un nuevo <em>commit</em> que deshaga los cambios, sin reescribir el historial. Comprueba el historial.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-37-1"><a href="#__codelineno-37-1" id="__codelineno-37-1" name="__codelineno-37-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Capítulo 7: Conclusiones"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>indice.txt
+</span><span id="__span-37-2"><a href="#__codelineno-37-2" id="__codelineno-37-2" name="__codelineno-37-2"></a>git<span class="w"> </span>add<span class="w"> </span>indice.txt
+</span><span id="__span-37-3"><a href="#__codelineno-37-3" id="__codelineno-37-3" name="__codelineno-37-3"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Añadido capítulo 7 al índice."</span>
+</span><span id="__span-37-4"><a href="#__codelineno-37-4" id="__codelineno-37-4" name="__codelineno-37-4"></a>
+</span><span id="__span-37-5"><a href="#__codelineno-37-5" id="__codelineno-37-5" name="__codelineno-37-5"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline
+</span><span id="__span-37-6"><a href="#__codelineno-37-6" id="__codelineno-37-6" name="__codelineno-37-6"></a>git<span class="w"> </span>revert<span class="w"> </span>--no-edit<span class="w"> </span>HEAD
+</span><span id="__span-37-7"><a href="#__codelineno-37-7" id="__codelineno-37-7" name="__codelineno-37-7"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline
+</span></code></pre></div>
+<p>A diferencia de <code>git reset</code>, <code>git revert</code> no borra el <em>commit</em> original, sino que crea uno nuevo que deshace sus efectos, por lo que el historial se conserva intacto.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">26. Mostrar los cambios preparados</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="26:2"><input checked="checked" id="__tabbed_26_1" name="__tabbed_26" type="radio"/><input id="__tabbed_26_2" name="__tabbed_26" type="radio"/><div class="tabbed-labels"><label for="__tabbed_26_1">Enunciado</label><label for="__tabbed_26_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Añadir la línea "Capítulo 8: Herramientas" al final del fichero <code>indice.txt</code>. Muestra las diferencias del directorio de trabajo con <code>git diff</code>. A continuación, añade el cambio a la zona de intercambio temporal y muestra las diferencias que están preparadas con <code>git diff --staged</code>.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-38-1"><a href="#__codelineno-38-1" id="__codelineno-38-1" name="__codelineno-38-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Capítulo 8: Herramientas"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>indice.txt
+</span><span id="__span-38-2"><a href="#__codelineno-38-2" id="__codelineno-38-2" name="__codelineno-38-2"></a>
+</span><span id="__span-38-3"><a href="#__codelineno-38-3" id="__codelineno-38-3" name="__codelineno-38-3"></a>git<span class="w"> </span>diff
+</span><span id="__span-38-4"><a href="#__codelineno-38-4" id="__codelineno-38-4" name="__codelineno-38-4"></a>git<span class="w"> </span>add<span class="w"> </span>indice.txt
+</span><span id="__span-38-5"><a href="#__codelineno-38-5" id="__codelineno-38-5" name="__codelineno-38-5"></a>git<span class="w"> </span>diff<span class="w"> </span>--staged
+</span></code></pre></div>
+<p><code>git diff</code> muestra los cambios no preparados, mientras que <code>git diff --staged</code> muestra únicamente los que ya están en la zona de intercambio temporal.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">27. Obtener cambios del repositorio remoto</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="27:2"><input checked="checked" id="__tabbed_27_1" name="__tabbed_27" type="radio"/><input id="__tabbed_27_2" name="__tabbed_27" type="radio"/><div class="tabbed-labels"><label for="__tabbed_27_1">Enunciado</label><label for="__tabbed_27_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Desde otro equipo (o directamente desde GitHub), añade un <em>commit</em> al repositorio remoto <code>libro-git</code>. Después, en tu repositorio local, descarga los cambios con <code>git fetch</code>, comprueba el estado y finalmente intégralos con <code>git pull</code>.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-39-1"><a href="#__codelineno-39-1" id="__codelineno-39-1" name="__codelineno-39-1"></a>git<span class="w"> </span>fetch<span class="w"> </span>origin
+</span><span id="__span-39-2"><a href="#__codelineno-39-2" id="__codelineno-39-2" name="__codelineno-39-2"></a>git<span class="w"> </span>status
+</span><span id="__span-39-3"><a href="#__codelineno-39-3" id="__codelineno-39-3" name="__codelineno-39-3"></a>
+</span><span id="__span-39-4"><a href="#__codelineno-39-4" id="__codelineno-39-4" name="__codelineno-39-4"></a>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+</span><span id="__span-39-5"><a href="#__codelineno-39-5" id="__codelineno-39-5" name="__codelineno-39-5"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline
+</span></code></pre></div>
+<p><code>git fetch</code> descarga los cambios remotos sin fusionarlos, mientras que <code>git pull</code> los descarga y los integra en la rama local.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">28. Crear etiquetas</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="28:2"><input checked="checked" id="__tabbed_28_1" name="__tabbed_28" type="radio"/><input id="__tabbed_28_2" name="__tabbed_28" type="radio"/><div class="tabbed-labels"><label for="__tabbed_28_1">Enunciado</label><label for="__tabbed_28_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Crear una etiqueta <code>v1.0</code> que marque la versión actual del proyecto. Listar las etiquetas del repositorio y mostrar el historial incluyendo las etiquetas.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-40-1"><a href="#__codelineno-40-1" id="__codelineno-40-1" name="__codelineno-40-1"></a>git<span class="w"> </span>tag<span class="w"> </span>v1.0
+</span><span id="__span-40-2"><a href="#__codelineno-40-2" id="__codelineno-40-2" name="__codelineno-40-2"></a>git<span class="w"> </span>tag
+</span><span id="__span-40-3"><a href="#__codelineno-40-3" id="__codelineno-40-3" name="__codelineno-40-3"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>--decorate
+</span></code></pre></div>
+<p>Las <strong>etiquetas</strong> (<em>tags</em>) sirven para marcar revisiones importantes (por ejemplo, una versión publicada) de forma que se puedan localizar y recuperar fácilmente.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">29. Crear un archivo .gitignore</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="29:2"><input checked="checked" id="__tabbed_29_1" name="__tabbed_29" type="radio"/><input id="__tabbed_29_2" name="__tabbed_29" type="radio"/><div class="tabbed-labels"><label for="__tabbed_29_1">Enunciado</label><label for="__tabbed_29_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Crear un fichero <code>.gitignore</code> que haga que Git ignore los archivos con extensión <code>.log</code> y la carpeta <code>build/</code>. Crear un fichero <code>debug.log</code> y comprobar con <code>git status</code> que Git lo ignora. Hacer un <em>commit</em> del <code>.gitignore</code>.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-41-1"><a href="#__codelineno-41-1" id="__codelineno-41-1" name="__codelineno-41-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>.gitignore<span class="w"> </span><span class="s">&lt;&lt; 'EOF'</span>
+</span><span id="__span-41-2"><a href="#__codelineno-41-2" id="__codelineno-41-2" name="__codelineno-41-2"></a><span class="s">*.log</span>
+</span><span id="__span-41-3"><a href="#__codelineno-41-3" id="__codelineno-41-3" name="__codelineno-41-3"></a><span class="s">build/</span>
+</span><span id="__span-41-4"><a href="#__codelineno-41-4" id="__codelineno-41-4" name="__codelineno-41-4"></a><span class="s">EOF</span>
+</span><span id="__span-41-5"><a href="#__codelineno-41-5" id="__codelineno-41-5" name="__codelineno-41-5"></a>
+</span><span id="__span-41-6"><a href="#__codelineno-41-6" id="__codelineno-41-6" name="__codelineno-41-6"></a>touch<span class="w"> </span>debug.log
+</span><span id="__span-41-7"><a href="#__codelineno-41-7" id="__codelineno-41-7" name="__codelineno-41-7"></a>
+</span><span id="__span-41-8"><a href="#__codelineno-41-8" id="__codelineno-41-8" name="__codelineno-41-8"></a>git<span class="w"> </span>status
+</span><span id="__span-41-9"><a href="#__codelineno-41-9" id="__codelineno-41-9" name="__codelineno-41-9"></a>git<span class="w"> </span>add<span class="w"> </span>.gitignore
+</span><span id="__span-41-10"><a href="#__codelineno-41-10" id="__codelineno-41-10" name="__codelineno-41-10"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Añadido .gitignore"</span>
+</span></code></pre></div>
+<p>Al ejecutar <code>git status</code>, el fichero <code>debug.log</code> no aparece, porque Git lo está ignorando.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">30. Renombrar y eliminar archivos</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="30:2"><input checked="checked" id="__tabbed_30_1" name="__tabbed_30" type="radio"/><input id="__tabbed_30_2" name="__tabbed_30" type="radio"/><div class="tabbed-labels"><label for="__tabbed_30_1">Enunciado</label><label for="__tabbed_30_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Renombrar el fichero <code>capítulos/capitulo1.txt</code> a <code>capítulos/capitulo01.txt</code> y eliminar el fichero <code>capítulos/capitulo2.txt</code>. Comprobar el estado y hacer un <em>commit</em>.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-42-1"><a href="#__codelineno-42-1" id="__codelineno-42-1" name="__codelineno-42-1"></a>git<span class="w"> </span>mv<span class="w"> </span>capítulos/capitulo1.txt<span class="w"> </span>capítulos/capitulo01.txt
+</span><span id="__span-42-2"><a href="#__codelineno-42-2" id="__codelineno-42-2" name="__codelineno-42-2"></a>git<span class="w"> </span>rm<span class="w"> </span>capítulos/capitulo2.txt
+</span><span id="__span-42-3"><a href="#__codelineno-42-3" id="__codelineno-42-3" name="__codelineno-42-3"></a>
+</span><span id="__span-42-4"><a href="#__codelineno-42-4" id="__codelineno-42-4" name="__codelineno-42-4"></a>git<span class="w"> </span>status
+</span><span id="__span-42-5"><a href="#__codelineno-42-5" id="__codelineno-42-5" name="__codelineno-42-5"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Renombrado capítulo 1 y eliminado capítulo 2"</span>
+</span></code></pre></div>
+<p><code>git mv</code> y <code>git rm</code> preparan automáticamente los cambios, de modo que no hace falta ejecutar <code>git add</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">31. Filtrar el historial</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="31:2"><input checked="checked" id="__tabbed_31_1" name="__tabbed_31" type="radio"/><input id="__tabbed_31_2" name="__tabbed_31" type="radio"/><div class="tabbed-labels"><label for="__tabbed_31_1">Enunciado</label><label for="__tabbed_31_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Mostrar el historial aplicando distintos filtros: los <em>commits</em> realizados en el último día, los realizados por un autor concreto, los tres últimos <em>commits</em> y un resumen estadístico de los dos últimos.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-43-1"><a href="#__codelineno-43-1" id="__codelineno-43-1" name="__codelineno-43-1"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>--since<span class="o">=</span><span class="s2">"1 day ago"</span>
+</span><span id="__span-43-2"><a href="#__codelineno-43-2" id="__codelineno-43-2" name="__codelineno-43-2"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>--author<span class="o">=</span><span class="s2">"Tu Nombre"</span>
+</span><span id="__span-43-3"><a href="#__codelineno-43-3" id="__codelineno-43-3" name="__codelineno-43-3"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>-3
+</span><span id="__span-43-4"><a href="#__codelineno-43-4" id="__codelineno-43-4" name="__codelineno-43-4"></a>git<span class="w"> </span>log<span class="w"> </span>--stat<span class="w"> </span>-2
+</span></code></pre></div>
+<p>Las opciones <code>--since</code>, <code>--author</code> y <code>-n</code> permiten filtrar el historial, y <code>--stat</code> añade un resumen de los archivos modificados en cada <em>commit</em>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">32. Navegar a una versión anterior</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="32:2"><input checked="checked" id="__tabbed_32_1" name="__tabbed_32" type="radio"/><input id="__tabbed_32_2" name="__tabbed_32" type="radio"/><div class="tabbed-labels"><label for="__tabbed_32_1">Enunciado</label><label for="__tabbed_32_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Localiza un <em>commit</em> anterior del repositorio y sitúate en él con <code>git checkout</code>. Comprueba que te encuentras en estado <em>detached HEAD</em> y observa cómo los ficheros vuelven a su estado de entonces. Por último, vuelve a la rama <code>main</code>.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-44-1"><a href="#__codelineno-44-1" id="__codelineno-44-1" name="__codelineno-44-1"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline
+</span><span id="__span-44-2"><a href="#__codelineno-44-2" id="__codelineno-44-2" name="__codelineno-44-2"></a>git<span class="w"> </span>checkout<span class="w"> </span>&lt;hash-del-commit-anterior&gt;
+</span><span id="__span-44-3"><a href="#__codelineno-44-3" id="__codelineno-44-3" name="__codelineno-44-3"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline
+</span><span id="__span-44-4"><a href="#__codelineno-44-4" id="__codelineno-44-4" name="__codelineno-44-4"></a>git<span class="w"> </span>switch<span class="w"> </span>main
+</span></code></pre></div>
+<p>Al hacer <code>git checkout</code> sobre un <em>commit</em> (y no sobre una rama), Git entra en estado <em>detached HEAD</em>. Para volver a la rama, se usa <code>git switch main</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">33. Recuperar commits con reflog</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="33:2"><input checked="checked" id="__tabbed_33_1" name="__tabbed_33" type="radio"/><input id="__tabbed_33_2" name="__tabbed_33" type="radio"/><div class="tabbed-labels"><label for="__tabbed_33_1">Enunciado</label><label for="__tabbed_33_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Añade la línea "Capítulo 9: Apéndices" al final de <code>indice.txt</code> y haz un <em>commit</em> con el mensaje "Añadido capítulo 9 al índice." Después, deshaz ese <em>commit</em> con <code>git reset --hard HEAD~1</code> y comprueba que ya no aparece en el historial. Finalmente, recupéralo usando <code>git reflog</code>.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-45-1"><a href="#__codelineno-45-1" id="__codelineno-45-1" name="__codelineno-45-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Capítulo 9: Apéndices"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>indice.txt
+</span><span id="__span-45-2"><a href="#__codelineno-45-2" id="__codelineno-45-2" name="__codelineno-45-2"></a>git<span class="w"> </span>add<span class="w"> </span>indice.txt
+</span><span id="__span-45-3"><a href="#__codelineno-45-3" id="__codelineno-45-3" name="__codelineno-45-3"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Añadido capítulo 9 al índice."</span>
+</span><span id="__span-45-4"><a href="#__codelineno-45-4" id="__codelineno-45-4" name="__codelineno-45-4"></a>
+</span><span id="__span-45-5"><a href="#__codelineno-45-5" id="__codelineno-45-5" name="__codelineno-45-5"></a>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>HEAD~1
+</span><span id="__span-45-6"><a href="#__codelineno-45-6" id="__codelineno-45-6" name="__codelineno-45-6"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline
+</span><span id="__span-45-7"><a href="#__codelineno-45-7" id="__codelineno-45-7" name="__codelineno-45-7"></a>
+</span><span id="__span-45-8"><a href="#__codelineno-45-8" id="__codelineno-45-8" name="__codelineno-45-8"></a>git<span class="w"> </span>reflog
+</span><span id="__span-45-9"><a href="#__codelineno-45-9" id="__codelineno-45-9" name="__codelineno-45-9"></a>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>&lt;hash-del-commit-perdido&gt;
+</span><span id="__span-45-10"><a href="#__codelineno-45-10" id="__codelineno-45-10" name="__codelineno-45-10"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline
+</span></code></pre></div>
+<p><code>git reflog</code> registra todos los movimientos de <code>HEAD</code>, por lo que permite recuperar <em>commits</em> que ya no son accesibles desde ninguna rama.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">34. Abortar una fusión</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="34:2"><input checked="checked" id="__tabbed_34_1" name="__tabbed_34" type="radio"/><input id="__tabbed_34_2" name="__tabbed_34" type="radio"/><div class="tabbed-labels"><label for="__tabbed_34_1">Enunciado</label><label for="__tabbed_34_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Crea una rama <code>conflicto</code>, modifica <code>indice.txt</code> y haz un <em>commit</em>. Vuelve a <code>main</code>, modifica la misma línea y haz otro <em>commit</em>. Fusiona la rama <code>conflicto</code> y, en lugar de resolver el conflicto, aborta la fusión con <code>git merge --abort</code>. Comprueba el estado del repositorio.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-46-1"><a href="#__codelineno-46-1" id="__codelineno-46-1" name="__codelineno-46-1"></a>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>conflicto
+</span><span id="__span-46-2"><a href="#__codelineno-46-2" id="__codelineno-46-2" name="__codelineno-46-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Línea desde la rama conflicto"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>indice.txt
+</span><span id="__span-46-3"><a href="#__codelineno-46-3" id="__codelineno-46-3" name="__codelineno-46-3"></a>git<span class="w"> </span>add<span class="w"> </span>indice.txt
+</span><span id="__span-46-4"><a href="#__codelineno-46-4" id="__codelineno-46-4" name="__codelineno-46-4"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Cambio en la rama conflicto"</span>
+</span><span id="__span-46-5"><a href="#__codelineno-46-5" id="__codelineno-46-5" name="__codelineno-46-5"></a>
+</span><span id="__span-46-6"><a href="#__codelineno-46-6" id="__codelineno-46-6" name="__codelineno-46-6"></a>git<span class="w"> </span>switch<span class="w"> </span>main
+</span><span id="__span-46-7"><a href="#__codelineno-46-7" id="__codelineno-46-7" name="__codelineno-46-7"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Línea desde main"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>indice.txt
+</span><span id="__span-46-8"><a href="#__codelineno-46-8" id="__codelineno-46-8" name="__codelineno-46-8"></a>git<span class="w"> </span>add<span class="w"> </span>indice.txt
+</span><span id="__span-46-9"><a href="#__codelineno-46-9" id="__codelineno-46-9" name="__codelineno-46-9"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Cambio en main"</span>
+</span><span id="__span-46-10"><a href="#__codelineno-46-10" id="__codelineno-46-10" name="__codelineno-46-10"></a>
+</span><span id="__span-46-11"><a href="#__codelineno-46-11" id="__codelineno-46-11" name="__codelineno-46-11"></a>git<span class="w"> </span>merge<span class="w"> </span>conflicto
+</span><span id="__span-46-12"><a href="#__codelineno-46-12" id="__codelineno-46-12" name="__codelineno-46-12"></a>git<span class="w"> </span>merge<span class="w"> </span>--abort
+</span><span id="__span-46-13"><a href="#__codelineno-46-13" id="__codelineno-46-13" name="__codelineno-46-13"></a>
+</span><span id="__span-46-14"><a href="#__codelineno-46-14" id="__codelineno-46-14" name="__codelineno-46-14"></a>git<span class="w"> </span>status
+</span></code></pre></div>
+<p><code>git merge --abort</code> cancela la fusión y devuelve el repositorio al estado anterior a iniciarla, sin aplicar ningún cambio.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">35. Aplicar un commit con cherry-pick</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="35:2"><input checked="checked" id="__tabbed_35_1" name="__tabbed_35" type="radio"/><input id="__tabbed_35_2" name="__tabbed_35" type="radio"/><div class="tabbed-labels"><label for="__tabbed_35_1">Enunciado</label><label for="__tabbed_35_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Crea una rama <code>mejora</code>, añade una línea a <code>indice.txt</code> y haz un <em>commit</em>. Vuelve a <code>main</code> y aplica ese mismo <em>commit</em> sobre <code>main</code> usando <code>git cherry-pick</code>. Comprueba el historial.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-47-1"><a href="#__codelineno-47-1" id="__codelineno-47-1" name="__codelineno-47-1"></a>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>mejora
+</span><span id="__span-47-2"><a href="#__codelineno-47-2" id="__codelineno-47-2" name="__codelineno-47-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Nueva sección del índice"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>indice.txt
+</span><span id="__span-47-3"><a href="#__codelineno-47-3" id="__codelineno-47-3" name="__codelineno-47-3"></a>git<span class="w"> </span>add<span class="w"> </span>indice.txt
+</span><span id="__span-47-4"><a href="#__codelineno-47-4" id="__codelineno-47-4" name="__codelineno-47-4"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Mejora del índice"</span>
+</span><span id="__span-47-5"><a href="#__codelineno-47-5" id="__codelineno-47-5" name="__codelineno-47-5"></a>
+</span><span id="__span-47-6"><a href="#__codelineno-47-6" id="__codelineno-47-6" name="__codelineno-47-6"></a>git<span class="w"> </span>switch<span class="w"> </span>main
+</span><span id="__span-47-7"><a href="#__codelineno-47-7" id="__codelineno-47-7" name="__codelineno-47-7"></a>git<span class="w"> </span>cherry-pick<span class="w"> </span>&lt;hash-del-commit&gt;
+</span><span id="__span-47-8"><a href="#__codelineno-47-8" id="__codelineno-47-8" name="__codelineno-47-8"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline
+</span></code></pre></div>
+<p><code>git cherry-pick</code> permite aplicar un <em>commit</em> concreto de otra rama sin necesidad de fusionar la rama completa.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">36. Gestionar varios stash</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="36:2"><input checked="checked" id="__tabbed_36_1" name="__tabbed_36" type="radio"/><input id="__tabbed_36_2" name="__tabbed_36" type="radio"/><div class="tabbed-labels"><label for="__tabbed_36_1">Enunciado</label><label for="__tabbed_36_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Realiza dos cambios sin confirmar y guárdalos con <code>git stash</code> (uno tras otro). Lista los <em>stash</em> guardados, recupera el último y elimina el que quede.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-48-1"><a href="#__codelineno-48-1" id="__codelineno-48-1" name="__codelineno-48-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Cambio A"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>indice.txt
+</span><span id="__span-48-2"><a href="#__codelineno-48-2" id="__codelineno-48-2" name="__codelineno-48-2"></a>git<span class="w"> </span>stash
+</span><span id="__span-48-3"><a href="#__codelineno-48-3" id="__codelineno-48-3" name="__codelineno-48-3"></a>
+</span><span id="__span-48-4"><a href="#__codelineno-48-4" id="__codelineno-48-4" name="__codelineno-48-4"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Cambio B"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>indice.txt
+</span><span id="__span-48-5"><a href="#__codelineno-48-5" id="__codelineno-48-5" name="__codelineno-48-5"></a>git<span class="w"> </span>stash
+</span><span id="__span-48-6"><a href="#__codelineno-48-6" id="__codelineno-48-6" name="__codelineno-48-6"></a>
+</span><span id="__span-48-7"><a href="#__codelineno-48-7" id="__codelineno-48-7" name="__codelineno-48-7"></a>git<span class="w"> </span>stash<span class="w"> </span>list
+</span><span id="__span-48-8"><a href="#__codelineno-48-8" id="__codelineno-48-8" name="__codelineno-48-8"></a>
+</span><span id="__span-48-9"><a href="#__codelineno-48-9" id="__codelineno-48-9" name="__codelineno-48-9"></a>git<span class="w"> </span>stash<span class="w"> </span>pop
+</span><span id="__span-48-10"><a href="#__codelineno-48-10" id="__codelineno-48-10" name="__codelineno-48-10"></a>git<span class="w"> </span>stash<span class="w"> </span>drop
+</span></code></pre></div>
+<p><code>git stash list</code> muestra los cambios guardados, <code>git stash pop</code> recupera el último y lo elimina de la lista, y <code>git stash drop</code> descarta un <em>stash</em> sin recuperarlo.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">37. Crear el README</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="37:2"><input checked="checked" id="__tabbed_37_1" name="__tabbed_37" type="radio"/><input id="__tabbed_37_2" name="__tabbed_37" type="radio"/><div class="tabbed-labels"><label for="__tabbed_37_1">Enunciado</label><label for="__tabbed_37_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Crear un fichero <code>README.md</code> que describa el proyecto <code>libro</code> y hacer un <em>commit</em> con el mensaje "Añadido README".</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-49-1"><a href="#__codelineno-49-1" id="__codelineno-49-1" name="__codelineno-49-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>README.md<span class="w"> </span><span class="s">&lt;&lt; 'EOF'</span>
+</span><span id="__span-49-2"><a href="#__codelineno-49-2" id="__codelineno-49-2" name="__codelineno-49-2"></a><span class="s"># Libro de Git</span>
+</span><span id="__span-49-3"><a href="#__codelineno-49-3" id="__codelineno-49-3" name="__codelineno-49-3"></a>
+</span><span id="__span-49-4"><a href="#__codelineno-49-4" id="__codelineno-49-4" name="__codelineno-49-4"></a><span class="s">Proyecto de ejemplo para practicar con Git y GitHub.</span>
+</span><span id="__span-49-5"><a href="#__codelineno-49-5" id="__codelineno-49-5" name="__codelineno-49-5"></a><span class="s">EOF</span>
+</span><span id="__span-49-6"><a href="#__codelineno-49-6" id="__codelineno-49-6" name="__codelineno-49-6"></a>
+</span><span id="__span-49-7"><a href="#__codelineno-49-7" id="__codelineno-49-7" name="__codelineno-49-7"></a>git<span class="w"> </span>add<span class="w"> </span>README.md
+</span><span id="__span-49-8"><a href="#__codelineno-49-8" id="__codelineno-49-8" name="__codelineno-49-8"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Añadido README"</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">38. Subir etiquetas al remoto</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="38:2"><input checked="checked" id="__tabbed_38_1" name="__tabbed_38" type="radio"/><input id="__tabbed_38_2" name="__tabbed_38" type="radio"/><div class="tabbed-labels"><label for="__tabbed_38_1">Enunciado</label><label for="__tabbed_38_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Subir las etiquetas del repositorio local al repositorio remoto de GitHub y comprobar que aparecen en la página del repositorio.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-50-1"><a href="#__codelineno-50-1" id="__codelineno-50-1" name="__codelineno-50-1"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>--tags
+</span></code></pre></div>
+<p>Las etiquetas no se suben con un <code>git push</code> normal; hay que indicarlo expresamente con <code>--tags</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">39. Renombrar una rama</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="39:2"><input checked="checked" id="__tabbed_39_1" name="__tabbed_39" type="radio"/><input id="__tabbed_39_2" name="__tabbed_39" type="radio"/><div class="tabbed-labels"><label for="__tabbed_39_1">Enunciado</label><label for="__tabbed_39_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Crear una rama llamada <code>temporal</code> y, a continuación, renombrarla a <code>nueva-rama</code> con <code>git branch -m</code>. Mostrar las ramas para comprobarlo.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-51-1"><a href="#__codelineno-51-1" id="__codelineno-51-1" name="__codelineno-51-1"></a>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>temporal
+</span><span id="__span-51-2"><a href="#__codelineno-51-2" id="__codelineno-51-2" name="__codelineno-51-2"></a>git<span class="w"> </span>branch<span class="w"> </span>-m<span class="w"> </span>temporal<span class="w"> </span>nueva-rama
+</span><span id="__span-51-3"><a href="#__codelineno-51-3" id="__codelineno-51-3" name="__codelineno-51-3"></a>git<span class="w"> </span>branch
+</span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">40. Crear y cerrar un issue en GitHub</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="40:2"><input checked="checked" id="__tabbed_40_1" name="__tabbed_40" type="radio"/><input id="__tabbed_40_2" name="__tabbed_40" type="radio"/><div class="tabbed-labels"><label for="__tabbed_40_1">Enunciado</label><label for="__tabbed_40_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>En el repositorio <code>libro-git</code> de GitHub, crear un <em>issue</em> titulado "Añadir un capítulo sobre rebase" y, a continuación, cerrarlo una vez anotado.</p>
+</div>
+<div class="tabbed-block">
+<p>Desde la página del repositorio en GitHub:</p>
+<ol>
+<li>Pulsar en la pestaña <strong>"Issues"</strong>.</li>
+<li>Pulsar el botón <strong>"New issue"</strong>.</li>
+<li>Escribir el título "Añadir un capítulo sobre rebase" y una descripción breve.</li>
+<li>Pulsar <strong>"Submit new issue"</strong> para crearlo.</li>
+<li>Para cerrarlo, pulsar el botón <strong>"Close issue"</strong> (o, en la parte inferior, <strong>"Close with comment"</strong> tras escribir un comentario).</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Manuel Sánchez Gomis
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["search.suggest", "search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "content.code.copy", "content.tabs.link", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../../assets/_markdown_exec_pyodide.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../_static/js/notebook.js"></script>
+      
+    
+  </body>
+</html>

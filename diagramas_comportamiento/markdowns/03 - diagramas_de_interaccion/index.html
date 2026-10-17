@@ -1,0 +1,1114 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Manuel Sánchez Gomis">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
+    
+    
+      
+        <title>Los diagramas de interacción - Entornos de desarrollo</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_markdown_exec_pyodide.css">
+    
+      <link rel="stylesheet" href="../../../_static/css/notebook.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#los-diagramas-de-interaccion" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Entornos de desarrollo" class="md-header__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Entornos de desarrollo
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Los diagramas de interacción
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo brillante"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo brillante" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Bienvenido
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Introducción al desarrollo de software
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Entornos de desarrollo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../control_versiones/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Control de versiones
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Entornos de desarrollo" class="md-nav__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    Entornos de desarrollo
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bienvenido
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introducción al desarrollo de software
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Introducción al desarrollo de software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/02%20-%20lenguajes_programacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lenguajes de programación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/03%20-%20proceso_obtencion_codigo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proceso de obtención de código
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/04%20-%20desarrollo_aplicaciones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Desarrollo de aplicaciones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/05%20-%20metodologias_agiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metodologías Ágiles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Entornos de desarrollo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Entornos de desarrollo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a los entornos de desarrollo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/02%20-%20intellij/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IntelliJ IDEA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/03%20-%20plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalar plugins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/04%20-%20personalizacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Personalización, automatización y mantenimiento del entorno
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/05%20-%20compilacion_y_ejecutables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generación de ejecutables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/99%20-%20ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Control de versiones
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Control de versiones
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción al control de versiones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/02%20-%20herramientas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Herramientas de control de versiones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/03%20-%20introduccion_git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/04%20-%20uso_basico_git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trabajo básico con Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/05%20-%20github/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/06%20-%20integracion_continua/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integración continua
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/99%20-%20ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios de Git y GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#el-diagrama-de-secuencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      El diagrama de secuencia
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#un-ejemplo-de-referencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Un ejemplo de referencia
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#como-se-elabora-un-diagrama-de-secuencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cómo se elabora un diagrama de secuencia
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#el-diagrama-de-comunicaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      El diagrama de comunicaciones
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#las-otras-dos-variantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Las otras dos variantes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="los-diagramas-de-interaccion">Los diagramas de interacción</h1>
+<p>Un <strong>diagrama de interacción</strong> describe un comportamiento emergente, es decir, un comportamiento que no pertenece a un objeto aislado sino al intercambio entre varios. Es la respuesta a la pregunta "¿qué se dicen los objetos entre sí?", y por eso es el diagrama que más se parece a lo que hará el programa cuando esté funcionando.</p>
+<p>Esa es también su principal dificultad. Un diagrama de clases se puede dibujar con el enunciado delante y sin haber escrito una línea de código; un diagrama de interacción, en cambio, exige haber decidido ya qué objetos existen y qué operaciones ofrece cada uno. Es el diagrama que convierte un modelo de clases en un plan de ejecución, y ese paso suele ser el que revela que el modelo estaba incompleto. Por eso se dice que el diagrama de secuencia es a la vez el mejor consumidor y el mejor corrector del diagrama de clases.</p>
+<p>Bajo el nombre de diagrama de interacción UML agrupa cuatro variantes. El <strong>diagrama de secuencias</strong> hace énfasis en el orden temporal de las participaciones de las distintas instancias. El <strong>diagrama de comunicaciones</strong> se basa directamente en una estructura compuesta y organiza los mensajes sobre los enlaces entre objetos. El <strong>diagrama de visión general de la interacción</strong> da una visión resumida del comportamiento emergente. Y el <strong>diagrama temporal</strong> se apoya en uno o varios diagramas de estados previos y pone el énfasis en los cambios de estado a lo largo del tiempo.</p>
+<p>De las cuatro, la que se usa de verdad es la de secuencia, y la de comunicaciones aparece como una segunda vista del mismo contenido. Las otras dos son minoritarias y se reservan para sistemas con requisitos temporales estrictos, pero conviene saber que existen porque su nombre aparece en cualquier documentación de UML y porque su ausencia en un proyecto no es un olvido, sino una decisión.</p>
+<h2 id="el-diagrama-de-secuencia">El diagrama de secuencia</h2>
+<p>El diagrama de secuencia es una representación temporal de los objetos y sus relaciones. Enfatiza la interacción entre los objetos, los mensajes que intercambian y el orden en que se producen. Su lectura tiene truco: se lee siempre de arriba abajo y de izquierda a derecha, y ese orden de lectura es exactamente el orden de ejecución del programa.</p>
+<p>La <strong>línea de vida</strong> es la línea vertical discontinua que baja desde cada participante. Representa el objeto a lo largo del tiempo, y el tiempo avanza hacia abajo: lo que está más arriba ocurre antes. Cada participante se escribe en la cabecera con la notación <code>nombre : Clase</code>, igual que en el diagrama de objetos, y la línea discontinua que cuelga de él indica que el objeto existe durante todo el diagrama.</p>
+<p>La <strong>activación</strong>, o barra de activación, es el rectángulo estrecho que se dibuja sobre la línea de vida y marca el intervalo durante el cual el objeto está ejecutando una operación. Un objeto que no tiene barra está esperando; uno que la tiene está trabajando. Cuando una operación invoca a otra, la segunda barra se dibuja desplazada hacia la derecha y ligeramente más abajo, y ese desplazamiento en cascada es lo que hace visible quién llamó a quién sin necesidad de leer los mensajes. Mirando solo las barras se puede reconstruir la pila de llamadas.</p>
+<p>Los <strong>mensajes</strong> son las flechas horizontales. Un mensaje síncrono, el habitual, se dibuja con la punta de flecha rellena e implica que el emisor espera a que el receptor termine antes de continuar. Un mensaje asíncrono se dibuja con la punta abierta e implica que el emisor sigue a lo suyo sin esperar respuesta, algo que se usa en sistemas con eventos o con colas de mensajes. El <strong>mensaje de retorno</strong>, que devuelve el control y el resultado, se dibuja con línea discontinua y punta abierta, aunque es frecuente omitirlo cuando el resultado es evidente, y esa omisión es una decisión de estilo, no un error.</p>
+<p>Un <strong>auto-mensaje</strong> es una flecha que sale y vuelve al mismo objeto y representa una llamada a un método propio, normalmente un paso interno de una operación. Su presencia es una buena señal: significa que el objeto asume esa responsabilidad en lugar de delegarla, y su ausencia total en un diagrama grande suele indicar que todas las operaciones se han repartido entre objetos distintos sin dejar ninguna lógica dentro de ninguno.</p>
+<p>Cuando el intercambio tiene condiciones o repeticiones, el diagrama de secuencia se apoya en los <strong>fragmentos combinados</strong>: marcos rectangulares con una etiqueta en la esquina que indica su naturaleza. El fragmento <code>alt</code> engloba alternativas excluyentes y equivale a un <code>if/else</code>; <code>opt</code> engloba un comportamiento opcional y equivale a un <code>if</code> sin rama alternativa; y <code>loop</code> engloba un fragmento que se repite. Sin ellos, un diagrama de secuencia solo puede contar caminos lineales, y los procesos reales rara vez son lineales.</p>
+<p>El siguiente diagrama muestra un fragmento <code>alt</code> en funcionamiento. El cobro de una visita puede autorizarse o denegarse, y las dos posibilidades se representan dentro del marco, cada una con su condición:</p>
+<pre class="mermaid"><code>sequenceDiagram
+    actor Recepcion
+    participant Cobro
+    participant Pasarela
+    Recepcion-&gt;&gt;Cobro: cobrarVisita(idVisita)
+    activate Cobro
+    Cobro-&gt;&gt;Pasarela: autorizar(importe, nif)
+    activate Pasarela
+    alt autorización concedida
+        Pasarela--&gt;&gt;Cobro: autorizado
+        Cobro-&gt;&gt;Cobro: registrarPago()
+        Cobro--&gt;&gt;Recepcion: pagoConfirmado
+    else autorización denegada
+        Pasarela--&gt;&gt;Cobro: denegado
+        Cobro--&gt;&gt;Recepcion: pagoRechazado
+    end
+    deactivate Pasarela
+    deactivate Cobro</code></pre>
+<p>La lectura del marco es directa: la línea horizontal divisoria separa las dos alternativas, y cada una lleva su condición escrita entre corchetes. Lo importante del ejemplo es que <strong>el diagrama no elige</strong>: refleja las dos posibilidades, y deja claro que el programa tendrá que contemplarlas ambas. Un diagrama de secuencia sin fragmentos se termina siempre en el camino feliz, y el camino feliz es el que menos problemas da en producción.</p>
+<h2 id="un-ejemplo-de-referencia">Un ejemplo de referencia</h2>
+<figure>
+<img alt="" src="../../images/04.png" width="80%"/>
+</figure>
+<p>El diagrama representa la inserción de un empleado en la base de datos, vista como una conversación. En la cabecera aparecen cuatro participantes: <code>Operador</code>, <code>VentanaPrincipal</code>, <code>VentanaInsercion</code> y <code>Empleados</code>. Cada uno tiene su línea de vida bajando por la página.</p>
+<p>La lectura se sigue de arriba abajo, y los números que acompañan a cada mensaje indican el orden. El primer mensaje, <code>AbrirVentanaEmpleados</code>, va del operador a la ventana principal y provoca que esta última cree la ventana de inserción. Después, <code>TeclearDatos</code> lleva la información hasta <code>VentanaInsercion</code>, que responde con un auto-mensaje <code>ValidarDatos</code>, dibujado como una flecha que sale y entra en su propia línea de vida porque es una comprobación interna. Cuando la validación es correcta, el flujo continúa con <code>GrabarRegistro</code> hacia el objeto <code>Empleados</code>, que finalmente ejecuta <code>CrearEmpleado</code> sobre sí mismo y deja el registro guardado.</p>
+<p>Fíjese en el desplazamiento de las barras de activación. La barra de <code>VentanaPrincipal</code> es más alta que la de <code>VentanaInsercion</code> y empieza antes, porque la ventana principal sigue activa durante todo el proceso mientras la de inserción trabaja solo en su tramo. Ese detalle es el que permite saber, sin leer los mensajes, quién depende de quién.</p>
+<p>Y fíjese también en lo que el diagrama revela sobre el reparto de responsabilidades. <code>VentanaInsercion</code> valida los datos por sí misma, pero no los graba: delega en <code>Empleados</code>. Esa separación es deliberada y es una buena decisión de diseño, porque una ventana que además grabase en la base de datos tendría dos motivos distintos para cambiar y se convertiría en la clase que nadie se atreve a tocar. El diagrama de secuencia es donde ese reparto se hace visible, y por eso es tan útil revisarlo antes de programar.</p>
+<h2 id="como-se-elabora-un-diagrama-de-secuencia">Cómo se elabora un diagrama de secuencia</h2>
+<p>Para construir uno desde cero se parte del escenario, nunca del dibujo. Recuperemos el escenario de <code>RegistrarFacturaServicios</code> del apartado de casos de uso, esta vez centrado en el cálculo del importe de una factura de servicios ya emitida: el gestor pide el importe total, el sistema consulta las horas prestadas de cada servicio y el precio por hora del catálogo, multiplica y suma, y devuelve el resultado.</p>
+<p>De ese texto salen los participantes y los mensajes casi sin pensar, y el diagrama queda así:</p>
+<pre class="mermaid"><code>sequenceDiagram
+    actor Gestor
+    participant FacturaServicios
+    participant Horas
+    participant Servicio
+    Gestor-&gt;&gt;FacturaServicios: calculoImporte()
+    activate FacturaServicios
+    FacturaServicios-&gt;&gt;Horas: getNumero()
+    activate Horas
+    Horas-&gt;&gt;Servicio: getPrecioHora()
+    activate Servicio
+    Servicio--&gt;&gt;Horas: 30
+    deactivate Servicio
+    Horas--&gt;&gt;FacturaServicios: 12
+    deactivate Horas
+    FacturaServicios--&gt;&gt;Gestor: 360
+    deactivate FacturaServicios</code></pre>
+<p>Merece la pena comparar cada elemento del diagrama con el código que lo hará realidad, porque el paralelismo es exacto. Cada <code>participant</code> es una instancia de una clase del modelo, y cada operación que aparece en un mensaje es un método declarado en el diagrama de clases: <code>calculoImporte()</code> está en <code>FacturaServicios</code>, <code>getNumero()</code> en <code>Horas</code> y <code>getPrecioHora()</code> en <code>Servicio</code>. Las flechas continuas son llamadas que esperan respuesta y las discontinuas son los valores que se devuelven, que aquí son tres simples enteros.</p>
+<p>Ese es el motivo por el que este diagrama es el mejor corrector de un modelo de clases. Si al dibujarlo aparece un mensaje que ninguna clase declara, falta una operación en el modelo. Si aparece un objeto que tiene que consultar datos que no le pertenecen ni puede alcanzar por una asociación, falta una relación. Y si un participante acumula demasiadas llamadas mientras los demás apenas hacen nada, el reparto de responsabilidades está desequilibrado.</p>
+<h2 id="el-diagrama-de-comunicaciones">El diagrama de comunicaciones</h2>
+<p>El diagrama de comunicaciones cuenta lo mismo que el de secuencia, pero con otra prioridad: en lugar de ordenar los mensajes en el tiempo, organiza los objetos en el espacio y dibuja los mensajes sobre los enlaces que los unen. La información temporal no desaparece, sino que se expresa con una numeración jerárquica.</p>
+<figure>
+<img alt="" src="../../images/05.png" width="85%"/>
+</figure>
+<p>En la figura hay tres objetos, <code>f : FacturaServicios</code>, <code>h : Horas</code> y <code>s : Servicio</code>, unidos por sus enlaces. El círculo relleno marca el punto de partida y el mensaje <code>1: calculoImporte()</code> entra en la factura. A partir de ahí, el mensaje <code>2: getNumero()</code> va de la factura hacia las horas, y el <code>3: getPrecioHora()</code> va de las horas hacia el servicio.</p>
+<p>La numeración es la clave para leerlo. Un mensaje numerado como <code>2.1</code> indicaría que se ha enviado durante la ejecución del mensaje <code>2</code>, es decir, un anidamiento, y <code>3.1</code> tendría el mismo significado respecto al <code>3</code>. Ese sistema de numeración reproduce exactamente el desplazamiento en cascada de las barras de activación del diagrama de secuencia: los dos diagramas son semánticamente equivalentes y se puede pasar de uno a otro sin perder información.</p>
+<p>La elección entre ambos es de énfasis, y conviene tener claro cuándo cada uno se lee mejor. El de secuencia gana cuando lo que importa es el orden, como en un protocolo de comunicación o en una operación con pasos estrictamente encadenados. El de comunicaciones gana cuando lo que importa es el mapa de colaboraciones, como al revisar si dos objetos se conocen demasiado o si una clase está en el centro de todas las conversaciones. En un proyecto real se usa el de secuencia casi siempre, y el de comunicaciones aparece como una vista de apoyo cuando el diagrama de secuencia se ha vuelto ilegible por el número de participantes.</p>
+<h2 id="las-otras-dos-variantes">Las otras dos variantes</h2>
+<p>El <strong>diagrama de visión general de la interacción</strong> es un diagrama de actividades en el que los nodos no son pasos de un proceso, sino interacciones completas. Su utilidad es la de un índice: en un sistema con veinte escenarios distintos, permite ver cómo se encadenan sin necesidad de abrir los veinte diagramas de secuencia, y sirve además para detectar interacciones que faltan. Un caso de uso que no aparece en ninguna parte del mapa es un caso de uso que nadie ha diseñado todavía.</p>
+<p>Su notación es la del diagrama de actividades, con la particularidad de que cada nodo se identifica con el nombre del caso de uso que representa. Eso lo hace muy útil en la documentación de entrega, porque un lector que no conoce el sistema puede entender de un vistazo el recorrido completo de una operación compleja antes de bajar al detalle de cada paso.</p>
+<p>El <strong>diagrama temporal</strong>, por último, es el menos utilizado de los cuatro. Se apoya en uno o varios diagramas de estados y muestra cómo evolucionan esos estados a lo largo de un eje de tiempo explícito, con las restricciones de duración y de plazo dibujadas sobre el mismo eje. Aparece en sistemas donde el tiempo es un requisito de primer nivel, como protocolos de comunicaciones, sistemas de control industrial o aplicaciones de tiempo real, y su notación es tan específica que rara vez se incluye en un manual de iniciación.</p>
+<p>Conviene, aun así, saber reconocerlo y saber cuándo hace falta. Si en un enunciado aparecen expresiones como "en menos de dos segundos", "cada treinta segundos" o "antes de que venza el plazo", el diagrama de secuencia no tiene forma de representar esa restricción y el temporal sí, porque su eje horizontal es precisamente el tiempo. Ignorar esos requisitos es una de las causas más frecuentes de que un sistema funcione en las pruebas y falle en producción.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Manuel Sánchez Gomis
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["search.suggest", "search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "content.code.copy", "content.tabs.link", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../../assets/_markdown_exec_pyodide.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../_static/js/notebook.js"></script>
+      
+    
+  </body>
+</html>

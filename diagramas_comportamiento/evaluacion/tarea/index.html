@@ -1,0 +1,1155 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Manuel Sánchez Gomis">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
+    
+    
+      
+        <title>Tarea de evaluación: modelado del comportamiento - Entornos de desarrollo</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_markdown_exec_pyodide.css">
+    
+      <link rel="stylesheet" href="../../../_static/css/notebook.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tarea-de-evaluacion-modelado-del-comportamiento" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Entornos de desarrollo" class="md-header__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Entornos de desarrollo
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tarea de evaluación: modelado del comportamiento
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo brillante"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo brillante" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Bienvenido
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Introducción al desarrollo de software
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Entornos de desarrollo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../control_versiones/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Control de versiones
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Entornos de desarrollo" class="md-nav__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    Entornos de desarrollo
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bienvenido
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introducción al desarrollo de software
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Introducción al desarrollo de software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/02%20-%20lenguajes_programacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lenguajes de programación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/03%20-%20proceso_obtencion_codigo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proceso de obtención de código
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/04%20-%20desarrollo_aplicaciones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Desarrollo de aplicaciones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/05%20-%20metodologias_agiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metodologías Ágiles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Entornos de desarrollo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Entornos de desarrollo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a los entornos de desarrollo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/02%20-%20intellij/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IntelliJ IDEA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/03%20-%20plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalar plugins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/04%20-%20personalizacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Personalización, automatización y mantenimiento del entorno
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/05%20-%20compilacion_y_ejecutables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generación de ejecutables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/99%20-%20ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Control de versiones
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Control de versiones
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción al control de versiones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/02%20-%20herramientas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Herramientas de control de versiones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/03%20-%20introduccion_git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/04%20-%20uso_basico_git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trabajo básico con Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/05%20-%20github/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/06%20-%20integracion_continua/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integración continua
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/99%20-%20ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios de Git y GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#condiciones-de-la-prueba" class="md-nav__link">
+    <span class="md-ellipsis">
+      Condiciones de la prueba
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#el-escenario-la-clinica-veterinaria-en-funcionamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      El escenario: la clínica veterinaria en funcionamiento
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bloque-a-el-campo-de-aplicacion-y-los-casos-de-uso-criterios-6a-y-6b" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bloque A. El campo de aplicación y los casos de uso (criterios 6.a y 6.b)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bloque-b-los-diagramas-de-interaccion-criterios-6c-y-6d" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bloque B. Los diagramas de interacción (criterios 6.c y 6.d)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bloque-c-el-diagrama-de-actividades-criterios-6e-y-6f" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bloque C. El diagrama de actividades (criterios 6.e y 6.f)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bloque-d-el-diagrama-de-estados-criterios-6g-y-6h" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bloque D. El diagrama de estados (criterios 6.g y 6.h)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ampliacion-2-puntos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ampliación (2 puntos)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="tarea-de-evaluacion-modelado-del-comportamiento">Tarea de evaluación: modelado del comportamiento</h1>
+<p>Esta tarea evalúa el bloque de diagramas de comportamiento y se corresponde con los criterios de evaluación <strong>6.a</strong>, <strong>6.b</strong>, <strong>6.c</strong>, <strong>6.d</strong>, <strong>6.e</strong>, <strong>6.f</strong>, <strong>6.g</strong> y <strong>6.h</strong> del módulo profesional 0487 (Entornos de desarrollo):</p>
+<ul>
+<li><strong>6.a</strong> Se han identificado los distintos tipos de diagramas de comportamiento.</li>
+<li><strong>6.b</strong> Se ha reconocido el significado de los diagramas de casos de uso.</li>
+<li><strong>6.c</strong> Se han interpretado diagramas de interacción.</li>
+<li><strong>6.d</strong> Se han elaborado diagramas de interacción sencillos.</li>
+<li><strong>6.e</strong> Se ha interpretado el significado de diagramas de actividades.</li>
+<li><strong>6.f</strong> Se han elaborado diagramas de actividades sencillos.</li>
+<li><strong>6.g</strong> Se ha interpretado el significado de diagramas de estados.</li>
+<li><strong>6.h</strong> Se han planteado diagramas de estados sencillos.</li>
+</ul>
+<p>La mitad de los criterios piden <strong>interpretar</strong> y la otra mitad <strong>elaborar</strong>. Por eso cada bloque tiene dos partes: primero se lee y se explica un diagrama, y después se construye uno propio del mismo tipo.</p>
+<hr/>
+<h2 id="condiciones-de-la-prueba">Condiciones de la prueba</h2>
+<ul>
+<li><strong>Modalidad:</strong> individual. Se recomienda encarecidamente partir del modelo de clases de la tarea anterior: los diagramas de comportamiento se construyen sobre la estructura, y hacerlo así es la mejor prueba de que el modelo de clases era correcto.</li>
+<li><strong>Entregables:</strong><ul>
+<li>Los ficheros del proyecto de modelado.</li>
+<li><strong>Memoria técnica en PDF</strong> (máximo 5 páginas) con las evidencias y las justificaciones que se piden en cada bloque.</li>
+<li><strong>Defensa oral</strong> individual de 3 a 5 minutos.</li>
+</ul>
+</li>
+<li><strong>Calificación:</strong> 10 puntos, repartidos en 8 puntos para los bloques guiados (2 puntos por bloque) y 2 puntos para la ampliación final.</li>
+<li><strong>Herramientas:</strong> Dia, IntelliJ IDEA con el complemento PlantUML, o Mermaid. Lo que se valora es que el diagrama sea correcto y esté justificado, no la herramienta.</li>
+</ul>
+<hr/>
+<h2 id="el-escenario-la-clinica-veterinaria-en-funcionamiento">El escenario: la clínica veterinaria en funcionamiento</h2>
+<p>Se trabaja sobre la misma clínica veterinaria de la tarea anterior. Ahora el modelo de clases ya existe, y lo que falta es decidir <strong>qué hace</strong> ese sistema cuando está en marcha.</p>
+<hr/>
+<h2 id="bloque-a-el-campo-de-aplicacion-y-los-casos-de-uso-criterios-6a-y-6b">Bloque A. El campo de aplicación y los casos de uso (criterios 6.a y 6.b)</h2>
+<p>La primera parte de este bloque es de criterio, no de dibujo. Para cada uno de los cuatro grandes tipos del bloque de comportamiento (casos de uso, interacción, actividades y estados), escribe en la memoria una frase que responda a la pregunta "¿qué pregunta responde este diagrama?" y pon un ejemplo del sistema de la clínica en el que ese tipo sería el adecuado y otro en el que sería un error usarlo. Justifica la diferencia.</p>
+<p>La segunda parte pide el diagrama de casos de uso. Extráelo del enunciado del apartado anterior y de estas tres necesidades nuevas:</p>
+<blockquote>
+<p>Un <strong>cliente</strong> puede pedir cita para su mascota y consultar el historial de visitas. Un <strong>veterinario</strong> abre el historial de la mascota, anota el diagnóstico y emite las recetas. La <strong>recepción</strong> cobra la visita y gestiona las citas del día.</p>
+</blockquote>
+<p>El diagrama debe incluir los actores, la frontera del sistema, los casos de uso nombrados con verbo en infinitivo y objeto, y al menos <strong>una relación de inclusión y una de extensión</strong> que hayas tenido que deducir del contexto. Justifica en cada caso por qué has elegido <code>«include»</code> y no <code>«extend»</code>, o al revés.</p>
+<p>A continuación, redacta el <strong>escenario principal y un escenario alternativo</strong> de dos casos de uso distintos, usando la plantilla de la teoría (título, actor, precondición, desarrollo normal, alternativas y postcondición).</p>
+<hr/>
+<h2 id="bloque-b-los-diagramas-de-interaccion-criterios-6c-y-6d">Bloque B. Los diagramas de interacción (criterios 6.c y 6.d)</h2>
+<p>Para el criterio <strong>6.c</strong>, interpreta el siguiente diagrama, que describe el cobro de una visita, y responde a las preguntas en la memoria.</p>
+<pre class="mermaid"><code>sequenceDiagram
+    actor Recepcion
+    participant Cobro
+    participant Visita
+    participant Pasarela
+    Recepcion-&gt;&gt;Cobro: cobrarVisita(idVisita)
+    activate Cobro
+    Cobro-&gt;&gt;Visita: getImporte()
+    activate Visita
+    Visita--&gt;&gt;Cobro: 62.50
+    deactivate Visita
+    Cobro-&gt;&gt;Pasarela: autorizar(62.50, nif)
+    activate Pasarela
+    Pasarela--&gt;&gt;Cobro: autorizado
+    deactivate Pasarela
+    Cobro-&gt;&gt;Cobro: registrarPago()
+    Cobro--&gt;&gt;Recepcion: pagoConfirmado
+    deactivate Cobro</code></pre>
+<p>Preguntas: ¿qué participante inicia la interacción y cuál es el primer mensaje?, ¿qué dos mensajes devuelven un valor y qué devuelven?, ¿por qué <code>registrarPago()</code> es un auto-mensaje?, ¿por qué la barra de activación de <code>Cobro</code> engloba a todas las demás, y qué indica eso sobre quién tiene el control del proceso?, y ¿qué habría que añadir para contemplar el caso de que la pasarela deniegue la autorización?</p>
+<p>Para el criterio <strong>6.d</strong>, elabora tu propio diagrama de secuencia del caso de uso <code>ConsultarHistorialVisitas</code>, en el que un veterinario abre el historial de una mascota y el sistema le devuelve la lista de visitas ordenada por fecha. Redáctalo primero como escenario y después como diagrama, y acompaña el diagrama de una tabla en la que cada mensaje se corresponda con una operación declarada en el diagrama de clases. Si alguna operación no existe en el modelo, señálalo y añádela.</p>
+<hr/>
+<h2 id="bloque-c-el-diagrama-de-actividades-criterios-6e-y-6f">Bloque C. El diagrama de actividades (criterios 6.e y 6.f)</h2>
+<p>Para el criterio <strong>6.e</strong>, interpreta este diagrama del proceso de facturación mensual y responde:</p>
+<pre class="mermaid"><code>flowchart TD
+    Inicio([Inicio]) --&gt; Seleccionar["Seleccionar visitas del mes"]
+    Seleccionar --&gt; Cubiertas{"¿Alguna visita la paga un seguro?"}
+    Cubiertas -- Sí --&gt; Repartir["Repartir el importe entre cliente y aseguradora"]
+    Cubiertas -- No --&gt; Agrupar["Agrupar por cliente"]
+    Repartir --&gt; Agrupar
+    Agrupar --&gt; Emitir["Emitir facturas"]
+    Emitir --&gt; Envio{"¿Envío Correcto?"}
+    Envio -- No --&gt; Emitir
+    Envio -- Sí --&gt; Cerrar["Marcar el mes como facturado"]
+    Cerrar --&gt; Fin([Fin])</code></pre>
+<p>Preguntas: ¿cuántas decisiones tiene el proceso y qué camino toma cada una?, ¿qué significa la etiqueta <code>[No]</code> que sale del segundo rombo y qué implicación tiene en el proceso real?, ¿por qué no aparece ni un solo objeto en el diagrama?, y ¿qué diferencia hay entre este diagrama y el de secuencia del bloque anterior si en los dos se cobra una visita?</p>
+<p>Para el criterio <strong>6.f</strong>, elabora el diagrama de actividades del proceso de <strong>atención de una urgencia</strong>: la mascota llega, recepción comprueba si está registrada y si no lo está la da de alta, se clasifica la urgencia por gravedad, si es grave pasa directamente a consulta y si no espera turno, se atiende, se cobra y se cierra la visita. Añade al diagrama <strong>particiones</strong> con los responsables de cada paso (recepción y veterinario) y explica en la memoria qué información añade esa decisión y qué no aportaría el mismo diagrama sin ellas.</p>
+<hr/>
+<h2 id="bloque-d-el-diagrama-de-estados-criterios-6g-y-6h">Bloque D. El diagrama de estados (criterios 6.g y 6.h)</h2>
+<p>Para el criterio <strong>6.g</strong>, interpreta el diagrama de estados de una cita de la clínica y responde:</p>
+<pre class="mermaid"><code>stateDiagram-v2
+    [*] --&gt; SOLICITADA : pedirCita()
+    SOLICITADA --&gt; CONFIRMADA : confirmar()
+    SOLICITADA --&gt; ANULADA : anular()
+    CONFIRMADA --&gt; ANULADA : anular() [conAntelacion]
+    CONFIRMADA --&gt; CONFIRMADA : confirmar() / reenviarAviso()
+    CONFIRMADA --&gt; ATENDIDA : atender()
+    ATENDIDA --&gt; [*]
+    ANULADA --&gt; [*]</code></pre>
+<p>Preguntas: ¿cuál es el estado inicial y cuáles son los finales?, ¿qué significa la guarda <code>[conAntelacion]</code> y qué ocurre si no se cumple?, ¿qué efecto tiene el auto-transición de <code>CONFIRMADA</code>, y por qué el evento <code>confirmar()</code> puede disparar dos transiciones distintas desde el mismo estado?, y ¿permite el diagrama anular una cita ya atendida? Justifica la respuesta y, si la respuesta es no, explica dónde está escrito eso en el diagrama.</p>
+<p>Para el criterio <strong>6.h</strong>, plantea el diagrama de estados del ciclo de vida de una <strong>mascota</strong> en la clínica: se registra al darla de alta, pasa a estar activa cuando se le abre historial, puede quedar inactiva si el dueño deja de acudir durante un año, y en ese caso solo puede reactivarse pagando una cuota de recuperación. Una mascota fallecida pasa a un estado final del que no se sale. Al escribirlo aparecerán al menos <strong>tres decisiones que el enunciado no responde</strong>; enuméralas, toma una decisión en cada caso y justifícala.</p>
+<hr/>
+<h2 id="ampliacion-2-puntos">Ampliación (2 puntos)</h2>
+<p>Sin pasos guiados. Elige <strong>una</strong> de las dos opciones:</p>
+<ol>
+<li><strong>Coherencia entre los cuatro diagramas.</strong> Comprueba que los cuatro diagramas que has construido cuentan la misma historia. Para cada mensaje que aparece en tu diagrama de secuencia, localiza el paso correspondiente en el diagrama de actividades; para cada estado de la cita, localiza la operación del modelo de clases que lo provoca. Documenta al menos <strong>dos incoherencias</strong> que hayas encontrado al hacer esta comprobación y cómo las has resuelto.</li>
+<li><strong>Del modelo a la implementación.</strong> Implementa en Java el ciclo de vida de la cita del bloque D usando un enumerado para los estados y una comprobación previa en cada operación pública, de modo que el código rechace exactamente las transiciones que el diagrama declara imposibles. Acompaña la memoria con el código y con una tabla que compare, transición a transición, lo que dice el diagrama y lo que hace el programa.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Manuel Sánchez Gomis
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["search.suggest", "search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "content.code.copy", "content.tabs.link", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../../assets/_markdown_exec_pyodide.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../_static/js/notebook.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1127 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Manuel Sánchez Gomis">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
+    
+    
+      
+        <title>El diagrama de casos de uso - Entornos de desarrollo</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_markdown_exec_pyodide.css">
+    
+      <link rel="stylesheet" href="../../../_static/css/notebook.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#el-diagrama-de-casos-de-uso" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Entornos de desarrollo" class="md-header__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Entornos de desarrollo
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              El diagrama de casos de uso
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo brillante"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo brillante" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Bienvenido
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Introducción al desarrollo de software
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Entornos de desarrollo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../control_versiones/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Control de versiones
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Entornos de desarrollo" class="md-nav__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    Entornos de desarrollo
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bienvenido
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introducción al desarrollo de software
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Introducción al desarrollo de software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/02%20-%20lenguajes_programacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lenguajes de programación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/03%20-%20proceso_obtencion_codigo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proceso de obtención de código
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/04%20-%20desarrollo_aplicaciones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Desarrollo de aplicaciones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/05%20-%20metodologias_agiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metodologías Ágiles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Entornos de desarrollo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Entornos de desarrollo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a los entornos de desarrollo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/02%20-%20intellij/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IntelliJ IDEA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/03%20-%20plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalar plugins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/04%20-%20personalizacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Personalización, automatización y mantenimiento del entorno
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/05%20-%20compilacion_y_ejecutables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generación de ejecutables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/99%20-%20ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Control de versiones
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Control de versiones
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción al control de versiones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/02%20-%20herramientas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Herramientas de control de versiones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/03%20-%20introduccion_git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/04%20-%20uso_basico_git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trabajo básico con Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/05%20-%20github/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/06%20-%20integracion_continua/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integración continua
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/99%20-%20ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios de Git y GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#los-elementos-del-diagrama" class="md-nav__link">
+    <span class="md-ellipsis">
+      Los elementos del diagrama
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#un-ejemplo-de-referencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Un ejemplo de referencia
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#otras-relaciones-entre-casos-de-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Otras relaciones entre casos de uso
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#el-escenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      El escenario
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#como-se-elabora-un-diagrama-de-casos-de-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cómo se elabora un diagrama de casos de uso
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#el-campo-de-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      El campo de aplicación
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="el-diagrama-de-casos-de-uso">El diagrama de casos de uso</h1>
+<p>El <strong>diagrama de casos de uso</strong> es el primero que se dibuja en un proyecto y, curiosamente, el que menos detalles técnicos contiene. No habla de clases, ni de atributos, ni de lenguajes de programación: habla de quién va a usar el sistema y para qué. Su valor está precisamente ahí. Antes de discutir cómo se guardará un empleado en la base de datos, conviene haber acordado quién puede insertar empleados, quién puede modificarlos y quién puede borrarlos, porque en esas tres preguntas se esconde el alcance completo del sistema.</p>
+<p>Esa aparente sencillez esconde también su mayor peligro, y conviene decirlo desde el principio. Un diagrama de casos de uso mal hecho no produce errores de compilación ni fallos visibles: produce una <strong>factura de alcance</strong>. Un caso de uso llamado <code>GestionarFacturas</code> parece correcto a todo el mundo, se aprueba sin discusión y esconde que nadie ha decidido si incluye crear, modificar, anular, listar y facturar por lotes. Cuando el cliente pide "lo de anular", resulta que no estaba en el precio, y la discusión ya no es técnica sino contractual. El diagrama de casos de uso es la herramienta que evita eso, y solo funciona si sus elipses están escritas con precisión.</p>
+<p>Se utiliza para entender el uso del sistema. Muestra un conjunto de <strong>actores</strong>, las acciones o <strong>casos de uso</strong> que se realizan sobre él y las relaciones que se establecen entre los unos y las otras. Y tiene una virtud que los demás diagramas no tienen: se puede leer con el cliente delante. Un usuario no técnico entiende sin esfuerzo una figura que dice que un operador puede insertar, modificar y borrar empleados, y esa conversación, mantenida al principio del proyecto, evita discusiones mucho más caras al final.</p>
+<h2 id="los-elementos-del-diagrama">Los elementos del diagrama</h2>
+<p>El vocabulario de este diagrama es corto, y conviene fijarlo con precisión porque los tres términos se confunden con facilidad.</p>
+<p>Un <strong>actor</strong> es cualquier cosa que interactúa con el sistema desde fuera de él. No son solo personas: también lo son otros sistemas y, en algunos modelos, el tiempo. Los actores se representan con la figura de un muñeco y su nombre en singular, porque representan un papel y no un individuo concreto: <code>Operador</code> es un actor, "el empleado Juan Pérez" no lo es. Un mismo usuario real puede desempeñar varios actores al mismo tiempo, y un actor puede serlo de varios sistemas a la vez, que es lo que ocurre con una pasarela de pago o con una administración pública.</p>
+<p>Reconocer a los actores que no son personas es la parte del ejercicio donde más gente se deja casos. La prueba práctica consiste en buscar todo aquello que el sistema necesite consultar o al que necesite notificar algo: si el sistema tiene que hablar con una pasarela de pago, con una impresora, con un servicio de correo o con un fichero que deja otro programa, todo eso son actores y todos ellos tienen que aparecer en el diagrama. Un caso de uso sin actor es un caso de uso que nadie pidió, y ahí hay un error de alcance.</p>
+<p>Un <strong>caso de uso</strong> es un objetivo completo que un actor persigue con ayuda del sistema. Se representa con una elipse y se nombra siempre con un verbo en infinitivo seguido de un objeto: <code>InsertarEmpleado</code>, <code>EmitirFactura</code>, <code>ConsultarStock</code>. Ese formato no es una convención estética, sino una prueba de calidad: si el nombre no empieza por un verbo, lo más probable es que no sea un objetivo sino un dato; y si no tiene un objeto claro, es que el objetivo está mal definido. La palabra "gestionar" es la peor enemiga de este diagrama, porque no compromete a nada: <code>GestionarFacturas</code> suena a caso de uso y no lo es, es un cajón donde caben cinco objetivos distintos.</p>
+<p>Un caso de uso siempre tiene que aportar un <strong>resultado de valor</strong> para el actor que lo ejecuta. Insertar un empleado es un caso de uso porque, cuando termina, el empleado está en el sistema. Validar el DNI, en cambio, no es un caso de uso: no aporta valor por sí solo, es un paso interno de otro objetivo. Esa distinción entre objetivos y pasos es la que decide qué se dibuja como elipse y qué se queda dentro, y es la causa más frecuente de diagramas recargados.</p>
+<p>La <strong>frontera del sistema</strong> es el rectángulo que encierra los casos de uso. Todo lo que aparece dentro es responsabilidad del sistema que estamos construyendo; todo lo que queda fuera (los actores) es el mundo exterior. Ese rectángulo es la herramienta más útil del diagrama, porque obliga a decidir qué queda dentro del proyecto y qué se resolverá con otra aplicación. Cuando el cliente pide "que se pueda pagar con tarjeta", la frontera es la que fuerza la pregunta de si el cobro lo hace nuestro sistema o se delega en la pasarela del banco.</p>
+<p>La <strong>relación de comunicación</strong>, también llamada asociación, es la línea que une a un actor con un caso de uso. Indica que ese actor participa en ese caso de uso, y nada más: no indica orden, ni prioridad, ni si el actor lo inicia o solo lo consulta. Detrás de esa relación hay un diálogo concreto entre el actor y el sistema, pero ese diálogo no se cuenta aquí, sino en los diagramas de interacción.</p>
+<h2 id="un-ejemplo-de-referencia">Un ejemplo de referencia</h2>
+<figure>
+<img alt="" src="../../images/02.png" width="55%"/>
+</figure>
+<p>En la figura, el actor <code>Operador</code> se relaciona con el sistema de base de datos a través de tres casos de uso: <code>InsertarEmpleado</code>, <code>ModificarEmpleado</code> y <code>BorrarEmpleado</code>. Se lee como una frase: el operador puede insertar, modificar y borrar empleados. El rectángulo grande es la frontera del sistema, y todo lo que queda fuera de él se considera el mundo exterior.</p>
+<p>Merece la pena observar lo que el diagrama no dice. No dice en qué orden se hacen las tres operaciones, ni qué formularios aparecen, ni cómo se validan los datos, ni si insertar requiere permisos especiales. Tampoco dice si el operador es una persona o un programa automático. Toda esa información llegará después, en los diagramas de secuencia y de actividades, y ese reparto es deliberado: este diagrama responde a la pregunta previa, la de quién puede hacer qué.</p>
+<p>Hay además un detalle de lectura que conviene interiorizar. Las tres elipses tienen el mismo tamaño y están al mismo nivel, y eso significa que <strong>ninguna depende de las otras</strong>: el sistema tiene que ofrecer las tres funcionalidades completas e independientes. Si al leer un diagrama de casos de uso dos elipses parecen necesitarse, es que en realidad son una sola, o que falta una relación de inclusión entre ellas. Este diagrama, en cambio, es plano a propósito.</p>
+<h2 id="otras-relaciones-entre-casos-de-uso">Otras relaciones entre casos de uso</h2>
+<p>Además de la relación de comunicación, un caso de uso puede relacionarse con otro de tres maneras, y las tres tienen su símbolo. Estas relaciones son las que permiten que un diagrama siga siendo legible cuando el sistema crece, porque evitan repetir el mismo conjunto de pasos en cinco elipses distintas.</p>
+<figure>
+<img alt="" src="../../images/03.png" width="90%"/>
+</figure>
+<p>La primera es la <strong>inclusión</strong>, anotada con el estereotipo <code>«include»</code>, y significa que un caso de uso incorpora siempre el comportamiento de otro. Se usa para extraer un fragmento común: en la figura, tanto <code>RegistrarServicios</code> como <code>RegistrarProductos</code> tienen que validar antes los datos del cliente, así que ese paso se convierte en el caso de uso <code>ValidarCliente</code> y los otros dos lo incluyen. La flecha parte del caso de uso que incluye y apunta al incluido, y va en trazo discontinuo con la punta abierta, diferente de la punta triangular de la generalización.</p>
+<p>La segunda es la <strong>extensión</strong>, anotada con <code>«extend»</code>, y es el mecanismo contrario: un caso de uso añade un comportamiento opcional a otro en determinadas circunstancias. En la figura, <code>AplicarDescuento</code> extiende a <code>RegistrarServicios</code>, lo que significa que registrar una factura de servicios ocurre siempre y que aplicar un descuento ocurre solo a veces. La flecha sale del caso de uso que extiende y apunta al extendido, y esa dirección es la que más se equivoca en los exámenes.</p>
+<p>La diferencia entre las dos es la que hay que tener clara: <strong>lo incluido ocurre siempre y lo que extiende ocurre solo a veces</strong>. Un diagrama donde todos los fragmentos se han marcado como <code>«include»</code> está mal, aunque el dibujo sea correcto, porque está afirmando que todo pasa siempre. Y al contrario, marcar como <code>«extend»</code> un paso obligatorio es afirmar que el sistema puede funcionar sin él, lo que casi nunca es cierto.</p>
+<p>Con la extensión conviene además respetar una regla práctica: el caso de uso que extiende <strong>no debe ser un paso del caso extendido</strong>. Si al leer la figura parece que "aplicar descuento" es un paso dentro de "registrar servicios", entonces no es una extensión, es una inclusión. La extensión siempre describe una variante que se añade a un comportamiento que ya está completo sin ella.</p>
+<p>La tercera es la <strong>generalización</strong>, que puede darse entre actores y entre casos de uso. Entre actores sirve para factorizar lo común: si <code>Gestor</code> y <code>Administrador</code> pueden hacer todo lo que hace <code>Empleado</code> y además otras cosas, ambos heredan de <code>Empleado</code>, y las relaciones de comunicación se declaran una sola vez, en la clase madre. Entre casos de uso funciona igual, aunque aparece menos en la práctica; un ejemplo típico sería <code>PagarConTarjeta</code> y <code>PagarConTransferencia</code> como especializaciones de <code>Pagar</code>.</p>
+<h2 id="el-escenario">El escenario</h2>
+<p>Un caso de uso, por sí solo, no documenta nada. La elipse <code>InsertarEmpleado</code> es un título, no una especificación. Lo que da contenido al caso de uso es el <strong>escenario</strong>, que es una narración en lenguaje natural de una situación concreta con principio y final. Cuando un caso de uso tiene varios caminos posibles, se escribe un escenario principal, que describe el desarrollo normal, y uno o varios escenarios alternativos, que describen las desviaciones.</p>
+<p>El escenario principal de <code>InsertarEmpleado</code> podría empezar así:</p>
+<table>
+<thead>
+<tr>
+<th>Apartado</th>
+<th>Contenido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Título</strong></td>
+<td>Insertar un empleado nuevo</td>
+</tr>
+<tr>
+<td><strong>Actor</strong></td>
+<td>Operador</td>
+</tr>
+<tr>
+<td><strong>Precondición</strong></td>
+<td>El operador ha accedido al sistema con permisos de edición</td>
+</tr>
+<tr>
+<td><strong>Desarrollo normal</strong></td>
+<td>1. El operador abre la ventana de empleados. 2. Teclea el nombre, el DNI y el departamento. 3. El sistema valida los datos. 4. El sistema graba el registro y confirma la operación</td>
+</tr>
+<tr>
+<td><strong>Escenario alternativo</strong></td>
+<td>Si el DNI ya existe, el sistema avisa del duplicado y devuelve el control al paso 2</td>
+</tr>
+<tr>
+<td><strong>Postcondición</strong></td>
+<td>El empleado queda registrado y disponible para consulta</td>
+</tr>
+</tbody>
+</table>
+<p>La <strong>precondición</strong> y la <strong>postcondición</strong> son las dos filas que más se olvidan y las que más información aportan, porque delimitan el caso de uso por arriba y por abajo. La precondición deja escrito qué tiene que ser cierto <strong>antes</strong> para que el escenario tenga sentido: si el operador no tiene permisos, este caso de uso ni siquiera empieza. La postcondición deja escrito qué tiene que ser cierto <strong>después</strong>, y ese es el resultado de valor del que hablábamos: si al terminar no se puede afirmar nada nuevo sobre el sistema, el caso de uso no era tal.</p>
+<p>Ese texto es el material con el que después se construyen los diagramas de secuencia y de actividades. De hecho, la coincidencia no es casual: el diagrama de actividades del apartado siguiente y el diagrama de secuencia que se ve más adelante describen exactamente este escenario, cada uno desde un punto de vista distinto. Escribir el escenario una vez y dibujarlo de tres maneras distintas es la forma de trabajar; dibujar tres diagramas que cuentan historias diferentes es la forma de perder el tiempo.</p>
+<h2 id="como-se-elabora-un-diagrama-de-casos-de-uso">Cómo se elabora un diagrama de casos de uso</h2>
+<p>Con lo anterior ya hay material suficiente para construir uno desde cero. El procedimiento que funciona es siempre el mismo, y se apoya en el texto del enunciado, no en la imaginación.</p>
+<p>El punto de partida es releer el enunciado buscando los <strong>sustantivos que actúan</strong>. Todo aquel que haga algo con el sistema es un actor candidato: aparecerán profesores, alumnos, administrativos, proveedores o sistemas externos como una pasarela de pago. Los sustantivos que solo se guardan, como "factura" o "cliente", no son actores sino datos, y su sitio está en el diagrama de clases. La prueba para distinguirlos es sencilla: un actor es el que empuja el sistema a hacer algo.</p>
+<p>El paso siguiente es formular los <strong>objetivos</strong> de cada actor. Para ello se recorre el enunciado buscando los verbos y se escriben como objetivos completos: "un gestor quiere registrar una factura", "un gestor quiere emitir un informe mensual", "un proveedor quiere consultar el estado de sus facturas". De esa lista, cada objetivo que tenga un principio y un final claros se convierte en un caso de uso, y se nombra con el verbo en infinitivo y el objeto: <code>RegistrarFactura</code>, <code>EmitirInformeMensual</code>, <code>ConsultarEstadoFacturas</code>.</p>
+<p>A partir de ahí el dibujo es casi mecánico. Se traza el rectángulo de la frontera y se coloca dentro la lista de casos de uso; fuera quedan los actores, cada uno con una relación de comunicación hacia los casos en los que participa. Y solo al final conviene plantearse las relaciones de inclusión y extensión, revisando si algún grupo de pasos se repite en varios casos de uso, porque extraer un caso de uso compartido antes de tener la lista completa suele llevar a fragmentar el modelo sin necesidad.</p>
+<p>Aplicado al sistema de facturación del apartado anterior, el resultado sería un diagrama con dos actores, <code>Gestor</code> y <code>Proveedor</code>, y cinco casos de uso dentro de la frontera: <code>RegistrarFacturaServicios</code>, <code>RegistrarFacturaProductos</code>, <code>ConsultarFacturas</code>, <code>EmitirInformeMensual</code> y <code>MantenerCatalogoServicios</code>. Además, los dos primeros incluirían un caso de uso común, <code>ValidarDatosCliente</code>, extraído precisamente porque los dos lo necesitan. La conclusión práctica que deja este diagrama es que el sistema tiene que ofrecer cinco funcionalidades completas, y que ninguna de ellas es "gestionar facturas", que era la respuesta vaga con la que se suele empezar.</p>
+<h2 id="el-campo-de-aplicacion">El campo de aplicación</h2>
+<p>El diagrama de casos de uso es el más útil de toda la familia y, a la vez, el más fácil de estropear. Su campo de aplicación natural es el principio del proyecto, cuando todavía se está negociando el alcance, y su público es el cliente: es el único diagrama del bloque que se puede enseñar a alguien que no programa sin tener que explicarle antes la notación, porque sus elementos (personas, objetivos y una frontera) son conceptos cotidianos.</p>
+<p>Eso lo convierte en una herramienta excelente para tres cosas concretas: acordar el alcance del sistema, detectar a tiempo funcionalidades que nadie había mencionado y repartir responsabilidades entre los actores. Y también lo convierte en una herramienta peligrosa cuando se usa mal, porque un caso de uso mal nombrado pasa desapercibido mucho tiempo: una elipse llamada <code>GestionarFacturas</code> parece correcta, pero esconde un conjunto de objetivos sin definir que no se descubrirá hasta que alguien tenga que programarla.</p>
+<p>Hay además un error de uso muy extendido que conviene desactivar: querer que el diagrama de casos de uso <strong>cuente el orden de las cosas</strong>. No puede, y forzarlo produce diagramas llenos de flechas entre casos de uso que no significan nada. El orden es competencia del diagrama de secuencia y del de actividades. Este diagrama tiene una única misión, que es responder a la pregunta de quién puede hacer qué, y hacerlo bien exige renunciar a todo lo demás.</p>
+<p>Lo que tampoco debe pedírsele es información que no tiene. Este diagrama no dice en qué orden se ejecutan las cosas, ni qué formularios aparecen, ni cómo se validan los datos, ni qué ocurre si algo falla. Cuando llega el momento de decidir todo eso, el testigo pasa al diagrama de secuencia y al diagrama de actividades, que son los que se describen a continuación.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Manuel Sánchez Gomis
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["search.suggest", "search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "content.code.copy", "content.tabs.link", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../../assets/_markdown_exec_pyodide.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../_static/js/notebook.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1368 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Manuel Sánchez Gomis">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
+    
+    
+      
+        <title>El diagrama de clases con Dia - Entornos de desarrollo</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_markdown_exec_pyodide.css">
+    
+      <link rel="stylesheet" href="../../../_static/css/notebook.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#el-diagrama-de-clases-con-dia" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Entornos de desarrollo" class="md-header__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Entornos de desarrollo
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              El diagrama de clases con Dia
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo brillante"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo brillante" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Bienvenido
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Introducción al desarrollo de software
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Entornos de desarrollo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../control_versiones/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Control de versiones
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Entornos de desarrollo" class="md-nav__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    Entornos de desarrollo
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bienvenido
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introducción al desarrollo de software
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Introducción al desarrollo de software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/02%20-%20lenguajes_programacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lenguajes de programación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/03%20-%20proceso_obtencion_codigo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proceso de obtención de código
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/04%20-%20desarrollo_aplicaciones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Desarrollo de aplicaciones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/05%20-%20metodologias_agiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metodologías Ágiles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Entornos de desarrollo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Entornos de desarrollo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a los entornos de desarrollo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/02%20-%20intellij/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IntelliJ IDEA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/03%20-%20plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalar plugins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/04%20-%20personalizacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Personalización, automatización y mantenimiento del entorno
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/05%20-%20compilacion_y_ejecutables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generación de ejecutables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/99%20-%20ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Control de versiones
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Control de versiones
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción al control de versiones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/02%20-%20herramientas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Herramientas de control de versiones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/03%20-%20introduccion_git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/04%20-%20uso_basico_git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trabajo básico con Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/05%20-%20github/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/06%20-%20integracion_continua/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integración continua
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/99%20-%20ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios de Git y GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#el-enunciado-del-ejemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      El enunciado del ejemplo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dibujar-el-modelo-en-dia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dibujar el modelo en Dia
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#las-decisiones-del-modelo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Las decisiones del modelo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Las decisiones del modelo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#la-herencia-entre-las-facturas" class="md-nav__link">
+    <span class="md-ellipsis">
+      La herencia entre las facturas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#los-atributos-de-una-clase" class="md-nav__link">
+    <span class="md-ellipsis">
+      Los atributos de una clase
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#el-metodo-abstracto-del-importe" class="md-nav__link">
+    <span class="md-ellipsis">
+      El método abstracto del importe
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-agregacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      La agregación
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-clase-asociativa" class="md-nav__link">
+    <span class="md-ellipsis">
+      La clase asociativa
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-composicion" class="md-nav__link">
+    <span class="md-ellipsis">
+      La composición
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generar-codigo-desde-el-archivo-de-dia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generar código desde el archivo de Dia
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#otras-herramientas-de-modelado" class="md-nav__link">
+    <span class="md-ellipsis">
+      Otras herramientas de modelado
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="el-diagrama-de-clases-con-dia">El diagrama de clases con Dia</h1>
+<p>En la página anterior hemos usado IntelliJ para <strong>leer</strong> un modelo partiendo del código, que es el camino de la ingeniería inversa. Ahora toca el camino contrario, el del diseño: construir el diagrama de clases a partir de un enunciado, antes de que exista una sola línea de programa. Para eso hace falta una herramienta donde dibujar sea cómodo, y la que usaremos es <strong>Dia</strong>.</p>
+<p>Dia es un editor de diagramas libre y gratuito, publicado bajo licencia GPL y disponible para Linux, Windows y macOS. En Linux se instala desde los repositorios de la distribución con un solo comando, <code>sudo apt install dia</code>, y en Windows y macOS hay instaladores descargables. Su interés para nosotros está en que <strong>trae una hoja de formas UML en su caja de herramientas estándar</strong>, sin necesidad de instalar nada más, y esa hoja cubre mucho más que las clases: además de las formas para el diagrama de clases (<code>Class</code>, <code>Generalization</code>, <code>Association</code>, <code>Realizes</code>, <code>Dependency</code>, <code>Note</code>, paquetes), incluye las que se necesitan para los diagramas de comportamiento (<code>Actor</code>, <code>Use case</code>, <code>Lifeline</code>, <code>Object</code>, <code>Message</code>, <code>State</code>, <code>Activity</code>, <code>Branch</code>, <code>Fork/Union</code> y <code>Transition</code>). La misma herramienta sirve, por tanto, para todo el bloque de modelado.</p>
+<p>Hay una segunda razón para elegirla. Dia guarda los documentos en formato <code>.dia</code>, que es texto XML, de modo que un diagrama se puede versionar con Git y comparar entre versiones, igual que el código. Un diagrama guardado como imagen no permite saber qué ha cambiado; un <code>.dia</code> sí.</p>
+<h2 id="el-enunciado-del-ejemplo">El enunciado del ejemplo</h2>
+<p>El punto de partida de cualquier diagrama de clases es siempre un texto, no una pantalla. Antes de abrir la herramienta hay que leer el enunciado con calma y subrayar los sustantivos y los verbos que aparecen, porque los sustantivos suelen esconder clases y los verbos suelen esconder relaciones.</p>
+<div class="admonition note">
+<p class="admonition-title">Enunciado del ejemplo</p>
+<p>Las facturas de los proveedores de una empresa pueden ser de proveedores de servicios o de proveedores de productos o materiales. Cada una de las facturas, sea del tipo que sea, tiene en común:</p>
+<ul>
+<li>El número de la factura.</li>
+<li>La fecha de la factura.</li>
+<li>El importe total, que se calcula de manera diferente en las unas que en las otras.</li>
+<li>Los datos del cliente, que son el NIF y el nombre, y que tienen que encontrarse en una clase aparte.</li>
+<li>El detalle de la factura, tanto si es de materiales como si es de servicios.</li>
+</ul>
+<p>Tanto para las facturas de servicios como para las facturas de productos o materiales hay que tener guardada la última factura emitida, para tener presente el número de factura. Hay una lista de servicios con la descripción y el precio por hora de cada uno. En el detalle de las facturas tiene que haber:</p>
+<ul>
+<li>En las facturas de servicios, una lista de servicios con la fecha de prestación, el número de horas dedicadas y el precio por hora de cada servicio. En una factura puede haber más de una prestación del mismo servicio.</li>
+<li>En las facturas de productos, y para cada producto (en cada factura hay al menos uno), la descripción, el precio unitario y la cantidad.</li>
+</ul>
+</div>
+<p>Releer el enunciado antes de dibujar ahorra mucho tiempo después, porque casi todos los errores de un diagrama de clases vienen de haber modelado algo que el texto decía de otra manera.</p>
+<h2 id="dibujar-el-modelo-en-dia">Dibujar el modelo en Dia</h2>
+<p>El manejo básico de Dia es el de cualquier editor de diagramas vectoriales. La ventana tiene un lienzo central y, a la izquierda, una <strong>caja de herramientas</strong> organizada en hojas de formas: en la parte superior se elige la hoja y debajo aparecen las formas disponibles. Para trabajar con UML hay que seleccionar la hoja <strong>UML</strong>, que viene incluida en la instalación estándar. A partir de ahí, el procedimiento es siempre el mismo: se arrastra una forma al lienzo y se sueltan las veces que haga falta.</p>
+<p>La figura siguiente muestra la ventana de Dia con la hoja <strong>UML</strong> seleccionada en la caja de herramientas.</p>
+<figure>
+<img alt="" src="../../images/35.png" width="80%"/>
+</figure>
+<p>Conocer el catálogo completo de formas de esa hoja ahorra bastante tiempo, porque cada símbolo de UML tiene la suya y no hay que dibujar ninguno a mano. Estas son las que interesan para este apartado:</p>
+<table>
+<thead>
+<tr>
+<th>Forma de la hoja UML</th>
+<th>Para qué sirve</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Class</strong></td>
+<td>Crear una clase, con sus atributos y sus operaciones en la ventana de propiedades</td>
+</tr>
+<tr>
+<td><strong>Generalization</strong></td>
+<td>Trazar una herencia, desde la clase hija hasta la clase madre</td>
+</tr>
+<tr>
+<td><strong>Association</strong></td>
+<td>Trazar una asociación; desde sus propiedades se configura la multiplicidad, el papel, la navegabilidad y el tipo de agregación de cada extremo</td>
+</tr>
+<tr>
+<td><strong>Realizes</strong> e <strong>Implements</strong></td>
+<td>Marcar que una clase cumple el contrato de una interfaz</td>
+</tr>
+<tr>
+<td><strong>Dependency</strong></td>
+<td>Trazar una dependencia, en trazo discontinuo</td>
+</tr>
+<tr>
+<td><strong>Note</strong> y <strong>Constraint</strong></td>
+<td>Añadir una aclaración o una restricción escrita junto a un elemento</td>
+</tr>
+<tr>
+<td><strong>Small package</strong> y <strong>Large package</strong></td>
+<td>Organizar el modelo en paquetes</td>
+</tr>
+<tr>
+<td><strong>Class stereotype icon</strong></td>
+<td>Añadir el icono de un estereotipo sobre una clase</td>
+</tr>
+</tbody>
+</table>
+<p>Y estas son las que se usarán en el apartado siguiente, lo que confirma que merece la pena aprender una sola herramienta para todo el bloque de modelado:</p>
+<table>
+<thead>
+<tr>
+<th>Forma de la hoja UML</th>
+<th>Para qué sirve</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Actor</strong> y <strong>Use case</strong></td>
+<td>Dibujar los actores y los casos de uso de un diagrama de casos de uso</td>
+</tr>
+<tr>
+<td><strong>Lifeline</strong>, <strong>Object</strong> y <strong>Message</strong></td>
+<td>Dibujar los participantes, los objetos y los mensajes de un diagrama de secuencia o de comunicaciones</td>
+</tr>
+<tr>
+<td><strong>Initial/End state</strong> y <strong>State</strong></td>
+<td>Dibujar los estados y los nodos inicial y final de un diagrama de estados</td>
+</tr>
+<tr>
+<td><strong>Activity</strong>, <strong>Branch</strong> y <strong>Fork/Union</strong></td>
+<td>Dibujar las acciones, las decisiones y las bifurcaciones de un diagrama de actividades</td>
+</tr>
+<tr>
+<td><strong>Transition</strong></td>
+<td>Unir dos estados o dos acciones</td>
+</tr>
+</tbody>
+</table>
+<p>El catálogo completo de la hoja incluye además las formas para componentes y nodos de despliegue, que se usan en los diagramas de estructura de otros tipos y que no aparecen en este recorrido.</p>
+<p>Para crear una clase se arrastra la forma <strong>Class</strong>. Al crearla, lo primero es escribir su nombre. El resto de sus propiedades se editan abriendo la ventana de propiedades de la forma, con doble clic sobre ella o desde el menú contextual, y esa ventana conviene conocerla porque es donde se hace casi todo el trabajo.</p>
+<p>En la versión actual de Dia, la ventana se titula <em>Properties: UML - Class</em> y tiene cuatro pestañas: <strong>Class</strong>, <strong>Attributes</strong>, <strong>Operations</strong> y <strong>Templates</strong>. La primera recoge la identidad de la clase: el campo <em>Class name</em>, el <em>Stereotype</em>, un <em>Comment</em> que se usará después como documentación, y una lista de casillas entre las que están <em>Attributes visible</em>, <em>Operations visible</em> y la que interesa especialmente aquí, <strong>Abstract</strong>, que es la que marca la clase como abstracta y hace que su nombre se muestre en cursiva en el diagrama.</p>
+<figure>
+<img alt="" src="../../images/36.png" width="80%"/>
+</figure>
+<p>Las otras dos pestañas son las que dan contenido al modelo. En <strong>Attributes</strong> se añade un atributo por fila, indicando su nombre y su tipo, y en <strong>Operations</strong> se hace lo mismo con las operaciones. En las dos, cada elemento lleva asociada su <strong>visibilidad</strong>, que es lo que determina si en el diagrama aparecerá el símbolo <code>-</code>, el <code>+</code> o el <code>#</code>. Ese es el punto donde el modelo pasa de ser un dibujo a ser una descripción con significado: la visibilidad que se elija aquí es la que aparecerá en el rectángulo y la que después se trasladará al código.</p>
+<p>Las relaciones se trazan con las formas de la misma hoja. Se arrastra la forma que corresponda (<strong>Generalization</strong>, <strong>Association</strong>, <strong>Realizes</strong>, <strong>Dependency</strong>) y se engancha cada extremo sobre la clase que debe unir; Dia resalta el punto de anclaje para indicar que la conexión va a quedar establecida. La información que acompaña a una relación no se escribe en el lienzo, sino en sus propiedades, y ahí está el detalle que más cuesta al principio: en la forma <strong>Association</strong> se configuran por separado los <strong>dos extremos</strong>, y en cada uno se indican el papel que juega la clase, su <strong>multiplicidad</strong> y si la asociación es <strong>navegable</strong> en ese sentido. El tipo de agregación se elige también desde ahí, y es lo que hace que aparezca el rombo vacío o el rombo relleno.</p>
+<figure>
+<img alt="" src="../../images/37.png" width="80%"/>
+</figure>
+<div class="admonition warning">
+<p class="admonition-title">Sobre el aspecto de las ventanas</p>
+<p>Dia está construido sobre GTK, así que el aspecto de sus ventanas depende de la versión instalada y del tema del sistema: los mismos diálogos se ven distintos en Ubuntu, en Windows o en macOS. Lo que no cambia es el procedimiento ni el contenido. Si al abrir un diálogo aparece otra distribución, lo que hay que buscar es siempre lo mismo: el <strong>nombre de la clase</strong> y la casilla <strong>Abstract</strong> en la pestaña de la clase, y las listas de <strong>atributos</strong> y de <strong>operaciones</strong> en las suyas, donde se indica el tipo y la visibilidad de cada uno.</p>
+</div>
+<p>Conviene guardar el documento con extensión <code>.dia</code> desde el primer momento, porque es el formato que conserva el diagrama como fuente editable. Para llevarlo a una memoria o a un documento de entrega, Dia puede exportar a varios formatos de imagen vectorial y de mapa de bits desde la opción de exportación del menú de archivo; el formato SVG es el más recomendable, porque no pierde calidad al ampliarlo.</p>
+<h2 id="las-decisiones-del-modelo">Las decisiones del modelo</h2>
+<p>A continuación construimos el modelo del enunciado paso a paso, siguiendo el mismo orden en que se lee el texto y tomando, en cada parada, una única decisión de modelado: primero la herencia entre los tipos de factura, después los atributos comunes, luego el método que se calcula de forma distinta en cada hija, más tarde la relación con los datos del cliente, a continuación las dos clases que resuelven el detalle de las facturas y, por último, la relación que cierra el modelo.</p>
+<p>Lo importante del recorrido no es el dibujo, sino las decisiones que se toman en cada paso y el motivo que las justifica. Casi todas ellas tienen una alternativa razonable que habría que descartar con un argumento: por qué el dato va en la clase madre y no en las hijas, por qué esta relación es una agregación y no una composición, o por qué hace falta una tercera clase donde parecía que bastaban dos. Un diagrama de clases sin esas justificaciones escritas es un dibujo; con ellas, es un documento de diseño que se puede revisar y discutir. Al terminar cada paso conviene volver al enunciado y comprobar que el modelo sigue diciendo exactamente lo que dice el texto, ni más ni menos.</p>
+<h3 id="la-herencia-entre-las-facturas">La herencia entre las facturas</h3>
+<p>Analizando el enunciado aparece una frase decisiva: "cada una de las facturas de una empresa es, o bien una factura de servicios, o bien una factura de productos". Esa disyuntiva es la señal clásica de una <strong>generalización o herencia</strong>: la clase padre corresponde a <code>Factura</code> y las clases hijas a <code>FacturaServicios</code> y <code>FacturaProductos</code>. El razonamiento es el siguiente: hay una serie de datos y comportamientos que todas las facturas comparten, y hay otros que solo tienen sentido en un tipo concreto. Lo común sube a la clase madre; lo específico se queda en cada hija.</p>
+<p>Empezamos creando las tres clases sueltas en el lienzo.</p>
+<figure>
+<img alt="" src="../../images/38.png" width="70%"/>
+</figure>
+<p>En este punto el modelo todavía no dice nada sobre la relación que existe entre ellas: son tres rectángulos sin conectar. Para establecerla hay que trazar una forma <strong>Generalization</strong> desde cada clase hija hasta la clase madre.</p>
+<figure>
+<img alt="" src="../../images/39.png" width="70%"/>
+</figure>
+<p>Con la generalización ya aplicada, las dos clases hijas quedan unidas a la clase madre mediante flechas con la punta triangular vacía que apuntan hacia arriba. La dirección de la flecha no es un detalle menor: sale siempre de la subclase y apunta a la superclase, porque lo que se está indicando es "soy un caso particular de". Dibujarla al revés invierte el significado del modelo y es uno de los errores más frecuentes al empezar.</p>
+<h3 id="los-atributos-de-una-clase">Los atributos de una clase</h3>
+<p>Seguimos interpretando el enunciado, que nos dice que las facturas tienen en común el número, la fecha y el importe. De este modo, los atributos de la clase <code>Factura</code> son <strong>número</strong>, <strong>fecha</strong> e <strong>importe</strong>, cada uno con su tipo y su visibilidad.</p>
+<p>La decisión de dónde colocar cada atributo no es automática, y aquí conviene detenerse. El enunciado dice "tienen en común", y esa palabra es la que manda el dato a la clase madre. Si el número se declarara en <code>FacturaServicios</code> y otra vez en <code>FacturaProductos</code>, habría dos campos con el mismo significado en dos sitios distintos, y cualquier cambio en su tipo o en su formato obligaría a acordarse de los dos. La herencia resuelve justo eso: lo común se escribe una sola vez, arriba, y las hijas lo reciben sin repetirlo.</p>
+<p>La segunda decisión es la <strong>visibilidad</strong>, y la respuesta por defecto debería ser siempre la misma: privada. Los tres atributos de <code>Factura</code> son datos internos del objeto, y quien necesite leer o modificar el importe tendrá que hacerlo a través de los métodos que la propia clase ofrezca, que es donde se podrá controlar que el valor tiene sentido. Dejar un atributo público es prometer que cualquier parte del programa puede escribir en él sin pasar por ninguna comprobación, y esa promesa casi nunca conviene hacerla.</p>
+<figure>
+<img alt="" src="../../images/40.png" width="70%"/>
+</figure>
+<p>La clase <code>Factura</code> muestra ya sus tres datos, mientras que <code>FacturaServicios</code> y <code>FacturaProductos</code> siguen vacías, porque todavía no tienen nada propio. La herencia garantiza que la información se entienda de forma acumulativa: lo que está en la clase madre lo tienen todas las hijas sin necesidad de repetirlo, y ese es precisamente el ahorro que justifica haber creado la jerarquía.</p>
+<h3 id="el-metodo-abstracto-del-importe">El método abstracto del importe</h3>
+<p>El enunciado nos indica que el importe se calcula de manera diferente en unas facturas que en otras, es decir, que el cálculo será distinto para <code>FacturaServicios</code> y para <code>FacturaProductos</code>. Ese "de manera diferente según el tipo" es la señal de que el método debe declararse en la clase madre pero implementarse en cada hija. Así, <code>calculoImporte()</code> se define en <code>Factura</code> como un <strong>método abstracto</strong>, que devuelve un entero y del que la clase madre solo declara su firma.</p>
+<p>En las clases hijas, ese método se <strong>sobrescribe</strong>, es decir, cada una declara su propia versión con la misma firma y con el cuerpo que le corresponde. En el diagrama, el método abstracto aparece en la clase madre en cursiva, y cada clase hija muestra su versión concreta.</p>
+<figure>
+<img alt="" src="../../images/41.png" width="70%"/>
+</figure>
+<p>El resultado es el diagrama que aparece arriba: <code>Factura</code> con sus tres atributos y su operación <code>calculoImporte()</code> en cursiva por ser abstracta, y las dos clases hijas mostrando su propia versión de <code>calculoImporte()</code>, esta vez ya concreta. Cada hija implementará el cálculo a su manera, y el resto del sistema podrá invocar el método sin saber qué tipo concreto de factura tiene delante, que es el polimorfismo que ya estudiamos.</p>
+<h3 id="la-agregacion">La agregación</h3>
+<p>El enunciado continúa explicando que los datos del cliente, que son el NIF y el nombre, tienen que estar en una clase aparte. Es necesario, por tanto, crear una nueva clase llamada <code>DatosCliente</code>, con sus atributos <code>NIF</code> y <code>nombre</code>, y unirla a <code>Factura</code> mediante una forma <strong>Association</strong> configurada como <strong>agregación</strong>, con su rombo vacío del lado de la factura y su multiplicidad.</p>
+<figure>
+<img alt="" src="../../images/42.png" width="65%"/>
+</figure>
+<p>Con la agregación ya aplicada, el diagrama muestra el rombo en el extremo de <code>Factura</code>, que es el objeto base de la relación, y una multiplicidad <code>1..*</code> sobre la línea. La lectura es que una factura agrega uno o más registros de datos del cliente.</p>
+<p>Conviene hacer aquí un inciso que se plantea con frecuencia en los exámenes. La justificación que suele darse para elegir agregación es que el objeto agregado solo tiene sentido si existe la factura, y ese razonamiento describe en realidad una <strong>composición</strong>, no una agregación. La diferencia entre ambas está precisamente en qué ocurre al destruir el objeto base: en la composición el incluido desaparece con él, y en la agregación sobrevive. Por eso, antes de decidir el tipo de relación, la pregunta que hay que hacerse no es "¿tiene sentido por sí solo?", sino "¿qué pasa con el objeto incluido cuando desaparece el objeto base?". En este ejemplo el rombo vacío de la agregación es el que aparece dibujado en el modelo de referencia, y esa es la elección que reproduciremos.</p>
+<p>Por otra parte, el enunciado especifica que se guarda el último número de factura de servicios y también el último número de factura de productos. Es necesario, entonces, crear un nuevo atributo <code>ultimoNumero</code> en la clase <code>FacturaServicios</code> y en la clase <code>FacturaProductos</code>. Aprovecharemos para añadir de paso los métodos de acceso de todos los atributos, los conocidos <em>setters</em> y <em>getters</em>.</p>
+<figure>
+<img alt="" src="../../images/43.png" width="65%"/>
+</figure>
+<p>El diagrama crece rápido con esta operación, y ese crecimiento es una lección en sí mismo. <code>Factura</code> pasa a mostrar los métodos <code>getNumero()</code>, <code>setNumero()</code>, <code>getFecha()</code>, <code>setFecha()</code>, <code>getImporte()</code> y <code>setImporte()</code>, y cada hija incorpora los suyos, incluidos los correspondientes a <code>ultimoNumero</code>. Es el momento de decidir en cada caso qué atributos merecen acceso público y cuáles no: generar todos los accesos por rutina es cómodo, pero abre la puerta a que cualquier parte del programa modifique el estado interno de un objeto sin pasar por las reglas que ese objeto debería controlar.</p>
+<h3 id="la-clase-asociativa">La clase asociativa</h3>
+<p>El enunciado continúa explicando que hay una lista de servicios con la descripción y el precio por hora de cada uno. Por tanto, es necesario crear una nueva clase llamada <code>Servicio</code>, que contendrá dos atributos: <code>descripción</code> y <code>precioHora</code>.</p>
+<figure>
+<img alt="" src="../../images/44.png" width="60%"/>
+</figure>
+<p>La clase <code>Servicio</code> aparece aislada en el diagrama, con sus dos atributos privados y los cuatro métodos de acceso. Es una clase independiente porque los servicios existen con independencia de las facturas: el catálogo de precios es el mismo para todas.</p>
+<p>El enunciado sigue diciendo que cada factura de servicios tiene una lista de servicios con la fecha de prestación y el número de horas, y que en una factura puede haber más de una prestación del mismo servicio. Ese "más de una prestación del mismo servicio" es la clave del problema, y obliga a crear una <strong>clase asociativa</strong> llamada <code>Horas</code>, con los atributos <code>fechaPrestacion</code> y <code>numero</code>.</p>
+<figure>
+<img alt="" src="../../images/45.png" width="60%"/>
+</figure>
+<p>La clase <code>Horas</code> es el ejemplo perfecto de por qué existe la figura de la clase asociativa. Las horas trabajadas no pertenecen al servicio, porque un mismo servicio se presta muchas veces; y tampoco pertenecen a la factura como atributo simple, porque una factura tiene varias prestaciones distintas. El dato pertenece al <strong>vínculo</strong> entre la factura de servicios y el servicio prestado, y ese vínculo es lo que se modela como clase.</p>
+<p>Las asociaciones se representan como líneas continuas, y el resultado de incorporar las dos clases nuevas sería el siguiente.</p>
+<figure>
+<img alt="" src="../../images/46.png" width="70%"/>
+</figure>
+<p>El diagrama es ya un modelo completo y funcional: <code>Factura</code> en la parte superior con su agregación hacia <code>DatosCliente</code>, la herencia hacia <code>FacturaServicios</code> y <code>FacturaProductos</code>, y en la parte inferior <code>Servicio</code> y <code>Horas</code> conectados con las asociaciones correspondientes. Merece la pena observar cómo la herencia se lee de abajo hacia arriba y la agregación de izquierda a derecha, y cómo las multiplicidades van siempre en el extremo opuesto al que se está leyendo.</p>
+<h3 id="la-composicion">La composición</h3>
+<p>Continuando con el enunciado, este especifica que las facturas de productos, para cada producto (y en cada factura hay al menos uno), tienen la descripción, el precio unitario y la cantidad. Es necesario, por tanto, crear una nueva clase llamada <code>ProductoFactura</code>, con los atributos <code>descripción</code>, <code>precioUnidad</code> y <code>cantidad</code>.</p>
+<p>En este caso se trata de una <strong>composición</strong>, porque es una relación más fuerte que la agregación. <code>FacturaProductos</code> tiene sentido por sí misma, pero está compuesta de <code>ProductoFactura</code>, que aporta la descripción, el precio y la cantidad de la factura. La línea de producto no existe fuera de la factura que la contiene, y ese detalle es el que marca la diferencia.</p>
+<figure>
+<img alt="" src="../../images/47.png" width="80%"/>
+</figure>
+<p>El diagrama final muestra el rombo relleno del lado de <code>FacturaProductos</code> y la asociación hacia <code>ProductoFactura</code>. Con esta última pieza el modelo queda cerrado y cubre todos los requisitos del enunciado: los datos comunes de cualquier factura en la clase madre, el cálculo del importe delegado a las hijas, los datos del cliente agregados en su propia clase, el catálogo de servicios, las horas de cada prestación modeladas como clase asociativa y las líneas de producto modeladas como composición.</p>
+<h2 id="generar-codigo-desde-el-archivo-de-dia">Generar código desde el archivo de Dia</h2>
+<p>Dia guarda el diagrama en formato XML, y ese detalle tiene una consecuencia aprovechable: como el archivo contiene la estructura del modelo en un formato legible por máquina, existen utilidades capaces de leerlo y escribir el esqueleto del código. La más conocida es <strong>dia2code</strong>, una pequeña herramienta de línea de comandos que genera ficheros fuente en varios lenguajes, entre ellos Java, a partir de un diagrama <code>.dia</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>dia2code
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>dia2code<span class="w"> </span>-t<span class="w"> </span>java<span class="w"> </span>factura.dia
+</span></code></pre></div>
+<p>El resultado son los ficheros <code>.java</code> de las clases del diagrama, con sus atributos, sus tipos y sus métodos de acceso, y con la herencia ya declarada mediante la cláusula <code>extends</code>. Es exactamente la misma frontera que vimos al generar código en IntelliJ: la herramienta escribe la <strong>estructura</strong> y deja pendiente la <strong>lógica</strong>, porque el cuerpo de <code>calculoImporte()</code> no se puede deducir de un dibujo.</p>
+<p>Conviene ser honesto sobre el alcance de esta utilidad. Dia2code es un programa pequeño y veterano: reconoce los elementos básicos del diagrama y un par de estereotipos, como <code>«Interface»</code>, pero no es un entorno de ingeniería de ida y vuelta como los que existen en el mercado, y su vocabulario de opciones es limitado. Sirve perfectamente para el objetivo del curso, que es comprobar que del modelo se puede obtener código, y para no escribir a mano el esqueleto de veinte clases. Si la distribución que usas no lo incluye, su código fuente está publicado y se compila en un minuto.</p>
+<h2 id="otras-herramientas-de-modelado">Otras herramientas de modelado</h2>
+<p>Dia es la herramienta que hemos usado porque cubre las dos familias de diagramas UML y porque es libre y ligera, pero no es la única opción. Conocer el panorama ayuda a elegir con criterio, porque cada familia de herramientas resuelve un problema distinto.</p>
+<table>
+<thead>
+<tr>
+<th>Herramienta</th>
+<th>Tipo</th>
+<th>Coste</th>
+<th>Cuándo elegirla</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Dia</strong></td>
+<td>Aplicación de escritorio, con hoja UML completa</td>
+<td>Libre (GPL)</td>
+<td>Para dibujar el modelo desde cero, antes de programar</td>
+</tr>
+<tr>
+<td><strong>IntelliJ IDEA</strong> (módulo <em>Diagrams</em>)</td>
+<td>Dentro del IDE</td>
+<td>Ultimate, gratuita con el Pack Educativo de JetBrains</td>
+<td>Para leer el código que ya existe y mantenerlo documentado</td>
+</tr>
+<tr>
+<td><strong>draw.io</strong> (diagrams.net)</td>
+<td>Web y escritorio, propósito general</td>
+<td>Gratuita</td>
+<td>Diagramas rápidos que tienen que acabar incrustados en documentación</td>
+</tr>
+<tr>
+<td><strong>StarUML</strong></td>
+<td>Aplicación de escritorio, orientada a UML</td>
+<td>De pago, con versión de prueba</td>
+<td>Modelado UML estricto en local, sin depender de servicios web</td>
+</tr>
+<tr>
+<td><strong>Papyrus</strong></td>
+<td>Aplicación de escritorio sobre Eclipse</td>
+<td>Libre</td>
+<td>Entornos que ya trabajan sobre Eclipse y necesitan un modelado formal</td>
+</tr>
+<tr>
+<td><strong>Umbrello</strong></td>
+<td>Aplicación de escritorio</td>
+<td>Libre</td>
+<td>Alternativas ligeras de código abierto, con generación de código integrada</td>
+</tr>
+<tr>
+<td><strong>PlantUML</strong> y <strong>Mermaid</strong></td>
+<td>Basadas en texto</td>
+<td>Libres</td>
+<td>Diagramas que tienen que vivir dentro de un repositorio de código</td>
+</tr>
+</tbody>
+</table>
+<p>Las dos últimas merecen un comentario aparte, porque representan una forma de trabajar distinta. En lugar de dibujar cajas con el ratón, se escribe un texto con una sintaxis sencilla y la herramienta lo convierte en el diagrama. Un ejemplo de Mermaid, el mismo lenguaje que se usa para dibujar el flujo de ramas en el apartado de control de versiones, sería este:</p>
+<pre class="mermaid"><code>classDiagram
+    class Factura {
+        &lt;&lt;abstract&gt;&gt;
+        -numero : int
+        -fecha : String
+        -importe : int
+        +calculoImporte() int
+    }
+    class FacturaServicios {
+        -ultimoNumero : int
+    }
+    class FacturaProductos {
+        -ultimoNumero : int
+    }
+    Factura &lt;|-- FacturaServicios
+    Factura &lt;|-- FacturaProductos</code></pre>
+<figure>
+<img alt="" src="../../images/48.png" width="70%"/>
+</figure>
+<p>La figura recoge ese mismo modelo generado con una herramienta basada en texto, en este caso PlantUML.</p>
+<p>La ventaja de este enfoque enlaza directamente con lo que ya sabemos de Git. Un diagrama guardado como imagen es un fichero binario: Git lo almacena, sí, pero no puede mostrar qué ha cambiado entre dos versiones, y una revisión en un <em>pull request</em> se limita a decir «esta imagen ha cambiado». Un diagrama escrito en texto sí se puede comparar línea a línea, de modo que una modificación en la relación entre dos clases aparece como una línea eliminada y otra añadida, igual que cualquier otra parte del código. Para un proyecto que va a evolucionar durante años, esa diferencia pesa más de lo que parece.</p>
+<p>Queda por mencionar el caso de los entornos integrados de desarrollo, que ya hemos recorrido en la página anterior. Muchos IDE incorporan de serie alguna vista de clases o alguna utilidad para generar un diagrama a partir del código del proyecto, y los que no la traen permiten añadirla instalando un módulo o un <em>plugin</em>. Es una vía cómoda porque no obliga a cambiar de aplicación, y tiene el mismo alcance que la ingeniería inversa: sirve para entender y documentar un código que ya existe, no para diseñarlo antes de escribirlo. Antes de elegir herramienta conviene, por tanto, hacerse una pregunta muy concreta: ¿el diagrama va a nacer antes que el código o va a nacer después de él?</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Manuel Sánchez Gomis
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["search.suggest", "search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "content.code.copy", "content.tabs.link", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../../assets/_markdown_exec_pyodide.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../_static/js/notebook.js"></script>
+      
+    
+  </body>
+</html>

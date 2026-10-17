@@ -1,0 +1,1086 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Manuel Sánchez Gomis">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
+    
+    
+      
+        <title>El diagrama de estados - Entornos de desarrollo</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_markdown_exec_pyodide.css">
+    
+      <link rel="stylesheet" href="../../../_static/css/notebook.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#el-diagrama-de-estados" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Entornos de desarrollo" class="md-header__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Entornos de desarrollo
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              El diagrama de estados
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo brillante"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo brillante" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Bienvenido
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Introducción al desarrollo de software
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Entornos de desarrollo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../control_versiones/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Control de versiones
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Entornos de desarrollo" class="md-nav__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    Entornos de desarrollo
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bienvenido
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introducción al desarrollo de software
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Introducción al desarrollo de software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/02%20-%20lenguajes_programacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lenguajes de programación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/03%20-%20proceso_obtencion_codigo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proceso de obtención de código
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/04%20-%20desarrollo_aplicaciones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Desarrollo de aplicaciones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/05%20-%20metodologias_agiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metodologías Ágiles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Entornos de desarrollo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Entornos de desarrollo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a los entornos de desarrollo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/02%20-%20intellij/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IntelliJ IDEA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/03%20-%20plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalar plugins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/04%20-%20personalizacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Personalización, automatización y mantenimiento del entorno
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/05%20-%20compilacion_y_ejecutables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generación de ejecutables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/99%20-%20ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Control de versiones
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Control de versiones
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción al control de versiones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/02%20-%20herramientas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Herramientas de control de versiones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/03%20-%20introduccion_git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/04%20-%20uso_basico_git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trabajo básico con Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/05%20-%20github/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/06%20-%20integracion_continua/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integración continua
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/99%20-%20ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios de Git y GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#los-elementos-del-diagrama" class="md-nav__link">
+    <span class="md-ellipsis">
+      Los elementos del diagrama
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#un-ejemplo-de-referencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Un ejemplo de referencia
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#como-se-elabora-un-diagrama-de-estados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cómo se elabora un diagrama de estados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#el-campo-de-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      El campo de aplicación
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="el-diagrama-de-estados">El diagrama de estados</h1>
+<p>El <strong>diagrama de estados</strong> describe las distintas situaciones por las que pasa un objeto a lo largo de su vida desde el punto de vista de su comportamiento, junto con las causas, condiciones y consecuencias de cada cambio. Muestra estados, eventos, transiciones y actividades, y responde a una pregunta muy concreta: ¿por qué situaciones ha pasado esto y qué ha hecho que cambie de una a otra?</p>
+<p>Es, de toda la familia, el diagrama que más se parece a un programa. Un diagrama de estados se puede traducir casi literalmente a un enumerado con los estados y una comprobación previa en cada operación pública, y esa traducción tan directa es la razón de que sea tan útil: lo que está dibujado se puede programar sin ambigüedad, y lo que <strong>no</strong> está dibujado queda explícitamente prohibido. Esa segunda parte es la importante. Un diagrama de estados no solo dice qué se puede hacer, dice también qué no se puede hacer, y eso es precisamente lo que ningún otro diagrama del bloque deja por escrito.</p>
+<p>No todos los objetos merecen un diagrama de estados. Un objeto que se crea, se consulta y se destruye sin más recorrido vital no aporta nada a este diagrama. Los que sí lo justifican son los objetos cuyo comportamiento depende de su <strong>historia</strong>: un pedido, que no se puede enviar si no se ha pagado; una reserva, que no se puede cancelar si ya ha empezado; una factura, que no se puede cobrar dos veces; o un expediente académico, que pasa por matrícula, evaluación y titulación. En todos esos casos, la respuesta correcta a una petición depende del estado en que se encuentre el objeto, y ese es exactamente el tipo de lógica que este diagrama captura.</p>
+<h2 id="los-elementos-del-diagrama">Los elementos del diagrama</h2>
+<p>Un <strong>estado</strong> es una situación estable en la que el objeto permanece hasta que ocurre algo que lo saca de ella. Se dibuja como un rectángulo de esquinas redondeadas con su nombre en la parte superior, y en el cuerpo del rectángulo pueden detallarse actividades internas precedidas de las etiquetas <code>entry</code>, <code>do</code> y <code>exit</code>, que se ejecutan respectivamente al entrar en el estado, mientras se permanece en él y al salir. Esas actividades internas son la razón de que un estado pueda tener comportamiento propio sin necesidad de transiciones, y suelen aparecer cuando al cambiar de estado hay que hacer algo obligatorio, como enviar un correo o registrar una fecha.</p>
+<p>Los nombres de los estados se escriben en mayúsculas por convención, y conviene elegirlos pensando en <strong>qué es cierto del objeto</strong> mientras está en ese estado, no en qué se está haciendo con él. <code>PAGADO</code> es un buen nombre de estado porque describe un hecho comprobable; <code>PROCESANDO</code> es peor, porque describe una acción momentánea y deja abierta la pregunta de en qué situación queda el objeto mientras ocurre.</p>
+<p>Una <strong>transición</strong> es la flecha que une dos estados y representa un cambio de situación. Cada transición se etiqueta con la información que explica el cambio, y esa etiqueta puede tener hasta tres partes: el <strong>evento</strong> que la dispara, la <strong>guarda</strong> entre corchetes, que es la condición que debe cumplirse para que la transición ocurra, y la <strong>acción</strong> o efecto que se ejecuta al tomarla. Una etiqueta completa tendría la forma <code>evento [guarda] / acción</code>, y cualquiera de las tres partes puede omitirse.</p>
+<p>Esa distinción entre evento y guarda es la que más se confunde. El evento es algo que ocurre, como "se registra el cobro" o "transcurre el plazo"; la guarda es una comprobación sobre el estado interno del objeto, como "el importe cobrado coincide con el total". Una transición puede dispararse por el mismo evento en dos situaciones distintas y acabar en estados distintos, y lo único que las diferencia es la guarda. Cuando eso ocurre, lo correcto es dibujar <strong>dos transiciones</strong> con el mismo evento y guardas distintas, no una sola con dos acciones, porque el diagrama tiene que dejar claro que las dos posibilidades existen.</p>
+<p>El <strong>estado inicial</strong> se representa con un círculo relleno, igual que el nodo inicial del diagrama de actividades, y el <strong>estado final</strong> con un círculo rodeado por un anillo. Un estado <strong>compuesto</strong> es un estado que contiene a su vez una máquina de estados completa en su interior, y sirve para no perder el detalle de los procesos largos. Los <strong>pseudoestados</strong> son los símbolos auxiliares que permiten expresar bifurcaciones, uniones y entradas o salidas múltiples dentro de una máquina de estados.</p>
+<p>El estado compuesto merece un ejemplo, porque es la pieza que evita dos errores opuestos: dejar el diagrama demasiado plano o hacerlo ilegible. En el diagrama siguiente, el expediente de una solicitud pasa por un estado <code>EN TRAMITE</code> que internamente tiene sus propias fases, y desde fuera se comporta como un único estado:</p>
+<pre class="mermaid"><code>stateDiagram-v2
+    [*] --&gt; BORRADOR
+    BORRADOR --&gt; ENVIADO : enviar()
+    ENVIADO --&gt; EN_TRAMITE : aceptarRecepcion()
+    state EN_TRAMITE {
+        [*] --&gt; VALIDANDO
+        VALIDANDO --&gt; REVISANDO : documentacionCompleta()
+        REVISANDO --&gt; VALIDANDO : faltaDocumentacion()
+        REVISANDO --&gt; [*] : informeFavorable()
+    }
+    EN_TRAMITE --&gt; RESUELTO : resolver()
+    ENVIADO --&gt; DEVUELTO : rechazarRecepcion()
+    RESUELTO --&gt; [*]
+    DEVUELTO --&gt; [*]</code></pre>
+<p>La ventaja del estado compuesto es que permite elegir el nivel de detalle sin romper el modelo. Quien solo necesite saber por dónde va la solicitud mira el diagrama de arriba y ve cuatro estados. Quien necesite saber qué está pasando dentro del trámite abre el estado compuesto y encuentra sus fases, con sus condiciones de avance y de retroceso. Sin el estado compuesto, esas fases tendrían que dibujarse al mismo nivel que los demás estados, y el diagrama tendría siete cajas donde antes había cuatro, sin que se viera en ningún sitio cuáles pertenecen a un mismo tramo.</p>
+<h2 id="un-ejemplo-de-referencia">Un ejemplo de referencia</h2>
+<figure>
+<img alt="" src="../../images/07.png" width="75%"/>
+</figure>
+<p>En la figura se modela la vida laboral de un trabajador. El círculo relleno de la izquierda es el estado inicial, y desde él se entra al estado <code>EN EL PARO</code>. Cuando ocurre el evento "es contratado", el trabajador pasa a <code>EN ACTIVO</code>. Si pierde el empleo, vuelve a <code>EN EL PARO</code>, y si se jubila, pasa a <code>JUBILADO</code>, que además es el estado final del recorrido.</p>
+<p>La información importante del diagrama no está en los rectángulos, sino en las flechas. Los estados dicen qué situaciones existen, y las transiciones dicen qué circunstancias las cambian. Ese es el motivo de que este diagrama sea útil más allá del dibujo: obliga a enumerar exhaustivamente los cambios posibles y a decidir, para cada uno, el evento que lo provoca.</p>
+<p>Al hacerlo aparecen de inmediato las preguntas que nadie había formulado, y que son el verdadero producto del ejercicio. ¿Se puede volver de <code>JUBILADO</code> a <code>EN EL PARO</code>? ¿Un trabajador puede jubilarse estando en el paro? ¿Puede pasar de <code>EN ACTIVO</code> a <code>JUBILADO</code> sin transición intermedia, o hace falta pasar por el paro? Cada respuesta afirmativa se convierte en una flecha, y cada respuesta negativa en un caso que el programa debe rechazar de forma explícita.</p>
+<p>Tomemos una de esas preguntas y sigámosla hasta su consecuencia en el código. El diagrama, tal como está, permite pasar de <code>EN ACTIVO</code> a <code>JUBILADO</code> directamente, porque existe una transición etiquetada <code>SE JUBILA</code> entre ambos. Si el negocio dijera que no se puede, habría que eliminar esa flecha, y entonces la operación de jubilar tendría que comprobar el estado antes de actuar: si el trabajador está en activo, la operación devolvería un error en lugar de cambiar el estado. Esa comprobación es exactamente lo que el diagrama está exigiendo, y es la parte que se olvida cuando el modelo no existe. Sin diagrama, el programador escribió <code>trabajador.jubilar()</code> sin preguntar nada, y el sistema permitió jubilar a alguien que estaba en el paro.</p>
+<h2 id="como-se-elabora-un-diagrama-de-estados">Cómo se elabora un diagrama de estados</h2>
+<p>El procedimiento tiene un paso previo que no se puede saltar: elegir el objeto. Un diagrama de estados describe un único objeto, de modo que lo primero es decidir cuál. La prueba para saber si merece la pena es preguntarse si el objeto se comporta de forma distinta según su historial. Si la respuesta es afirmativa, adelante.</p>
+<p>El segundo paso es enumerar los <strong>estados</strong>, y para eso ayuda pensar en las respuestas que el objeto puede dar y en los bloqueos que puede sufrir. Una factura, por ejemplo, no se puede cobrar si ya está cobrada, no se puede anular si ya se ha contabilizado y deja de admitir cambios cuando vence el plazo. Esas tres restricciones definen cuatro estados posibles: emitida, cobrada, vencida y anulada. Un truco útil para no dejarse estados fuera es preguntar qué ocurre cuando pasa el tiempo, cuando llega dinero y cuando alguien intenta deshacer algo.</p>
+<p>El tercer paso es dibujar las <strong>transiciones</strong> y etiquetarlas con el evento que las provoca. Aplicado al ciclo de vida de una factura, el resultado es el siguiente:</p>
+<pre class="mermaid"><code>stateDiagram-v2
+    [*] --&gt; EMITIDA : registrar()
+    EMITIDA --&gt; COBRADA : registrarCobro() [importeOK]
+    EMITIDA --&gt; COBRADA : registrarCobro() [importeParcial] / generarRecordatorio()
+    EMITIDA --&gt; VENCIDA : vencerPlazo()
+    VENCIDA --&gt; COBRADA : registrarCobro() [importeOK]
+    EMITIDA --&gt; ANULADA : anular() [noContabilizada]
+    VENCIDA --&gt; ANULADA : anular()
+    COBRADA --&gt; [*]
+    ANULADA --&gt; [*]</code></pre>
+<p>El diagrama permite leer de un vistazo reglas que en el código se reparten por media aplicación. Que una factura vencida todavía se pueda cobrar, pero que una factura cobrada ya no admita ninguna transición hacia <code>[*]</code> más que la de cierre. Que el cobro parcial, siendo el mismo evento que el cobro completo, lleva una acción asociada, <code>generarRecordatorio()</code>, que no aparece en el otro caso. Y que la anulación solo es posible si la factura no se ha contabilizado, condición que en el diagrama queda escrita entre corchetes.</p>
+<p>Ese detalle tiene una consecuencia práctica muy directa: el compilador no va a comprobar la guarda por nosotros. Si en el código la operación de anular no verifica antes el estado, un usuario podrá anular una factura ya contabilizada aunque el diagrama diga que no. El diagrama documenta la regla y sirve para acordarla, pero la regla hay que implementarla, y ese es el puente que separa el modelo del programa.</p>
+<p>Conviene además aprovechar el diagrama para detectar <strong>estados inalcanzables y transiciones muertas</strong>, que son los dos errores más comunes de este tipo de modelo. Un estado inalcanzable es aquel al que no llega ninguna transición: si <code>VENCIDA</code> no tuviera ninguna flecha de entrada, el sistema nunca podría dejar una factura en ese estado y la lógica de los plazos estaría inservible. Y una transición muerta es aquella cuya guarda no puede cumplirse nunca porque contradice al estado de origen. Los dos errores son invisibles en el código y evidentes en el diagrama, y esa es una de las mejores razones para dibujarlo antes de programar.</p>
+<h2 id="el-campo-de-aplicacion">El campo de aplicación</h2>
+<p>El diagrama de estados se usa allí donde la lógica depende del ciclo de vida, y por eso aparece con frecuencia en modelado de procesos de negocio, en sistemas de gestión documental, en el control de pedidos y facturación y en los protocolos de comunicación, donde cada extremo tiene su propia máquina de estados. También es la herramienta natural para describir interfaces de usuario con flujo guiado, como un asistente de instalación o un formulario por pasos, porque cada pantalla no es más que un estado y cada botón una transición.</p>
+<p>Su utilidad se multiplica cuando el objeto tiene un ciclo de vida largo y compartido por varios actores. Una factura pasa por manos del comercial, del departamento de cobros y de la asesoría contable, y cada uno de ellos necesita saber qué puede hacer en función de la situación del documento. El diagrama de estados es la referencia común que evita que cada departamento implemente sus propias reglas, que es como nacen los sistemas en los que una factura puede estar anulada y cobrada a la vez.</p>
+<p>Lo que conviene evitar es forzarlo donde no toca. Un diagrama de estados con un único estado y una única transición no aporta nada, y un diagrama que reproduce la estructura de las clases en lugar de su ciclo de vida tampoco. Cuando el objeto no tiene historia que contar, la información relevante está en otro sitio.</p>
+<p>Merece la pena cerrar con una comprobación rápida para saber si un diagrama de estados está bien hecho: <strong>se lee la etiqueta de cada transición en voz alta como una frase</strong>. "Si la factura está emitida y se registra un cobro y el importe es correcto, pasa a cobrada." Si la frase tiene sentido completo, la transición está bien construida. Si al leerla falta el evento o la guarda, el problema no está en el dibujo, está en el modelo, y ese es el momento de arreglarlo.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Manuel Sánchez Gomis
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["search.suggest", "search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "content.code.copy", "content.tabs.link", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../../assets/_markdown_exec_pyodide.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../_static/js/notebook.js"></script>
+      
+    
+  </body>
+</html>

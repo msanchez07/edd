@@ -1,0 +1,1638 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Manuel Sánchez Gomis">
+      
+      
+      
+        <link rel="prev" href="../03%20-%20introduccion_git/">
+      
+      
+        <link rel="next" href="../05%20-%20github/">
+      
+      
+      <link rel="icon" href="../../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
+    
+    
+      
+        <title>Trabajo básico con Git - Entornos de desarrollo</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_markdown_exec_pyodide.css">
+    
+      <link rel="stylesheet" href="../../../_static/css/notebook.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#trabajo-basico-con-git" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Entornos de desarrollo" class="md-header__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Entornos de desarrollo
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Trabajo básico con Git
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo brillante"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo brillante" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Bienvenido
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Introducción al desarrollo de software
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Entornos de desarrollo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Control de versiones
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Entornos de desarrollo" class="md-nav__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    Entornos de desarrollo
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bienvenido
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introducción al desarrollo de software
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Introducción al desarrollo de software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/02%20-%20lenguajes_programacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lenguajes de programación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/03%20-%20proceso_obtencion_codigo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proceso de obtención de código
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/04%20-%20desarrollo_aplicaciones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Desarrollo de aplicaciones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/05%20-%20metodologias_agiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metodologías Ágiles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Entornos de desarrollo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Entornos de desarrollo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a los entornos de desarrollo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/02%20-%20intellij/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IntelliJ IDEA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/03%20-%20plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalar plugins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/04%20-%20personalizacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Personalización, automatización y mantenimiento del entorno
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/05%20-%20compilacion_y_ejecutables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generación de ejecutables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/99%20-%20ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Control de versiones
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Control de versiones
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción al control de versiones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02%20-%20herramientas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Herramientas de control de versiones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03%20-%20introduccion_git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Trabajo básico con Git
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Trabajo básico con Git
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#por-que-existe-el-paso-intermedio-de-staging" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Por qué existe el paso intermedio de Staging?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#los-estados-de-un-archivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Los estados de un archivo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crear-un-repositorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Crear un repositorio
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#realizar-el-primer-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Realizar el primer commit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consultar-el-estado-del-repositorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consultar el estado del repositorio
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consultar-el-historial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consultar el historial
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ver-las-diferencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ver las diferencias
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trabajar-con-ramas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trabajar con ramas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trabajar con ramas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fusionar-ramas-y-resolver-conflictos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fusionar ramas y resolver conflictos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deshacer-cambios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deshacer cambios
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deshacer cambios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#descartar-los-cambios-de-un-archivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Descartar los cambios de un archivo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quitar-un-archivo-de-la-zona-de-preparacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quitar un archivo de la zona de preparación
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deshacer-el-ultimo-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deshacer el último commit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#revertir-un-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Revertir un commit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guardar-cambios-temporalmente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Guardar cambios temporalmente
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resumen-de-comandos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resumen de comandos
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05%20-%20github/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06%20-%20integracion_continua/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integración continua
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../99%20-%20ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios de Git y GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#por-que-existe-el-paso-intermedio-de-staging" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Por qué existe el paso intermedio de Staging?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#los-estados-de-un-archivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Los estados de un archivo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crear-un-repositorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Crear un repositorio
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#realizar-el-primer-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Realizar el primer commit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consultar-el-estado-del-repositorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consultar el estado del repositorio
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consultar-el-historial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consultar el historial
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ver-las-diferencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ver las diferencias
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trabajar-con-ramas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trabajar con ramas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trabajar con ramas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fusionar-ramas-y-resolver-conflictos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fusionar ramas y resolver conflictos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deshacer-cambios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deshacer cambios
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deshacer cambios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#descartar-los-cambios-de-un-archivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Descartar los cambios de un archivo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quitar-un-archivo-de-la-zona-de-preparacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quitar un archivo de la zona de preparación
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deshacer-el-ultimo-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deshacer el último commit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#revertir-un-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Revertir un commit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guardar-cambios-temporalmente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Guardar cambios temporalmente
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resumen-de-comandos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resumen de comandos
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="trabajo-basico-con-git">Trabajo básico con Git</h1>
+<p>Uno de los conceptos que más cuesta entender al empezar con Git, y que a la vez resulta fundamental para dominarlo, es su <strong>modelo de trabajo</strong>. A diferencia de lo que podría pensarse, cuando modificamos un archivo, Git no guarda el cambio de forma inmediata. Entre el momento en que editamos un fichero y el momento en que ese cambio queda registrado en el historial hay un recorrido, y Git divide ese recorrido en <strong>tres áreas</strong> o "lugares" bien diferenciados. Entender dónde está el código en cada momento es la clave para no perderse.</p>
+<ol>
+<li>
+<p><strong>El directorio de trabajo</strong> (<em>working directory</em>): es la carpeta del proyecto tal y como la vemos en el explorador de archivos o en el editor de código. Aquí es donde editamos, creamos y borramos archivos. Es, simplemente, nuestro trabajo de cada día, la superficie sobre la que escribimos.</p>
+</li>
+<li>
+<p><strong>La zona de preparación</strong> (<em>staging area</em>, también llamada <em>índice</em>): es una zona intermedia, una especie de "bandeja de salida", donde indicamos a Git <strong>qué cambios queremos incluir</strong> en la próxima "foto". No todos los cambios tienen por qué incluirse: podemos haber modificado diez archivos y decidir que, de momento, solo nos interesa guardar los cambios de tres de ellos. Aquí es donde se decide qué entra en el próximo <em>commit</em> y qué se queda fuera.</p>
+</li>
+<li>
+<p><strong>El repositorio local</strong> (<em>.git</em>): es la base de datos de Git, almacenada en la carpeta oculta <code>.git</code> que se crea dentro del proyecto. Aquí es donde Git guarda el historial completo: todos los <em>commits</em> con sus instantáneas, las ramas, las etiquetas, la configuración del repositorio y mucho más. Es el archivo definitivo, el lugar donde los cambios quedan a salvo.</p>
+</li>
+</ol>
+<pre class="mermaid"><code>flowchart LR
+    A["Directorio de trabajo&lt;br/&gt;(working directory)"] --&gt;|"git add"| B["Zona de preparación&lt;br/&gt;(staging area)"]
+    B --&gt;|"git commit"| C["Repositorio local&lt;br/&gt;(.git)"]</code></pre>
+<p>El flujo de trabajo es, por tanto, siempre el mismo y se repite en bucle a lo largo de toda la vida del proyecto:</p>
+<ol>
+<li><strong>Modificamos</strong> los archivos en el directorio de trabajo. Es la parte cotidiana: escribir código, corregir errores, crear archivos nuevos.</li>
+<li><strong>Preparamos</strong> los cambios con <code>git add</code>, que los traslada a la zona de preparación. Aquí seleccionamos qué queremos guardar.</li>
+<li><strong>Confirmamos</strong> los cambios con <code>git commit</code>, que los guarda definitivamente en el repositorio local.</li>
+</ol>
+<hr/>
+<h3 id="por-que-existe-el-paso-intermedio-de-staging">¿Por qué existe el paso intermedio de Staging?</h3>
+<p>Puede parecer un engorro tener que pasar por un paso intermedio. ¿Por qué no guardar directamente con un solo comando, como hace cualquier procesador de textos con su botón de guardar? La respuesta es que esa separación, lejos de ser una complicación gratuita, es lo que da a Git un <strong>control muy fino</strong> sobre qué se guarda y cómo se cuenta la historia del proyecto.</p>
+<p>Imaginemos una situación muy habitual. Estamos trabajando en dos cosas a la vez: hemos corregido un error en una función y, de paso, hemos empezado a escribir una nueva funcionalidad a medias, aún sin terminar y sin probar. Si guardáramos todo junto con un solo comando, el historial quedaría con un <em>commit</em> que mezcla una corrección terminada con un trabajo a medias, y eso es un problema por varios motivos: si más adelante hay que revertir la corrección del error, nos llevaremos por delante también la funcionalidad incompleta; y si alguien revisa el historial, no entenderá qué se hizo realmente en ese <em>commit</em>.</p>
+<p>Con la zona de preparación, en cambio, podemos separar las dos cosas. Preparamos y confirmamos únicamente la corrección del error, dejando la funcionalidad sin terminar fuera del <em>commit</em> (permanece como "modificada" en el directorio de trabajo). De esta forma, cada <em>commit</em> refleja un cambio coherente y autónomo, y el historial se convierte en una narración limpia de la evolución del proyecto. La zona de preparación es, en definitiva, el mecanismo que permite <strong>contar la historia del código en unidades con sentido</strong>, en lugar de volcar bloques de cambios revueltos.</p>
+<p>Este control selectivo tiene otras aplicaciones prácticas: permite confirmar solo una parte de las líneas modificadas de un mismo archivo, preparar varios cambios distintos y confirmarlos por separado, o revisar con calma lo que se va a guardar antes de hacerlo definitivo. Es una diferencia sutil pero importante respecto a otras herramientas, y es una de las razones por las que Git se siente más potente una vez que se domina.</p>
+<h2 id="los-estados-de-un-archivo">Los estados de un archivo</h2>
+<p>Como consecuencia de este modelo de tres áreas, cada archivo de un repositorio Git se encuentra siempre en uno de estos <strong>cuatro estados</strong>. Saber reconocerlos es lo que permite interpretar correctamente lo que Git nos dice en cada momento:</p>
+<ul>
+<li><strong>Sin seguimiento</strong> (<em>untracked</em>): el archivo existe en el directorio de trabajo, pero Git todavía no lo conoce, no forma parte del proyecto versionado. Suele ser el estado de todo archivo recién creado, hasta que se añade por primera vez.</li>
+<li><strong>Sin cambios</strong> (<em>unmodified</em>): el archivo está controlado por Git y no ha sufrido variaciones desde el último <em>commit</em>. Coincide exactamente con la versión guardada en el repositorio.</li>
+<li><strong>Modificado</strong> (<em>modified</em>): el archivo ha cambiado respecto al último <em>commit</em>, pero esos cambios todavía no se han añadido a la zona de preparación. Están en el directorio de trabajo, a la espera de que decidamos qué hacer con ellos.</li>
+<li><strong>Preparado</strong> (<em>staged</em>): los cambios se han añadido con <code>git add</code> y están listos para ser incluidos en el próximo <em>commit</em>. Es el estado justo antes de guardar.</li>
+</ul>
+<p>Estos estados no son compartimentos estancos: un archivo transita de uno a otro según las operaciones que hacemos. Un archivo recién creado empieza como <em>untracked</em>; al añadirlo con <code>git add</code> pasa a <em>staged</em>; al confirmarlo con <code>git commit</code> pasa a <em>unmodified</em>; y en cuanto lo volvemos a editar, pasa a <em>modified</em>. Conocer este ciclo es clave para interpretar correctamente la salida de comandos como <code>git status</code>, que veremos enseguida, y para no alarmarse cuando Git nos dice que un archivo está en un estado que no esperábamos.</p>
+<h2 id="crear-un-repositorio">Crear un repositorio</h2>
+<p>Existen dos formas de obtener un repositorio Git: crear uno nuevo desde cero o clonar uno ya existente. Para crear un repositorio nuevo a partir de una carpeta de nuestro proyecto, nos situamos en ella y ejecutamos:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>git<span class="w"> </span>init
+</span></code></pre></div>
+<p>Este comando crea la carpeta oculta <code>.git</code> dentro del directorio actual, y con ella toda la infraestructura interna que Git necesita para llevar el control de versiones. A partir de ese momento, la carpeta es un repositorio Git y ya podemos empezar a versionar su contenido. Conviene insistir en que <strong>todo el historial y toda la información de Git vive dentro de <code>.git</code></strong>: si se borra esa carpeta, se pierde el repositorio entero (aunque no los archivos del directorio de trabajo, que seguirían ahí como simples archivos sueltos, sin historial). Es un detalle que sorprende a mucha gente: el proyecto visible y el historial de Git son cosas distintas, y <code>.git</code> es el cofre donde se guarda lo segundo.</p>
+<p>Si el proyecto todavía no existe, el orden habitual es crear primero la carpeta, entrar en ella y ejecutar <code>git init</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>mkdir<span class="w"> </span>mi-proyecto
+</span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="nb">cd</span><span class="w"> </span>mi-proyecto
+</span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>git<span class="w"> </span>init
+</span></code></pre></div>
+<h2 id="realizar-el-primer-commit">Realizar el primer <em>commit</em></h2>
+<p>Una vez inicializado el repositorio, ya podemos guardar la primera "foto" del proyecto. Supongamos que acabamos de crear un archivo, por ejemplo <code>HolaMundo.java</code>. Si ejecutamos <code>git status</code>, Git nos dirá que ese archivo está <strong>sin seguimiento</strong>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>Archivos sin seguimiento:
+</span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>  (usa "git add &lt;archivo&gt;..." para incluirlos en lo que será confirmado)
+</span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>    HolaMundo.java
+</span></code></pre></div>
+<p>Que esté sin seguimiento significa que Git lo ve, pero no lo ha incorporado todavía al control de versiones. El primer paso es añadirlo a la zona de preparación. Para añadir un archivo concreto:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>git<span class="w"> </span>add<span class="w"> </span>HolaMundo.java
+</span></code></pre></div>
+<p>Para añadir todos los archivos del directorio a la vez (algo muy habitual cuando se ha modificado mucho código):</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>git<span class="w"> </span>add<span class="w"> </span>.
+</span></code></pre></div>
+<p>El punto <code>.</code> es una referencia al directorio actual, por lo que <code>git add .</code> prepara todos los archivos del proyecto de una sola vez. Es cómodo, pero conviene usarlo con un poco de cuidado: si hay archivos que no deberían versionarse (temporales, credenciales, configuraciones locales), se colarán igualmente. Por eso es buena costumbre revisar después con <code>git status</code> que se está preparando exactamente lo que se quería.</p>
+<p>Una vez preparados los cambios, los confirmamos con un <em>commit</em>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Crear la clase HolaMundo"</span>
+</span></code></pre></div>
+<p>El parámetro <code>-m</code> permite indicar el <strong>mensaje del <em>commit</em></strong> directamente en la línea de comandos. Si se omite, Git abrirá el editor de texto configurado para que escribamos el mensaje allí, lo cual es útil para mensajes largos pero engorroso para los cortos.</p>
+<p>El mensaje del <em>commit</em> es más importante de lo que parece, porque es la voz del historial. Un buen mensaje debe describir <strong>qué se ha hecho y por qué</strong>, en imperativo y de forma breve pero informativa. Conviene pensar que, dentro de unos meses, tú o un compañero leeréis el historial preguntándoos "¿qué se hizo aquí?". Mensajes como "cambios varios" o "arreglado" no aportan nada y obligan a abrir el <em>commit</em> para entenderlo. En cambio, "Corregir el cálculo del IVA en la factura" o "Añadir validación del DNI" se explican solos. Existen convenciones formales para redactar estos mensajes, pero lo fundamental, sobre todo al principio, es ser claro y concreto.</p>
+<h2 id="consultar-el-estado-del-repositorio">Consultar el estado del repositorio</h2>
+<p>El comando <code>git status</code> es, probablemente, el que más se usa de todo Git, y conviene ejecutarlo con frecuencia. Muestra información valiosísima: en qué rama estamos, qué archivos están modificados, cuáles están preparados y cuáles no tienen seguimiento. Es como la pantalla de instrumentos del proyecto.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>git<span class="w"> </span>status
+</span></code></pre></div>
+<p>La salida de <code>git status</code> está pensada para ser autodescriptiva, e incluso incluye sugerencias de los comandos que podemos ejecutar a continuación. Acostumbrarse a consultarlo antes y después de cada operación evita muchísimos errores y sustos, porque permite ver el estado real antes de tomar decisiones. Es el equivalente a mirar antes de cruzar.</p>
+<h2 id="consultar-el-historial">Consultar el historial</h2>
+<p>Para ver los <em>commits</em> que se han realizado a lo largo de la vida del proyecto, se usa <code>git log</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>git<span class="w"> </span>log
+</span></code></pre></div>
+<p>La salida muestra, por cada <em>commit</em>, un identificador único (un <em>hash</em> como <code>9fceb02</code>), el autor, la fecha y el mensaje. El orden es del más reciente al más antiguo, de manera que lo último que se hizo aparece arriba. Ese <em>hash</em> es importante, porque es la referencia que se usa para nombrar un <em>commit</em> concreto cuando queremos volver a él.</p>
+<p>A medida que el proyecto crece, esa salida se vuelve demasiado larga y difícil de leer. Por eso resultan muy útiles las versiones compactas:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline
+</span></code></pre></div>
+<p>muestra cada <em>commit</em> en una sola línea, y</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>--graph
+</span></code></pre></div>
+<p>añade además un pequeño diagrama de las ramas, lo que permite visualizar de un vistazo cómo se ha ramificado y fusionado el proyecto. Este último es especialmente valioso cuando se empieza a trabajar con ramas, porque convierte un historial abstracto en algo que se puede "ver".</p>
+<h2 id="ver-las-diferencias">Ver las diferencias</h2>
+<p>Cuando queremos ver exactamente <strong>qué líneas</strong> han cambiado en un archivo, usamos <code>git diff</code>. Este comando es una herramienta imprescindible para revisar el propio trabajo antes de confirmarlo, y también para entender los cambios que otros han hecho.</p>
+<p>Para ver los cambios que todavía <strong>no</strong> se han preparado (es decir, la diferencia entre el directorio de trabajo y la zona de preparación):</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>git<span class="w"> </span>diff
+</span></code></pre></div>
+<p>Para ver los cambios que <strong>sí</strong> están preparados y se incluirán en el próximo <em>commit</em> (la diferencia entre la zona de preparación y el último <em>commit</em>):</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>git<span class="w"> </span>diff<span class="w"> </span>--staged
+</span></code></pre></div>
+<p>La distinción entre estos dos comandos refleja de nuevo el modelo de las tres áreas: uno mira lo que aún está "suelto" en el directorio de trabajo, y el otro mira lo que ya está listo para guardarse.</p>
+<h2 id="trabajar-con-ramas">Trabajar con ramas</h2>
+<p>Las <strong>ramas</strong> (<em>branches</em>) son una de las características más potentes de Git y, sin duda, una de las más utilizadas. Para entenderlas de verdad, hay que empezar por un detalle conceptual que sorprende: en Git, una rama <strong>no es una copia de los archivos</strong>, sino un simple <strong>puntero</strong> a un <em>commit</em> concreto. Es decir, una rama es apenas un nombre que apunta a uno de los puntos del historial, y se va moviendo hacia adelante a medida que se hacen nuevos <em>commits</em> sobre ella.</p>
+<p>Ese detalle lo cambia todo. Como una rama es solo un puntero, crear una rama es instantáneo y no ocupa espacio: no se duplican archivos, solo se crea una nueva etiqueta que señala a un punto del historial. La rama principal del repositorio suele llamarse <code>main</code>, y a partir de ella se pueden crear tantas ramas secundarias como se quiera.</p>
+<p>La utilidad de las ramas está en el <strong>aislamiento</strong>. La idea es la siguiente: en lugar de trabajar directamente sobre la rama principal, cuando vamos a desarrollar una nueva funcionalidad o a corregir un error, creamos una rama nueva. Mientras trabajamos en esa rama, la rama principal permanece intacta y estable, sin verse afectada por lo que estamos haciendo. Es como trabajar en una copia paralela del proyecto: podemos romper, experimentar y equivocarnos sin poner en riesgo la versión buena. Cuando la funcionalidad está terminada y probada, fusionamos la rama con la principal, y solo entonces el trabajo se incorpora al código estable.</p>
+<p>Las ramas también permiten que <strong>varias personas trabajen en paralelo</strong> sin pisarse: cada una trabaja en su propia rama y, al final, los resultados se fusionan. Esta forma de trabajar es la base de prácticamente todos los equipos de desarrollo modernos, y es lo que permite que una persona arregle un error urgente mientras otra sigue desarrollando una funcionalidad sin que ninguna interfiera con la otra.</p>
+<p>Los comandos básicos para manejar ramas son los siguientes:</p>
+<ul>
+<li>
+<p>Para <strong>listar</strong> las ramas existentes (la rama actual se marca con un asterisco):</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>git<span class="w"> </span>branch
+</span></code></pre></div>
+</li>
+<li>
+<p>Para <strong>crear</strong> una nueva rama:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a>git<span class="w"> </span>branch<span class="w"> </span>nombre-de-la-rama
+</span></code></pre></div>
+</li>
+<li>
+<p>Para <strong>cambiar</strong> a una rama:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a>git<span class="w"> </span>switch<span class="w"> </span>nombre-de-la-rama
+</span></code></pre></div>
+</li>
+<li>
+<p>Para <strong>crear una rama y cambiar a ella</strong> de una sola vez:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>nombre-de-la-rama
+</span></code></pre></div>
+</li>
+<li>
+<p>Para <strong>fusionar</strong> una rama con la rama en la que nos encontramos:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a>git<span class="w"> </span>merge<span class="w"> </span>nombre-de-la-rama
+</span></code></pre></div>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota sobre <code>checkout</code>: de cambio de rama a navegación histórica</p>
+<p>En muchos tutoriales y libros todavía se verá el comando <code>git checkout</code> para cambiar de rama, ya que históricamente era la forma de hacerlo. Las versiones modernas de Git repartieron sus funciones en dos comandos más claros: <code>git switch</code> para cambiar de rama y <code>git restore</code> para descartar cambios. A partir de ahora, <code>git checkout</code> queda reservado para <strong>navegar a un <em>commit</em> concreto</strong> del historial (entrando en estado <em>detached HEAD</em>), un uso que conviene no confundir con el cambio de rama.</p>
+</div>
+<p>El siguiente diagrama ilustra un flujo de trabajo típico con ramas: se parte de la rama <code>main</code>, se crea una rama <code>feature</code> para desarrollar una funcionalidad y, cuando está terminada, se fusiona de nuevo con <code>main</code>:</p>
+<pre class="mermaid"><code>gitGraph
+    commit id: "Inicial"
+    commit id: "c1"
+    branch feature
+    checkout feature
+    commit id: "c2"
+    commit id: "c3"
+    checkout main
+    commit id: "c4"
+    merge feature</code></pre>
+<hr/>
+<h3 id="fusionar-ramas-y-resolver-conflictos">Fusionar ramas y resolver conflictos</h3>
+<p>Fusionar (hacer <em>merge</em>) es la operación de integrar en la rama actual los cambios que se hicieron en otra rama. En la mayoría de los casos, Git lo hace solo, de forma automática: si los cambios de una rama y otra afectan a partes distintas del código, no hay nada que decidir y la fusión se completa sin intervención. El resultado es un <em>commit</em> de fusión que reúne las dos líneas de trabajo.</p>
+<p>El problema surge cuando las dos ramas han tocado <strong>exactamente la misma parte</strong> de un archivo. Ahí Git no puede decidir por sí solo qué versión es la buena, y se produce un <strong>conflicto</strong>. La resolución de un conflicto es una de las habilidades más valiosas que se aprenden con Git, y merece la pena verla paso a paso:</p>
+<ol>
+<li>Se lanza la fusión con <code>git merge</code> y Git informa de que no ha podido completarla porque hay un conflicto en uno o varios archivos.</li>
+<li>Si abrimos el archivo en conflicto, encontramos unas marcas que Git ha insertado para mostrar las dos versiones enfrentadas: la parte de arriba corresponde a la versión de la rama actual y la de abajo a la versión de la rama que se está fusionando.</li>
+<li>El desarrollador decide manualmente qué hacer: quedarse con una de las dos versiones, con la otra, o combinar ambas para que el resultado tenga sentido. Para ello, borra las marcas y deja el archivo en su forma definitiva.</li>
+<li>Una vez resuelto el archivo, se prepara con <code>git add</code> y se cierra la fusión con <code>git commit</code>. Git crea entonces el <em>commit</em> de fusión y el conflicto queda resuelto.</li>
+</ol>
+<p>Conviene no temer a los conflictos: son normales, aparecen solo cuando dos personas han tocado lo mismo, y su resolución es una tarea manual, sí, pero acotada y puntual. Es mucho mejor esto que los bloqueos que obligaban a turnarse: aquí cada uno trabaja a su aire y el conflicto, cuando surge, se resuelve una sola vez.</p>
+<h2 id="deshacer-cambios">Deshacer cambios</h2>
+<p>Todos cometemos errores, y una de las grandes ventajas de Git es que permite deshacerlos de distintas formas según la situación. La dificultad no está en recordar los comandos, sino en entender <strong>qué hace cada uno exactamente</strong> y en qué caso conviene aplicar cada técnica. A continuación se recorren las más habituales, prestando atención a qué le ocurre a los archivos que están en disco.</p>
+<hr/>
+<h3 id="descartar-los-cambios-de-un-archivo">Descartar los cambios de un archivo</h3>
+<p>Si hemos modificado un archivo y queremos <strong>descartar esos cambios</strong> para volver a la última versión confirmada, usamos:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a>git<span class="w"> </span>restore<span class="w"> </span>nombre-del-archivo
+</span></code></pre></div>
+<p>Este comando sobreescribe el archivo del directorio de trabajo con la versión que está guardada en el repositorio. Dicho de otro modo, los cambios que teníamos <strong>desaparecen del disco</strong> y el archivo vuelve a estar como en el último <em>commit</em>. Es útil cuando nos damos cuenta de que la dirección que habíamos tomado no era la correcta, pero conviene ser consciente de que esos cambios se pierden <strong>para siempre</strong>, porque nunca llegaron a guardarse en el historial. No hay forma de recuperarlos.</p>
+<p>Históricamente, esta misma operación se hacía con <code>git checkout -- nombre-del-archivo</code>, y todavía es habitual encontrarlo en tutoriales y apuntes antiguos. Las versiones modernas de Git introdujeron <code>git restore</code> para separar esa función de <code>git checkout</code>, que queda reservado para la navegación histórica entre <em>commits</em>. Conviene, por tanto, acostumbrarse a <code>git restore</code> para descartar cambios.</p>
+<hr/>
+<h3 id="quitar-un-archivo-de-la-zona-de-preparacion">Quitar un archivo de la zona de preparación</h3>
+<p>Si hemos ejecutado <code>git add</code> por error y queremos que un archivo deje de estar preparado, usamos:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a>git<span class="w"> </span>restore<span class="w"> </span>--staged<span class="w"> </span>nombre-del-archivo
+</span></code></pre></div>
+<p>Este comando no toca el contenido del archivo: simplemente lo <strong>saca de la zona de preparación</strong> y lo devuelve al directorio de trabajo, donde vuelve a quedar en estado "modificado". Los cambios siguen ahí, intactos; lo único que se deshace es la decisión de incluirlos en el próximo <em>commit</em>. Es la forma de "arrepentirse" de un <code>git add</code> sin perder nada.</p>
+<p>La opción <code>--staged</code> es la clave: le indica a <code>git restore</code> que actúe sobre la zona de preparación y no sobre el directorio de trabajo. Este mismo efecto se conseguía antes con <code>git reset nombre-del-archivo</code>, que sigue funcionando y aparece con frecuencia en la documentación, pero <code>git restore --staged</code> expresa con más claridad qué se pretende.</p>
+<hr/>
+<h3 id="deshacer-el-ultimo-commit">Deshacer el último <em>commit</em></h3>
+<p>Si ya hemos hecho un <em>commit</em> y queremos deshacerlo, hay varias opciones según lo que queramos conservar. La herramienta base es <code>git reset</code>, que mueve el puntero del historial hacia atrás, pero que tiene tres variantes que afectan de forma distinta a lo que está en disco y en la zona de preparación:</p>
+<ul>
+<li><strong><code>git reset --soft HEAD~1</code></strong>: deshace el <em>commit</em>, pero <strong>conserva los cambios en la zona de preparación</strong>. Los archivos no se tocan en disco y siguen listos para volver a confirmarse. Es ideal cuando el <em>commit</em> estaba bien pero el mensaje era incorrecto, o cuando se hizo antes de tiempo y se quiere rehacer.</li>
+<li><strong><code>git reset --mixed HEAD~1</code></strong> (la variante por defecto): deshace el <em>commit</em> y <strong>deja los cambios en el directorio de trabajo</strong>, sacándolos de la zona de preparación. Los archivos siguen modificados en disco, pero habría que volver a hacer <code>git add</code> para confirmarlos. Útil para reordenar o reagrupar los cambios.</li>
+<li><strong><code>git reset --hard HEAD~1</code></strong>: deshace el <em>commit</em> y <strong>elimina por completo los cambios</strong>, tanto de la zona de preparación como del disco. Los archivos vuelven al estado del <em>commit</em> anterior y las modificaciones se pierden irremediablemente.</li>
+</ul>
+<p>La notación <code>HEAD~1</code> significa "el <em>commit</em> anterior al actual", de modo que <code>HEAD~2</code> apuntaría dos <em>commits</em> atrás. Así se puede retroceder varios pasos de una sola vez.</p>
+<div class="admonition warning">
+<p class="admonition-title">Precaución con <code>reset --hard</code></p>
+<p><code>git reset --hard</code> es un comando <strong>destructivo e irreversible</strong>: además de mover el historial, borra del disco todo el trabajo no confirmado. Solo debe usarse cuando se está totalmente seguro de que esos cambios no se necesitan. Es el único de los tres <code>reset</code> que toca los archivos de forma que no se puede deshacer.</p>
+</div>
+<hr/>
+<h3 id="revertir-un-commit">Revertir un <em>commit</em></h3>
+<p>Si el <em>commit</em> que queremos deshacer ya se ha compartido con otros (por ejemplo, si ya se ha subido a GitHub), lo correcto no es "borrarlo" con <code>reset</code>, porque eso reescribiría el historial y descolocaría al resto del equipo. En su lugar, se crea un <strong>nuevo <em>commit</em> que revierte los efectos</strong> del anterior:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a>git<span class="w"> </span>revert<span class="w"> </span>&lt;id-del-commit&gt;
+</span></code></pre></div>
+<p>Este comando genera un <em>commit</em> nuevo que deshace exactamente lo que hizo el <em>commit</em> indicado, sin borrar nada del historial. De esta forma, todos los miembros del equipo siguen viendo la misma historia y nadie se descuadra. Es la forma "segura" de deshacer cuando el trabajo ya es público.</p>
+<hr/>
+<h3 id="guardar-cambios-temporalmente">Guardar cambios temporalmente</h3>
+<p>Por último, existe una herramienta muy cómoda para guardar provisionalmente el trabajo sin hacer un <em>commit</em>: <code>git stash</code>. Sirve, por ejemplo, cuando nos interrumpen para resolver una urgencia y no queremos ni hacer un <em>commit</em> a medias ni perder lo que llevamos hecho:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a>git<span class="w"> </span>stash
+</span></code></pre></div>
+<p>Este comando guarda los cambios pendientes en una especie de "cajón" temporal y <strong>deja el directorio de trabajo limpio</strong>, como si no hubiéramos tocado nada. Cuando queramos recuperar ese trabajo:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a>git<span class="w"> </span>stash<span class="w"> </span>pop
+</span></code></pre></div>
+<p>que devuelve al directorio de trabajo los cambios guardados y los elimina del cajón. Es la manera de apartar trabajo a medias sin ensuciar el historial y sin arriesgarse a perderlo.</p>
+<h2 id="resumen-de-comandos">Resumen de comandos</h2>
+<table>
+<thead>
+<tr>
+<th>Comando</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git init</code></td>
+<td>Crea un nuevo repositorio en la carpeta actual</td>
+</tr>
+<tr>
+<td><code>git status</code></td>
+<td>Muestra el estado de los archivos</td>
+</tr>
+<tr>
+<td><code>git add &lt;archivo&gt;</code></td>
+<td>Añade cambios a la zona de preparación</td>
+</tr>
+<tr>
+<td><code>git commit -m "mensaje"</code></td>
+<td>Confirma los cambios con un mensaje</td>
+</tr>
+<tr>
+<td><code>git log</code></td>
+<td>Muestra el historial de <em>commits</em></td>
+</tr>
+<tr>
+<td><code>git diff</code></td>
+<td>Muestra las diferencias sin preparar</td>
+</tr>
+<tr>
+<td><code>git diff --staged</code></td>
+<td>Muestra las diferencias preparadas</td>
+</tr>
+<tr>
+<td><code>git branch &lt;nombre&gt;</code></td>
+<td>Crea una rama</td>
+</tr>
+<tr>
+<td><code>git switch &lt;nombre&gt;</code></td>
+<td>Cambia a una rama</td>
+</tr>
+<tr>
+<td><code>git switch -c &lt;nombre&gt;</code></td>
+<td>Crea una rama y cambia a ella</td>
+</tr>
+<tr>
+<td><code>git merge &lt;nombre&gt;</code></td>
+<td>Fusiona una rama con la actual</td>
+</tr>
+<tr>
+<td><code>git restore &lt;archivo&gt;</code></td>
+<td>Descarta los cambios de un archivo</td>
+</tr>
+<tr>
+<td><code>git restore --staged &lt;archivo&gt;</code></td>
+<td>Saca un archivo de la zona de preparación</td>
+</tr>
+<tr>
+<td><code>git checkout &lt;commit&gt;</code></td>
+<td>Navega a un <em>commit</em> concreto (detached HEAD)</td>
+</tr>
+<tr>
+<td><code>git reset --soft HEAD~1</code></td>
+<td>Deshace el último <em>commit</em> conservando los cambios preparados</td>
+</tr>
+<tr>
+<td><code>git reset --mixed HEAD~1</code></td>
+<td>Deshace el último <em>commit</em> dejando los cambios en el directorio</td>
+</tr>
+<tr>
+<td><code>git reset --hard HEAD~1</code></td>
+<td>Deshace el último <em>commit</em> y elimina los cambios</td>
+</tr>
+<tr>
+<td><code>git revert &lt;commit&gt;</code></td>
+<td>Revierte un <em>commit</em> con otro nuevo</td>
+</tr>
+<tr>
+<td><code>git stash</code></td>
+<td>Guarda temporalmente los cambios pendientes</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Manuel Sánchez Gomis
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["search.suggest", "search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "content.code.copy", "content.tabs.link", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../../assets/_markdown_exec_pyodide.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../_static/js/notebook.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1618 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Manuel Sánchez Gomis">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
+    
+    
+      
+        <title>Ejercicios de diagramas de comportamiento - Entornos de desarrollo</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_markdown_exec_pyodide.css">
+    
+      <link rel="stylesheet" href="../../../_static/css/notebook.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ejercicios-de-diagramas-de-comportamiento" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Entornos de desarrollo" class="md-header__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Entornos de desarrollo
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Ejercicios de diagramas de comportamiento
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo brillante"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo brillante" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Bienvenido
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Introducción al desarrollo de software
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Entornos de desarrollo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../control_versiones/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Control de versiones
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Entornos de desarrollo" class="md-nav__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    Entornos de desarrollo
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bienvenido
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introducción al desarrollo de software
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Introducción al desarrollo de software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/02%20-%20lenguajes_programacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lenguajes de programación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/03%20-%20proceso_obtencion_codigo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proceso de obtención de código
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/04%20-%20desarrollo_aplicaciones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Desarrollo de aplicaciones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/05%20-%20metodologias_agiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metodologías Ágiles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Entornos de desarrollo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Entornos de desarrollo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a los entornos de desarrollo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/02%20-%20intellij/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IntelliJ IDEA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/03%20-%20plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalar plugins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/04%20-%20personalizacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Personalización, automatización y mantenimiento del entorno
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/05%20-%20compilacion_y_ejecutables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generación de ejecutables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/99%20-%20ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Control de versiones
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Control de versiones
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción al control de versiones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/02%20-%20herramientas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Herramientas de control de versiones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/03%20-%20introduccion_git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/04%20-%20uso_basico_git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trabajo básico con Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/05%20-%20github/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/06%20-%20integracion_continua/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integración continua
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/99%20-%20ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios de Git y GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="ejercicios-de-diagramas-de-comportamiento">Ejercicios de diagramas de comportamiento</h1>
+<p>Estos ejercicios recorren los criterios del bloque de comportamiento: identificar los tipos de diagrama, reconocer el significado de los casos de uso, interpretar y <strong>elaborar</strong> diagramas de interacción, de actividades y de estados.</p>
+<div class="admonition info">
+<p class="admonition-title">Herramientas</p>
+<p>Los ejercicios de interpretación se resuelven leyendo el diagrama y escribiendo la respuesta. Los de elaboración piden dibujar el diagrama: se pueden hacer a mano, con Dia, con el complemento PlantUML de IntelliJ o con Mermaid, que es la sintaxis que se usa en las soluciones de este documento.</p>
+</div>
+<hr/>
+<div class="admonition question">
+<p class="admonition-title">1. Identificar actores y casos de uso</p>
+<p>De este enunciado, extrae la lista de actores y la lista de casos de uso:</p>
+<blockquote>
+<p>Una autoescuela quiere una aplicación para gestionar sus clases prácticas. Los alumnos consultan su saldo de clases y solicitan cita con un profesor. Los profesores confirman o rechazan las citas solicitadas y anotan la asistencia. La administración da de alta a los alumnos y cobra las tasas a través de una pasarela de pago externa. Cada mes la administración extrae un listado de clases impartidas.</p>
+</blockquote>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><strong>Actores</strong>: <code>Alumno</code>, <code>Profesor</code>, <code>Administración</code> y <code>PasarelaDePago</code>.</p>
+<p>El último es el actor que más se olvida y el más importante de reconocer: no es una persona, pero interactúa con el sistema desde fuera y es imprescindible para que el caso de uso de cobro pueda existir. Un actor es cualquier cosa que empuja al sistema a hacer algo, sea persona o programa.</p>
+<p><strong>Casos de uso</strong>, nombrados con verbo en infinitivo y objeto:</p>
+<ul>
+<li><code>ConsultarSaldo</code> (Alumno)</li>
+<li><code>SolicitarCita</code> (Alumno)</li>
+<li><code>ConfirmarCita</code> y <code>RechazarCita</code> (Profesor)</li>
+<li><code>AnotarAsistencia</code> (Profesor)</li>
+<li><code>DarDeAltaAlumno</code> (Administración)</li>
+<li><code>CobrarTasas</code> (Administración, con la pasarela)</li>
+<li><code>ExtraerListadoMensual</code> (Administración)</li>
+</ul>
+<p>Los sustantivos que no aparecen en ninguna lista son los datos: "clase práctica", "cita", "tasa" y "listado" no son actores ni objetivos, sino información que maneja el sistema, y su sitio está en el diagrama de clases.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">2. Dibujar el diagrama de casos de uso</p>
+<p>Dibuja el diagrama de casos de uso del enunciado anterior, con su frontera y sus relaciones.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>El diagrama debe tener un rectángulo, que es la <strong>frontera del sistema</strong>, y dentro los siete casos de uso. Fuera, los cuatro actores, cada uno unido con una línea a los casos en los que participa:</p>
+<table>
+<thead>
+<tr>
+<th>Actor</th>
+<th>Casos de uso relacionados</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Alumno</code></td>
+<td><code>ConsultarSaldo</code>, <code>SolicitarCita</code></td>
+</tr>
+<tr>
+<td><code>Profesor</code></td>
+<td><code>ConfirmarCita</code>, <code>RechazarCita</code>, <code>AnotarAsistencia</code></td>
+</tr>
+<tr>
+<td><code>Administración</code></td>
+<td><code>DarDeAltaAlumno</code>, <code>CobrarTasas</code>, <code>ExtraerListadoMensual</code></td>
+</tr>
+<tr>
+<td><code>PasarelaDePago</code></td>
+<td><code>CobrarTasas</code></td>
+</tr>
+</tbody>
+</table>
+<p>Hay además dos relaciones que se pueden extraer si se revisa el modelo con atención. La primera es una <strong>inclusión</strong>: tanto <code>DarDeAltaAlumno</code> como <code>CobrarTasas</code> necesitan comprobar los datos del alumno, así que ese paso se convierte en <code>VerificarAlumno</code> y los otros dos lo incluyen con <code>«include»</code>. La segunda es una <strong>extensión</strong>: si el cobro es rechazado por la pasarela, hay que emitir un aviso; como eso ocurre solo a veces, ese comportamiento se modela como un caso de uso <code>EmitirAvisoDeImpago</code> que extiende a <code>CobrarTasas</code> con <code>«extend»</code>.</p>
+<p>La diferencia entre las dos relaciones es la clave del ejercicio: lo incluido ocurre <strong>siempre</strong>, y lo que extiende ocurre <strong>solo a veces</strong>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">3. Redactar un escenario</p>
+<p>Escribe el escenario principal y un escenario alternativo del caso de uso <code>SolicitarCita</code>.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>Apartado</th>
+<th>Contenido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Título</strong></td>
+<td>Solicitar una cita con un profesor</td>
+</tr>
+<tr>
+<td><strong>Actor</strong></td>
+<td>Alumno</td>
+</tr>
+<tr>
+<td><strong>Precondición</strong></td>
+<td>El alumno ha accedido al sistema y tiene saldo de clases disponible</td>
+</tr>
+<tr>
+<td><strong>Desarrollo normal</strong></td>
+<td>1. El alumno abre el calendario del profesor. 2. Selecciona un hueco libre. 3. El sistema comprueba que tiene saldo. 4. El sistema reserva el hueco en estado <em>solicitada</em> y confirma</td>
+</tr>
+<tr>
+<td><strong>Escenario alternativo A</strong></td>
+<td>Si el alumno no tiene saldo, el sistema lo avisa y ofrece el caso de uso de cobro de tasas</td>
+</tr>
+<tr>
+<td><strong>Escenario alternativo B</strong></td>
+<td>Si el hueco ha sido reservado por otro alumno mientras se rellenaba el formulario, el sistema avisa y vuelve al paso 1</td>
+</tr>
+<tr>
+<td><strong>Postcondición</strong></td>
+<td>La cita queda registrada en estado <em>solicitada</em>, pendiente de confirmación por el profesor</td>
+</tr>
+</tbody>
+</table>
+<p>El escenario es el material con el que se construyen después los demás diagramas. El alternativo B, en concreto, describe un problema de concurrencia que un diagrama de actividades representaría con una decisión y que en el código hay que resolver con un control de versión o con un bloqueo.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">4. Interpretar un diagrama de secuencia</p>
+<p>Observa el diagrama de secuencia del apartado teórico, en el que el <code>Operador</code> inserta un empleado en la base de datos, y responde:</p>
+<ol>
+<li>¿Qué participante ejecuta el auto-mensaje <code>ValidarDatos</code> y por qué se dibuja como una flecha que sale y entra en la misma línea de vida?</li>
+<li>¿Por qué la barra de activación de <code>VentanaPrincipal</code> empieza antes y dura más que la de <code>VentanaInsercion</code>?</li>
+<li>¿Qué información aportan los números que acompañan a los mensajes?</li>
+<li>¿Dónde se recoge el resultado de <code>CrearEmpleado</code>?</li>
+</ol>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"/><div class="tabbed-labels"><label for="__tabbed_4_1">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Lo ejecuta <code>VentanaInsercion</code>. El auto-mensaje representa una llamada del objeto a un método propio, es decir, un paso interno de su operación: la ventana no delega la validación en otro objeto, la hace ella misma. Se dibuja como una flecha que sale y vuelve a la misma línea de vida.</li>
+<li>Porque la ventana principal sigue activa durante todo el proceso, mientras que la ventana de inserción trabaja solo en el tramo en que se está rellenando la ficha. La barra de activación marca el intervalo en que el objeto está ejecutando algo, y la disposición escalonada es la que hace visible quién llamó a quién.</li>
+<li>El orden temporal. En un diagrama de secuencia el tiempo avanza hacia abajo, y los números hacen explícita la secuencia, algo imprescindible cuando varios mensajes van al mismo participante.</li>
+<li>En el mensaje <code>3.1: CrearEmpleado</code>, que el objeto <code>Empleados</code> se envía a sí mismo. La numeración <code>3.1</code> indica que ese mensaje se ha enviado <strong>durante</strong> la ejecución del mensaje <code>3</code>, es decir, que es un paso interno del grabado del registro.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">5. Elaborar un diagrama de secuencia</p>
+<p>Elabora el diagrama de secuencia del caso de uso <code>CobrarTasas</code> de la autoescuela, con este escenario: la administración pide el cobro de un importe al alumno, el sistema consulta los datos del alumno, envía la orden a la pasarela de pago, recibe la confirmación y registra el cobro.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"/><div class="tabbed-labels"><label for="__tabbed_5_1">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<pre class="mermaid"><code>sequenceDiagram
+    actor Admin as Administracion
+    participant Cobros
+    participant Alumno
+    participant Pasarela
+    Admin-&gt;&gt;Cobros: cobrarTasas(alumno, importe)
+    activate Cobros
+    Cobros-&gt;&gt;Alumno: consultarDatos()
+    Alumno--&gt;&gt;Cobros: nif, nombre
+    Cobros-&gt;&gt;Pasarela: cobrar(importe, nif)
+    Pasarela--&gt;&gt;Cobros: confirmacion
+    Cobros-&gt;&gt;Cobros: registrarCobro()
+    Cobros--&gt;&gt;Admin: cobroRegistrado
+    deactivate Cobros</code></pre>
+<p>Los cuatro participantes son instancias de clases del modelo: <code>ModuloCobros</code>, <code>Alumno</code> y <code>Pasarela</code> son clases del diagrama de clases, y <code>Administración</code> es el actor que inicia el caso de uso. Las flechas de trazo continuo son mensajes síncronos, es decir, llamadas que esperan respuesta, y las de trazo discontinuo son los retornos. El último mensaje, <code>registrarCobro()</code>, es un auto-mensaje porque el registro del cobro es una operación interna del propio módulo.</p>
+<p>Aquí se ve por qué el diagrama de secuencia es un buen corrector del modelo de clases: si al dibujarlo no se sabe a quién enviar <code>cobrar()</code>, es que falta una clase en el modelo.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">6. Interpretar un diagrama de actividades</p>
+<p>Observa el diagrama de actividades del apartado teórico, el de la inserción de un empleado en la base de datos, y responde:</p>
+<ol>
+<li>¿Cuántos rombos de decisión aparecen y qué representan?</li>
+<li>¿Qué significa la etiqueta <code>[DatosNoCorrectos]</code> y qué ocurre cuando se activa?</li>
+<li>¿Por qué este diagrama no menciona ningún objeto, mientras que el diagrama de secuencia del mismo escenario sí los menciona?</li>
+<li>Si el proceso tuviera que esperar a que un fichero externo llegara por la red, ¿qué elemento habría que añadir?</li>
+</ol>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"/><div class="tabbed-labels"><label for="__tabbed_6_1">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Aparece <strong>uno</strong>. El rombo representa un punto de decisión: entra un flujo y salen varios caminos posibles, cada uno etiquetado con la condición que lo activa.</li>
+<li>Es la <strong>guarda</strong> del camino de retorno. Cuando la validación falla, el flujo vuelve al paso <code>TeclearDatosEmpleado</code> en lugar de continuar hacia el grabado. Es la pieza que convierte una lista de tareas en un procedimiento real, porque introduce el camino alternativo.</li>
+<li>Porque el diagrama de actividades describe <strong>qué pasos se siguen</strong>, y eso es independiente de quién ejecute cada paso. El diagrama de secuencia describe <strong>qué objetos se dicen qué cosas</strong>, y ahí los participantes son el centro del dibujo. Son dos vistas del mismo escenario con prioridades distintas.</li>
+<li>Habría que añadir una <strong>señal de recepción</strong> antes del paso que espera el fichero, y una señal de envío en el proceso que lo produce. Las señales representan esperas y notificaciones externas.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">7. Elaborar un diagrama de actividades</p>
+<p>Elabora el diagrama de actividades del proceso de matriculación de un alumno: se comprueba si el alumno ya está matriculado; si no lo está, se recogen sus datos y se comprueba que haya plazas libres; si hay plaza, se formaliza la matrícula y se emite el resguardo. Si no hay plaza, se avisa al alumno y el proceso termina.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio"/><div class="tabbed-labels"><label for="__tabbed_7_1">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<pre class="mermaid"><code>flowchart TD
+    Inicio([Inicio]) --&gt; Ya{"¿Ya matriculado?"}
+    Ya -- Sí --&gt; Aviso["Avisar al alumno"]
+    Ya -- No --&gt; Datos["Recoger datos del alumno"]
+    Datos --&gt; Plaza{"¿Hay plazas libres?"}
+    Plaza -- No --&gt; Aviso
+    Plaza -- Sí --&gt; Formalizar["Formalizar matrícula"]
+    Formalizar --&gt; Resguardo["Emitir resguardo"]
+    Resguardo --&gt; Fin([Fin])
+    Aviso --&gt; Fin</code></pre>
+<p>El diagrama tiene dos decisiones y dos caminos que acaban en el mismo nodo final. Merece la pena fijarse en que el proceso tiene una sola entrada y una sola salida, y que todos los caminos intermedios confluyen: si al dibujarlo queda algún camino sin llegar al final, es que el proceso está incompleto.</p>
+<p>En la versión definitiva conviene añadir además una acción más al camino de la derecha: cuando no hay plazas, lo habitual no es solo avisar, sino también <strong>apuntar al alumno a una lista de espera</strong>. Ese añadido no estaba en el enunciado original y es justo el tipo de laguna que el diagrama hace visible al dibujarlo.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">8. Interpretar un diagrama de estados</p>
+<p>Observa el diagrama de estados del apartado teórico, el de la vida laboral del trabajador, y responde:</p>
+<ol>
+<li>¿Qué diferencia hay entre el círculo relleno y el círculo con anillo?</li>
+<li>¿Cuántos estados aparecen y cuál es el estado inicial?</li>
+<li>¿Puede un trabajador pasar de <code>EN ACTIVO</code> a <code>JUBILADO</code> directamente? Justifica la respuesta con lo que muestra el diagrama.</li>
+<li>Si se añadiera la regla de que un trabajador en el paro no puede jubilarse, ¿cómo se reflejaría en el diagrama?</li>
+</ol>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:1"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio"/><div class="tabbed-labels"><label for="__tabbed_8_1">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>El círculo relleno es el <strong>estado inicial</strong> y marca por dónde empieza la vida del objeto. El círculo con anillo es el <strong>estado final</strong> y marca el momento en que esa vida termina. Solo puede haber uno inicial, y puede haber varios finales.</li>
+<li>Aparecen <strong>tres</strong> estados: <code>EN EL PARO</code>, <code>EN ACTIVO</code> y <code>JUBILADO</code>. El estado inicial es <code>EN EL PARO</code>, porque es el destino de la primera transición que sale del círculo relleno.</li>
+<li><strong>No.</strong> El diagrama solo muestra tres transiciones que salen de <code>EN ACTIVO</code>: la contratación, que llega desde el paro, y <code>PIERDE EL EMPLEO</code> y <code>SE JUBILA</code>, que llevan a los otros dos estados. Como existe una transición directa de <code>EN ACTIVO</code> a <code>JUBILADO</code>, el diagrama <strong>sí permite</strong> ese paso. Si no debiera permitirse, faltaría información en el modelo.</li>
+<li>Se eliminaría la transición que sale de <code>EN EL PARO</code> hacia <code>JUBILADO</code>, y se comprobaría que sigue existiendo el camino <code>EN EL PARO → EN ACTIVO → JUBILADO</code>, que es como un trabajador en el paro podría jubilarse una vez contratado. Si además hubiera que impedirlo en determinadas condiciones, se añadiría una <strong>guarda</strong> entre corchetes en la transición correspondiente.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">9. Plantear un diagrama de estados</p>
+<p>Plantea el diagrama de estados del ciclo de vida de un pedido en una tienda online, sabiendo que: se crea al confirmar la compra, se paga o se cancela si el pago falla, se envía una vez pagado, se entrega y puede devolverse dentro del plazo. Un pedido cancelado o devuelto no admite ninguna operación más.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:1"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio"/><div class="tabbed-labels"><label for="__tabbed_9_1">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<pre class="mermaid"><code>stateDiagram-v2
+    [*] --&gt; CREADO : confirmarCompra()
+    CREADO --&gt; PAGADO : registrarPago() [importeOK]
+    CREADO --&gt; CANCELADO : registrarPago() [importeKO]
+    PAGADO --&gt; ENVIADO : expedir()
+    ENVIADO --&gt; ENTREGADO : confirmarEntrega()
+    ENTREGADO --&gt; DEVUELTO : devolver() [dentroDePlazo]
+    CANCELADO --&gt; [*]
+    DEVUELTO --&gt; [*]
+    ENTREGADO --&gt; [*]</code></pre>
+<p>Lo importante del ejercicio no es el dibujo, sino las decisiones que obliga a tomar. Al escribirlo aparecen tres preguntas que el enunciado no respondía: si un pedido <strong>entregado</strong> sigue vivo o ya ha terminado (aquí se ha decidido que sí, porque todavía admite una devolución), si un pedido <strong>enviado</strong> se puede cancelar (no, y por eso no hay transición), y si la devolución fuera de plazo se rechaza (sí, y se refleja con la guarda <code>[dentroDePlazo]</code>).</p>
+<p>Ese es el valor real del diagrama: obliga a enumerar exhaustivamente los cambios posibles y deja por escrito los que <strong>no</strong> se permiten, que suelen ser los que provocan los errores en producción.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">10. Elegir el diagrama adecuado</p>
+<p>Indica qué diagrama de comportamiento usarías para cada necesidad y explica por qué:</p>
+<ol>
+<li>Acordar con el cliente qué funcionalidades tendrá la aplicación.</li>
+<li>Decidir en qué orden se envían los mensajes entre cuatro objetos.</li>
+<li>Documentar el procedimiento que sigue el departamento de compras.</li>
+<li>Saber qué le puede pasar a una reserva de hotel desde que se crea hasta que se libera.</li>
+</ol>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:1"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio"/><div class="tabbed-labels"><label for="__tabbed_10_1">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li><strong>Casos de uso.</strong> Es el único de los diagramas que se puede leer con el cliente delante, porque habla de actores y objetivos, no de clases ni de tecnología.</li>
+<li><strong>Diagrama de secuencia.</strong> Su eje temporal es explícito y es el único que deja claro el orden exacto en que se envían los mensajes, además de mostrar las activaciones.</li>
+<li><strong>Diagrama de actividades.</strong> Describe procesos por pasos, con decisiones y responsabilidades, con independencia de qué objeto ejecute cada paso.</li>
+<li><strong>Diagrama de estados.</strong> La reserva es un objeto con un ciclo de vida rico: su comportamiento depende de su historia, y eso es exactamente lo que modela este diagrama.</li>
+</ol>
+<p>La última frase resume el criterio de elección de toda la familia: cada diagrama responde a una pregunta distinta, y usar el equivocado no produce un error, produce un dibujo que nadie entiende o que no responde a lo que se le pregunta.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">11. Identificar actores y casos de uso (2)</p>
+<p>Extrae la lista de actores y la lista de casos de uso del enunciado.</p>
+<blockquote>
+<p>En una biblioteca, los lectores buscan libros por título o autor y reservan los que están prestados. Los bibliotecarios prestan y devuelven ejemplares y dan de alta a nuevos lectores. Cada noche, un proceso automático envía un aviso por correo a quien tenga una reserva disponible, usando el servidor de correo del centro.</p>
+</blockquote>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:1"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio"/><div class="tabbed-labels"><label for="__tabbed_11_1">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><strong>Actores</strong>: <code>Lector</code>, <code>Bibliotecario</code>, <code>ProcesoSegundoPlano</code> (o <code>Reloj</code>) y <code>ServidorDeCorreo</code>.</p>
+<p>Los dos últimos son los que más se olvidan. El proceso automático es un actor porque empuja al sistema a hacer algo sin ser una persona, y el servidor de correo lo es porque el sistema tiene que hablar con él para notificar. Un actor es cualquier cosa que forma parte del mundo exterior y provoca una acción del sistema.</p>
+<p><strong>Casos de uso</strong>:</p>
+<ul>
+<li><code>BuscarLibro</code> y <code>ReservarLibro</code> (Lector)</li>
+<li><code>PrestarEjemplar</code>, <code>DevolverEjemplar</code> y <code>DarDeAltaLector</code> (Bibliotecario)</li>
+<li><code>EnviarAvisoReserva</code> (ProcesoSegundoPlano con ServidorDeCorreo)</li>
+</ul>
+<p>"Libro", "ejemplar" y "reserva" no aparecen en ninguna lista porque no son actores ni objetivos: son datos que el sistema maneja, y su sitio está en el diagrama de clases.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">12. Inclusión o extensión</p>
+<p>Indica si cada relación debería ser <code>«include»</code> o <code>«extend»</code> y por qué:</p>
+<ol>
+<li><code>ComprarProducto</code> siempre tiene que pasar por <code>ValidarStock</code>.</li>
+<li><code>AplicarCupon</code> ocurre solo cuando el cliente introduce un código válido, mientras se realiza <code>ComprarProducto</code>.</li>
+</ol>
+<div class="tabbed-set tabbed-alternate" data-tabs="12:1"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio"/><div class="tabbed-labels"><label for="__tabbed_12_1">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li><strong>Inclusión</strong> (<code>«include»</code>). Validar el stock ocurre <strong>siempre</strong> que se compra, así que es un paso obligatorio que se extrae como caso de uso común. La flecha sale de <code>ComprarProducto</code> y apunta a <code>ValidarStock</code>.</li>
+<li><strong>Extensión</strong> (<code>«extend»</code>). Aplicar un cupón ocurre <strong>solo a veces</strong> y añade comportamiento a una compra que ya está completa sin él. La flecha sale de <code>AplicarCupon</code> y apunta a <code>ComprarProducto</code>.</li>
+</ol>
+<p>La regla que decide es siempre la misma: lo incluido pasa siempre y lo que extiende, solo a veces. Y el caso que extiende <strong>no</strong> es un paso del extendido: si "aplicar cupón" fuera un paso obligatorio dentro de "comprar", sería una inclusión, no una extensión.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">13. Redactar un escenario completo</p>
+<p>Escribe el escenario principal, un escenario alternativo y las precondiciones y postcondiciones del caso de uso <code>ReservarLibro</code>.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="13:1"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio"/><div class="tabbed-labels"><label for="__tabbed_13_1">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>Apartado</th>
+<th>Contenido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Título</strong></td>
+<td>Reservar un libro prestado</td>
+</tr>
+<tr>
+<td><strong>Actor</strong></td>
+<td>Lector</td>
+</tr>
+<tr>
+<td><strong>Precondición</strong></td>
+<td>El lector está identificado y el libro está prestado</td>
+</tr>
+<tr>
+<td><strong>Desarrollo normal</strong></td>
+<td>1. El lector busca el libro. 2. El sistema informa de que está prestado. 3. El lector pulsa reservar. 4. El sistema registra la reserva y confirma</td>
+</tr>
+<tr>
+<td><strong>Escenario alternativo A</strong></td>
+<td>Si el lector ya tiene una reserva del mismo libro, el sistema lo avisa y no la duplica</td>
+</tr>
+<tr>
+<td><strong>Escenario alternativo B</strong></td>
+<td>Si el libro está disponible, el sistema ofrece el préstamo directo en lugar de la reserva</td>
+</tr>
+<tr>
+<td><strong>Postcondición</strong></td>
+<td>La reserva queda registrada y el lector entrará en la cola de avisos</td>
+</tr>
+</tbody>
+</table>
+<p>La precondición "el libro está prestado" es la que da sentido al caso de uso: si el libro estuviese libre, reservarlo no tendría objeto. Dejarla por escrito evita permitir reservas de libros disponibles, que luego obligan a limpiar reservas fantasma.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">14. Interpretar un diagrama de secuencia con alt</p>
+<p>Observa el diagrama y responde:</p>
+<pre class="mermaid"><code>sequenceDiagram
+    actor Cajero
+    participant Pedido
+    participant Banco
+    Cajero-&gt;&gt;Pedido: pagar(id)
+    activate Pedido
+    Pedido-&gt;&gt;Banco: cobrar(importe)
+    alt pago aceptado
+        Banco--&gt;&gt;Pedido: ok
+        Pedido--&gt;&gt;Cajero: pedidoConfirmado
+    else pago rechazado
+        Banco--&gt;&gt;Pedido: error
+        Pedido--&gt;&gt;Cajero: pedidoRechazado
+    end
+    deactivate Pedido</code></pre>
+<ol>
+<li>¿Qué representa el marco <code>alt</code>?</li>
+<li>¿Cuántos caminos tiene el diagrama y en qué se diferencian?</li>
+<li>¿Por qué el mensaje <code>cobrar(importe)</code> está fuera del marco y los dos retornos dentro?</li>
+<li>¿Qué añadiría un fragmento <code>opt</code> que no añade <code>alt</code>?</li>
+</ol>
+<div class="tabbed-set tabbed-alternate" data-tabs="14:1"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio"/><div class="tabbed-labels"><label for="__tabbed_14_1">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Un <strong>fragmento combinado alternativo</strong>, con dos comportamientos <strong>excluyentes</strong> de los que solo ocurre uno. Equivale a un <code>if/else</code>.</li>
+<li>Dos caminos: pago aceptado o rechazado. Se diferencian en la respuesta del banco y en el mensaje final al cajero.</li>
+<li>Porque <code>cobrar()</code> se ejecuta <strong>siempre</strong>, en los dos casos; lo que cambia es la respuesta. El marco <code>alt</code> solo engloba lo que es alternativo, no la llamada común.</li>
+<li>Un comportamiento <strong>opcional</strong> (un <code>if</code> sin rama alternativa): ocurre o no ocurre, pero no hay dos ramas excluyentes.</li>
+</ol>
+<p>Un diagrama de secuencia sin fragmentos solo cuenta el camino feliz, y los fragmentos son los que dejan por escrito lo que ocurre cuando algo falla.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">15. Elaborar un diagrama de secuencia con bucle</p>
+<p>Elabora el diagrama de secuencia de "calcular el importe de una factura": el gestor pide el total, la factura recorre todas sus líneas sumando los importes y devuelve el resultado.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="15:1"><input checked="checked" id="__tabbed_15_1" name="__tabbed_15" type="radio"/><div class="tabbed-labels"><label for="__tabbed_15_1">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<pre class="mermaid"><code>sequenceDiagram
+    actor Gestor
+    participant Factura
+    participant Linea
+    Gestor-&gt;&gt;Factura: calcularTotal()
+    activate Factura
+    loop por cada línea
+        Factura-&gt;&gt;Linea: importe()
+        Linea--&gt;&gt;Factura: subtotal
+    end
+    Factura--&gt;&gt;Gestor: total
+    deactivate Factura</code></pre>
+<p>El fragmento <code>loop</code> representa la repetición, y su condición ("por cada línea") es tan importante como los mensajes: sin ella no se sabría cuántas veces se ejecuta el interior. El total se acumula en <code>Factura</code>, que es quien conoce sus líneas; <code>Linea</code> solo sabe calcularse a sí misma. Ese reparto es el que después se traduce directamente a código.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">16. Interpretar actividades con concurrencia</p>
+<p>En un diagrama de actividades, tras el paso <code>Validar datos</code> el flujo se divide en una <strong>barra gruesa</strong> en dos caminos, <code>Enviar correo</code> y <code>Crear ficha</code>, que vuelven a juntarse en otra barra antes del final. Responde:</p>
+<ol>
+<li>¿Qué significan las dos barras gruesas?</li>
+<li>¿Puede el proceso llegar al final antes de que terminen las dos tareas de en medio?</li>
+<li>¿Qué diferencia hay entre esta barra y un rombo de decisión?</li>
+<li>¿Por qué aquí tiene sentido y en el proceso de matriculación del ejercicio 7 no?</li>
+</ol>
+<div class="tabbed-set tabbed-alternate" data-tabs="16:1"><input checked="checked" id="__tabbed_16_1" name="__tabbed_16" type="radio"/><div class="tabbed-labels"><label for="__tabbed_16_1">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>La primera es una <strong>bifurcación</strong> (divide el flujo en caminos que avanzan en paralelo) y la segunda una <strong>convergencia</strong> (espera a que todos hayan terminado).</li>
+<li>No: la convergencia obliga a que los dos caminos hayan llegado antes de continuar hacia el final.</li>
+<li>El rombo <strong>elige uno</strong> de los caminos y descarta los demás; la barra <strong>los ejecuta todos</strong> a la vez.</li>
+<li>En la matriculación los caminos eran alternativos (o hay plaza o no), así que se elegía uno. Aquí las dos tareas son independientes y no compiten entre sí, así que se pueden hacer a la vez. Usar el rombo donde hace falta la barra describe un sistema más lento del que se pretende, porque obliga a hacer las cosas de una en una.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">17. Elaborar un diagrama de actividades con retorno</p>
+<p>Dibuja el diagrama de actividades de un cajero automático: el usuario inserta la tarjeta y teclea el PIN; el sistema lo valida; si es incorrecto, da hasta tres intentos; si se superan, retiene la tarjeta; si es correcto, pide la cantidad y entrega el dinero.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="17:1"><input checked="checked" id="__tabbed_17_1" name="__tabbed_17" type="radio"/><div class="tabbed-labels"><label for="__tabbed_17_1">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<pre class="mermaid"><code>flowchart TD
+    Inicio([Inicio]) --&gt; Tarjeta["Insertar tarjeta"]
+    Tarjeta --&gt; Pin["Teclear PIN"]
+    Pin --&gt; Val{"¿PIN correcto?"}
+    Val -- Sí --&gt; Cantidad["Pedir cantidad"]
+    Cantidad --&gt; Entregar["Entregar dinero"]
+    Entregar --&gt; Fin([Fin])
+    Val -- No --&gt; Intentos{"¿Quedan intentos?"}
+    Intentos -- Sí --&gt; Pin
+    Intentos -- No --&gt; Retener["Retener tarjeta"]
+    Retener --&gt; Fin</code></pre>
+<p>El camino de error <strong>vuelve atrás</strong> al paso <code>Teclear PIN</code>, y esa vuelta es lo que convierte el diagrama en un procedimiento de verdad: sin ella, los tres intentos habría que dibujarlos como tres pasos seguidos. La condición de la decisión <code>¿Quedan intentos?</code> es la información clave, y es exactamente la que el código tendrá que comprobar.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">18. Interpretar un diagrama de estados</p>
+<p>Observa la máquina expendedora y responde:</p>
+<pre class="mermaid"><code>stateDiagram-v2
+    [*] --&gt; Reposo
+    Reposo --&gt; ConCredito : introducirMoneda()
+    ConCredito --&gt; ConCredito : introducirMoneda()
+    ConCredito --&gt; Reposo : devolverMoneda()
+    ConCredito --&gt; Dispensando : seleccionarProducto() [saldoOK]
+    ConCredito --&gt; ConCredito : seleccionarProducto() [saldoNO]
+    Dispensando --&gt; Reposo : entregarProducto()</code></pre>
+<ol>
+<li>¿Cuál es el estado inicial?</li>
+<li>¿Qué significa la transición que sale de <code>ConCredito</code> y vuelve a <code>ConCredito</code>?</li>
+<li>¿Puede pasar de <code>Reposo</code> a <code>Dispensando</code> sin introducir moneda?</li>
+<li>¿Qué representa <code>[saldoOK]</code> y qué ocurre si no se cumple?</li>
+</ol>
+<div class="tabbed-set tabbed-alternate" data-tabs="18:1"><input checked="checked" id="__tabbed_18_1" name="__tabbed_18" type="radio"/><div class="tabbed-labels"><label for="__tabbed_18_1">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li><code>Reposo</code>, porque es el destino de la primera transición que sale del círculo relleno.</li>
+<li>Un <strong>auto-bucle</strong>: se puede introducir otra moneda estando ya en <code>ConCredito</code>, aumentando el saldo sin cambiar de estado.</li>
+<li>No: no hay ninguna transición directa, y para llegar a <code>Dispensando</code> hay que pasar por <code>ConCredito</code>.</li>
+<li>Es una <strong>guarda</strong>. Solo se dispensa si el saldo alcanza; si no se cumple, la transición de vuelta a <code>ConCredito</code> con la guarda <code>[saldoNO]</code> mantiene la máquina esperando más monedas.</li>
+</ol>
+<p>Los estados describen lo que la máquina <strong>recuerda</strong> (si tiene crédito o no) y las transiciones, los hechos que la hacen cambiar. Ese "recuerdo" es lo que en el código se guarda como valor de un atributo.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">19. Plantear un diagrama de estados</p>
+<p>Plantea el diagrama de estados de una reserva de hotel: se crea al reservar, se confirma al pagar la señal, se puede cancelar antes de la entrada, pasa a "en curso" al hacer el check-in y termina al hacer el check-out. Una reserva cancelada o terminada no admite más cambios.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="19:1"><input checked="checked" id="__tabbed_19_1" name="__tabbed_19" type="radio"/><div class="tabbed-labels"><label for="__tabbed_19_1">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<pre class="mermaid"><code>stateDiagram-v2
+    [*] --&gt; CREADA : reservar()
+    CREADA --&gt; CONFIRMADA : pagarSenal()
+    CREADA --&gt; CANCELADA : cancelar()
+    CONFIRMADA --&gt; CANCELADA : cancelar() [antesDeEntrada]
+    CONFIRMADA --&gt; ENCURSO : checkIn()
+    ENCURSO --&gt; TERMINADA : checkOut()
+    CANCELADA --&gt; [*]
+    TERMINADA --&gt; [*]</code></pre>
+<p>Al dibujarlo aparecen tres decisiones que el enunciado no resolvía y que hay que dejar por escrito: si una reserva <strong>confirmada</strong> se puede cancelar (sí, con la guarda <code>[antesDeEntrada]</code>), si una reserva <strong>en curso</strong> se puede cancelar (no, y por eso no hay transición) y si una <strong>confirmada</strong> puede terminar sin pasar por el check-in (no, y por eso no hay flecha directa a <code>TERMINADA</code>). Los estados finales dejan claro que cancelar y terminar son dos formas distintas de cerrar la misma reserva.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">20. Elegir el diagrama adecuado (2)</p>
+<p>Indica qué diagrama usarías y por qué:</p>
+<ol>
+<li>Dejar claro con el cliente qué puede hacer cada tipo de usuario.</li>
+<li>Ver en qué orden se llaman los métodos al procesar un pedido.</li>
+<li>Documentar el procedimiento interno que sigue el departamento de nóminas.</li>
+<li>Saber qué situaciones atraviesa una incidencia desde que se abre hasta que se cierra.</li>
+<li>Comprobar si dos clases se consultan demasiado entre sí.</li>
+</ol>
+<div class="tabbed-set tabbed-alternate" data-tabs="20:1"><input checked="checked" id="__tabbed_20_1" name="__tabbed_20" type="radio"/><div class="tabbed-labels"><label for="__tabbed_20_1">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li><strong>Casos de uso.</strong> Es el único que se puede leer con el cliente delante.</li>
+<li><strong>Secuencia.</strong> Su eje temporal es explícito.</li>
+<li><strong>Actividades.</strong> Describe procesos por pasos, con decisiones, con independencia de quién ejecute cada uno.</li>
+<li><strong>Estados.</strong> La incidencia tiene un ciclo de vida rico: su comportamiento depende de su historia.</li>
+<li><strong>Comunicaciones.</strong> Muestra el mapa de enlaces entre objetos de un vistazo, así que es el mejor para detectar acoplamientos; el de secuencia daría la información, pero peor para ver quién habla con quién.</li>
+</ol>
+<p>Cada diagrama responde a una pregunta distinta, y usar el equivocado no produce un error de sintaxis, sino un dibujo que no contesta a lo que se le pregunta.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">21. Leer un diagrama de comunicaciones</p>
+<p>En un diagrama de comunicaciones, los objetos <code>f : Factura</code>, <code>l : Linea</code> y <code>p : Producto</code> están enlazados. Los mensajes son <code>1: calcularTotal()</code>, <code>2: importe()</code> y <code>2.1: precio()</code>. Responde:</p>
+<ol>
+<li>¿Quién inicia la interacción?</li>
+<li>¿Qué mensaje se envía durante la ejecución de qué otro?</li>
+<li>¿Por qué <code>2.1</code> va de <code>l</code> a <code>p</code> y no al revés?</li>
+<li>¿Qué ventaja tiene este diagrama frente al de secuencia para revisar el modelo?</li>
+</ol>
+<div class="tabbed-set tabbed-alternate" data-tabs="21:1"><input checked="checked" id="__tabbed_21_1" name="__tabbed_21" type="radio"/><div class="tabbed-labels"><label for="__tabbed_21_1">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>El objeto <code>f : Factura</code>, que es donde entra el mensaje <code>1</code>, enviado desde fuera (un actor).</li>
+<li><code>2.1: precio()</code> se envía <strong>durante</strong> <code>2: importe()</code>: la numeración con punto indica anidamiento.</li>
+<li>Porque la línea conoce su producto y le pide el precio. La navegabilidad del modelo va de <code>Linea</code> a <code>Producto</code>, y el diagrama la respeta.</li>
+<li>Muestra los <strong>enlaces</strong> entre objetos, así que de un vistazo se ve quién conoce a quién; eso lo hace mejor para detectar acoplamientos excesivos, mientras que el de secuencia es mejor para el orden temporal.</li>
+</ol>
+<p>La numeración jerárquica (<code>2.1</code>) es el equivalente exacto del desplazamiento en cascada de las barras de activación del diagrama de secuencia: los dos dibujos son la misma información vista desde dos ángulos distintos.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">22. Pasar de secuencia a comunicaciones</p>
+<p>Convierte este diagrama de secuencia en su diagrama de comunicaciones equivalente:</p>
+<pre class="mermaid"><code>sequenceDiagram
+    actor Usuario
+    participant Carrito
+    participant Catalogo
+    Usuario-&gt;&gt;Carrito: añadir(idProducto)
+    activate Carrito
+    Carrito-&gt;&gt;Catalogo: precio(idProducto)
+    Catalogo--&gt;&gt;Carrito: precio
+    Carrito--&gt;&gt;Usuario: ok
+    deactivate Carrito</code></pre>
+<div class="tabbed-set tabbed-alternate" data-tabs="22:1"><input checked="checked" id="__tabbed_22_1" name="__tabbed_22" type="radio"/><div class="tabbed-labels"><label for="__tabbed_22_1">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Los mismos objetos y los mismos enlaces, pero colocados por el espacio en lugar de por el tiempo. Los objetos son <code>carrito : Carrito</code> y <code>catalogo : Catalogo</code>, y el enlace entre ellos es el que se recorre con los mensajes:</p>
+<table>
+<thead>
+<tr>
+<th>Nº</th>
+<th>De</th>
+<th>A</th>
+<th>Mensaje</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Usuario</td>
+<td><code>carrito : Carrito</code></td>
+<td><code>añadir(idProducto)</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>carrito : Carrito</code></td>
+<td><code>catalogo : Catalogo</code></td>
+<td><code>precio(idProducto)</code></td>
+</tr>
+<tr>
+<td>2.1</td>
+<td><code>catalogo : Catalogo</code></td>
+<td><code>carrito : Carrito</code></td>
+<td>retorno del precio</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>carrito : Carrito</code></td>
+<td>Usuario</td>
+<td>retorno <code>ok</code></td>
+</tr>
+</tbody>
+</table>
+<p>El mensaje <code>2.1</code> marca que el retorno del catálogo ocurre <strong>dentro</strong> de la ejecución del mensaje <code>2</code>, igual que en el diagrama de secuencia el retorno se dibuja mientras la barra de activación del carrito sigue abierta. Los dos diagramas cuentan exactamente lo mismo: el de secuencia prioriza <strong>cuándo</strong> se dicen las cosas y el de comunicaciones, <strong>por qué enlace</strong> circulan.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Manuel Sánchez Gomis
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["search.suggest", "search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "content.code.copy", "content.tabs.link", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../../assets/_markdown_exec_pyodide.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../_static/js/notebook.js"></script>
+      
+    
+  </body>
+</html>

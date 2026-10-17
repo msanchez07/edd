@@ -1,0 +1,1108 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Manuel Sánchez Gomis">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
+    
+    
+      
+        <title>Diagramas de clases en IntelliJ IDEA - Entornos de desarrollo</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_markdown_exec_pyodide.css">
+    
+      <link rel="stylesheet" href="../../../_static/css/notebook.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#diagramas-de-clases-en-intellij-idea" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Entornos de desarrollo" class="md-header__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Entornos de desarrollo
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Diagramas de clases en IntelliJ IDEA
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo brillante"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo brillante" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Bienvenido
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Introducción al desarrollo de software
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Entornos de desarrollo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../control_versiones/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Control de versiones
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Entornos de desarrollo" class="md-nav__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    Entornos de desarrollo
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bienvenido
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introducción al desarrollo de software
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Introducción al desarrollo de software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/02%20-%20lenguajes_programacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lenguajes de programación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/03%20-%20proceso_obtencion_codigo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proceso de obtención de código
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/04%20-%20desarrollo_aplicaciones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Desarrollo de aplicaciones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/05%20-%20metodologias_agiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metodologías Ágiles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Entornos de desarrollo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Entornos de desarrollo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a los entornos de desarrollo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/02%20-%20intellij/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IntelliJ IDEA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/03%20-%20plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalar plugins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/04%20-%20personalizacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Personalización, automatización y mantenimiento del entorno
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/05%20-%20compilacion_y_ejecutables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generación de ejecutables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/99%20-%20ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Control de versiones
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Control de versiones
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción al control de versiones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/02%20-%20herramientas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Herramientas de control de versiones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/03%20-%20introduccion_git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/04%20-%20uso_basico_git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trabajo básico con Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/05%20-%20github/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/06%20-%20integracion_continua/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integración continua
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/99%20-%20ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios de Git y GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#el-modulo-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      El módulo Diagrams
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generar-el-diagrama-desde-el-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generar el diagrama desde el código
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leer-y-configurar-el-diagrama" class="md-nav__link">
+    <span class="md-ellipsis">
+      Leer y configurar el diagrama
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#del-diagrama-al-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Del diagrama al código
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exportar-el-diagrama" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exportar el diagrama
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-alternativa-sin-licencia-plantuml-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      La alternativa sin licencia: PlantUML Integration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#el-otro-sentido-del-trabajo" class="md-nav__link">
+    <span class="md-ellipsis">
+      El otro sentido del trabajo
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="diagramas-de-clases-en-intellij-idea">Diagramas de clases en IntelliJ IDEA</h1>
+<p>Ya sabemos leer un diagrama de clases y escribir con sus símbolos, pero todavía no hemos visto de dónde sale uno. Empezamos por la vía que da el propio entorno de desarrollo, porque es la que se tiene siempre a mano: IntelliJ IDEA, el IDE con el que ya hemos trabajado en el apartado de entornos, es capaz de <strong>generar el diagrama de clases a partir del código</strong> de un proyecto y de mantenerlo al día cuando ese código cambia.</p>
+<p>Eso define el uso que se hace del diagrama. Un diagrama generado por el IDE sirve para <strong>entender lo que ya está programado</strong> y para comprobar que el modelo sigue siendo cierto; no sirve para anticipar un diseño que todavía no existe, porque no hay nada que leer. Las dos cosas son necesarias en un proyecto real, y por eso conviene saber hacer las dos.</p>
+<h2 id="el-modulo-diagrams">El módulo Diagrams</h2>
+<p>La funcionalidad de diagramas no está en el editor de código, sino en un <strong>módulo</strong> del IDE llamado <strong>Diagrams</strong>. Comprobar que está operativo es el primer paso, y también es la parte del procedimiento que exige un criterio de evaluación.</p>
+<p><code>Ctrl+Alt+S</code> abre la ventana de <em>Settings</em>. En la sección <strong>Plugins</strong>, la pestaña <strong>Installed</strong> lista todo lo que el entorno tiene incorporado, y ahí debe aparecer <strong>Diagrams</strong> con su casilla marcada. El módulo viene incluido en la instalación y activado por defecto, así que lo normal es encontrarlo ya listo; lo que hay que hacer es verificarlo, no descubrirlo.</p>
+<p>Ahora bien, que el módulo figure en la lista no garantiza que la función esté disponible, y este es el punto que hay que entender antes de perder una tarde buscando un menú que no aparece. La generación de diagramas de clases forma parte del conjunto de funciones que JetBrains reserva a la <strong>suscripción Ultimate</strong>, de modo que en una instalación sin suscripción el módulo puede estar presente y, aun así, no ofrecer los diagramas de Java. Las dos cosas se comprueban en el mismo sitio: el módulo en la pestaña <em>Installed</em> y la función en el menú contextual del paquete.</p>
+<figure>
+<img alt="" src="../../images/33.png" width="80%"/>
+</figure>
+<p>En la captura se ve la ventana de <em>Settings</em> con la sección <em>Plugins</em> seleccionada a la izquierda y sus dos pestañas en la parte superior. La pestaña <em>Installed</em> es la que interesa aquí, y la <em>Marketplace</em> es la que se usará más abajo para instalar un complemento que no venga de serie. La lectura del panel del complemento seleccionado da la información relevante: el autor, la versión y los botones de acción.</p>
+<p>Si el módulo <strong>Diagrams</strong> no aparece en la lista, o si aparece pero el menú de diagramas no se ofrece después en el menú contextual, la causa es la licencia y no una mala instalación. Y aquí conviene saber que <strong>no hace falta pagar</strong> para nada de lo que se hace en este módulo, porque JetBrains ofrece dos vías gratuitas que desbloquean el conjunto completo de funciones:</p>
+<ul>
+<li>La <strong>licencia educativa</strong>, dirigida a estudiantes y a profesorado, que se solicita en la web de JetBrains acreditando la condición de alumno o de docente con el correo del centro. Es la vía oficial para un aula y la que conviene usar.</li>
+<li>La <strong>licencia de uso no comercial</strong>, que también desbloquea todas las funciones y que tiene como única contrapartida la aceptación del envío de estadísticas de uso anónimas.</li>
+</ul>
+<p>En los dos casos el resultado es el mismo módulo, el mismo menú y el mismo diagrama. Lo único que hay que tener claro es que <strong>el módulo no es software libre</strong>: es código propiedad de JetBrains, incluido en una aplicación que se distribuye con licencia propia. Si eso supone un problema, la sección final de esta página describe una alternativa que no depende de ninguna licencia.</p>
+<p>Conviene entender además qué se está haciendo al activar un módulo, más allá del trámite administrativo. El IDE es un programa que va cargando piezas según lo que necesita, y esas piezas comparten el mismo modelo interno del proyecto. Por eso un complemento puede añadir un menú nuevo sin que haya que tocar el código ni la configuración: el módulo se engancha a la estructura que el IDE ya tiene indexada. De ahí que si la pieza responsable de los diagramas no está activa, el IDE se comporte como si la funcionalidad no existiera, sin ningún mensaje de error y sin ninguna pista de por qué falta el menú.</p>
+<h2 id="generar-el-diagrama-desde-el-codigo">Generar el diagrama desde el código</h2>
+<p>Con el módulo en marcha, el procedimiento es corto: en el tool window <strong>Project</strong> se pulsa con el botón derecho sobre el <strong>paquete</strong> del que se quiere el diagrama y se escoge <strong>Diagrams | Show Diagram</strong>, cuyo atajo es <code>Ctrl+Alt+Shift+U</code>. En la lista que aparece se selecciona <strong>Java Class Diagram</strong>, y el diagrama se abre en una pestaña nueva del editor.</p>
+<figure>
+<img alt="" src="../../images/34.png" width="100%"/>
+</figure>
+<p>El esquema anterior resume la ruta completa, con los nombres exactos que aparecen en pantalla. Se pulsa siempre sobre un <strong>paquete</strong> y no sobre una clase suelta, porque lo que el IDE dibuja es el contenido del paquete; si lo que se quiere es el diagrama de una sola clase, lo más rápido suele ser generar el del paquete y quedarse con la parte que interesa.</p>
+<p>En ese instante el IDE dibuja un diagrama de clases completo del paquete, con sus relaciones y sus dependencias. Merece la pena detenerse en cómo se ha obtenido, porque es la diferencia esencial con respecto a una herramienta de dibujo: aquí <strong>nadie ha dibujado nada</strong>. El entorno ya tenía analizado el proyecto para ofrecer autocompletado y navegación, y el módulo de diagramas se limita a volcar ese mismo conocimiento sobre un lienzo. El resultado no es una interpretación del código, sino el código mismo visto desde otra perspectiva, y por eso refleja siempre la estructura real de clases y de métodos, incluidas las erratas del programador.</p>
+<p>Ese mecanismo es exactamente la <strong>ingeniería inversa</strong>, con la diferencia de que aquí no hay que exportar nada: el diagrama se obtiene del proyecto que está abierto en ese momento.</p>
+<p>Si falta alguna clase en el diagrama, se puede añadir sin volver a generarlo. Con el editor del diagrama en primer plano se pulsa <strong>Espacio</strong>, se empieza a escribir el nombre de la clase y se escoge de la lista de sugerencias; si la clase está fuera del proyecto, hay que marcar antes la casilla <em>Include non-project items</em>. La otra vía es seleccionar los elementos en el tool window <em>Project</em> y arrastrarlos hasta el diagrama.</p>
+<p>Existe, además, una variante muy útil cuando el proyecto está bajo control de versiones. La opción <strong>VCS | Uncommitted Changes | Show Local Changes as UML</strong>, con atajo <code>Ctrl+Alt+Shift+D</code>, dibuja un diagrama con las clases que todavía no se han confirmado. En lugar de revisar un listado de archivos modificados, se revisa la forma que ha tomado el cambio, que es mucho más informativo cuando se trabaja en equipo.</p>
+<h2 id="leer-y-configurar-el-diagrama">Leer y configurar el diagrama</h2>
+<p>Un diagrama de un paquete real suele ser grande, y el editor incorpora herramientas para podarlo. La primera es el botón <strong>Show Dependencies</strong> de la barra del diagrama: al activarlo, el IDE dibuja las relaciones entre las clases siguiendo las convenciones de UML, de modo que una flecha con punta triangular indica herencia y una línea discontinua indica dependencia. La segunda es el botón <strong>Change Visibility Level</strong>, que decide qué miembros se muestran: si se elige <code>protected</code>, aparecen los miembros con visibilidad igual o mayor que esa, cada uno con su icono de acceso correspondiente.</p>
+<p>Otras dos ayudas ahorran mucho tiempo en diagramas grandes. Al pulsar <code>Ctrl+F12</code> se despliega la lista de elementos del diagrama, lo que permite saltar de uno a otro sin buscarlos con la vista. Y al ir pinchando en las clases, el IDE atenúa en gris las que no pertenecen al paquete que se está explorando, de forma que el foco visual se mantiene donde interesa. En el panel izquierdo, el botón <strong>Structure</strong> abre una ventana con un mapa completo del diagrama y una vista previa del bloque seleccionado, con opciones para ampliar, desplazar y cambiar la disposición.</p>
+<p>Cuando el diagrama es inmanejable, el grupo de acciones <strong>Analyze Graph</strong> del menú contextual ofrece la salida. <strong>Focus on Node Neighborhood</strong> deja a la vista solo el nodo seleccionado y sus vecinos, y <strong>Focus On Paths Between Two Nodes</strong> muestra únicamente los caminos que conectan dos clases concretas, que es la forma más rápida de responder a la pregunta de cómo llega un objeto a otro. <strong>Measure Centrality</strong> va un paso más allá y calcula un valor entre 0 y 1 para cada nodo según su importancia en la red de dependencias, de modo que los nodos más brillantes señalan las clases de las que cuelga el resto del sistema. Ese dato es oro al planificar una refactorización, porque identifica exactamente las piezas que no se pueden tocar sin arrastrar medio proyecto.</p>
+<p>Queda por mencionar la configuración por defecto. En <code>Ctrl+Alt+S</code> y luego <strong>Tools | Diagrams</strong> se decide qué elementos aparecen y cómo se disponen cada vez que se genera un diagrama, de forma que no haya que ajustarlo a mano en cada ocasión.</p>
+<h2 id="del-diagrama-al-codigo">Del diagrama al código</h2>
+<p>El editor de diagramas de IntelliJ no es un visor, sino un editor del modelo, y permite también trabajar en el sentido contrario: <strong>crear estructura de código desde el dibujo</strong>. Es la forma de cubrir la generación de código a partir de un diagrama sin salir del IDE, aunque su alcance sea incremental: no genera un proyecto entero de una vez, sino que va escribiendo en el código cada elemento que se añade al diagrama.</p>
+<p>Con el botón derecho sobre el lienzo, la opción <strong>Content | New</strong> abre un submenú para crear un elemento nuevo (una clase, un método, un campo) y, tras pedir los datos necesarios, lo añade a la vez al diagrama y al árbol del proyecto.</p>
+<p>El caso más interesante es el botón <strong>Edge Creation mode</strong> de la barra del diagrama. Activa el modo de trazado de relaciones y, al dibujar un enlace entre dos elementos, IntelliJ <strong>modifica el código fuente en consecuencia</strong>: si la relación es una asociación, crea el atributo correspondiente; si es una herencia, añade el <code>extends</code>. Eso significa que se puede trabajar sobre el dibujo y ver cómo el programa cambia debajo, que es la forma más directa de entender qué significa cada símbolo del diagrama de clases. De la misma manera, borrar un enlace o un nodo del diagrama ofrece la opción de borrar también su reflejo en el código, y las acciones <strong>Show Implementations</strong> (<code>Ctrl+Alt+B</code>) y <strong>Show Parents</strong> (<code>Ctrl+Alt+P</code>) permiten saltar de un elemento a sus implementaciones o a sus clases madre.</p>
+<p>Esa bidireccionalidad tiene una consecuencia importante. En una herramienta de dibujo como la que veremos en la página siguiente, el modelo y el código son dos artefactos separados que hay que mantener sincronizados a mano, y por eso hay que regenerar y revisar diferencias cada vez que uno de los dos cambia. En IntelliJ solo existe el código: el diagrama es una vista de él, así que no pueden divergir. La contrapartida es que tampoco sirve para diseñar algo que todavía no existe, porque no hay nada que leer.</p>
+<h2 id="exportar-el-diagrama">Exportar el diagrama</h2>
+<p>Un diagrama que solo existe dentro del IDE no se puede entregar, así que el último paso de cualquier sesión de trabajo es sacarlo de ahí. Se pulsa con el botón derecho sobre el editor del diagrama y se escoge <strong>Export Diagram | Export to File</strong>, eligiendo a continuación la extensión del archivo.</p>
+<p>La elección del formato no es indiferente y conviene decidirla según el destino. <strong>SVG</strong> guarda el diagrama como gráfico vectorial, de modo que se puede ampliar sin que se pixele y sigue viéndose nítido al imprimirlo en papel o al proyectarlo en clase; es la opción recomendada cuando el diagrama va a acabar dentro de una memoria técnica. <strong>PNG</strong> genera un mapa de bits, más cómodo de pegar en un procesador de textos o en una presentación, pero con una resolución fija: si se amplía, se ve borroso.</p>
+<p>Antes de exportar merece la pena dedicar un minuto a dejar el diagrama legible, porque la imagen no va a llevar ninguna explicación al lado. Conviene comprobar que la visibilidad de los miembros está en el nivel adecuado, porque mostrar todos los métodos privados de veinte clases convierte el diagrama en una lista ilegible; que los nodos están repartidos de forma que las líneas no se crucen sin necesidad; y que se han usado las herramientas de filtrado del apartado anterior para quedarse solo con la parte del modelo que se quiere enseñar. Un diagrama exportado sin ese repaso suele ser correcto y, a la vez, inservible.</p>
+<h2 id="la-alternativa-sin-licencia-plantuml-integration">La alternativa sin licencia: PlantUML Integration</h2>
+<p>Cuando no se quiere depender de ninguna licencia, el hueco se cubre con <strong>PlantUML Integration</strong>, un complemento del Marketplace que se distribuye con licencia <strong>Apache 2.0</strong>, es decir, software libre, y que funciona sin ninguna suscripción. Su mecanismo es distinto al del módulo de JetBrains: en lugar de generar el diagrama leyendo el proyecto, interpreta un archivo de texto escrito en el lenguaje <strong>PlantUML</strong> y lo dibuja en un panel de previsualización junto al editor.</p>
+<p>Ese cambio de mecanismo tiene una consecuencia importante para nosotros, y es que cubre <strong>todos los diagramas del bloque de modelado</strong>: clases, objetos, secuencias, casos de uso, actividades y estados. Instalarlo una vez sirve para este apartado y también para el de comportamiento, lo que lo convierte en la opción más rentable cuando el objetivo es que ningún alumno se quede fuera por una licencia.</p>
+<p>El procedimiento es el habitual de cualquier complemento: <code>Ctrl+Alt+S</code> → <strong>Plugins</strong> → pestaña <strong>Marketplace</strong> → buscar <strong>PlantUML Integration</strong> → <strong>Install</strong> y reiniciar el entorno si lo pide. Después basta con crear un archivo con extensión <code>.puml</code>, escribir el diagrama entre las etiquetas <code>@startuml</code> y <code>@enduml</code>, y verlo dibujado al lado del código. Hay un requisito que conviene conocer de antemano porque es la causa del error más habitual: muchos tipos de diagrama necesitan el programa <strong>Graphviz</strong> instalado en el sistema, que es libre y se instala con un comando en Linux y macOS.</p>
+<p>La ventaja de este enfoque, además de la licencia, es la que ya nos encontramos en el apartado de control de versiones: un archivo <code>.puml</code> es texto plano, de modo que Git puede compararlo línea a línea y una modificación en la relación entre dos clases aparece como una línea eliminada y otra añadida. Un diagrama guardado como imagen no permite eso.</p>
+<p>Merece la pena, por tanto, hacer una distinción que ayuda a elegir: el módulo de JetBrains dibuja lo que el código <strong>ya dice</strong>, y PlantUML dibuja lo que nosotros <strong>escribimos</strong>. El primero es una vista del proyecto y no puede contradecirlo; el segundo es un documento y puede quedarse desactualizado, pero también puede describir un diseño que todavía no existe.</p>
+<h2 id="el-otro-sentido-del-trabajo">El otro sentido del trabajo</h2>
+<p>Con esto queda recorrido el camino que va del código al diagrama. Queda el inverso, el del diseño: decidir qué clases habrá, cómo se llamarán y cómo se relacionarán <strong>antes</strong> de que exista el programa, y obtener después el esqueleto del código a partir del modelo. Para ese camino hace falta una herramienta donde dibujar sea cómodo y donde el diagrama sea un documento en sí mismo, y es lo que se trabaja en la página siguiente.</p>
+<p>Lo que no funciona es quedarse con una sola de las dos vías. Un diagrama que solo existe en un archivo aparte se queda obsoleto en cuanto el código avanza, y un diagrama generado por el IDE no puede anticipar un diseño que todavía no se ha escrito.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Manuel Sánchez Gomis
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["search.suggest", "search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "content.code.copy", "content.tabs.link", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../../assets/_markdown_exec_pyodide.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../_static/js/notebook.js"></script>
+      
+    
+  </body>
+</html>
