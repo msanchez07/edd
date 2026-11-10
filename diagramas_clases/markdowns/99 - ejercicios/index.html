@@ -1,0 +1,1999 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Manuel Sánchez Gomis">
+      
+      
+      
+        <link rel="prev" href="../04%20-%20dia/">
+      
+      
+      
+      <link rel="icon" href="../../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
+    
+    
+      
+        <title>Ejercicios - Entornos de desarrollo</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_markdown_exec_pyodide.css">
+    
+      <link rel="stylesheet" href="../../../_static/css/notebook.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ejercicios-de-diagramas-de-clases" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Entornos de desarrollo" class="md-header__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Entornos de desarrollo
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Ejercicios
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo brillante"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo brillante" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Bienvenido
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Introducción al desarrollo de software
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Entornos de desarrollo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../control_versiones/markdowns/01%20-%20introduccion/" class="md-tabs__link">
+          
+  
+    
+  
+  Control de versiones
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../01%20-%20introduccion_diseno/" class="md-tabs__link">
+          
+  
+    
+  
+  Diagramas de clases
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Entornos de desarrollo" class="md-nav__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    Entornos de desarrollo
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bienvenido
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introducción al desarrollo de software
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Introducción al desarrollo de software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/02%20-%20lenguajes_programacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lenguajes de programación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/03%20-%20proceso_obtencion_codigo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proceso de obtención de código
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/04%20-%20desarrollo_aplicaciones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Desarrollo de aplicaciones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion/markdowns/05%20-%20metodologias_agiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metodologías Ágiles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Entornos de desarrollo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Entornos de desarrollo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a los entornos de desarrollo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/02%20-%20intellij/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IntelliJ IDEA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/03%20-%20plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalar plugins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/04%20-%20personalizacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Personalización, automatización y mantenimiento del entorno
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/05%20-%20compilacion_y_ejecutables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generación de ejecutables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entornos/markdowns/99%20-%20ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Control de versiones
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Control de versiones
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/01%20-%20introduccion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción al control de versiones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/02%20-%20herramientas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Herramientas de control de versiones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/03%20-%20introduccion_git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/04%20-%20uso_basico_git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trabajo básico con Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/05%20-%20github/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/06%20-%20integracion_continua/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integración continua
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control_versiones/markdowns/99%20-%20ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios de Git y GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Diagramas de clases
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Diagramas de clases
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01%20-%20introduccion_diseno/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción al diseño de software
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02%20-%20diagrama_de_clases/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    El diagrama de clases
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03%20-%20intellij/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Diagramas de clases en IntelliJ IDEA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04%20-%20dia/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    El diagrama de clases con Dia
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="ejercicios-de-diagramas-de-clases">Ejercicios de diagramas de clases</h1>
+<p>Estos doce ejercicios son las actividades de la unidad: en todos, la solución es un <strong>diagrama de clases</strong> construido a partir de un enunciado. Lo que cambia de uno a otro es el dominio del problema y el número de decisiones de modelado que hay que tomar: desde una biblioteca con préstamos hasta un holding con relaciones ternarias.</p>
+<div class="admonition info">
+<p class="admonition-title">Cómo se resuelven</p>
+<p>Se pueden dibujar a mano y comprobar después con Dia, que es la herramienta del apartado teórico. Las soluciones de esta página usan Mermaid para que el diagrama se pueda leer aquí mismo, pero la notación es la misma: cajas con tres compartimentos, flechas de herencia con punta triangular hueca, rombos para la agregación y la composición, y multiplicidades en los extremos.</p>
+</div>
+<hr/>
+<div class="admonition question">
+<p class="admonition-title">1. Biblioteca con copias y préstamos</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Enunciado</label><label for="__tabbed_1_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Diseña el siguiente diagrama de clases:</p>
+<blockquote>
+<ul>
+<li>Una biblioteca tiene copias de libros. Estos últimos se caracterizan por su nombre, tipo (novela, teatro, poesía, ensayo), editorial, año y autor.</li>
+<li>Los autores se caracterizan por su nombre, nacionalidad y fecha de nacimiento.</li>
+<li>Cada copia tiene un identificador, y puede estar en la biblioteca, prestada, con retraso o en reparación.</li>
+<li>Los lectores pueden tener un máximo de 3 libros en préstamo.</li>
+<li>Cada libro se presta un máximo de 30 días; por cada día de retraso, se impone una "multa" de dos días sin posibilidad de coger un nuevo libro.</li>
+<li>Realiza un diagrama de clases y añade los métodos necesarios para realizar el préstamo y devolución de libros.</li>
+</ul>
+</blockquote>
+</div>
+<div class="tabbed-block">
+<pre class="mermaid"><code>classDiagram
+    class Libro {
+        -nombre : String
+        -tipo : TipoLibro
+        -editorial : String
+        -anio : int
+    }
+    class Autor {
+        -nombre : String
+        -nacionalidad : String
+        -fechaNacimiento : Date
+    }
+    class Copia {
+        -identificador : String
+        -estado : EstadoCopia
+    }
+    class Lector {
+        -numeroSocio : String
+        +prestar(c : Copia) boolean
+        +devolver(c : Copia) double
+    }
+    class Prestamo {
+        -fechaInicio : Date
+        -fechaEntrega : Date
+        +diasRetraso() int
+        +diasSancion() int
+    }
+    Libro "1..*" -- "1..*" Autor : escrito por
+    Libro "1" -- "1..*" Copia : del libro
+    Lector "1" -- "*" Copia : solicita
+    Prestamo .. Lector
+    Prestamo .. Copia</code></pre>
+<p>La decisión que cambia el modelo es separar <strong>libro</strong> de <strong>copia</strong>. El libro es la obra (<code>El Quijote</code>), y la copia es el ejemplar físico con su identificador; la biblioteca presta copias, no obras, y por eso el préstamo cuelga de <code>Copia</code>. Si se hubiera puesto el estado en <code>Libro</code>, no se podría tener a la vez un ejemplar prestado y otro en la estantería.</p>
+<p>El <strong>préstamo</strong> se modela como clase asociativa entre <code>Lector</code> y <code>Copia</code>, porque las fechas y la sanción no pertenecen a ninguno de los dos. Los métodos <code>prestar()</code> y <code>devolver()</code> van en <code>Lector</code>, que es quien conoce sus préstamos; <code>devolver()</code> devuelve la multa calculada. Las dos restricciones del enunciado, tres libros como máximo y treinta días de plazo, no se dibujan: se documentan en el diagrama y se comprueban en esos métodos.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">2. Empresas, empleados y clientes</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">Enunciado</label><label for="__tabbed_2_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Representa mediante un diagrama de clases la siguiente especificación:</p>
+<blockquote>
+<ul>
+<li>Una aplicación necesita almacenar información sobre empresas, sus empleados y sus clientes. Ambos se caracterizan por su nombre y edad.</li>
+<li>Los empleados tienen un sueldo bruto; los empleados que son directivos tienen una categoría, así como un conjunto de empleados subordinados.</li>
+<li>De los clientes además se necesita conocer su teléfono de contacto.</li>
+<li>La aplicación necesita mostrar los datos de empleados y clientes.</li>
+</ul>
+</blockquote>
+</div>
+<div class="tabbed-block">
+<pre class="mermaid"><code>classDiagram
+    class Persona {
+        &lt;&lt;abstract&gt;&gt;
+        #nombre : String
+        #edad : int
+        +mostrarDatos() String
+    }
+    class Empleado {
+        -sueldoBruto : double
+    }
+    class Directivo {
+        -categoria : String
+    }
+    class Cliente {
+        -telefono : String
+    }
+    class Empresa {
+        -nombre : String
+    }
+    Persona &lt;|-- Empleado
+    Persona &lt;|-- Cliente
+    Empleado &lt;|-- Directivo
+    Directivo "0..1" --&gt; "*" Empleado : subordina
+    Empresa "1" *-- "1..*" Empleado : emplea
+    Empresa "1" o-- "*" Cliente : atiende</code></pre>
+<p><code>Persona</code> se declara <strong>abstracta</strong> porque reúne lo común (nombre, edad y <code>mostrarDatos()</code>) pero en la aplicación no existe una persona suelta: o es empleado o es cliente. La jerarquía evita repetir los dos atributos y permite que el código trate a ambos con una sola variable de tipo <code>Persona</code>.</p>
+<p>El <strong>directivo</strong> no es un tipo paralelo de empleado, sino un empleado con categoría y con subordinados; de ahí que herede de <code>Empleado</code> y que tenga una asociación consigo mismo. Esa asociación reflexiva con <code>0..1</code> en el extremo del jefe dice que un empleado puede no tener a nadie a su cargo, y el <code>*</code> del otro extremo, que un mando puede tener varios.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">3. Gestión de pedidos</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><input id="__tabbed_3_2" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">Enunciado</label><label for="__tabbed_3_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Realiza el diseño de una aplicación para la gestión de pedidos. La aplicación deberá:</p>
+<blockquote>
+<ul>
+<li>Manejar clientes (se guarda su nombre, dirección, teléfono y e-mail), que pueden realizar pedidos de productos, de los cuales se anota la cantidad en stock. Un cliente puede tener una o varias cuentas para el pago de los pedidos. Cada cuenta está asociada a una tarjeta de crédito, y tiene una cierta cantidad disponible de dinero, que el cliente debe aumentar periódicamente para poder realizar nuevos pedidos.</li>
+<li>Un cliente puede empezar a realizar un pedido sólo si tiene alguna cuenta con dinero disponible. Al realizar un pedido, un cliente puede agruparlos en pedidos simples o compuestos. Los pedidos simples están asociados a una sola cuenta de pago y (por restricciones en la distribución) contienen un máximo de 20 unidades del mismo o distinto tipo de producto. A su vez, un pedido compuesto contiene dos o más pedidos, que pueden ser simples o compuestos. El sistema debe garantizar que todos los pedidos simples que componen un pedido compuesto se paguen con cuentas del mismo cliente. Además, sólo es posible realizar peticiones de productos en stock.</li>
+<li>Existe una clase (de la cual debe haber una única instancia en la aplicación) responsable del cobro, orden de distribución y confirmación de los pedidos. El cobro de los pedidos se hace una vez al día, y el proceso consiste en comprobar todos los pedidos pendientes de cobro, y cobrarlos de la cuenta de pago correspondiente. Si una cuenta no tiene suficiente dinero, el pedido se rechaza (si es parte de un pedido compuesto, se rechaza el pedido entero). Una vez que el pedido está listo para servirse, se ordena su distribución, y una vez entregado, pasa a estar confirmado.</li>
+</ul>
+</blockquote>
+</div>
+<div class="tabbed-block">
+<pre class="mermaid"><code>classDiagram
+    class Cliente {
+        -nombre : String
+        -direccion : String
+        -telefono : String
+        -email : String
+        +puedePedir() boolean
+    }
+    class CuentaPago {
+        -saldoDisponible : double
+        +tieneSaldo(importe : double) boolean
+    }
+    class TarjetaCredito {
+        -numero : String
+        -titular : String
+        -caducidad : Date
+    }
+    class Pedido {
+        &lt;&lt;abstract&gt;&gt;
+        -numero : int
+        -fecha : Date
+        -estado : EstadoPedido
+        -precioTotal : double
+        +cobrar() boolean
+    }
+    class PedidoSimple {
+        -unidadesTotales : int
+    }
+    class PedidoCompuesto
+    class LineaPedido {
+        -cantidad : int
+    }
+    class Producto {
+        -codigo : String
+        -nombre : String
+        -precio : double
+        -stock : int
+    }
+    class GestorPedidos {
+        &lt;&lt;singleton&gt;&gt;
+        +cobrarPendientes() void
+        +ordenarDistribucion() void
+        +confirmarEntrega(p : Pedido) void
+    }
+    Cliente "1" --&gt; "1..*" CuentaPago : posee
+    CuentaPago "1" -- "1" TarjetaCredito : asociada
+    Cliente "1" --&gt; "*" Pedido : realiza
+    Pedido &lt;|-- PedidoSimple
+    Pedido &lt;|-- PedidoCompuesto
+    PedidoCompuesto "1" *-- "2..*" Pedido : agrupa
+    PedidoSimple "1" *-- "1..*" LineaPedido : contiene
+    LineaPedido "*" --&gt; "1" Producto : referencia
+    PedidoSimple "*" --&gt; "1" CuentaPago : paga con
+    GestorPedidos ..&gt; Pedido : cobra y distribuye</code></pre>
+<p>El <strong>patrón compuesto</strong> aparece en la jerarquía de pedidos: <code>PedidoCompuesto</code> contiene dos o más <code>Pedido</code>, que pueden ser simples o compuestos a su vez. Ese <code>2..*</code> contra la clase abstracta es lo que permite anidar pedidos sin límite y, a la vez, obliga a que un compuesto nunca esté vacío.</p>
+<p>Las <strong>líneas de pedido</strong> son las que llevan la cantidad de cada producto, y de ahí sale la restricción de veinte unidades: el total de la línea se controla en <code>PedidoSimple</code>. La condición de que todos los pedidos simples de un compuesto se paguen con cuentas del mismo cliente no se puede dibujar con una multiplicidad, así que se documenta como restricción del modelo y se comprueba en <code>cobrar()</code>.</p>
+<p><code>GestorPedidos</code> lleva el estereotipo <code>&lt;&lt;singleton&gt;&gt;</code> porque el enunciado pide una única instancia; es el encargado de recorrer los pedidos pendientes, cobrarlos y rechazar el compuesto entero cuando una cuenta no tiene saldo.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">4. Estudio de arquitectura</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"/><input id="__tabbed_4_2" name="__tabbed_4" type="radio"/><div class="tabbed-labels"><label for="__tabbed_4_1">Enunciado</label><label for="__tabbed_4_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Un estudio de arquitectura desea crear una base de datos para gestionar sus proyectos:</p>
+<blockquote>
+<ul>
+<li>Cada proyecto tiene un código y un nombre. Un proyecto tiene uno y solo un jefe de proyecto, y un jefe de proyecto sólo puede estar involucrado en un proyecto o en ninguno.</li>
+<li>De cada jefe de proyecto se desean recoger sus datos personales (código, nombre, dirección y teléfono). Un jefe de proyecto se identifica por un código. No hay dos jefes de proyecto con el mismo nombre.</li>
+<li>Un proyecto se compone de una serie de planos, pero éstos se quieren guardar de modo independiente al proyecto: si se dejara de trabajar en un proyecto, se desea mantener la información de los planos asociados.</li>
+<li>De los planos se desea guardar su número de identificación, la fecha de entrega, los arquitectos que trabajan en él y un dibujo del plano general con información acerca del número de figuras que contiene.</li>
+<li>Los planos tienen figuras. De cada figura se desea conocer el identificador, el nombre, el color, el área y el perímetro. Además, de los polígonos se desea conocer el número de líneas que tienen. El perímetro se desea que sea un método diferido; el área se desea implementarla como genérica para cualquier tipo de figura, pero además se desea un método específico para el cálculo del perímetro de los polígonos.</li>
+<li>De cada línea que forma parte de un polígono se desea conocer el punto de origen y el de fin (según sus coordenadas X e Y), así como la longitud. Cada línea tiene un identificador que permite diferenciarla del resto. La longitud de la línea se puede calcular a partir de sus puntos de origen y final.</li>
+</ul>
+</blockquote>
+</div>
+<div class="tabbed-block">
+<pre class="mermaid"><code>classDiagram
+    class Proyecto {
+        -codigo : String
+        -nombre : String
+    }
+    class JefeProyecto {
+        -codigo : String
+        -nombre : String
+        -direccion : String
+        -telefono : String
+    }
+    class Plano {
+        -numeroIdentificacion : String
+        -fechaEntrega : Date
+        -dibujo : String
+    }
+    class Arquitecto {
+        -codigo : String
+        -nombre : String
+    }
+    class Figura {
+        &lt;&lt;abstract&gt;&gt;
+        #identificador : String
+        #nombre : String
+        #color : String
+        +area() double
+        +perimetro() double
+    }
+    class Poligono {
+        -numeroLineas : int
+        +perimetro() double
+    }
+    class Linea {
+        -identificador : String
+        +longitud() double
+    }
+    class Punto {
+        -x : double
+        -y : double
+    }
+    JefeProyecto "0..1" -- "1" Proyecto : dirige
+    Proyecto "1" o-- "*" Plano : agrupa
+    Arquitecto "*" -- "*" Plano : trabaja en
+    Plano "1" *-- "1..*" Figura : contiene
+    Figura &lt;|-- Poligono
+    Poligono "1" *-- "3..*" Linea : formado por
+    Linea "1" *-- "1" Punto : origen
+    Linea "1" *-- "1" Punto : fin</code></pre>
+<p>La relación entre <code>Proyecto</code> y <code>Plano</code> es una <strong>agregación</strong>, no una composición, y ese es el detalle que exige el enunciado: si se abandona el proyecto, los planos siguen existiendo. El rombo vacío del lado del proyecto lo dice, y la multiplicidad <code>*</code> permite que un plano quede sin proyecto asignado.</p>
+<p><code>Figura</code> declara <strong><code>area()</code> concreta y <code>perimetro()</code> diferida</strong>: el área se puede calcular igual para cualquier figura con los datos que ya tiene, mientras que el perímetro depende de la forma. <code>Poligono</code> sobrescribe <code>perimetro()</code> y añade el número de líneas. La línea se compone de dos <code>Punto</code>, que es la forma limpia de guardar las coordenadas y de calcular la longitud sin repetir campos.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">5. Redes de ordenadores</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"/><input id="__tabbed_5_2" name="__tabbed_5" type="radio"/><div class="tabbed-labels"><label for="__tabbed_5_1">Enunciado</label><label for="__tabbed_5_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Especificar un diagrama de clases que describa redes de ordenadores.</p>
+<blockquote>
+<ul>
+<li>Los elementos que se pueden incluir en la red son: servidor, PC, impresora, hub y cable de red.</li>
+<li>Los PCs pueden conectarse con un único hub; los servidores, con uno o varios.</li>
+<li>Los servidores y PCs pueden generar mensajes, con una cierta longitud.</li>
+<li>Los hubs tienen un número de puertos, algunos de los cuales pueden usarse para conectar con otros hubs.</li>
+<li>Los hubs tienen cierta probabilidad de "perder" mensajes.</li>
+<li>Las impresoras pueden averiarse, con cierta probabilidad, durante cierto tiempo.</li>
+</ul>
+</blockquote>
+</div>
+<div class="tabbed-block">
+<pre class="mermaid"><code>classDiagram
+    class ElementoRed {
+        &lt;&lt;abstract&gt;&gt;
+        #identificador : String
+    }
+    class Servidor {
+        -modelo : String
+    }
+    class PC {
+        -modelo : String
+    }
+    class Impresora {
+        -modelo : String
+        -probabilidadAveria : double
+        -tiempoAveria : int
+    }
+    class Hub {
+        -numeroPuertos : int
+        -probabilidadPerdida : double
+    }
+    class Cable {
+        -longitud : double
+    }
+    class Mensaje {
+        -longitud : int
+        -contenido : String
+    }
+    ElementoRed &lt;|-- Servidor
+    ElementoRed &lt;|-- PC
+    ElementoRed &lt;|-- Impresora
+    ElementoRed &lt;|-- Hub
+    PC "1" --&gt; "1" Hub : conecta
+    Servidor "1" --&gt; "1..*" Hub : conecta
+    Hub "1" --&gt; "0..*" Hub : interconecta
+    Hub "1" *-- "1..*" Cable : usa
+    Servidor "1" --&gt; "*" Mensaje : genera
+    PC "1" --&gt; "*" Mensaje : genera
+    Hub ..&gt; Mensaje : pierde</code></pre>
+<p>La clase abstracta <code>ElementoRed</code> recoge lo único que comparten todos los elementos, el identificador, y deja que cada uno añada lo suyo. Esa jerarquía permite tratar la red como una lista de elementos sin preguntar de qué tipo son.</p>
+<p>Las dos multiplicidades que pide el enunciado quedan así: un PC con <code>1</code> hub y un servidor con <code>1..*</code>. La interconexión entre hubs es una asociación reflexiva, porque un hub puede usar algunos de sus puertos para colgar de otro. Los mensajes se asocian a quien los genera, y la probabilidad de pérdida se modela como atributo del hub, no como una relación: no es un objeto, es un valor que modifica su comportamiento.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">6. Alquiler de automóviles</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"/><input id="__tabbed_6_2" name="__tabbed_6" type="radio"/><div class="tabbed-labels"><label for="__tabbed_6_1">Enunciado</label><label for="__tabbed_6_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Se desea diseñar un diagrama de clases sobre la información de las reservas de una empresa dedicada al alquiler de automóviles:</p>
+<blockquote>
+<ul>
+<li>Un determinado cliente puede tener en un momento dado hechas varias reservas.</li>
+<li>De cada cliente se desean almacenar su DNI, nombre, dirección y teléfono. Además, dos clientes se diferencian por un código único.</li>
+<li>Cada cliente puede ser avalado por otro cliente de la empresa.</li>
+<li>Una reserva la realiza un único cliente, pero puede involucrar varios coches.</li>
+<li>Es importante registrar la fecha de inicio y final de la reserva, el precio del alquiler de cada uno de los coches, los litros de gasolina en el depósito en el momento de realizar la reserva, el precio total de la reserva y un indicador de si el coche o los coches han sido entregados.</li>
+<li>Todo coche tiene siempre asignado un determinado garaje que no puede cambiar. De cada coche se requiere la matrícula, el modelo, el color y la marca.</li>
+<li>Cada reserva se realiza en una determinada agencia.</li>
+</ul>
+</blockquote>
+</div>
+<div class="tabbed-block">
+<pre class="mermaid"><code>classDiagram
+    class Cliente {
+        -codigo : String
+        -dni : String
+        -nombre : String
+        -direccion : String
+        -telefono : String
+    }
+    class Reserva {
+        -fechaInicio : Date
+        -fechaFin : Date
+        -precioTotal : double
+        -entregado : boolean
+        +cerrar() void
+    }
+    class AlquilerCoche {
+        -precio : double
+        -litrosDeposito : double
+    }
+    class Coche {
+        -matricula : String
+        -modelo : String
+        -color : String
+        -marca : String
+    }
+    class Garaje {
+        -codigo : String
+        -direccion : String
+    }
+    class Agencia {
+        -codigo : String
+        -direccion : String
+    }
+    Cliente "0..1" --&gt; "*" Cliente : avala
+    Cliente "1" --&gt; "*" Reserva : realiza
+    Agencia "1" --&gt; "*" Reserva : formaliza
+    Reserva "1" -- "1..*" Coche : incluye
+    AlquilerCoche .. Reserva
+    AlquilerCoche .. Coche
+    Coche "*" --&gt; "1" Garaje : guarda en</code></pre>
+<p>El <strong>precio de cada coche</strong> y los <strong>litros del depósito</strong> no son datos de la reserva ni del coche, sino del vínculo entre ambos: la misma reserva puede llevar tres coches con precios distintos, y el mismo coche cambia de depósito en cada alquiler. Por eso se modelan como clase asociativa <code>AlquilerCoche</code>.</p>
+<p>La <strong>matrícula</strong> identifica al coche y el garaje es fijo, así que la relación con <code>Garaje</code> es una asociación simple con <code>1</code> en el extremo del garaje, no una agregación. Y el aval es una asociación reflexiva en <code>Cliente</code> con <code>0..1</code> en el extremo del avalista: un cliente puede no estar avalado, pero no puede avalarse a sí mismo ni tener dos avalistas.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">7. El zoo</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio"/><input id="__tabbed_7_2" name="__tabbed_7" type="radio"/><div class="tabbed-labels"><label for="__tabbed_7_1">Enunciado</label><label for="__tabbed_7_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Un zoo necesita una aplicación informática para llevar su organización respecto a las especies que posee, los empleados (cuidadores y guías) y los distintos itinerarios de visita que ofrece:</p>
+<blockquote>
+<ul>
+<li><strong>Especies</strong>: interesa el nombre en español, el nombre científico y una descripción general. Una especie puede vivir en diferentes hábitats naturales y un hábitat puede ser ocupado por diferentes especies. Las especies se encuentran en distintas zonas del parque, de manera que cada especie está en una zona y en una zona hay varias especies.</li>
+<li><strong>Hábitats</strong>: vienen definidos por el nombre, el clima y el tipo de vegetación predominantes, así como el continente o continentes en los que se encuentran.</li>
+<li><strong>Zonas</strong>: vienen definidas por el nombre y la extensión que ocupan.</li>
+<li><strong>Itinerarios</strong>: discurren por distintas zonas del parque. Interesa el código de itinerario, la duración del recorrido, la longitud, el máximo número de visitantes autorizado y el número de distintas especies que visita. Un itinerario recorre distintas zonas y una zona puede ser recorrida por diferentes itinerarios.</li>
+<li><strong>Guías</strong>: definidos por el nombre, dirección, teléfono y fecha en la que comenzaron a trabajar en el zoo. Interesa saber qué guías llevan qué itinerarios, teniendo en cuenta que un guía puede llevar varios itinerarios y que un itinerario puede ser asignado a diferentes guías en diferentes horas, siendo éstas un dato de interés.</li>
+<li><strong>Cuidadores</strong>: definidos por el nombre, dirección, teléfono y fecha de ingreso. Un cuidador puede estar a cargo de varias especies y una especie puede ser atendida por varios cuidadores, siendo de interés la fecha en la que un cuidador se hace cargo de una especie.</li>
+</ul>
+</blockquote>
+</div>
+<div class="tabbed-block">
+<pre class="mermaid"><code>classDiagram
+    class Especie {
+        -nombreEspanol : String
+        -nombreCientifico : String
+        -descripcion : String
+    }
+    class Habitat {
+        -nombre : String
+        -clima : String
+        -vegetacion : String
+        -continentes : String
+    }
+    class Zona {
+        -nombre : String
+        -extension : double
+    }
+    class Itinerario {
+        -codigo : String
+        -duracion : int
+        -longitud : double
+        -maxVisitantes : int
+        -numeroEspecies : int
+    }
+    class Guia {
+        -nombre : String
+        -direccion : String
+        -telefono : String
+        -fechaIngreso : Date
+    }
+    class Cuidador {
+        -nombre : String
+        -direccion : String
+        -telefono : String
+        -fechaIngreso : Date
+    }
+    class AsignacionGuia {
+        -hora : Time
+    }
+    class CuidadoEspecie {
+        -fecha : Date
+    }
+    Especie "*" -- "*" Habitat : vive en
+    Zona "1" -- "*" Especie : alberga
+    Itinerario "*" -- "*" Zona : recorre
+    Guia "1" -- "*" Itinerario : lleva
+    AsignacionGuia .. Guia
+    AsignacionGuia .. Itinerario
+    Cuidador "1" -- "*" Especie : cuida
+    CuidadoEspecie .. Cuidador
+    CuidadoEspecie .. Especie</code></pre>
+<p>El zoo concentra casi todos los casos interesantes de multiplicidad. La <strong>especie</strong> se relaciona con el <strong>hábitat</strong> en muchos a muchos, porque una especie puede vivir en varios hábitats y un hábitat acoge varias especies; en cambio, con la <strong>zona</strong> es <code>1</code> a <code>*</code>, porque el enunciado dice que cada especie está en una sola zona.</p>
+<p>Hay dos <strong>clases asociativas</strong>. La primera, <code>AsignacionGuia</code>, guarda la hora: un guía lleva varios itinerarios, y un itinerario puede tener guías distintos a horas distintas, así que ni la hora va en el guía ni en el itinerario. La segunda, <code>CuidadoEspecie</code>, guarda la fecha en la que un cuidador se hace cargo de una especie, dato que tampoco pertenece a ninguno de los dos por separado.</p>
+<p>Los guías y los cuidadores comparten atributos, pero no se han unificado en una clase común porque en el enunciado no se pide intercambiarlos: son dos roles con relaciones distintas. Unificarlos obligaría a crear una jerarquía que después no se usa.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">8. Agencia de viajes</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio"/><input id="__tabbed_8_2" name="__tabbed_8" type="radio"/><div class="tabbed-labels"><label for="__tabbed_8_1">Enunciado</label><label for="__tabbed_8_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Una cadena de agencias de viajes desea disponer de una base de datos con información relativa al hospedaje y vuelos de los turistas que la contratan:</p>
+<blockquote>
+<ul>
+<li>La cadena está compuesta por un conjunto de sucursales, definidas por el código de sucursal, dirección y teléfono.</li>
+<li>La cadena tiene contratados una serie de hoteles de forma exclusiva, definidos por el código de hotel, nombre, dirección, ciudad, teléfono y número de plazas disponibles.</li>
+<li>También tiene contratados vuelos regulares de forma exclusiva, definidos por el número de vuelo, fecha y hora, origen y destino, plazas totales y plazas de clase turista.</li>
+<li>De cada turista se almacena el código, nombre y apellidos, dirección y teléfono.</li>
+<li>A la cadena le interesa conocer qué sucursal ha contratado al turista.</li>
+<li>Al viajar, el turista puede elegir cualquiera de los vuelos que ofrece la cadena, y en qué clase (turista o primera) desea viajar.</li>
+<li>El turista puede hospedarse en cualquiera de los hoteles que ofrece la cadena, y elegir el régimen de hospedaje (media pensión o pensión completa), siendo significativa la fecha de llegada y de partida.</li>
+</ul>
+</blockquote>
+</div>
+<div class="tabbed-block">
+<pre class="mermaid"><code>classDiagram
+    class Sucursal {
+        -codigo : String
+        -direccion : String
+        -telefono : String
+    }
+    class Hotel {
+        -codigo : String
+        -nombre : String
+        -direccion : String
+        -ciudad : String
+        -telefono : String
+        -plazas : int
+    }
+    class Vuelo {
+        -numero : String
+        -fecha : Date
+        -hora : Time
+        -origen : String
+        -destino : String
+        -plazasTotales : int
+        -plazasTurista : int
+    }
+    class Turista {
+        -codigo : String
+        -nombre : String
+        -apellidos : String
+        -direccion : String
+        -telefono : String
+    }
+    class Estancia {
+        -regimen : Regimen
+        -fechaLlegada : Date
+        -fechaPartida : Date
+    }
+    class Billete {
+        -clase : ClaseVuelo
+    }
+    Sucursal "1" --&gt; "*" Turista : contrata
+    Turista "1" -- "*" Hotel : se aloja
+    Estancia .. Turista
+    Estancia .. Hotel
+    Turista "1" -- "*" Vuelo : vuela
+    Billete .. Turista
+    Billete .. Vuelo</code></pre>
+<p>El enunciado esconde dos <strong>clases asociativas</strong>. El régimen de hospedaje y las fechas de llegada y partida dependen de la pareja turista-hotel, no de ninguno de los dos: el mismo hotel recibe a muchos turistas con fechas y regímenes distintos. Lo mismo ocurre con la clase del billete, que depende del turista y del vuelo.</p>
+<p>La sucursal se asocia al turista con <code>1</code> en el extremo de la sucursal, porque cada turista se contrata en una sola, mientras que una sucursal atiende a muchos. Los hoteles y los vuelos cuelgan directamente del turista porque la cadena los tiene contratados en exclusiva; no hace falta una clase intermedia que los agrupe.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">9. Control del servicio militar</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio"/><input id="__tabbed_9_2" name="__tabbed_9" type="radio"/><div class="tabbed-labels"><label for="__tabbed_9_1">Enunciado</label><label for="__tabbed_9_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>El Ministerio de Defensa desea diseñar una base de datos para llevar un cierto control de los soldados que realizan el servicio militar:</p>
+<blockquote>
+<ul>
+<li>Un soldado se define por su código (único), su nombre y apellidos, y su graduación.</li>
+<li>Existen varios cuarteles, cada uno definido por su código, nombre y ubicación.</li>
+<li>Existen diferentes cuerpos del ejército (Infantería, Artillería, Armada…), y cada uno se define por un código de cuerpo y denominación.</li>
+<li>Los soldados están agrupados en compañías, siendo significativos para cada una el número de compañía y la actividad principal que realiza.</li>
+<li>Se desea controlar los servicios que realizan los soldados (guardias, imaginarias, cuarteleros…), definidos por el código de servicio y descripción.</li>
+<li>Un soldado pertenece a un único cuerpo y a una única compañía, durante todo el servicio militar. A una compañía pueden pertenecer soldados de diferentes cuerpos, no habiendo relación directa entre compañías y cuerpos.</li>
+<li>Los soldados de una misma compañía pueden estar destinados en diferentes cuarteles: una compañía puede estar ubicada en varios cuarteles, y en un cuartel puede haber varias compañías. Un soldado sólo está en un cuartel.</li>
+<li>Un soldado realiza varios servicios a lo largo de la milicia. Un mismo servicio puede ser realizado por más de un soldado (con independencia de la compañía), siendo significativa la fecha de realización.</li>
+</ul>
+</blockquote>
+</div>
+<div class="tabbed-block">
+<pre class="mermaid"><code>classDiagram
+    class Soldado {
+        -codigo : String
+        -nombre : String
+        -apellidos : String
+        -graduacion : String
+    }
+    class Cuerpo {
+        -codigo : String
+        -denominacion : String
+    }
+    class Compania {
+        -numero : int
+        -actividadPrincipal : String
+    }
+    class Cuartel {
+        -codigo : String
+        -nombre : String
+        -ubicacion : String
+    }
+    class Servicio {
+        -codigo : String
+        -descripcion : String
+    }
+    class ServicioRealizado {
+        -fecha : Date
+    }
+    Cuerpo "1" --&gt; "*" Soldado : pertenece
+    Compania "1" --&gt; "*" Soldado : agrupa
+    Compania "*" -- "*" Cuartel : ubicada
+    Soldado "*" --&gt; "1" Cuartel : destinado
+    Soldado "1" -- "*" Servicio : realiza
+    ServicioRealizado .. Soldado
+    ServicioRealizado .. Servicio</code></pre>
+<p>El enunciado insiste en tres pertenencias del soldado, y las tres son asociaciones simples con <code>1</code> en el extremo contrario: un cuerpo, una compañía y un cuartel. La compañía, en cambio, se relaciona con los cuarteles en muchos a muchos, y eso es lo que permite que soldados de la misma compañía estén repartidos por cuarteles distintos.</p>
+<p>Los <strong>servicios</strong> son el caso de la clase asociativa: la fecha no es del soldado ni del servicio, sino de la realización concreta de ese servicio por ese soldado. Además, el enunciado aclara que no hay relación directa entre compañías y cuerpos, así que esa asociación no se dibuja: la única relación entre ambos pasa por los soldados.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">10. Seguridad en entidades bancarias</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:2"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio"/><input id="__tabbed_10_2" name="__tabbed_10" type="radio"/><div class="tabbed-labels"><label for="__tabbed_10_1">Enunciado</label><label for="__tabbed_10_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>La policía quiere crear una base de datos sobre la seguridad en algunas entidades bancarias:</p>
+<blockquote>
+<ul>
+<li>Cada entidad bancaria se caracteriza por un código y por el domicilio de su central.</li>
+<li>Cada entidad tiene más de una sucursal, caracterizada por un código y por el domicilio, así como por el número de empleados.</li>
+<li>Cada sucursal contrata, según el día, algunos vigilantes jurados, que se caracterizan por un código y su edad. Un vigilante puede ser contratado por diferentes sucursales (incluso de diferentes entidades), en distintas fechas, y es un dato de interés dicha fecha, así como si se ha contratado con arma o no.</li>
+<li>Se quiere controlar a las personas que han sido detenidas por atracar las sucursales. Estas personas se definen por una clave y su nombre completo.</li>
+<li>Alguna de estas personas está integrada en algunas bandas organizadas, y se desea saber a qué banda pertenecen. Las bandas se definen por un número de banda y por el número de miembros.</li>
+<li>Es interesante saber en qué fecha ha atracado cada persona una sucursal. Una persona puede atracar varias sucursales en diferentes fechas, y una sucursal puede ser atracada por varias personas.</li>
+<li>Se quiere saber qué juez ha estado encargado del caso, sabiendo que un individuo, por diferentes delitos, puede ser juzgado por diferentes jueces. Es de interés saber, en cada delito, si la persona detenida ha sido condenada o no y, de haberlo sido, cuánto tiempo pasará en la cárcel. Un juez se caracteriza por una clave interna del juzgado, su nombre y los años de servicio.</li>
+</ul>
+</blockquote>
+</div>
+<div class="tabbed-block">
+<pre class="mermaid"><code>classDiagram
+    class EntidadBancaria {
+        -codigo : String
+        -domicilioCentral : String
+    }
+    class Sucursal {
+        -codigo : String
+        -domicilio : String
+        -numeroEmpleados : int
+    }
+    class Vigilante {
+        -codigo : String
+        -edad : int
+    }
+    class ContratoVigilancia {
+        -fecha : Date
+        -conArma : boolean
+    }
+    class Atracador {
+        -clave : String
+        -nombreCompleto : String
+    }
+    class Banda {
+        -numero : int
+        -numeroMiembros : int
+    }
+    class Delito {
+        -fecha : Date
+        -condenado : boolean
+        -tiempoCarcel : int
+    }
+    class Juez {
+        -claveJuzgado : String
+        -nombre : String
+        -aniosServicio : int
+    }
+    EntidadBancaria "1" *-- "1..*" Sucursal : tiene
+    Sucursal "1" -- "*" Vigilante : contrata
+    ContratoVigilancia .. Sucursal
+    ContratoVigilancia .. Vigilante
+    Banda "0..1" -- "*" Atracador : integra
+    Atracador "1" -- "*" Sucursal : atraca
+    Delito .. Atracador
+    Delito .. Sucursal
+    Juez "1" --&gt; "*" Delito : juzga</code></pre>
+<p>Cada relación con datos propios se convierte en una clase. El <strong>contrato de vigilancia</strong> guarda la fecha y si se acudió con arma, porque el mismo vigilante trabaja para varias sucursales en fechas distintas. El <strong>delito</strong> guarda la fecha, la condena y el tiempo de cárcel, y relaciona al atracador con la sucursal atracada.</p>
+<p>El juez se asocia al delito y no al atracador, porque un mismo individuo puede ser juzgado por jueces distintos según el delito. La banda queda con <code>0..1</code> en el extremo del atracador: puede haber detenidos que no pertenezcan a ninguna. Y el enunciado cierra la puerta a una relación tentadora: no se modela ninguna asociación entre vigilantes y atracadores, porque expresamente no interesa.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">11. El holding de empresas</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:2"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio"/><input id="__tabbed_11_2" name="__tabbed_11" type="radio"/><div class="tabbed-labels"><label for="__tabbed_11_1">Enunciado</label><label for="__tabbed_11_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Un holding de empresas desea tener una base de datos referente a las empresas que posee, sus vendedores y los asesores que trabajan en el holding:</p>
+<blockquote>
+<ul>
+<li>Los vendedores se organizan en una jerarquía de pirámide: cada vendedor puede captar otros vendedores, de manera que un vendedor tendrá a su cargo varios vendedores. Un vendedor sólo podrá trabajar en una empresa y sólo podrá captar vendedores para la empresa en que trabaja, siendo importante almacenar la fecha en que se realiza la captación. Los datos de interés son el código de vendedor, nombre y dirección.</li>
+<li>Las empresas cubren diferentes áreas del mercado y una misma área puede ser cubierta por varias empresas. Es interesante conocer el nombre del área y una descripción. Las empresas pueden estar actuando en varios países y en un país pueden estar actuando varias empresas. Sin embargo, cada empresa tendrá su sede en un único país, siendo importante la ciudad donde se localiza. Por cuestiones fiscales, una empresa puede tener su sede en un país en el que no esté desarrollando actividad alguna. Los datos de interés para las empresas son el nombre, la fecha de entrada en el holding, la facturación anual y el número de vendedores.</li>
+<li>Los datos de interés de los países son el nombre, el PIB, el número de habitantes y la capital.</li>
+<li>Los asesores entran en el holding para dar soporte en cada una de las áreas en las que actúa. Un asesor puede cubrir varias áreas y un área puede ser cubierta por varios asesores. Un asesor puede asesorar a varias empresas y una empresa tener varios asesores. Es importante saber en qué fecha un asesor comienza a trabajar para una empresa en un área determinada. Los datos de interés de los asesores son el código, nombre, dirección y titulación.</li>
+</ul>
+</blockquote>
+</div>
+<div class="tabbed-block">
+<pre class="mermaid"><code>classDiagram
+    class Vendedor {
+        -codigo : String
+        -nombre : String
+        -direccion : String
+    }
+    class Captacion {
+        -fecha : Date
+    }
+    class Empresa {
+        -nombre : String
+        -fechaEntrada : Date
+        -facturacionAnual : double
+        -numeroVendedores : int
+        -ciudadSede : String
+    }
+    class Area {
+        -nombre : String
+        -descripcion : String
+    }
+    class Pais {
+        -nombre : String
+        -pib : double
+        -numeroHabitantes : int
+        -capital : String
+    }
+    class Asesor {
+        -codigo : String
+        -nombre : String
+        -direccion : String
+        -titulacion : String
+    }
+    class Asesoria {
+        -fechaInicio : Date
+    }
+    Vendedor "0..1" --&gt; "*" Vendedor : capta
+    Captacion .. Vendedor
+    Empresa "1" --&gt; "*" Vendedor : emplea
+    Empresa "*" -- "*" Area : cubre
+    Empresa "1" --&gt; "1" Pais : sede en
+    Empresa "*" -- "*" Pais : actua en
+    Asesor "*" -- "*" Empresa : asesora
+    Asesoria .. Asesor
+    Asesoria .. Empresa
+    Asesoria .. Area</code></pre>
+<p>La <strong>pirámide de vendedores</strong> es una asociación reflexiva con <code>0..1</code> en el extremo del captador: todo vendedor tiene como mucho un responsable, y puede captar a varios. La fecha de captación obliga a una clase asociativa, <code>Captacion</code>, porque el dato pertenece al vínculo entre el captador y el captado.</p>
+<p>La <strong>sede</strong> y la <strong>actividad</strong> son dos relaciones distintas entre empresa y país, y por eso aparecen dos veces en el diagrama: una con <code>1</code> (sede única, aunque sea un país donde no opera) y otra con <code>*</code> a <code>*</code> (actividad en varios países). Si se hubieran unificado, el modelo no permitiría el caso fiscal que menciona el enunciado.</p>
+<p>La <strong>asesoría</strong> es una relación ternaria: asesor, empresa y área, con la fecha de inicio. Se modela como clase propia con tres asociaciones porque ni la fecha ni la relación tienen sentido con solo dos de los tres elementos.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">12. El club náutico</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="12:2"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio"/><input id="__tabbed_12_2" name="__tabbed_12" type="radio"/><div class="tabbed-labels"><label for="__tabbed_12_1">Enunciado</label><label for="__tabbed_12_2">Solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Un club náutico desea tener informatizados los datos correspondientes a sus instalaciones, empleados, socios y embarcaciones:</p>
+<blockquote>
+<ul>
+<li>Los socios vienen definidos por su nombre, dirección, DNI, teléfono y fecha de ingreso en el club.</li>
+<li>Las embarcaciones vienen definidas por matrícula, nombre, tipo y dimensiones.</li>
+<li>Los amarres tienen como datos de interés el número de amarre, la lectura del contador de agua y luz, y si tienen o no servicios de mantenimiento contratados.</li>
+<li>Una embarcación pertenece a un socio, aunque un socio puede tener varias embarcaciones. Una embarcación ocupará un amarre y un amarre está ocupado por una sola embarcación. Es importante la fecha en la que una embarcación es asignada a un amarre.</li>
+<li>Los socios pueden ser propietarios de amarres, siendo importante la fecha de compra. Un amarre pertenece a un solo socio. No hay ninguna relación directa entre la fecha en la que se compra un amarre y la fecha en la que una embarcación se asigna a un amarre.</li>
+<li>El club está dividido en varias zonas definidas por una letra, el tipo de barcos que tiene, el número de barcos que contiene, la profundidad y el ancho de los amarres. Una zona tendrá varios amarres y un amarre pertenece a una sola zona.</li>
+<li>Los empleados vienen definidos por su código, nombre, dirección, teléfono y especialidad. Un empleado está asignado a varias zonas y en una zona puede haber más de un empleado, siendo de interés el número de barcos de los que se encarga en cada zona. Un empleado puede no encargarse de todos los barcos de una zona.</li>
+</ul>
+</blockquote>
+</div>
+<div class="tabbed-block">
+<pre class="mermaid"><code>classDiagram
+    class Socio {
+        -dni : String
+        -nombre : String
+        -direccion : String
+        -telefono : String
+        -fechaIngreso : Date
+    }
+    class Embarcacion {
+        -matricula : String
+        -nombre : String
+        -tipo : String
+        -dimensiones : String
+    }
+    class Amarre {
+        -numero : int
+        -lecturaAgua : double
+        -lecturaLuz : double
+        -mantenimiento : boolean
+    }
+    class Zona {
+        -letra : String
+        -tipoBarcos : String
+        -numeroBarcos : int
+        -profundidad : double
+        -anchoAmarre : double
+    }
+    class Empleado {
+        -codigo : String
+        -nombre : String
+        -direccion : String
+        -telefono : String
+        -especialidad : String
+    }
+    class Ocupacion {
+        -fechaAsignacion : Date
+    }
+    class Propiedad {
+        -fechaCompra : Date
+    }
+    class AsignacionZona {
+        -numeroBarcosEncargados : int
+    }
+    Socio "1" --&gt; "*" Embarcacion : posee
+    Embarcacion "1" -- "1" Amarre : ocupa
+    Ocupacion .. Embarcacion
+    Ocupacion .. Amarre
+    Socio "1" -- "*" Amarre : propietario
+    Propiedad .. Socio
+    Propiedad .. Amarre
+    Zona "1" *-- "1..*" Amarre : contiene
+    Empleado "*" -- "*" Zona : asignado
+    AsignacionZona .. Empleado
+    AsignacionZona .. Zona</code></pre>
+<p>El club tiene <strong>tres fechas que no se pueden mezclar</strong>, y ese es el objetivo del ejercicio. La primera es la de compra del amarre por parte del socio (<code>Propiedad</code>); la segunda, la de asignación de una embarcación al amarre (<code>Ocupacion</code>); y el enunciado avisa de que no tienen por qué coincidir. La tercera es la de ingreso del socio, que es un atributo suyo y no una relación.</p>
+<p>La asignación del empleado a la zona lleva el número de barcos de los que se encarga, y por eso es una clase asociativa: el dato depende de la pareja empleado-zona. La zona compone sus amarres con rombo relleno, porque un amarre no existe fuera de una zona del club.</p>
+<p>Las dos relaciones entre socio y amarre son distintas y por eso hay dos: una es la propiedad (<code>1</code> a <code>*</code>, con fecha de compra) y otra es el uso que hace la embarcación del amarre, que pasa por <code>Embarcacion</code> y no por el socio.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Manuel Sánchez Gomis
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["search.suggest", "search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "content.code.copy", "content.tabs.link", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../../assets/_markdown_exec_pyodide.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@11/dist/mermaid.min.js"></script>
+      
+        <script src="../../../_static/js/mermaid-init.js"></script>
+      
+        <script src="../../../_static/js/notebook.js"></script>
+      
+    
+  </body>
+</html>

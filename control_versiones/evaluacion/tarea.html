@@ -1,0 +1,116 @@
+<div
+  style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; width: 100%; max-width: 1000px; margin: 10px auto; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); overflow: hidden; color: #334155; line-height: 1.5; box-sizing: border-box;">
+
+  <!-- CABECERA: TÍTULO Y PRESENTACIÓN -->
+  <div style="padding: 20px 24px; border-bottom: 1px solid #f1f5f9; background: #ffffff;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 8px;">
+      <h2 style="margin: 0; color: #0f172a; font-size: 1.35rem; font-weight: bold; display: flex; align-items: center;">
+        <span style="margin-right: 8px;">📝</span> Tarea de Evaluación: Control de Versiones, Colaboración Remota e Integración Continua
+      </h2>
+      <span style="background: #eff6ff; color: #1d4ed8; font-weight: 600; padding: 3px 10px; border-radius: 6px; font-size: 0.8rem; border: 1px solid #bfdbfe;">
+        UD 03 · Control de versiones
+      </span>
+    </div>
+    <p style="margin: 0 0 14px 0; font-size: 0.92rem; color: #475569;">
+      Esta tarea evalúa el bloque de control de versiones completo. El código apenas importa para superar la prueba: lo que se valora es cómo se organiza, se comparte y se verifica automáticamente ese código.
+    </p>
+
+    <!-- FICHA DE CONDICIONES DE ENTREGA -->
+    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 18px; font-size: 0.88rem;">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 10px;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 1.1rem;">👤</span> <strong>Modalidad:</strong> Individual
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 1.1rem;">📄</span> <strong>Formato:</strong> Repositorio en GitHub
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 1.1rem;">🎙️</span> <strong>Defensa:</strong> Ampliación (1 hora) + Oral individual (3 a 5 minutos)
+        </div>
+      </div>
+      <div style="border-top: 1px solid #e2e8f0; padding-top: 10px; color: #64748b; font-size: 0.84rem;">
+        <strong style="color: #0f172a;">⚠️ Requisitos clave:</strong> la tarea se realiza con una sola cuenta de GitHub, pero reproduciendo igualmente los flujos colaborativos (ramas, <em>Pull Requests</em>, revisión y conflictos). Entregar la memoria es obligatorio para poder defender la tarea.
+      </div>
+    </div>
+  </div>
+
+  <!-- ESCENARIO -->
+  <div style="padding: 24px 28px; background: #ffffff; border-bottom: 1px solid #e2e8f0;">
+    <p style="margin: 0; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; color: #64748b;">
+      Escenario
+    </p>
+    <h3 style="margin: 4px 0 12px 0; color: #1e293b; font-size: 1.05rem;">
+      La aplicación de inventario del taller
+    </h3>
+    <p style="margin: 0 0 12px 0; font-size: 0.9rem;">
+      Vas a desarrollar una aplicación Java de consola para llevar el inventario de un taller. El punto de partida es esta clase, que deberá vivir dentro de un proyecto Java:
+    </p>
+    <pre style="margin: 0 0 12px 0; background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px 16px; font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; font-size: 0.82rem; color: #0f172a; overflow-x: auto;">public class Inventario {
+    public static void main(String[] args) {
+        int unidades = 10;
+        System.out.println("Unidades en inventario: " + unidades);
+    }
+}</pre>
+    <p style="margin: 0; font-size: 0.9rem;">
+      A partir de ahí, debes demostrar que sabes llevar el control de versiones del proyecto, trabajar con un repositorio remoto y verificar el código de forma automática. Los tres primeros bloques son guiados y consecutivos: cada uno se apoya en lo construido en el anterior. Al final hay una ampliación sin pasos, donde tendrás que aplicar lo aprendido por tu cuenta.
+    </p>
+  </div>
+
+  <!-- BLOQUES DE TRABAJO -->
+  <div style="padding: 24px 28px; background: #ffffff; border-bottom: 1px solid #e2e8f0;">
+    <p style="margin: 0; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; color: #64748b;">
+      Qué se pide
+    </p>
+    <h3 style="margin: 4px 0 16px 0; color: #1e293b; font-size: 1.05rem;">
+      Bloques de trabajo
+    </h3>
+
+    <!-- BLOQUE A -->
+    <div style="margin-bottom: 22px;">
+      <h4 style="margin: 0 0 8px 0; color: #0f172a; font-size: 0.98rem;">🅰️ Bloque A. Control de versiones integrado en el IDE</h4>
+      <p style="margin: 0 0 8px 0; font-size: 0.9rem;">
+        El objetivo es demostrar que sabes realizar el control de versiones <strong>desde el propio entorno de desarrollo</strong>, y no solo escribiendo comandos en la terminal. Muchas operaciones tienen un comando equivalente, pero aquí se evalúa el uso de la interfaz de IntelliJ.
+      </p>
+      <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem; display: flex; flex-direction: column; gap: 6px;">
+        <li>Crea el proyecto Java en IntelliJ con la clase <code style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px; color: #0f172a;">Inventario</code> y activa el control de versiones desde <strong>Git → Create Git Repository</strong> (o <strong>VCS → Enable Version Control Integration...</strong>).</li>
+        <li>Crea antes del primer <em>commit</em> un archivo <code style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px; color: #0f172a;">.gitignore</code> que evite versionar los archivos generados por el IDE y la compilación: al menos <code style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px; color: #0f172a;">out/</code>, <code style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px; color: #0f172a;">.idea/</code>, <code style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px; color: #0f172a;">*.iml</code> y <code style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px; color: #0f172a;">*.class</code>.</li>
+        <li>Realiza al menos <strong>tres <em>commits</em> con mensajes significativos</strong> desde el panel <strong>Commit</strong>, seleccionando los archivos con las casillas de verificación. Modifica el <code style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px; color: #0f172a;">Inventario</code> entre <em>commit</em> y <em>commit</em>: por ejemplo, añade un método nuevo en el segundo y una mejora de la salida por consola en el tercero.</li>
+        <li>Comprueba que entiendes el código de colores del IDE (rojo para <em>untracked</em>, verde para <em>staged</em> y azul para <em>modified</em>) y déjalo por escrito en la memoria.</li>
+        <li>Crea desde la interfaz una rama llamada <code style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px; color: #0f172a;">feature/salida-mejorada</code>, realiza en ella al menos un <em>commit</em>, vuelve a <code style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px; color: #0f172a;">main</code> y fusíonala desde IntelliJ. El historial debe quedar limpio y comprensible.</li>
+      </ul>
+      <p style="margin: 8px 0 0 0; font-size: 0.85rem; color: #1e3a8a;"><strong>Evidencias para la memoria:</strong> capturas del panel Commit mostrando el <em>staging</em> por casillas, del árbol del proyecto con los colores de estado, del historial de <em>commits</em> y del momento de crear o fusionar la rama.</p>
+    </div>
+
+    <!-- BLOQUE B -->
+    <div style="margin-bottom: 22px; border-top: 1px solid #f1f5f9; padding-top: 18px;">
+      <h4 style="margin: 0 0 8px 0; color: #0f172a; font-size: 0.98rem;">🅱️ Bloque B. Repositorio remoto y colaboración</h4>
+      <p style="margin: 0 0 8px 0; font-size: 0.9rem;">
+        El objetivo es trasladar el proyecto a GitHub y trabajar con el flujo colaborativo propio de un repositorio remoto.
+      </p>
+      <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem; display: flex; flex-direction: column; gap: 6px;">
+        <li>Crea un repositorio en GitHub, vincúlalo con tu repositorio local como remoto <code style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px; color: #0f172a;">origin</code> y sube la rama <code style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px; color: #0f172a;">main</code>.</li>
+        <li>El trabajo colaborativo se reproduce con el flujo de rama y <em>Pull Request</em>. Crea una rama nueva (por ejemplo <code style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px; color: #0f172a;">feature/contador-unidades</code>), realiza en ella al menos un <em>commit</em>, súbela a GitHub y abre un <strong>Pull Request</strong> describiendo qué has hecho y por qué.</li>
+        <li>Añade en la conversación del <em>Pull Request</em> al menos un comentario de <strong>autorrevisión</strong> señalando una mejora o un aspecto a revisar del cambio, y atiende las observaciones que el profesor pueda dejar antes de fusionarlo.</li>
+        <li>Provoca un conflicto tú mismo: crea dos ramas a partir de <code style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px; color: #0f172a;">main</code> y modifica en ambas <strong>la misma línea</strong> de <code style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px; color: #0f172a;">Inventario.java</code>, pero de forma distinta. Fusiona una sobre <code style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px; color: #0f172a;">main</code> y después la otra, resuelve el conflicto desde el editor de IntelliJ, prepáralo y cierra la fusión con un <em>commit</em>. Documenta en la memoria qué marcas encontraste y cómo decidiste la solución.</li>
+        <li>Practica la sincronización con el remoto usando <strong>Git → Update Project...</strong> (el equivalente a <code style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px; color: #0f172a;">git pull</code>), comprobando el estado del proyecto antes de continuar.</li>
+      </ul>
+      <p style="margin: 8px 0 0 0; font-size: 0.85rem; color: #1e3a8a;"><strong>Evidencias para la memoria:</strong> enlace al repositorio, enlace al <em>Pull Request</em> con la autorrevisión, captura del conflicto antes y después de resolverlo, y descripción del flujo seguido.</p>
+    </div>
+
+    <!-- BLOQUE C -->
+    <div style="border-top: 1px solid #f1f5f9; padding-top: 18px;">
+      <h4 style="margin: 0 0 8px 0; color: #0f172a; font-size: 0.98rem;">🅲 Bloque C. Integración continua</h4>
+      <p style="margin: 0 0 8px 0; font-size: 0.9rem;">
+        El último bloque evalúa el uso de herramientas de <strong>integración continua</strong>, en este caso <strong>GitHub Actions</strong>.
+      </p>
+      <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem; display: flex; flex-direction: column; gap: 6px;">
+        <li>Crea en la raíz del repositorio la carpeta <code style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px; color: #0f172a;">.github/workflows/</code> y, dentro, un archivo <code style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px; color: #0f172a;">ci.yml</code> que se dispare con cada <em>push</em> y realice tres cosas: descargar el repositorio con <code style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px; color: #0f172a;">actions/checkout</code>, preparar un JDK con <code style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px; color: #0f172a;">actions/setup-java</code> y compilar el programa con <code style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px; color: #0f172a;">javac Inventario.java</code>.</li>
+        <li>Consigue una <strong>ejecución en verde</strong> y captura la pantalla de la pestaña <strong>Actions</strong>.</li>
+        <li>Provoca un fallo a propósito: borra un punto y coma del código, sube el cambio y observa cómo la ejecución se marca en rojo. Entra en los <strong>logs</strong>, localiza el mensaje de error del compilador, anota la línea que señala y corrige el código hasta volver al verde.</li>
+        <li>Ten en cuenta que <code style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px; color: #0f172a;">javac Inventario.java</code> funciona porque el archivo está en la raíz del repositorio. Si mueves la clase a una carpeta <code style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px; color: #0f172a;">src/</code>, el comando del flujo debe actualizarse en consonancia para evitar el error <code style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px; color: #0f172a;">file not found</code>.</li>
+      </ul>
+      <p style="margin: 8px 0 0 0; font-size: 0.85rem; color: #1e3a8a;"><strong>Evidencias para la memoria:</strong> captura de la ejecución en verde, captura de la ejecución en rojo con el log del error visible y explicación de cómo se corrigió.</p>
+    </div>
+
+
+</div>
